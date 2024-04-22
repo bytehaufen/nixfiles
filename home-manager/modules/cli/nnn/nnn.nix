@@ -1,25 +1,60 @@
-{ config, pkgs, programs, ... }: {
+{ pkgs, programs, ... }:
+let
+  # Custom plugin path
+  customPluginPath = ./plugins;
+
+  # Standard plugins from nnn repository
+  standardPlugins =
+    pkgs.fetchFromGitHub
+      {
+        owner = "jarun";
+        repo = "nnn";
+        rev = "master";
+        sha256 = "sha256-7fMmeh0YD9G3NSKsLVX3wmQuH7WO8CEms7MeXxMh0/E=";
+      }
+    + "/plugins";
+
+  # Copy all plugins for merging
+  allPlugins = pkgs.runCommand "all-plugins" { } ''
+    mkdir -p $out
+    cp -r ${standardPlugins}/* $out
+    cp -r ${standardPlugins}/.* $out
+
+    cp -r ${customPluginPath}/* $out
+  '';
+in
+{
+  # Set nnn fifo for plugin preview-tui
+  home.sessionVariables = {
+    NNN_FIFO = "/tmp/nnn.fifo";
+  };
+
   programs.nnn = {
     enable = true;
-    package = pkgs.stdenv.mkDerivation {
-      name = "nnn-custom";
-      buildInputs = [ pkgs.makeWrapper pkgs.nnn ];
 
-      dontUnpack = true;
+    package = pkgs.nnn.override ({ withNerdIcons = true; });
 
-      installPhase = ''
-        mkdir -p $out/bin
+    # Essential tools
+    extraPackages = with pkgs; [
+      fzf
+      ripgrep
+      ffmpegthumbnailer
+      mediainfo
+      sxiv
+    ];
 
-        makeWrapper ${pkgs.nnn.override { withNerdIcons = true; }}/bin/nnn $out/bin/nnn \
-          --set NNN_FIFO "/tmp/nnn.fifo" \
-          --set NNN_PLUG 'c:fzcd;j:autojump;l:gitlog;p:preview-tui;g:grep;' \
-          --set NNN_BMS 'd:$HOME/Documents;D:$HOME/Downloads;p:$HOME/Pictures;v:$HOME/Videos' \
-      '';
+    plugins = {
+      src = allPlugins;
+
+      mappings = {
+        # Default plugins
+        c = "fzcd";
+        p = "preview-tui";
+
+        # Custom plugins
+        g = "grep";
+        l = "gitlog";
+      };
     };
-
-    # TODO : Check necessary packages
-
-#     # TODO : Add custom plugins
-
   };
 }
