@@ -1,47 +1,55 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
   imports = [ ./modules/cli/nnn/nnn.nix ];
 
   home = {
     username = "rico";
     homeDirectory = "/home/rico";
     stateVersion = "23.11";
-    packages = with pkgs;
-      [
-        # TODO: Config this
-        # Standard tools 
-        # neofetch
-        # zip
-        # unzip
-        # zsh
-        # ripgrep
-        # jq
-        # eza
-        # fzf
-        # file
-        # which
-        # tree
-        # bat
-        # fd
-        # grim
-        # mpv
-        # kitty
-        # lazygit
-        # tmux
-        # yt-dlp
-        # btop
-        # keepassxc
-        # zathura
-        # cmatrix
-        # tealdeer
-        # figlet
-        # curl
-        # gawk
-        # glow
-        # qutebrowser
+    packages = with pkgs; [
+      # TODO: Config this
+      # Standard tools 
+      # neofetch
+      # zip
+      # unzip
+      # zsh
+      # ripgrep
+      # jq
+      # eza
+      # fzf
+      # file
+      # which
+      # tree
+      # bat
+      # fd
+      # grim
+      # mpv
+      # kitty
+      # lazygit
+      # tmux
+      # yt-dlp
+      # btop
+      # keepassxc
+      # zathura
+      # cmatrix
+      # tealdeer
+      # figlet
+      # curl
+      # gawk
+      # glow
 
-        # `nom` detailed nix replacement
-        nix-output-monitor
-      ];
+      # Gui
+      # qutebrowser
+      # xournalpp
+
+      # `nom` detailed nix replacement
+      nix-output-monitor
+    ];
 
     file = {
       # # Building this configuration will create a copy of 'dotfiles/screenrc' in
