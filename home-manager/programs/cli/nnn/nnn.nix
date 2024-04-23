@@ -5,13 +5,12 @@ let
 
   # Standard plugins from nnn repository
   standardPlugins =
-    pkgs.fetchFromGitHub
-      {
-        owner = "jarun";
-        repo = "nnn";
-        rev = "master";
-        sha256 = "sha256-7fMmeh0YD9G3NSKsLVX3wmQuH7WO8CEms7MeXxMh0/E=";
-      }
+    pkgs.fetchFromGitHub {
+      owner = "jarun";
+      repo = "nnn";
+      rev = "master";
+      sha256 = "sha256-7fMmeh0YD9G3NSKsLVX3wmQuH7WO8CEms7MeXxMh0/E=";
+    }
     + "/plugins";
 
   # Copy all plugins for merging
