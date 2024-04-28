@@ -1,4 +1,4 @@
-{ pkgs, programs, ... }:
+{ pkgs, ... }:
 let
   # Custom plugin path
   customPluginPath = ./plugins;
@@ -8,8 +8,8 @@ let
     pkgs.fetchFromGitHub {
       owner = "jarun";
       repo = "nnn";
-      rev = "master";
-      sha256 = "sha256-7fMmeh0YD9G3NSKsLVX3wmQuH7WO8CEms7MeXxMh0/E=";
+      rev = "v4.9";
+      sha256 = "sha256-g19uI36HyzTF2YUQKFP4DE2ZBsArGryVHhX79Y0XzhU=";
     }
     + "/plugins";
 
@@ -36,6 +36,8 @@ in
     # Essential tools
     extraPackages = with pkgs; [
       fzf
+      bat
+      git
       ripgrep
       ffmpegthumbnailer
       mediainfo

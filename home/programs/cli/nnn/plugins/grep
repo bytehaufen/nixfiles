@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+# Description: Search in files with ripgrep using fzf with preview
+# Jumps in nnn into the selected files directory
+
 . $(dirname $0)/.nnn-plugin-helper
 
 RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
@@ -11,4 +14,4 @@ sel=$(INITIAL_QUERY="${*:-}" : | fzf --ansi --disabled --query "$INITIAL_QUERY" 
 	--preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
 	--bind 'enter:become(echo {1})')
 
-printf "%s" "0c$(pwd)/$sel" > "$NNN_PIPE"
+printf "%s" "0c$(pwd)/$sel" >"$NNN_PIPE"
