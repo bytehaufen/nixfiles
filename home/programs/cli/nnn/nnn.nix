@@ -3,15 +3,8 @@ let
   # Custom plugin path
   customPluginPath = ./plugins;
 
-  # Standard plugins from nnn repository
-  standardPlugins =
-    pkgs.fetchFromGitHub {
-      owner = "jarun";
-      repo = "nnn";
-      rev = "v4.9";
-      sha256 = "sha256-g19uI36HyzTF2YUQKFP4DE2ZBsArGryVHhX79Y0XzhU=";
-    }
-    + "/plugins";
+  # Standard plugins from nixpkgs
+  standardPlugins = "${pkgs.nnn}/share/plugins";
 
   # Copy all plugins for merging
   allPlugins = pkgs.runCommand "all-plugins" { } ''
