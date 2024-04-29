@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   nixTools = with pkgs; [
     nix-output-monitor # nom
     cachix
@@ -8,7 +7,7 @@ let
 
   # TODO: Config this
   cliTools = with pkgs; [
-    # Standard tools 
+    # Standard tools
     # neofetch
     # zip
     # unzip
@@ -45,4 +44,4 @@ let
     # qutebrowser
   ];
 in
-nixTools ++ cliTools ++ guiTools
+  nixTools ++ cliTools ++ guiTools

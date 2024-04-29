@@ -21,12 +21,7 @@
 
     userHomeModules = username: [
       (import ./home {
-        inherit
-          pkgs
-          system
-          username
-          stateVersion
-          ;
+        inherit pkgs system username stateVersion;
 
         homeDirectory = "/home/${username}";
       })

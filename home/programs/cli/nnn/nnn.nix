@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   # Custom plugin path
   customPluginPath = ./plugins;
 
@@ -7,15 +6,14 @@ let
   standardPlugins = "${pkgs.nnn}/share/plugins";
 
   # Copy all plugins for merging
-  allPlugins = pkgs.runCommand "all-plugins" { } ''
+  allPlugins = pkgs.runCommand "all-plugins" {} ''
     mkdir -p $out
     cp -r ${standardPlugins}/* $out
     cp -r ${standardPlugins}/.* $out
 
     cp -r ${customPluginPath}/* $out
   '';
-in
-{
+in {
   # Set nnn fifo for plugin preview-tui
   home.sessionVariables = {
     NNN_FIFO = "/tmp/nnn.fifo";
@@ -24,18 +22,10 @@ in
   programs.nnn = {
     enable = true;
 
-    package = pkgs.nnn.override ({ withNerdIcons = true; });
+    package = pkgs.nnn.override {withNerdIcons = true;};
 
     # Essential tools
-    extraPackages = with pkgs; [
-      fzf
-      bat
-      git
-      ripgrep
-      ffmpegthumbnailer
-      mediainfo
-      sxiv
-    ];
+    extraPackages = with pkgs; [fzf bat git ripgrep ffmpegthumbnailer mediainfo sxiv];
 
     plugins = {
       src = allPlugins;
