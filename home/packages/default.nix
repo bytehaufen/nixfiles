@@ -25,7 +25,6 @@
     # kitty
     # tmux
     # yt-dlp
-    # btop
     # keepassxc
     # zathura
     # cmatrix
