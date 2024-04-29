@@ -9,42 +9,37 @@
     };
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-    }:
-    let
-      pkgs = import nixpkgs { inherit system; };
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+  }: let
+    pkgs = import nixpkgs {inherit system;};
 
-      username = "rico";
-      homeDirectory = "/home/${username}";
-      system = "x86_64-linux";
-      stateVersion = "23.11";
+    stateVersion = "23.11";
+    system = "x86_64-linux";
 
-      userHomeModules = [
-        (import ./home {
-          inherit
-            pkgs
-            system
-            username
-            homeDirectory
-            stateVersion
-            ;
-        })
-      ];
-    in
-    {
+    userHomeModules = username: [
+      (import ./home {
+        inherit
+          pkgs
+          system
+          username
+          stateVersion
+          ;
 
-      packages.x86_64-linux.default = home-manager.defaultPackage.x86_64-linux;
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+        homeDirectory = "/home/${username}";
+      })
+    ];
+  in {
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+    packages.x86_64-linux.default = home-manager.defaultPackage.x86_64-linux;
 
-      homeConfigurations = {
-        ${username} = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = userHomeModules;
-        };
+    homeConfigurations = {
+      "rico@arch" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = userHomeModules "rico";
       };
     };
+  };
 }
