@@ -1,16 +1,28 @@
 {...}: {
   imports = [./cli/nnn];
 
-  programs.home-manager.enable = true;
+  programs = {
+    home-manager.enable = true;
 
-  programs.bat = {
-    enable = true;
-    config = {
-      theme = "gruvbox-dark";
-      tabs = "2";
+    bat = {
+      enable = true;
+      config = {
+        theme = "gruvbox-dark";
+        tabs = "2";
+      };
     };
-  };
+    git.delta.enable = true;
 
-  programs.git.enable = true;
-  #TODO: fix!
+    lazygit = {
+      enable = true;
+      settings = {
+        git.paging = {
+          colorArg = "always";
+          pager = "delta --dark --paging=never -s";
+        };
+      };
+    };
+
+    git.enable = true;
+  };
 }

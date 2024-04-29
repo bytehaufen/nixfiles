@@ -19,12 +19,10 @@
     # file
     # which
     # tree
-    # bat
     # fd
     # grim
     # mpv
     # kitty
-    # lazygit
     # tmux
     # yt-dlp
     # btop
