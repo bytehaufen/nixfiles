@@ -1,5 +1,5 @@
 {...}: {
-  imports = [./cli/nnn/nnn.nix];
+  imports = [./cli/nnn];
 
   programs.home-manager.enable = true;
 
