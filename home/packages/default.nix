@@ -8,6 +8,8 @@
   # TODO: Config this
   cliTools = with pkgs; [
     # Standard tools
+    just
+
     # neofetch
     # zip
     # unzip

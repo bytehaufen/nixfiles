@@ -1,16 +1,21 @@
-# Nix configuration
+# My Nix Home Manager configuration
 
-## Home Manager
+This repository holds my Home Manager configuration for x86_64-linux, currently
+transitioning from legacy configurations in $HOME/.config/.
 
-This contains my home manager configuration for `x86_64-linux` which is at the
-moment under construction (migration from `$HOME/.config/` configuration).
-I have two machines with two different usernames sharing one configuration.
+## Prerequisites
 
-### Build configuration
+Git hook for auto formatting of `.nix` files on commit can be installed with
 
-Build the configuration with neither
+```shell
+./scripts/create-hook-symlink.sh
+```
 
-- ```shell
+## Build the Home Manager configuration
+
+- Building and activating via direct Nix command:
+
+  ```shell
   # Build configuration
   nix build ".#homeConfigurations.rico@arch.activationPackage"
 
@@ -18,8 +23,17 @@ Build the configuration with neither
   ./result/activate
   ```
 
-or
+- Or using Home Manager's built-in command:
 
-- ```shell
+  ```shell
   home-manager switch --flake ".#rico@arch"
   ```
+
+## Shorthands
+
+For frequently used commands like `home-manager switch ...`, utilize *just* for
+simplification. To see all available commands with just, execute:
+
+```shell
+just
+```
