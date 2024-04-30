@@ -20,7 +20,7 @@
     system = "x86_64-linux";
 
     userHomeModules = username: [
-      (import ./home {
+      (import ./home/home.nix {
         inherit pkgs system username stateVersion;
 
         homeDirectory = "/home/${username}";
