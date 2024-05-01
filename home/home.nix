@@ -1,9 +1,9 @@
 {
   pkgs,
   system,
-  stateVersion,
   username,
   homeDirectory,
+  ...
 }: let
   services = import ./services;
   programs = import ./programs;
@@ -19,10 +19,13 @@ in {
     };
   };
 
+
   imports = [services programs];
 
   home = {
-    inherit stateVersion username homeDirectory;
+    inherit username homeDirectory;
+
+    stateVersion = "23.11";
 
     sessionVariables = {
       EDITOR = "nvim";

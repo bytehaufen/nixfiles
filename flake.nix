@@ -7,45 +7,47 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+      # inputs.nixpkgs.follows = "nixpkgs";
+      };
   };
 
   outputs = {
-    self,
     nixpkgs,
     home-manager,
-  }: let
-    forAllSystems = nixpkgs.lib.genAttrs [
+    flake-utils,
+    ...
+  }:
+  let
+    supportedSystems = [
+      "aarch64-darwin"
+      "aarch64-linux"
       "x86_64-linux"
     ];
+in
+ flake-utils.lib.eachSystem supportedSystems (system:
+    let 
+    pkgs = nixpkgs.legacyPackages.${system};
 
-    pkgs = import nixpkgs {inherit system;};
-
-    stateVersion = "23.11";
-    system = "x86_64-linux";
 
     userHomeModules = username: [
       (import ./home/home.nix {
-        inherit pkgs system username stateVersion;
+        inherit pkgs system username;
 
         homeDirectory = "/home/${username}";
       })
     ];
   in {
-    devShells = forAllSystems (
-      system: let
-        pkgs = nixpkgs.legacyPackages.${system};
-      in
-        import ./shell.nix {inherit pkgs;}
-    );
+    devShells = import ./shell.nix {inherit pkgs;};
 
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
-    packages.x86_64-linux.default = home-manager.defaultPackage.x86_64-linux;
+    formatter.${system} = pkgs.alejandra;
 
-    homeConfigurations = {
+    packages.homeConfigurations = {
       "rico@arch" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = userHomeModules "rico";
       };
     };
-  };
+  });
 }
