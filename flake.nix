@@ -14,6 +14,10 @@
     nixpkgs,
     home-manager,
   }: let
+    forAllSystems = nixpkgs.lib.genAttrs [
+      "x86_64-linux"
+    ];
+
     pkgs = import nixpkgs {inherit system;};
 
     stateVersion = "23.11";
@@ -27,6 +31,13 @@
       })
     ];
   in {
+    devShells = forAllSystems (
+      system: let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in
+        import ./shell.nix {inherit pkgs;}
+    );
+
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     packages.x86_64-linux.default = home-manager.defaultPackage.x86_64-linux;
 

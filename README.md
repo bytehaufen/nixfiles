@@ -31,7 +31,7 @@ Git hook for auto formatting of `.nix` files on commit can be installed with
 
 ## Shorthands
 
-For frequently used commands like `home-manager switch ...`, utilize *just* for
+For frequently used commands like `home-manager switch ...`, utilize _just_ for
 simplification. To see all available commands with just, execute:
 
 ```shell

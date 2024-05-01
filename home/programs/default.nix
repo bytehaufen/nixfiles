@@ -31,6 +31,16 @@
       };
     };
 
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+      # TODO:
+      enableZshIntegration = true;
+    };
+
+    # TODO:
+    # zsh.enable = true;
+
     git.enable = true;
   };
 }
