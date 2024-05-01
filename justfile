@@ -11,8 +11,8 @@ hooks:
   ./scripts/create-hook-symlink.sh
 
 # Create home-manager configuration
-home-manager-switch-rico:
-  home-manager switch --flake '.#rico-arch'
+home-manager-switch-rico *ARGS:
+  home-manager switch --flake '.#rico-arch' {{ARGS}} 
 
 # Update flake dependencies
 up:
