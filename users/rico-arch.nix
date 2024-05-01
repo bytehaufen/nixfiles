@@ -1,12 +1,10 @@
 {
   pkgs,
   system,
-  username,
-  homeDirectory,
   ...
 }: let
-  services = import ./services;
-  programs = import ./programs;
+  services = import ../services;
+  programs = import ../programs;
 in {
   # Nixpkgs config
   nixpkgs = {
@@ -19,11 +17,11 @@ in {
     };
   };
 
-
   imports = [services programs];
 
   home = {
-    inherit username homeDirectory;
+    username = "rico";
+    homeDirectory = "/home/rico/";
 
     stateVersion = "23.11";
 
@@ -31,7 +29,7 @@ in {
       EDITOR = "nvim";
     };
 
-    packages = import ./packages {inherit pkgs;};
+    packages = import ../packages {inherit pkgs;};
 
     shellAliases = {
       # FIXME: not working

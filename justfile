@@ -10,13 +10,9 @@ default:
 hooks:
   ./scripts/create-hook-symlink.sh
 
-# Create symlink for home-manager config (needed for use of e.g. `home-manager edit`)
-home-manager-link:
-  ln -s $(realpath ./home/) ${XDG_CONFIG_HOME}/home-manager
-
 # Create home-manager configuration
 home-manager-switch-rico:
-  home-manager switch --flake '.#rico@arch'
+  home-manager switch --flake '.#rico-arch'
 
 # Update flake dependencies
 up:

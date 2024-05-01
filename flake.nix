@@ -10,44 +10,32 @@
     flake-utils = {
       url = "github:numtide/flake-utils";
       # inputs.nixpkgs.follows = "nixpkgs";
-      };
+    };
   };
 
   outputs = {
+    self,
     nixpkgs,
     home-manager,
     flake-utils,
-    ...
-  }:
-  let
+  }: let
     supportedSystems = [
-      "aarch64-darwin"
       "aarch64-linux"
       "x86_64-linux"
     ];
-in
- flake-utils.lib.eachSystem supportedSystems (system:
-    let 
-    pkgs = nixpkgs.legacyPackages.${system};
+  in
+    flake-utils.lib.eachSystem supportedSystems (system: let
+      pkgs = nixpkgs.legacyPackages.${system};
+    in {
+      devShells = import ./shell.nix {inherit pkgs;};
 
+      formatter = pkgs.alejandra;
 
-    userHomeModules = username: [
-      (import ./home/home.nix {
-        inherit pkgs system username;
-
-        homeDirectory = "/home/${username}";
-      })
-    ];
-  in {
-    devShells = import ./shell.nix {inherit pkgs;};
-
-    formatter.${system} = pkgs.alejandra;
-
-    packages.homeConfigurations = {
-      "rico@arch" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = userHomeModules "rico";
+      packages.homeConfigurations = {
+        "rico-arch" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [./users/rico-arch.nix];
+        };
       };
-    };
-  });
+    });
 }
