@@ -7,7 +7,7 @@
     bat = {
       enable = true;
       config = {
-        theme = "gruvbox-dark";
+        # theme = "gruvbox-dark";
         tabs = "2";
       };
     };
@@ -26,8 +26,8 @@
     btop = {
       enable = true;
       settings = {
-        color_theme = "gruvbox_dark";
-        theme_background = false;
+        #   color_theme = "gruvbox_dark";
+        # theme_background = false;
       };
     };
 

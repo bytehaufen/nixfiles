@@ -7,17 +7,16 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    flake-utils = {
-      url = "github:numtide/flake-utils";
-      # inputs.nixpkgs.follows = "nixpkgs";
-    };
+    flake-utils.url = "github:numtide/flake-utils";
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = {
-    self,
     nixpkgs,
     home-manager,
     flake-utils,
+    stylix,
+    ...
   }: let
     supportedSystems = [
       "aarch64-linux"
@@ -34,7 +33,7 @@
       packages.homeConfigurations = {
         "rico-arch" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [./users/rico-arch.nix];
+          modules = [stylix.homeManagerModules.stylix ./users/rico-arch.nix];
         };
       };
     });

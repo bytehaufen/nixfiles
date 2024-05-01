@@ -3,9 +3,20 @@
   system,
   ...
 }: let
-  services = import ../services;
-  programs = import ../programs;
+  # List of themes: [base16-schemes](https://github.com/tinted-theming/base16-schemes)
+  # Favorites
+  # theme = "onedark";
+  theme = "gruvbox-dark-hard";
+
+  # Wallpaper
+  image = ../wallpapers/black_arch.png;
 in {
+  imports = [../services ../programs];
+
+  # Stylix config
+  ## Palette preview: [palette.html](~/.config/stylix/palette.html)
+  stylix = import ./common/stylix.nix {inherit pkgs theme image;};
+
   # Nixpkgs config
   nixpkgs = {
     config = {
@@ -16,8 +27,6 @@ in {
       experimental-features = "nix-command flakes";
     };
   };
-
-  imports = [services programs];
 
   home = {
     username = "rico";
