@@ -8,7 +8,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-utils.url = "github:numtide/flake-utils";
+
     stylix.url = "github:danth/stylix";
+
+    nixgl.url = "github:guibou/nixGL";
+    nixgl.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -16,15 +20,19 @@
     home-manager,
     flake-utils,
     stylix,
+    nixgl,
     ...
-  }: let
+  } @ inputs: let
     supportedSystems = [
       "aarch64-linux"
       "x86_64-linux"
     ];
   in
     flake-utils.lib.eachSystem supportedSystems (system: let
-      pkgs = nixpkgs.legacyPackages.${system};
+      # pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = import nixpkgs {
+        inherit system;
+      };
     in {
       devShells = import ./shell.nix {inherit pkgs;};
 
@@ -34,6 +42,7 @@
         "rico-arch" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [stylix.homeManagerModules.stylix ./users/rico-arch.nix];
+          extraSpecialArgs = {inherit inputs;};
         };
       };
     });
