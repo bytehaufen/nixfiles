@@ -14,6 +14,8 @@
 in {
   imports = [../services ../programs/cli ../programs/gui];
 
+  programs.home-manager.enable = true;
+
   # Stylix config
   ## Palette preview: [palette.html](~/.config/stylix/palette.html)
   stylix = import ./common/stylix.nix {inherit pkgs theme image;};

@@ -1,9 +1,7 @@
 {...}: {
-  imports = [./cli/nnn ./gui/hyprland ./gui];
+  imports = [./nnn];
 
   programs = {
-    home-manager.enable = true;
-
     bat = {
       enable = true;
       config = {
@@ -41,6 +39,7 @@
     # TODO:
     # zsh.enable = true;
 
+    # TODO:
     git.enable = true;
   };
 }
