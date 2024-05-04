@@ -10,18 +10,4 @@
       This needs to be set to the right nixGL package on non-NixOS systems.
     '';
   };
-
-  # TODO:
-  # Add plugin configs:
-  # waybar
-
-  # TODO:
-  # xdg = {
-  #   portal = {
-  #     enable = true;
-  #     extraPortals = with pkgs; [
-  #       xdg-desktop-portal-wlr
-  #     ];
-  #   };
-  # };
 }

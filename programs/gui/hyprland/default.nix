@@ -7,9 +7,14 @@
 in {
   home.packages = [pkgs.swaybg];
 
-  programs.waybar = {
-    enable = true;
-    systemd.enable = true;
+  programs = {
+    waybar = {
+      enable = true;
+      systemd = {
+        enable = true;
+        target = "hyprland-session.target";
+      };
+    };
   };
 
   wayland.windowManager.hyprland = {
@@ -23,7 +28,7 @@ in {
 
     settings = {
       exec-once = [
-        "swaybg -m fill -i ~/.config/wallpaper/black_arch.png"
+        "swaybg -m fill -i ${config.stylix.image}"
       ];
 
       bind = [
