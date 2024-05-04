@@ -1,13 +1,20 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: let
+  nixGL = import ../../../wrapper/nixGL.nix {inherit pkgs config;};
+in {
+  home.packages = [pkgs.swaybg];
+
   programs.waybar = {
     enable = true;
     systemd.enable = true;
   };
 
-  home.packages = [pkgs.swaybg pkgs.hyprland];
-
   wayland.windowManager.hyprland = {
     enable = true;
+    package = nixGL pkgs.hyprland;
 
     systemd.enable = true;
     xwayland.enable = true;

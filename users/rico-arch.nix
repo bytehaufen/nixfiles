@@ -1,6 +1,7 @@
 {
   pkgs,
   system,
+  config,
   ...
 }: let
   # List of themes: [base16-schemes](https://github.com/tinted-theming/base16-schemes)
@@ -11,7 +12,7 @@
   # Wallpaper
   image = ../wallpapers/black_arch.png;
 in {
-  imports = [../services ../programs];
+  imports = [../services ../programs/cli ../programs/gui];
 
   # Stylix config
   ## Palette preview: [palette.html](~/.config/stylix/palette.html)
@@ -29,8 +30,7 @@ in {
   };
 
   home = {
-    username = "rico";
-    homeDirectory = "/home/rico/";
+    homeDirectory = "/home/${config.home.username}";
 
     stateVersion = "23.11";
 

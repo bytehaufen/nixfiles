@@ -11,8 +11,8 @@
 
     stylix.url = "github:danth/stylix";
 
-    nixgl.url = "github:guibou/nixGL";
-    nixgl.inputs.nixpkgs.follows = "nixpkgs";
+    nixGL.url = "github:guibou/nixGL";
+    nixGL.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -20,7 +20,7 @@
     home-manager,
     flake-utils,
     stylix,
-    nixgl,
+    nixGL,
     ...
   } @ inputs: let
     supportedSystems = [
@@ -29,7 +29,6 @@
     ];
   in
     flake-utils.lib.eachSystem supportedSystems (system: let
-      # pkgs = nixpkgs.legacyPackages.${system};
       pkgs = import nixpkgs {
         inherit system;
       };
@@ -41,7 +40,14 @@
       packages.homeConfigurations = {
         "rico-arch" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [stylix.homeManagerModules.stylix ./users/rico-arch.nix];
+          modules = [
+            stylix.homeManagerModules.stylix
+            ./users/rico-arch.nix
+            {
+              home.username = "rico";
+              nixGLPrefix = "${nixGL.packages.x86_64-linux.nixGLIntel}/bin/nixGLIntel ";
+            }
+          ];
           extraSpecialArgs = {inherit inputs;};
         };
       };

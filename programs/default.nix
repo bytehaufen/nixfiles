@@ -1,5 +1,5 @@
 {...}: {
-  imports = [./cli/nnn ./gui/hyprland];
+  imports = [./cli/nnn ./gui/hyprland ./gui];
 
   programs = {
     home-manager.enable = true;
