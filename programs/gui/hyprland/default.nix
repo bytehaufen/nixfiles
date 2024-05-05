@@ -5,17 +5,8 @@
 }: let
   nixGL = import ../../../wrapper/nixGL.nix {inherit pkgs config;};
 in {
+  imports = [../waybar];
   home.packages = [pkgs.swaybg];
-
-  programs = {
-    waybar = {
-      enable = true;
-      systemd = {
-        enable = true;
-        target = "hyprland-session.target";
-      };
-    };
-  };
 
   wayland.windowManager.hyprland = {
     enable = true;
