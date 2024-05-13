@@ -11,6 +11,7 @@
     cp -r ${standardPlugins}/* $out
     cp -r ${standardPlugins}/.* $out
 
+    rm $out/preview-tui
     cp -r ${customPluginPath}/* $out
   '';
 in {
