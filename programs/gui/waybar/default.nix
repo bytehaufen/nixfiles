@@ -1,11 +1,13 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  # scripts = import ./scripts;
+in {
   programs = {
     waybar = {
       enable = true;
-      systemd = {
-        enable = true;
-        target = "hyprland-session.target";
-      };
+      # systemd = {
+      # enable = false;
+      # target = "hyprland-session.target";
+      # };
 
       settings = {
         mainBar = {
@@ -87,7 +89,9 @@
           };
           "custom/keymap" = {
             format = "<span foreground='#928374'>⌨</span> {}";
-            exec = "bash ~/.config/waybar/bin/keymap.sh";
+            exec = "hyprctl devices | rg -A 2 'at-translated-set-2-keyboard' | grep keymap | awk '{ print $3 }'";
+            # TODO: Remove inline
+            # exec = "${scripts.getKeymapLang}/bin/get_keymap_lang";
             interval = 1;
           };
           battery = {
@@ -146,14 +150,9 @@
           };
           "custom/autosuspend" = {
             format = "{}";
-            # exec = "bash ~/.config/waybar/bin/check_auto_suspend.sh";
-            exec = pkgs.writeShellScript "check_auto_suspend" ''
-              if pgrep swayidle > /dev/null 2>&1; then
-                echo 󰒲
-              else
-                echo 󰒳
-              fi
-            '';
+            # TODO:
+            # exec = "${pkgs.getSuspendStatus}/bin/get_suspend_status.sh";
+            exec = "if pgrep swayidle >/dev/null 2>&1; then echo 󰒲; else echo 󰒳; fi";
             interval = 1;
             on-click = "auto_suspend.sh";
           };

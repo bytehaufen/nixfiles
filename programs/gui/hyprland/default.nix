@@ -8,6 +8,11 @@ in {
   imports = [../waybar];
   home.packages = [pkgs.swaybg];
 
+  # # TODO: Move to parent
+  home.sessionVariables = {
+    GTK_USE_PORTAL = 1;
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     package = nixGL pkgs.hyprland;
@@ -20,6 +25,7 @@ in {
     settings = {
       exec-once = [
         "swaybg -m fill -i ${config.stylix.image}"
+        "waybar &"
       ];
 
       bind = [
@@ -191,7 +197,7 @@ in {
       };
 
       dwindle = {
-        preserve_split = true;
+        smart_split = true;
       };
 
       windowrule = [
