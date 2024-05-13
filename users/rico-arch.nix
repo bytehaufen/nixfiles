@@ -7,7 +7,8 @@
   # List of themes: [base16-schemes](https://github.com/tinted-theming/base16-schemes)
   # Favorites
   # theme = "onedark";
-  theme = "gruvbox-dark-hard";
+  # theme = "gruvbox-dark-hard";
+  theme = "tokyo-night-dark";
 
   # Wallpaper
   image = ../wallpapers/black_arch.png;
