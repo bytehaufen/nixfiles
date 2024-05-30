@@ -85,6 +85,7 @@ in {
           };
           backlight = {
             format = "<span foreground='#928374'>{icon}</span> {percent}%";
+            tooltip-format = "{percent}%";
             format-icons = [""];
           };
           "custom/keymap" = {
