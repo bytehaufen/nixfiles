@@ -41,6 +41,7 @@
 
   guiTools = with pkgs; [
     # qutebrowser
+    discord
   ];
 in
   nixTools ++ cliTools ++ guiTools
