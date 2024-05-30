@@ -14,7 +14,6 @@
     waybar.enable = false;
     dunst.enable = false;
 
-    # TODO: Check
     nixvim.transparent_bg.main = true;
     nixvim.transparent_bg.sign_column = true;
   };
@@ -23,7 +22,7 @@
 
   opacity = {
     terminal = 0.0;
-    applications = 0.0; # TODO: Check - not working
+    applications = 0.0;
   };
 
   cursor = {
