@@ -36,6 +36,14 @@ in {
         "SUPER,      Return,                exec, kitty"
         "SUPERSHIFT, Return,                exec, kitty -e /bin/bash"
 
+        # Keybinding to apply monitor settings
+        "SUPERSHIFT, M, exec,    set_monitors.sh"
+        "SUPERCTRL,  M, exec,    set_monitors_mirrored.sh"
+
+        # Swaps the two halves of the split of the current window.
+        "SUPER,      A, layoutmsg, togglesplit"
+        "SUPERSHIFT, A, layoutmsg, swapsplit"
+
         "SUPER, Q, killactive,"
         "SUPERSHIFT, Q, exit,"
         "SUPER, D, exec, wofi --show drun"
@@ -115,7 +123,7 @@ in {
       bindm = [
         # Move/resize windows with SUPER + LMB/RMB and dragging
         "SUPER, mouse:272, movewindow"
-        "SUPER, mouse:273, resizewindow"
+        "SUPER SHIFT, mouse:272, resizewindow"
       ];
 
       monitor = [
@@ -197,7 +205,7 @@ in {
       };
 
       dwindle = {
-        smart_split = true;
+        preserve_split = true;
       };
 
       windowrule = [
