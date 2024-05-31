@@ -11,7 +11,7 @@
   targets = {
     # As example for disabling
     # rofi.enable = false;
-    waybar.enable = false;
+    # waybar.enable = false;
     dunst.enable = false;
 
     nixvim.transparent_bg.main = true;
