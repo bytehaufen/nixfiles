@@ -1,23 +1,60 @@
 {
   pkgs,
   config,
+  lib,
+  hyprland,
   ...
 }: let
   nixGL = import ../../../wrapper/nixGL.nix {inherit pkgs config;};
 in {
   imports = [../waybar];
-  home.packages = [pkgs.swaybg];
+  home.packages = with pkgs; [
+    hyprshot
+    wlr-randr
+    wl-clipboard
+    brightnessctl
+    xwayland
+    xdg-desktop-portal-gtk
+    wlroots
+    qt5ct
+    libva
+    dconf
+    wayland-utils
+    wayland-protocols
+    meson
+    swaybg
+    xdg-desktop-portal-hyprland
+  ];
 
   # # TODO: Move to parent
   home.sessionVariables = {
     GTK_USE_PORTAL = 1;
   };
 
+  xdg.portal = let
+    hyprland = config.wayland.windowManager.hyprland.package;
+    xdph = pkgs.xdg-desktop-portal-hyprland.override {inherit hyprland;};
+  in {
+    extraPortals = [xdph];
+    configPackages = [hyprland];
+  };
+
+  qt.enable = true;
+  gtk.enable = true;
+
   wayland.windowManager.hyprland = {
     enable = true;
-    package = nixGL pkgs.hyprland;
+    # package = nixGL pkgs.hyprland;
+    package = nixGL hyprland.packages."${pkgs.system}".hyprland;
+    systemd = {
+      enable = true;
+      variables = ["--all"];
+      # extraCommands = lib.mkBefore [
+      #   "systemctl --user stop graphical-session.target"
+      #   "systemctl --user start hyprland-session.target"
+      # ];
+    };
 
-    systemd.enable = true;
     xwayland.enable = true;
 
     # TODO: Split into separate files
@@ -25,7 +62,8 @@ in {
     settings = {
       exec-once = [
         "swaybg -m fill -i ${config.stylix.image}"
-        "waybar &"
+        # "waybar &"
+        "exec-once=dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY"
       ];
 
       bind = [
@@ -167,9 +205,6 @@ in {
 
         gaps_in = 4;
         gaps_out = 8;
-
-        cursor_inactive_timeout = 10;
-        no_cursor_warps = true;
 
         layout = "dwindle";
       };

@@ -1,16 +1,24 @@
 {pkgs, ...}: let
   # scripts = import ./scripts;
 in {
+  # Let it try to start a few more times
+  systemd.user.services.waybar = {
+    Unit.StartLimitBurst = 30;
+  };
+
   programs = {
     waybar = {
       enable = true;
-      # systemd = {
-      # enable = false;
-      # target = "hyprland-session.target";
-      # };
+      package = pkgs.waybar.overrideAttrs (oa: {
+        mesonFlags = (oa.mesonFlags or []) ++ ["-Dexperimental=true"];
+      });
+      systemd = {
+        enable = true;
+        target = "hyprland-session.target";
+      };
 
       settings = {
-        mainBar = {
+        primary = {
           layer = "top";
           position = "top";
           mod = "dock";
@@ -36,7 +44,7 @@ in {
             "clock"
             "custom/logout"
           ];
-          "wlr/workspaces" = {
+          "hyprland/workspaces" = {
             sort-by-number = true;
             format = "{icon}";
             on-click = "activate";

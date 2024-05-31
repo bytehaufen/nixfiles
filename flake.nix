@@ -13,6 +13,8 @@
 
     nixGL.url = "github:guibou/nixGL";
     nixGL.inputs.nixpkgs.follows = "nixpkgs";
+
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
   };
 
   outputs = {
@@ -21,6 +23,7 @@
     flake-utils,
     stylix,
     nixGL,
+    hyprland,
     ...
   } @ inputs: let
     supportedSystems = [
@@ -48,7 +51,10 @@
               nixGLPrefix = "${nixGL.packages.x86_64-linux.nixGLIntel}/bin/nixGLIntel ";
             }
           ];
-          extraSpecialArgs = {inherit inputs;};
+          extraSpecialArgs = {
+            inherit inputs;
+            inherit hyprland;
+          };
         };
       };
     });
