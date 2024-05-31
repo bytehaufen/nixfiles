@@ -8,9 +8,8 @@
   # TODO: Config this
   cliTools = with pkgs; [
     # Standard tools
-    just
-
-    # neofetch
+    just # Make like command runner
+    neofetch # CLI information tool
     # zip
     # unzip
     # zsh
