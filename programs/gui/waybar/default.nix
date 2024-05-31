@@ -1,3 +1,4 @@
+#FIXME: Move scripts and style out of here
 {pkgs, ...}: let
   # scripts = import ./scripts;
 in {
@@ -172,6 +173,151 @@ in {
           };
         };
       };
+      style = ''
+        @define-color background #1d2021;
+        @define-color foreground #ebdbb2;
+        @define-color dim        #928374;
+        @define-color yellow     #fabd2f;
+        @define-color red        #fb4934;
+        @define-color green      #b8bb26;
+
+        * {
+          background: @background;
+          /* background: transparent; */
+          border: none;
+          border-radius: 0;
+          font-family: Input, 'Font Awesome 6 Free Solid';
+          font-size: 14px;
+          min-height: 0;
+        }
+
+        #workspaces button {
+          padding: 0 10px;
+          margin: 0 6px;
+          background: transparent;
+          color: @foreground;
+          border-top: 3px solid @background;
+          border-bottom: 3px solid transparent;
+        }
+
+        #workspaces button.active {
+          border-bottom: 3px solid @green;
+        }
+
+        #workspaces button.urgent {
+          border-bottom: 3px solid @yellow;
+        }
+
+        #submap {
+          border-bottom: 3px solid @red;
+        }
+
+        #custom-usbguard,
+        #custom-decrypted,
+        #custom-updates,
+        #custom-mail,
+        #custom-vpn.off,
+        #battery.warning,
+        #disk.warning,
+        #memory.warning,
+        #cpu.warning,
+        #custom-movie.on,
+        #custom-dnd.dnd-notification,
+        #custom-dnd.dnd-none {
+          border-top: 3px solid @background;
+          border-bottom: 3px solid @yellow;
+        }
+
+        #custom-security,
+        #custom-systemd,
+        #battery.critical,
+        #disk.critical,
+        #memory.critical,
+        #cpu.critical,
+        #custom-yubikey,
+        #custom-eyes,
+        #custom-recording {
+          border-top: 3px solid @background;
+          border-bottom: 3px solid @red;
+        }
+
+        #battery.charging {
+          border-top: 3px solid @background;
+          border-bottom: 3px solid @green;
+        }
+
+        #submap,
+        #pulseaudio,
+        #bluetooth,
+        #custom-usbguard,
+        #custom-yubikey,
+        #custom-eyes,
+        #custom-decrypted,
+        #custom-security,
+        #custom-systemd,
+        #custom-updates,
+        #custom-mail,
+        #network,
+        #cpu,
+        #disk,
+        #memory,
+        #backlight,
+        #battery,
+        #custom-keymap,
+        #custom-autosuspend,
+        #clock {
+          padding: 0 6px;
+          margin: 0 6px;
+        }
+
+        #custom-vpn,
+        #custom-dnd,
+        #language,
+        #custom-recording {
+          padding: 0;
+          margin: 0 6px;
+        }
+
+        #tray {
+          margin-left: -1000000px;
+        }
+
+        #backlight,
+        #battery,
+        #custom-keymap,
+        #custom-autosuspend,
+        #clock,
+        #cpu,
+        #custom-eyes,
+        #custom-mail,
+        #custom-progress,
+        #custom-recording,
+        #custom-security,
+        #custom-systemd,
+        #custom-updates,
+        #custom-usbguard,
+        #custom-yubikey,
+        #disk,
+        #memory,
+        #submap,
+        #network,
+        #bluetooth,
+        #pulseaudio {
+          color: @foreground;
+        }
+
+        #custom-decrypted,
+        #custom-movie,
+        #custom-vpn {
+          color: @dim;
+        }
+        #custom-logout {
+          padding: 0 6px;
+        }
+        #custom-autosuspend {
+          font-size: 20px;
+        }
+      '';
     };
   };
 }
