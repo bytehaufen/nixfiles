@@ -16,6 +16,7 @@ in {
   imports = [../services ../programs/cli ../programs/gui];
 
   programs.home-manager.enable = true;
+  home.language.base = "en_US.UTF-8";
 
   # Stylix config
   ## Palette preview: [palette.html](~/.config/stylix/palette.html)
