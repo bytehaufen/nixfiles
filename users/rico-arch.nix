@@ -43,7 +43,7 @@ in {
       XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
     };
 
-    packages = import ../packages {inherit pkgs;};
+    packages = import ../packages {inherit pkgs config;};
 
     shellAliases = {
       # FIXME: not working

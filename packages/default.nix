@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  config,
+  ...
+}: let
   nixTools = with pkgs; [
     nix-output-monitor # nom
     cachix
@@ -10,6 +14,7 @@
     # Standard tools
     just # Make like command runner
     neofetch # CLI information tool
+    progress # CLI progress bar
     # zip
     # unzip
     # zsh
@@ -40,7 +45,8 @@
 
   guiTools = with pkgs; [
     # qutebrowser
-    discord
+    discord # Discord client
+    wofi # Application launcher
   ];
 in
   nixTools ++ cliTools ++ guiTools
