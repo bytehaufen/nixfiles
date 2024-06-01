@@ -16,6 +16,7 @@ in {
     xwayland
     xdg-desktop-portal-gtk
     wlroots
+    wlogout
     qt5ct
     libva
     dconf
