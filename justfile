@@ -12,7 +12,7 @@ hooks:
 
 # Create home-manager configuration
 home-manager-switch-rico *ARGS:
-  home-manager switch --flake '.#rico-arch' {{ARGS}} 
+  home-manager switch --flake '.#rico-arch' {{ARGS}} --extra-experimental-features nix-command --extra-experimental-features flakes
 
 # Update flake dependencies
 up:
