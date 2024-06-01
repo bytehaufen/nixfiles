@@ -28,7 +28,6 @@
     # fd
     # grim
     # mpv
-    # kitty
     # tmux
     # yt-dlp
     # keepassxc
@@ -44,9 +43,10 @@
   ];
 
   guiTools = with pkgs; [
-    # qutebrowser
+    qutebrowser # Web browser
     discord # Discord client
     wofi # Application launcher
+    #xdg-utils # XDG utilities
   ];
 in
   nixTools ++ cliTools ++ guiTools
