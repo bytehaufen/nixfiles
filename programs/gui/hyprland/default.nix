@@ -64,7 +64,7 @@ in {
       exec-once = [
         "swaybg -m fill -i ${config.stylix.image}"
         # "waybar &"
-        "exec-once=dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY"
+        #      "exec-once=dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY"
       ];
 
       bind = [
