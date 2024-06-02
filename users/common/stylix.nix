@@ -5,14 +5,22 @@
 }: {
   inherit image;
 
+  autoEnable = false;
+
   # Set scheme to prevent auto generating
   base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme}.yaml";
 
   targets = {
     # As example for disabling
-    # rofi.enable = false;
-    # waybar.enable = false;
-    dunst.enable = false;
+    rofi.enable = true;
+    waybar.enable = true;
+    dunst.enable = true;
+    kitty.enable = true;
+    bat.enable = true;
+    lazygit.enable = true;
+    btop.enable = true;
+    hyprland.enable = true;
+    qutebrowser.enable = true;
 
     nixvim.transparent_bg.main = true;
     nixvim.transparent_bg.sign_column = true;
@@ -21,8 +29,8 @@
   polarity = "dark"; # [ "dark" | "light" ]
 
   opacity = {
-    terminal = 0.0;
-    applications = 0.0;
+    terminal = 1.0;
+    applications = 1.0;
   };
 
   cursor = {
