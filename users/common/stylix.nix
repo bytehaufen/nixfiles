@@ -21,9 +21,6 @@
     btop.enable = true;
     hyprland.enable = true;
     qutebrowser.enable = true;
-
-    nixvim.transparent_bg.main = true;
-    nixvim.transparent_bg.sign_column = true;
   };
 
   polarity = "dark"; # [ "dark" | "light" ]
