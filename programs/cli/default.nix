@@ -50,6 +50,6 @@
     # zsh.enable = true;
 
     # TODO:
-    git.enable = true;
+    #git.enable = true;
   };
 }
