@@ -5,7 +5,8 @@
     # Enable by `systemctl --user start dunst.service` -- need to check
     dunst = {
       enable = true;
-      settings = import ./dunst;
+      #TODO: Check unnecessary
+      #settings = import ./dunst;
     };
   };
 
