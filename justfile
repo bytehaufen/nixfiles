@@ -1,5 +1,6 @@
 # Aliases
 alias sr := home-manager-switch-rico
+alias br := home-manager-build-rico
 
 # List available recipes
 default:
@@ -13,6 +14,10 @@ hooks:
 # Create home-manager configuration
 home-manager-switch-rico *ARGS:
   home-manager switch --flake '.#rico-arch' {{ARGS}} --extra-experimental-features nix-command --extra-experimental-features flakes
+
+# Build home-manager configuration
+home-manager-build-rico *ARGS:
+  home-manager build --flake '.#rico-arch' {{ARGS}} --extra-experimental-features nix-command --extra-experimental-features flakes
 
 # Update flake dependencies
 up:

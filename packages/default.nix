@@ -5,7 +5,7 @@
 }: let
   nixTools = with pkgs; [
     nix-output-monitor # nom
-    cachix
+    # cachix
     lorri
   ];
 
@@ -14,7 +14,13 @@
     # Standard tools
     just # Make like command runner
     neofetch # CLI information tool
-    progress # CLI progress bar
+    tree-sitter # Language parser
+    imagemagick # Image manipulation
+    luajit # Lua JIT compiler
+    # cacert
+    #(git.override { openssl = pkgs.openssl_1_1; })
+    # openssl
+    # git
     # zip
     # unzip
     # zsh
