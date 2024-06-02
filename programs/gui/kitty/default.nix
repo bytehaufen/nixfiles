@@ -8,11 +8,5 @@ in {
   programs.kitty = {
     enable = true;
     package = nixGL pkgs.kitty;
-    # Set by stylix
-    # font = {
-    #     package = pkgs.fira-code;
-    #     name = "Fira Code";
-    #     size = 12;
-    #   };
   };
 }

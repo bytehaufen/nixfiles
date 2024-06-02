@@ -16,11 +16,8 @@
     neofetch # CLI information tool
     tree-sitter # Language parser
     imagemagick # Image manipulation
-    luajit # Lua JIT compiler
-    # cacert
-    #(git.override { openssl = pkgs.openssl_1_1; })
-    # openssl
-    # git
+    # luajit # Lua JIT compiler
+    # luajitPackages.magick
     # zip
     # unzip
     # zsh
@@ -45,14 +42,14 @@
     # gawk
     # glow
 
-    #difftastic
+    #difftastic #TODO: Check
   ];
 
   guiTools = with pkgs; [
     qutebrowser # Web browser
     discord # Discord client
     wofi # Application launcher
-    #xdg-utils # XDG utilities
+    #xdg-utils # XDG utilities # TODO: CHECK
   ];
 in
   nixTools ++ cliTools ++ guiTools
