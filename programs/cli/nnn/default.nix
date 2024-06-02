@@ -26,7 +26,7 @@ in {
     package = pkgs.nnn.override {withNerdIcons = true;};
 
     # Essential tools
-    extraPackages = with pkgs; [fzf bat git ripgrep ffmpegthumbnailer mediainfo sxiv];
+    extraPackages = with pkgs; [fzf bat ripgrep ffmpegthumbnailer mediainfo sxiv];
 
     plugins = {
       src = allPlugins;
