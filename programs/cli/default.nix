@@ -1,4 +1,8 @@
-{...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [./nnn];
 
   programs = {
@@ -35,6 +39,11 @@
       nix-direnv.enable = true;
       # TODO:
       enableZshIntegration = true;
+    };
+
+    neovim = {
+      enable = true;
+      package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
     };
 
     # TODO:
