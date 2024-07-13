@@ -27,6 +27,7 @@
     viu # Image viewer
     chafa # Image to ASCII converter
     ueberzugpp # Image viewer
+    delta # Git diff viewer
     # luajit # Lua JIT compiler
     # luajitPackages.magick
     # zip
