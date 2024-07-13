@@ -16,6 +16,17 @@
     neofetch # CLI information tool
     tree-sitter # Language parser
     imagemagick # Image manipulation
+
+    tmux
+    github-cli # GitHub CLI
+    rustc # Rust compiler
+    cargo # Rust package manager
+    rust-analyzer # Rust language server
+    lua # Lua language
+    fzf # Fuzzy finder
+    viu # Image viewer
+    chafa # Image to ASCII converter
+    ueberzugpp # Image viewer
     # luajit # Lua JIT compiler
     # luajitPackages.magick
     # zip
