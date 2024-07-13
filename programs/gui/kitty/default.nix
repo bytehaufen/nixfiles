@@ -18,6 +18,11 @@ in {
       "ctrl+shift+u" = "kitten unicode_input";
     };
     settings = {
+      # Font settings
+      bold_font = "auto";
+      italic_font = "auto";
+      bold_italic_font = "auto";
+
       scrollback_lines = 10000;
       open_url_with = "qutebrowser";
       confirm_os_window_close = 0;
