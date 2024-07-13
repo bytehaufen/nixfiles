@@ -38,6 +38,9 @@
   };
 
   fonts = {
+    sizes = {
+      terminal = 11;
+    };
     serif = {
       package = pkgs.dejavu_fonts;
       name = "DejaVu Serif";
@@ -48,8 +51,10 @@
       name = "DejaVu Sans";
     };
     monospace = {
-      package = pkgs.fira-code;
-      name = "Fira Code";
+      # package = pkgs.fira-code;
+      # name = "Fira Code";
+      package = pkgs.jetbrains-mono;
+      name = "JetBrains Mono";
     };
 
     emoji = {
