@@ -28,6 +28,7 @@
     chafa # Image to ASCII converter
     ueberzugpp # Image viewer
     delta # Git diff viewer
+    inkscape # Vector graphics editor
     # luajit # Lua JIT compiler
     # luajitPackages.magick
     # zip
