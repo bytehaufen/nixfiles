@@ -8,7 +8,9 @@
   # Favorites
   # theme = "onedark";
   # theme = "gruvbox-dark-hard";
-  theme = "tokyo-night-dark";
+  # theme = "tokyo-night-dark";
+  # theme = "catppuccin-macchiato";
+  theme = "catppuccin-mocha";
 
   # Wallpaper
   image = ../wallpapers/black_arch.png;
