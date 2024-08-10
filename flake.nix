@@ -7,7 +7,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    flake-utils.url = "github:numtide/flake-utils";
 
     stylix = {
       url = "github:danth/stylix";
@@ -33,42 +32,34 @@
   outputs = {
     nixpkgs,
     home-manager,
-    flake-utils,
     stylix,
     nixGL,
     hyprland,
     ...
-  } @ inputs: let
-    supportedSystems = [
-      "aarch64-linux"
-      "x86_64-linux"
-    ];
-  in
-    flake-utils.lib.eachSystem supportedSystems (system: let
-      pkgs = import nixpkgs {
-        inherit system;
-      };
-    in {
-      devShells = import ./shell.nix {inherit pkgs;};
+  } @ inputs: {
+    devShells.x86_64-linux = import ./shell.nix {pkgs = import nixpkgs {system = "x86_64-linux";};};
 
-      formatter = pkgs.alejandra;
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
 
-      packages.homeConfigurations = {
-        "rico-arch" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [
-            stylix.homeManagerModules.stylix
-            ./users/rico-arch.nix
-            {
-              home.username = "rico";
-              nixGLPrefix = "${nixGL.packages.x86_64-linux.nixGLIntel}/bin/nixGLIntel ";
-            }
-          ];
-          extraSpecialArgs = {
-            inherit inputs;
-            inherit hyprland;
-          };
+    homeConfigurations = {
+      "rico-arch" = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
         };
+        extraSpecialArgs = {
+          inherit inputs;
+          inherit hyprland;
+        };
+        modules = [
+          stylix.homeManagerModules.stylix
+          ./users/rico-arch.nix
+          {
+            home.username = "rico";
+            nixGLPrefix = "${nixGL.packages.x86_64-linux.nixGLIntel}/bin/nixGLIntel ";
+          }
+        ];
       };
-    });
+    };
+  };
 }
