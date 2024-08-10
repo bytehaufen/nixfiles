@@ -48,8 +48,6 @@ in {
     packages = import ../packages {inherit pkgs config;};
 
     shellAliases = {
-      # FIXME: not working
-      reload-home-manager-config = "home-manager switch --flake ${builtins.toString ./.}";
     };
   };
 }
