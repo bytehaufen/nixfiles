@@ -8,35 +8,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix = {
-      url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nixGL = {
       url = "github:guibou/nixGL";
       # url = "github:nix-community/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
+    self,
     nixpkgs,
     home-manager,
-    stylix,
     nixGL,
-    hyprland,
-    ...
-  } @ inputs: {
+  }: {
     devShells.x86_64-linux = import ./shell.nix {pkgs = import nixpkgs {system = "x86_64-linux";};};
 
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
@@ -48,11 +32,8 @@
           config.allowUnfree = true;
         };
         extraSpecialArgs = {
-          inherit inputs;
-          inherit hyprland;
         };
         modules = [
-          stylix.homeManagerModules.stylix
           ./users/rico-arch.nix
           {
             home.username = "rico";

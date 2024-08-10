@@ -1,8 +1,6 @@
 {
   pkgs,
   config,
-  lib,
-  hyprland,
   ...
 }: let
   nixGL = import ../../../wrapper/nixGL.nix {inherit pkgs config;};
@@ -46,7 +44,7 @@ in {
   wayland.windowManager.hyprland = {
     enable = true;
     # package = nixGL pkgs.hyprland;
-    package = nixGL hyprland.packages."${pkgs.system}".hyprland;
+    package = nixGL pkgs.hyprland;
     systemd = {
       enable = true;
       variables = ["--all"];
@@ -62,7 +60,7 @@ in {
 
     settings = {
       exec-once = [
-        "swaybg -m fill -i ${config.stylix.image}"
+        "swaybg -m fill -i ${config.wallpaper}"
         # "waybar &"
         #      "exec-once=dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY"
       ];
