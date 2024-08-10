@@ -11,18 +11,13 @@
   # theme = "tokyo-night-dark";
   # theme = "catppuccin-macchiato";
   theme = "catppuccin-mocha";
-
-  # Wallpaper
-  image = ../wallpapers/black_arch.png;
+  wallpaper = ../wallpapers/black_arch.png;
 in {
-  imports = [../services ../programs/cli ../programs/gui];
+  inherit theme wallpaper;
+  imports = [../services ../programs/cli ../programs/gui ../modules/theme];
 
   programs.home-manager.enable = true;
   home.language.base = "en_US.UTF-8";
-
-  # Stylix config
-  ## Palette preview: [palette.html](~/.config/stylix/palette.html)
-  stylix = import ./common/stylix.nix {inherit pkgs theme image;};
 
   # Nixpkgs config
   nixpkgs = {
