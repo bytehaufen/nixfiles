@@ -6,8 +6,10 @@
   home.packages = with pkgs; [
     # Nix
     nix-output-monitor # nom
-    # cachix
-    lorri
+    cachix # Cachix
+    lorri # Nix project  development environment
+    nil # Nix language server
+    #
 
     # TODO: Config this
     # Terminal
@@ -23,31 +25,29 @@
     rust-analyzer # Rust language server
     lua # Lua language
     luajitPackages.magick # Lua bindings for ImageMagick
-    fzf # Fuzzy finder
     viu # Image viewer
     chafa # Image to ASCII converter
     ueberzugpp # Image viewer
     delta # Git diff viewer
     inkscape # Vector graphics editor
+    sd # Fast sed
+    mpv # Media player
+    tealdeer # tldr
+    ripgrep # Fast grep
+    # eza
+    fd # Fast find
     # zip
     # unzip
     # zsh
-    # ripgrep
-    # jq
-    # eza
-    # fzf
     # file
     # which
     # tree
-    # fd
     # grim
-    # mpv
     # tmux
     # yt-dlp
     # keepassxc
     # zathura
     # cmatrix
-    # tealdeer
     # figlet
     # curl
     # gawk
