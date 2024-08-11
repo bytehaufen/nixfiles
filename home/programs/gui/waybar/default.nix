@@ -1,7 +1,4 @@
-#FIXME: Move scripts and style out of here
-{pkgs, ...}: let
-  # scripts = import ./scripts;
-in {
+{pkgs, ...}: {
   # Let it try to start a few more times
   systemd.user.services.waybar = {
     Unit.StartLimitBurst = 30;

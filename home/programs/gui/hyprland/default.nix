@@ -28,16 +28,17 @@ in {
   # # TODO: Move to parent
   home.sessionVariables = {
     GTK_USE_PORTAL = 1;
+    QT_QPA_PLATFORM = "wayland";
+    SDL_VIDEODRIVER = "wayland";
+    XDG_SESSION_TYPE = "wayland";
   };
 
-  xdg.portal = let
-    hyprland = config.wayland.windowManager.hyprland.package;
-    xdph = pkgs.xdg-desktop-portal-hyprland.override {inherit hyprland;};
-  in {
-    extraPortals = [xdph];
-    configPackages = [hyprland];
+  # targets.genericLinux.enable = true;
+  xdg = {
+    enable = true;
+    mime.enable = true;
+    systemDirs.data = ["${config.home.homeDirectory}/.nix-profile/share/applications" "${config.home.homeDirectory}/.nix-profile/share/"];
   };
-
   qt.enable = true;
   gtk.enable = true;
 
@@ -48,10 +49,10 @@ in {
     systemd = {
       enable = true;
       variables = ["--all"];
-      # extraCommands = lib.mkBefore [
-      #   "systemctl --user stop graphical-session.target"
-      #   "systemctl --user start hyprland-session.target"
-      # ];
+      extraCommands = [
+        "systemctl --user stop graphical-session.target"
+        "systemctl --user start hyprland-session.target"
+      ];
     };
 
     xwayland.enable = true;
@@ -59,10 +60,12 @@ in {
     # TODO: Split into separate files
 
     settings = {
+      env = [
+        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+      ];
       exec-once = [
-        "swaybg -m fill -i ${config.wallpaper}"
-        # "waybar &"
-        #      "exec-once=dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY"
+        "swaybg -m fill -i ${config.stylix.image}"
+        "dbus-update-activation-environment --systemd XDG_CURRENT_DESKTOP WAYLAND_DISPLAY"
       ];
 
       bind = [
