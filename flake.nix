@@ -18,6 +18,7 @@
       url = "github:guibou/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = inputs:
@@ -36,6 +37,7 @@
             inherit pkgs;
             extraSpecialArgs = {};
             modules = [
+              inputs.stylix.homeManagerModules.stylix
               ./home
               {
                 home.username = "rico";
