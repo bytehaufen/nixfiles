@@ -1,7 +1,3 @@
-# Aliases
-alias sr := home-manager-switch-rico
-alias br := home-manager-build-rico
-
 # List available recipes
 default:
   @just --list --list-heading $'Available repo recipes:\n\njust...\n' --list-prefix '...'
@@ -12,15 +8,15 @@ hooks:
   ./scripts/create-hook-symlink.sh
 
 # Create home-manager configuration
-home-manager-switch-rico *ARGS:
-  home-manager switch --flake '.#rico-arch' {{ARGS}} --extra-experimental-features nix-command --extra-experimental-features flakes
+switch USER *ARGS: clean lint check
+  home-manager switch --flake '.#{{USER}}' {{ARGS}} --extra-experimental-features nix-command --extra-experimental-features flakes
 
 # Build home-manager configuration
-home-manager-build-rico *ARGS:
-  home-manager build --flake '.#rico-arch' {{ARGS}} --extra-experimental-features nix-command --extra-experimental-features flakes
+build USER *ARGS: lint check
+  home-manager build --flake '.#{{USER}}' {{ARGS}} --extra-experimental-features nix-command --extra-experimental-features flakes
 
 # Update flake dependencies
-up:
+update:
   nix flake update
 
 # Open nix shell with the flake
@@ -32,5 +28,13 @@ gc:
   nix-collect-garbage --delete-old
 
 # Format nix files in this repo
-fmt:
+lint:
   nix fmt
+
+# Check nix flake
+check:
+  nix flake check
+
+# Remove build output link (no garbarge collection)
+clean:
+  rm -rf ./result

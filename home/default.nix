@@ -14,7 +14,7 @@
   wallpaper = ../wallpapers/black_arch.png;
 in {
   inherit theme wallpaper;
-  imports = [../services ../programs/cli ../programs/gui ../modules/theme];
+  imports = [./services ./programs/cli ./programs/gui ./modules/theme];
 
   programs.home-manager.enable = true;
   home.language.base = "en_US.UTF-8";
@@ -31,16 +31,12 @@ in {
   };
 
   home = {
-    homeDirectory = "/home/${config.home.username}";
-
-    stateVersion = "23.11";
-
     sessionVariables = {
       EDITOR = "nvim";
       XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
     };
 
-    packages = import ../packages {inherit pkgs config;};
+    packages = import ./packages {inherit pkgs config;};
 
     shellAliases = {
     };
