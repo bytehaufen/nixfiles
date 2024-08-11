@@ -1,17 +1,16 @@
-{
-  pkgs,
-  config,
-  ...
-}: let
-  nixTools = with pkgs; [
+{pkgs, ...}: {
+  imports = [
+    ./cli
+    ./gui
+  ];
+  home.packages = with pkgs; [
+    # Nix
     nix-output-monitor # nom
     # cachix
     lorri
-  ];
 
-  # TODO: Config this
-  cliTools = with pkgs; [
-    # Standard tools
+    # TODO: Config this
+    # Terminal
     just # Make like command runner
     neofetch # CLI information tool
     tree-sitter # Language parser
@@ -55,13 +54,10 @@
     # glow
 
     #difftastic #TODO: Check
-  ];
-
-  guiTools = with pkgs; [
+    # GUI
     qutebrowser # Web browser
     discord # Discord client
     wofi # Application launcher
     #xdg-utils # XDG utilities # TODO: CHECK
   ];
-in
-  nixTools ++ cliTools ++ guiTools
+}

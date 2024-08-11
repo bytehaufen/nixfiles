@@ -1,9 +1,4 @@
-{
-  pkgs,
-  system,
-  config,
-  ...
-}: let
+{system, ...}: let
   # List of themes: [base16-schemes](https://github.com/tinted-theming/base16-schemes)
   # Favorites
   # theme = "onedark";
@@ -14,7 +9,8 @@
   wallpaper = ../wallpapers/black_arch.png;
 in {
   inherit theme wallpaper;
-  imports = [./services ./programs/cli ./programs/gui ./modules/theme];
+
+  imports = [./services ./programs ./modules/theme];
 
   programs.home-manager.enable = true;
   home.language.base = "en_US.UTF-8";
@@ -29,16 +25,17 @@ in {
       experimental-features = "nix-command flakes";
     };
   };
-
+  nix = {
+    gc = {
+      automatic = true;
+      # Change how often the garbage collector runs (default: weekly)
+      # frequency = "monthly";
+    };
+  };
   home = {
     sessionVariables = {
       EDITOR = "nvim";
       XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
-    };
-
-    packages = import ./packages {inherit pkgs config;};
-
-    shellAliases = {
     };
   };
 }
