@@ -34,8 +34,21 @@
     mpv # Media player
     tealdeer # tldr
     ripgrep # Fast grep
-    # eza
+    eza # ls alternative
     fd # Fast find
+
+    exiftool # Metadata
+    yazi # Terminal file manager
+    bat # Cat clone
+    fd # Find clone
+    dust # Du clone
+    zoxide # Cd clone
+    igrep # Interactive grep
+    dust #
+    zoxide # Intelligent cd
+    zellij # Terminal multiplexer
+    hexyl # Hex viewer
+
     # zip
     # unzip
     # zsh
@@ -58,6 +71,7 @@
     qutebrowser # Web browser
     discord # Discord client
     wofi # Application launcher
+    wezterm # Terminal emulator
     #xdg-utils # XDG utilities # TODO: CHECK
   ];
 }
