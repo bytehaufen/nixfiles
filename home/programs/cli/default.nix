@@ -22,9 +22,15 @@
     lazygit = {
       enable = true;
       settings = {
-        git.paging = {
-          colorArg = "always";
-          pager = "delta --dark --paging=never -s";
+        gui = {
+          nerdFontsVersion = "3";
+        };
+        git = {
+          paging = {
+            colorArg = "always";
+            pager = "delta --dark --paging=never -s";
+          };
+          parseEmoji = true;
         };
       };
     };
