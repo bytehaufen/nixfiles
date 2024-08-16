@@ -30,6 +30,8 @@ in {
       btop.enable = true;
       hyprland.enable = true;
       qutebrowser.enable = true;
+      wezterm.enable = true;
+      zellij.enable = true;
 
       # Disabled
       neovim.enable = false;

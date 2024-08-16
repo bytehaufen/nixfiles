@@ -46,7 +46,6 @@
     igrep # Interactive grep
     dust #
     zoxide # Intelligent cd
-    zellij # Terminal multiplexer
     hexyl # Hex viewer
 
     # zip
@@ -71,7 +70,10 @@
     qutebrowser # Web browser
     discord # Discord client
     wofi # Application launcher
-    wezterm # Terminal emulator
     #xdg-utils # XDG utilities # TODO: CHECK
+
+    # Emulators
+    wineWowPackages.waylandFull # Windows compatibility layer
+    winetricks # Windows compatibility layer
   ];
 }

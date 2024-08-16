@@ -1,5 +1,5 @@
 {lib, ...}: {
-  imports = [./hyprland ./kitty];
+  imports = [./hyprland ./kitty ./wezterm.nix];
   # Workaround for missing home-manager config. See PR [#5355](https://github.com/nix-community/home-manager/pull/5355)
   options.nixGLPrefix = lib.mkOption {
     type = lib.types.str;

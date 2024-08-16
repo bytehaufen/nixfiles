@@ -1,5 +1,5 @@
 {...}: {
-  imports = [./nnn ./starship.nix];
+  imports = [./nnn ./starship.nix ./zellij.nix];
 
   programs = {
     # Type `z <pat>` to cd to some directory
