@@ -1,7 +1,10 @@
 {pkgs, ...}: {
   imports = [
     ./anyrun
-    ./browsers/qutebrowser.nix
+
+    # FIXME: Merge with systemconfig
+    # ./browsers/qutebrowser.nix
+
     ./media
     ./office
 

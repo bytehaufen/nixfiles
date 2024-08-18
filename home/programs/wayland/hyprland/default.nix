@@ -6,7 +6,7 @@
   nixGL = import ../../../wrapper/nixGL.nix {inherit pkgs config;};
 in {
   # imports = [../waybar];
-  imports = [./settings.nix];
+
   home.packages = with pkgs; [
     hyprshot
     wlr-randr

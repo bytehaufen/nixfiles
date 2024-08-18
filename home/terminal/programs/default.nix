@@ -1,4 +1,4 @@
-{
+{...}: {
   imports = [
     ./bat.nix
     ./btop.nix
@@ -8,5 +8,6 @@
     ./skim.nix
     ./xdg.nix
     ./yazi.nix
+    ./nnn
   ];
 }

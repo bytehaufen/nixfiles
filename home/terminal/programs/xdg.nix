@@ -4,7 +4,7 @@
   ...
 }: let
   defaultApplications = {
-    # TODO: Extract this from ~/.config/mimeapps.list
+    # TODO: Add default applications
   };
 in {
   xdg = {
@@ -12,20 +12,23 @@ in {
     cacheHome = config.home.homeDirectory + "/.local/cache";
 
     mime.enable = true;
-    mimeApps = {
-      enable = true;
-      defaultApplications = defaultApplications;
-    };
+
+    # FIXME: Extract this from ~/.config/mimeapps.list
+    # mimeApps = {
+    #   enable = true;
+    #   defaultApplications = defaultApplications;
+    # };
 
     systemDirs.data = ["${config.home.homeDirectory}/.nix-profile/share/applications" "${config.home.homeDirectory}/.nix-profile/share/"];
 
-    userDirs = {
-      enable = true;
-      createDirectories = true;
-      extraConfig = {
-        XDG_SCREENSHOTS_DIR = "${config.xdg.userDirs.pictures}/Screenshots";
-      };
-    };
+    # FIXME: Merge with system configuration
+    # userDirs = {
+    #   enable = true;
+    #   createDirectories = true;
+    #   extraConfig = {
+    #     XDG_SCREENSHOTS_DIR = "${config.xdg.userDirs.pictures}/Screenshots";
+    #   };
+    # };
   };
 
   home.packages = [

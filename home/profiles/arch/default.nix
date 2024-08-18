@@ -1,5 +1,21 @@
 {
+  config,
+  lib,
+  ...
+}: {
   imports = [
+    ../../../nix
+    ../../wrapper/nixglprefix.nix
+
+    ../../theme/stylix.nix
+    ../../programs
+    ../../programs/wayland
+
+    # ../../services/ags
+    # ../../services/media/playerctl.nix
+    # ../../services/ags
+    # ../../services/ags
+    # ../../services/ags
   ];
 
   wayland.windowManager.hyprland.settings = {

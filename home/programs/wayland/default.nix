@@ -1,8 +1,11 @@
 {pkgs, ...}: {
   imports = [
     ./hyprland
-    ./hyprlock.nix
     ./wlogout.nix
+    ./waybar
+
+    # FIXME: Configure
+    # ./hyprlock.nix
   ];
 
   home.packages = with pkgs; [

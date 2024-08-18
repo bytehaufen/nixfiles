@@ -5,24 +5,22 @@
 }: let
   extraSpecialArgs = {inherit inputs self;};
 
-  homeImports = {
-    "rico@arch" = [
-      ../.
-      ./arch
-    ];
-  };
-
   inherit (inputs.hm.lib) homeManagerConfiguration;
 
-  pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
+  system = "x86_64-linux";
+  pkgs = inputs.nixpkgs.legacyPackages.${system};
 in {
-  # we need to pass this to NixOS' HM module
-  _module.args = {inherit homeImports;};
-
   flake = {
     homeConfigurations = {
       "rico@arch" = homeManagerConfiguration {
-        modules = homeImports."rico@arch";
+        modules = [
+          ../.
+          ./arch
+          {
+            nixGLPrefix = "${inputs.nixGL.packages.${system}.nixGLIntel}/bin/nixGLIntel ";
+          }
+          inputs.stylix.homeManagerModules.stylix
+        ];
         inherit pkgs extraSpecialArgs;
       };
     };

@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
-    ./zathura.nix
+    # FIXME: Include when config is merged from system
+    # ./zathura.nix
   ];
 
   home.packages = with pkgs; [

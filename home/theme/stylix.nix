@@ -29,14 +29,9 @@ in {
       lazygit.enable = true;
       btop.enable = true;
       hyprland.enable = true;
-      qutebrowser.enable = true;
+      # qutebrowser.enable = true;
       wezterm.enable = true;
       zellij.enable = true;
-      wlogout.enable = true;
-      hyprlock.enable = true;
-
-      # Disabled
-      neovim.enable = false;
     };
 
     polarity = "dark"; # [ "dark" | "light" ]

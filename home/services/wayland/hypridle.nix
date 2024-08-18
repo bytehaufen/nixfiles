@@ -28,7 +28,10 @@ in {
 
     settings = {
       general = {
-        lock_cmd = lib.getExe config.programs.hyprlock.package;
+        lock_cmd = "suspend.sh";
+        # FIXME:  Use hyprlock
+        # lock_cmd = lib.getExe config.programs.hyprlock.package;
+
         before_sleep_cmd = "${pkgs.systemd}/bin/loginctl lock-session";
       };
 
