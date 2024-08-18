@@ -5,9 +5,12 @@
 }: let
   nixGL = import ../../../wrapper/nixGL.nix {inherit pkgs config;};
 in {
-  # imports = [../waybar];
+  imports = [
+    ./binds.nix
+  ];
 
   home.packages = with pkgs; [
+    brillo # Brightness control
     hyprshot
     wlr-randr
     wl-clipboard
@@ -15,7 +18,6 @@ in {
     xwayland
     xdg-desktop-portal-gtk
     wlroots
-    wlogout
     qt5ct
     libva
     dconf
@@ -61,104 +63,6 @@ in {
       exec-once = [
         "swaybg -m fill -i ${config.stylix.image}"
         "dbus-update-activation-environment --systemd XDG_CURRENT_DESKTOP WAYLAND_DISPLAY"
-      ];
-
-      bind = [
-        # Switch keyboard lang
-        "SUPER, backspace, exec, switch_lang.sh"
-
-        # Terminal
-        "SUPER,      Return,                exec, kitty"
-        "SUPERSHIFT, Return,                exec, kitty -e /bin/bash"
-
-        # Keybinding to apply monitor settings
-        "SUPERSHIFT, M, exec,    set_monitors.sh"
-        "SUPERCTRL,  M, exec,    set_monitors_mirrored.sh"
-
-        # Swaps the two halves of the split of the current window.
-        "SUPER,      A, layoutmsg, togglesplit"
-        "SUPERSHIFT, A, layoutmsg, swapsplit"
-
-        "SUPER, Q, killactive,"
-        "SUPERSHIFT, Q, exit,"
-        "SUPER, D, exec, wofi --show drun"
-        "SUPER, W, exec, qutebrowser"
-        "SUPER, E, exec, nautilus"
-        "SUPER, V, togglefloating, active"
-
-        # Movement
-        "SUPER, h, movefocus, l"
-        "SUPER, l, movefocus, r"
-        "SUPER, k, movefocus, u"
-        "SUPER, j, movefocus, d"
-
-        # TODO: Simplify
-        # Switch workspaces with SUPER + [0-9]
-        "SUPER, 1, workspace, 1"
-        "SUPER, 2, workspace, 2"
-        "SUPER, 3, workspace, 3"
-        "SUPER, 4, workspace, 4"
-        "SUPER, 5, workspace, 5"
-        "SUPER, 6, workspace, 6"
-        "SUPER, 7, workspace, 7"
-        "SUPER, 8, workspace, 8"
-        "SUPER, 9, workspace, 9"
-        "SUPER, 0, workspace, 10"
-
-        # # Move active window to a workspace with SUPER + $shift + [0-9]
-        "SUPERSHIFT, 1, movetoworkspace, 1"
-        "SUPERSHIFT, 2, movetoworkspace, 2"
-        "SUPERSHIFT, 3, movetoworkspace, 3"
-        "SUPERSHIFT, 4, movetoworkspace, 4"
-        "SUPERSHIFT, 5, movetoworkspace, 5"
-        "SUPERSHIFT, 6, movetoworkspace, 6"
-        "SUPERSHIFT, 7, movetoworkspace, 7"
-        "SUPERSHIFT, 8, movetoworkspace, 8"
-        "SUPERSHIFT, 9, movetoworkspace, 9"
-        "SUPERSHIFT, 0, movetoworkspace, 10"
-
-        # Move focused window
-        "SUPERSHIFT, h, movewindow, l"
-        "SUPERSHIFT, j, movewindow, d"
-        "SUPERSHIFT, k, movewindow, u"
-        "SUPERSHIFT, l, movewindow, r"
-
-        "SUPERCTRL, h, resizeactive, -40 0"
-        "SUPERCTRL, l, resizeactive, 40 0"
-        "SUPERCTRL, k, resizeactive, 0 -40"
-        "SUPERCTRL, j, resizeactive, 0 40"
-
-        # Scroll through existing workspaces with SUPER + scroll
-        "SUPER, mouse_down, workspace, e+1"
-        "SUPER, mouse_up, workspace, e-1"
-
-        # Enter fullscreen mode
-        "SUPER, m, fullscreen, toggle"
-
-        # Go to next window, for example to reach a floating one
-        "SUPER, space, cyclenext"
-
-        ", XF86AudioRaiseVolume,      exec, pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl set-sink-mute @DEFAULT_SINK@ 0"
-        ", XF86AudioLowerVolume,      exec, pactl set-sink-volume @DEFAULT_SINK@ -5%"
-        ", XF86AudioMute,             exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
-        ", XF86MonBrightnessDown,     exec, brightnessctl set 5%-"
-        ", XF86MonBrightnessUp,       exec, brightnessctl set +5%"
-
-        # FIXME -> Does not work -> key not recognized
-        ", XF86AudioMicMute,          exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle"
-        # FIXME -> Does not work -> Power button forces shutdown
-        ", XF86PowerOff,              exec, systemctl suspend"
-
-        # Custom scripts
-        "SUPER ALT, l,                exec, suspend.sh"
-        "SUPER ALT, R,                exec, record-area"
-        "SUPER ALT, S,                exec, screenshot-area"
-      ];
-
-      bindm = [
-        # Move/resize windows with SUPER + LMB/RMB and dragging
-        "SUPER, mouse:272, movewindow"
-        "SUPER SHIFT, mouse:272, resizewindow"
       ];
 
       input = {
