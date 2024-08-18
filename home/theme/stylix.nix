@@ -32,6 +32,8 @@ in {
       qutebrowser.enable = true;
       wezterm.enable = true;
       zellij.enable = true;
+      wlogout.enable = true;
+      hyprlock.enable = true;
 
       # Disabled
       neovim.enable = false;
