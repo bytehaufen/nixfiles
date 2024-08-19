@@ -8,14 +8,20 @@
   requiredDeps = with pkgs; [
     config.wayland.windowManager.hyprland.package
     bash
+    brightnessctl
+    bun
     coreutils
+    curl
     dart-sass
+    fd
     gawk
     imagemagick
     inotify-tools
     procps
     ripgrep
+    swww
     util-linux
+    which
   ];
 
   guiDeps = with pkgs; [
@@ -32,8 +38,13 @@ in {
   imports = [
     inputs.ags.homeManagerModules.default
   ];
+  home.packages = dependencies;
 
-  programs.ags.enable = true;
+  programs.ags = {
+    enable = true;
+    configDir = ../../../ags;
+    extraPackages = [pkgs.accountsservice];
+  };
 
   systemd.user.services.ags = {
     Unit = {

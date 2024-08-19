@@ -21,6 +21,7 @@
   runOnce = program: "pgrep ${program} || ${program}";
 in {
   wayland.windowManager.hyprland.settings = {
+    "$mod" = "SUPER";
     # mouse movements
     bindm = [
       "$mod, mouse:272, movewindow"
@@ -58,7 +59,7 @@ in {
         # Utility
         # Terminal
         "$mod, Return, exec, run-as-service kitty"
-        "$mod, Return, exec, run-as-service kitty -e /bin/bash"
+        "$mod SHIFT, Return, exec, run-as-service kitty -e /bin/bash"
         # FIXME: Check necessity
         # "SUPER,      Return,                exec, kitty"
         # "SUPERSHIFT, Return,                exec, kitty -e /bin/bash"
@@ -105,15 +106,15 @@ in {
         "$mod SHIFT, grave, movetoworkspace, special"
         "$mod, grave, togglespecialworkspace, eDP-1"
 
-        # cycle workspaces
+        # Cycle workspaces
         "$mod, bracketleft, workspace, m-1"
         "$mod, bracketright, workspace, m+1"
 
-        # cycle monitors
+        # Cycle monitors
         "$mod SHIFT, bracketleft, focusmonitor, l"
         "$mod SHIFT, bracketright, focusmonitor, r"
 
-        # send focused workspace to left/right monitors
+        # Send focused workspace to left/right monitors
         "$mod SHIFT ALT, bracketleft, movecurrentworkspacetomonitor, l"
         "$mod SHIFT ALT, bracketright, movecurrentworkspacetomonitor, r"
 
@@ -129,22 +130,22 @@ in {
     ];
 
     bindl = [
-      # media controls
+      # Media controls
       ", XF86AudioPlay, exec, playerctl play-pause"
       ", XF86AudioPrev, exec, playerctl previous"
       ", XF86AudioNext, exec, playerctl next"
 
-      # volume
+      # Volume
       ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
       ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
     ];
 
     bindle = [
-      # volume
+      # Volume
       ", XF86AudioRaiseVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%+"
       ", XF86AudioLowerVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%-"
 
-      # backlight
+      # Backlight
       ", XF86MonBrightnessUp, exec, brillo -q -u 300000 -A 5"
       ", XF86MonBrightnessDown, exec, brillo -q -u 300000 -U 5"
     ];

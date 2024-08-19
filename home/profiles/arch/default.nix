@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}: {
+{...}: {
   imports = [
     ../../../nix
     ../../wrapper/nixglprefix.nix
@@ -10,12 +6,17 @@
     ../../theme/stylix.nix
     ../../programs
     ../../programs/wayland
+    ../../terminal/emulators/kitty.nix
+    ../../terminal/emulators/wezterm.nix
 
-    # ../../services/ags
-    # ../../services/media/playerctl.nix
-    # ../../services/ags
-    # ../../services/ags
-    # ../../services/ags
+    ../../services/ags
+    ../../services/media/playerctl.nix
+    ../../services/system/kdeconnect.nix
+    ../../services/system/polkit-agent.nix
+    ../../services/system/power-monitor.nix
+    ../../services/system/syncthing.nix
+    ../../services/system/tailray.nix
+    ../../services/system/udiskie.nix
   ];
 
   wayland.windowManager.hyprland.settings = {
