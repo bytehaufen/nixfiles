@@ -14,17 +14,25 @@ const options = mkOptions(OPTIONS, {
     theme: {
         dark: {
             primary: {
-                bg: opt("#51a4e7"),
-                fg: opt("#141414"),
+                // bg: opt("#51a4e7"),
+                // fg: opt("#141414"),
+                bg: opt("#82aaff"),
+                fg: opt("#222436"),
             },
             error: {
-                bg: opt("#e55f86"),
-                fg: opt("#141414"),
+                // bg: opt("#e55f86"),
+                // fg: opt("#141414"),
+                bg: opt("#c53b53"),
+                fg: opt("#222436"),
             },
-            bg: opt("#171717"),
-            fg: opt("#eeeeee"),
-            widget: opt("#eeeeee"),
-            border: opt("#eeeeee"),
+            // bg: opt("#171717"),
+            // fg: opt("#eeeeee"),
+            // widget: opt("#eeeeee"),
+            // border: opt("#eeeeee"),
+            bg: opt("#222436"),
+            fg: opt("#a9b1d6"),
+            widget: opt("#a9b1d6"),
+            border: opt("#a9b1d6"),
         },
         light: {
             primary: {
