@@ -2,7 +2,6 @@
   imports = [
     ./hyprland
     ./wlogout.nix
-    ./waybar
 
     # FIXME: Configure
     # ./hyprlock.nix
