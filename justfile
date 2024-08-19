@@ -10,6 +10,7 @@ hooks:
 # Create home-manager configuration
 switch USER *ARGS: clean lint check
   home-manager switch --flake '.#{{USER}}' {{ARGS}} --extra-experimental-features nix-command --extra-experimental-features flakes
+  systemctl --user restart ags
 
 # Build home-manager configuration
 build USER *ARGS: lint check
