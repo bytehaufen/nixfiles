@@ -21,8 +21,7 @@ in {
 
     targets = {
       # Enabled
-      waybar.enable = true;
-      bat.enable = true;
+      bat.enable = false;
       hyprland.enable = true;
       zellij.enable = true;
 
