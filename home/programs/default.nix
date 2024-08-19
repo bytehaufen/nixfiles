@@ -18,5 +18,6 @@
 
     overskride # Bluetooth / Obex client
     mission-center # System monitor
+    nautilus
   ];
 }
