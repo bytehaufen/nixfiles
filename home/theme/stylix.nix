@@ -21,17 +21,17 @@ in {
 
     targets = {
       # Enabled
-      wofi.enable = true;
       waybar.enable = true;
-      dunst.enable = true;
-      kitty.enable = true;
       bat.enable = true;
-      lazygit.enable = true;
-      btop.enable = true;
       hyprland.enable = true;
-      # qutebrowser.enable = true;
-      wezterm.enable = true;
       zellij.enable = true;
+
+      btop.enable = false;
+      qutebrowser.enable = false;
+      lazygit.enable = false;
+      wezterm.enable = false;
+      # FIXME: Set font
+      kitty.enable = false;
     };
 
     polarity = "dark"; # [ "dark" | "light" ]
