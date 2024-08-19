@@ -29,6 +29,10 @@
     mission-center
     overskride
     wlogout
+    morewaita-icon-theme
+    adwaita-icon-theme
+    qogir-icon-theme
+    hicolor-icon-theme
   ];
 
   dependencies = requiredDeps ++ guiDeps;
@@ -43,7 +47,12 @@ in {
   programs.ags = {
     enable = true;
     configDir = ../../../ags;
-    extraPackages = [pkgs.accountsservice];
+    extraPackages = with pkgs; [
+      accountsservice
+      adwaita-icon-theme
+      qogir-icon-theme
+      hicolor-icon-theme
+    ];
   };
 
   systemd.user.services.ags = {
