@@ -104,12 +104,12 @@ in {
     yazi # Terminal file manager
     bat # Cat clone
     fd # Find clone
-    dust # Du clone
     zoxide # Cd clone
     igrep # Interactive grep
-    dust #
+    dust # Disk usage
     zoxide # Intelligent cd
     hexyl # Hex viewer
+    lazydocker # Docker manager
 
     # zip
     # unzip
