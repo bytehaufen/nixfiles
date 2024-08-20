@@ -102,10 +102,10 @@ const options = mkOptions(OPTIONS, {
                 colored: opt(true),
                 icon: opt(icon(distro.logo, icons.ui.search)),
             },
-            label: {
-                colored: opt(false),
-                label: opt(" Applications"),
-            },
+             label: {
+                 colored: opt(false),
+                 label: opt(""),
+             },
             action: opt(() => App.toggleWindow("launcher")),
         },
         date: {
