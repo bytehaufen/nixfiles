@@ -18,7 +18,6 @@ in {
     wl-clipboard
     brightnessctl
     xwayland
-    xdg-desktop-portal-gtk
     wlroots
     qt5ct
     libva
@@ -27,6 +26,9 @@ in {
     wayland-protocols
     meson
     swaybg
+    xdg-desktop-portal
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-gnome
     xdg-desktop-portal-hyprland
     morewaita-icon-theme
     adwaita-icon-theme
@@ -45,7 +47,9 @@ in {
     config.common.default = "*";
     enable = true;
     extraPortals = with pkgs; [
+      xdg-desktop-portal
       xdg-desktop-portal-gtk
+      xdg-desktop-portal-gnome
     ];
   };
 
@@ -62,8 +66,6 @@ in {
     };
 
     xwayland.enable = true;
-
-    # TODO: Split into separate files
 
     settings = {
       exec-once = [
