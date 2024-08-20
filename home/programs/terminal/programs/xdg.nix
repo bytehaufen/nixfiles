@@ -43,7 +43,13 @@
       };
     };
 
-    systemDirs.data = ["${config.home.homeDirectory}/.nix-profile/share/applications" "${config.home.homeDirectory}/.nix-profile/share/"];
+    systemDirs.data = [
+      "/usr/local/share"
+      "/usr/share"
+      "${config.home.homeDirectory}/.local/share"
+      "${config.home.homeDirectory}/.nix-profile/share/applications"
+      "${config.home.homeDirectory}/.nix-profile/share/"
+    ];
 
     # FIXME: Merge with system configuration
     # userDirs = {
