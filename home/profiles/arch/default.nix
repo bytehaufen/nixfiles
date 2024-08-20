@@ -6,8 +6,8 @@
     ../../theme/stylix.nix
     ../../programs
     ../../programs/wayland
-    ../../terminal/emulators/kitty.nix
-    ../../terminal/emulators/wezterm.nix
+    ../../programs/terminal/emulators/kitty.nix
+    ../../programs/terminal/emulators/wezterm.nix
 
     ../../services/ags
     ../../services/media/playerctl.nix

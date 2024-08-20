@@ -5,7 +5,7 @@
   ...
 }: {
   imports = [
-    ./terminal
+    ./programs/terminal
     inputs.tailray.homeManagerModules.default
   ];
 

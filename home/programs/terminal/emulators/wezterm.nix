@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  nixGL = import ../../wrapper/nixGL.nix {inherit pkgs config;};
+  nixGL = import ../../../wrapper/nixGL.nix {inherit pkgs config;};
 in {
   programs.wezterm = {
     enable = true;
@@ -29,7 +29,6 @@ in {
       end
 
       return {
-
         enable_scroll_bar = true,
         enable_tab_bar = true,
         scrollback_lines = 10000,
@@ -39,7 +38,7 @@ in {
           top = 25,
           bottom = 25,
         },
-        enable_wayland = true,
+        enable_wayland = false,
         check_for_updates = false,
         color_scheme = scheme_for_appearance(get_appearance()),
         default_cursor_style = "SteadyBar",
