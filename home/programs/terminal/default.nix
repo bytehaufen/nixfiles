@@ -105,7 +105,7 @@ in {
     bat # Cat clone
     fd # Find clone
     zoxide # Cd clone
-    igrep # Interactive grep
+    # igrep # Interactive grep
     dust # Disk usage
     zoxide # Intelligent cd
     hexyl # Hex viewer
