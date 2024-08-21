@@ -2,6 +2,7 @@
   imports = [
     ../../../nix
     ../../wrapper/nixglprefix.nix
+    ../../theme/fonts.nix
 
     ../../../wallpaper
 

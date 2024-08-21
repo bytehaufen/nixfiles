@@ -17,12 +17,14 @@ in {
       "ctrl+shift+0" = "change_font_size all 0";
       "ctrl+shift+u" = "kitten unicode_input";
     };
-    settings = {
-      # Font settings
-      bold_font = "auto";
-      italic_font = "auto";
-      bold_italic_font = "auto";
 
+    font = {
+      package = config.fonts.monospace.package;
+      name = config.fonts.monospace.name;
+      size = config.fonts.monospace.size;
+    };
+
+    settings = {
       scrollback_lines = 10000;
       open_url_with = "qutebrowser";
       confirm_os_window_close = 0;
