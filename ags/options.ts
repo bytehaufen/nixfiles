@@ -113,20 +113,20 @@ const options = mkOptions(OPTIONS, {
             action: opt(() => App.toggleWindow("datemenu")),
         },
         battery: {
-            bar: opt<"hidden" | "regular" | "whole">("regular"),
-            charging: opt("#00D787"),
+            bar: opt<"hidden" | "regular" | "whole">("whole"),
+            charging: opt("#4ed2ba"),
             percentage: opt(true),
             blocks: opt(7),
             width: opt(50),
             low: opt(30),
         },
         workspaces: {
-            workspaces: opt(7),
+            workspaces: opt(0),
         },
         taskbar: {
             iconSize: opt(0),
-            monochrome: opt(true),
-            exclusive: opt(false),
+            monochrome: opt(false),
+            exclusive: opt(true),
         },
         messages: {
             action: opt(() => App.toggleWindow("datemenu")),
@@ -139,7 +139,7 @@ const options = mkOptions(OPTIONS, {
         },
         media: {
             monochrome: opt(true),
-            preferred: opt("spotify"),
+            preferred: opt("playerctl"),
             direction: opt<"left" | "right">("right"),
             format: opt("{artists} - {title}"),
             length: opt(40),
@@ -192,7 +192,8 @@ const options = mkOptions(OPTIONS, {
 
     quicksettings: {
         avatar: {
-            image: opt(`/var/lib/AccountsService/icons/${Utils.USER}`),
+            // image: opt(`/var/lib/AccountsService/icons/${Utils.USER}`),
+            image: opt(`~/.config/wallpaper/avatar.jpg`),
             size: opt(70),
         },
         width: opt(380),

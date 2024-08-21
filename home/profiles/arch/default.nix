@@ -3,6 +3,8 @@
     ../../../nix
     ../../wrapper/nixglprefix.nix
 
+    ../../../wallpaper
+
     ../../theme/stylix.nix
     ../../programs
     ../../programs/wayland

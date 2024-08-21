@@ -7,7 +7,7 @@
   # theme = "catppuccin-mocha";
   # theme = "tokyo-night-dark";
   theme = "tokyo-night-storm";
-  wallpaper = ../../wallpapers/black_arch.png;
+  wallpaper = ../../wallpaper/black_arch.png;
   ## Palette preview: [palette.html](~/.config/stylix/palette.html)
 in {
   stylix = {
