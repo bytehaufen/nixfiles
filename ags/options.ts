@@ -74,7 +74,7 @@ const options = mkOptions(OPTIONS, {
         flatButtons: opt(true),
         position: opt<"top" | "bottom">("top"),
         corners: opt(50),
-        transparent: opt(false),
+        transparent: opt(true),
         layout: {
             start: opt<Array<import("widget/bar/Bar").BarWidget>>([
                 "launcher",
@@ -166,10 +166,10 @@ const options = mkOptions(OPTIONS, {
             favorites: opt([
                 [
                     "firefox",
-                    "wezterm",
-                    "org.gnome.Nautilus",
-                    "org.gnome.Calendar",
-                    "spotify",
+                    "kitty",
+                    "nautilus",
+                    "spotube",
+                    "qutebrowser",
                 ],
             ]),
         },
