@@ -54,6 +54,12 @@
       "idleinhibit focus, class:^(qutebrowser)$, title:^(.*YouTube.*)$"
       "idleinhibit fullscreen, class:^(qutebrowser)$"
 
+      # Spotube
+      "float, class:^(spotube)$"
+      "size 300 700, class:^(spotube)$"
+      "monitor 0, class:^(spotube)$"
+      "move 100%-w-20, class:^(spotube)$"
+
       "dimaround, class:^(gcr-prompter)$"
       "dimaround, class:^(xdg-desktop-portal-gtk)$"
       "dimaround, class:^(polkit-gnome-authentication-agent-1)$"

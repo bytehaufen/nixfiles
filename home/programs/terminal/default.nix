@@ -111,6 +111,8 @@ in {
     hexyl # Hex viewer
     lazydocker # Docker manager
 
+    spotube # Spotify client
+
     # zip
     # unzip
     # zsh
