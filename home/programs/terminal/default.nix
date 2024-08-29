@@ -102,7 +102,6 @@ in {
     fd # Fast find
 
     exiftool # Metadata
-    yazi # Terminal file manager
     bat # Cat clone
     fd # Find clone
     zoxide # Cd clone
