@@ -68,6 +68,7 @@ in {
     # TODO:
     #git.enable = true;
   };
+  programs.aerc.enable = true;
   home.packages = with pkgs; [
     nix-output-monitor # nom
     cachix # Cachix
