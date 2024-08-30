@@ -68,13 +68,26 @@ in {
     # TODO:
     #git.enable = true;
   };
+
+  # Brave
+  programs.chromium = {
+    enable = true;
+    package = pkgs.brave;
+    commandLineArgs = [
+      "--enable-features=UseOzonePlatform"
+      "--ozone-platform=wayland"
+      "--password-store=basic"
+    ];
+  };
+
+  # Terminal email client
   programs.aerc.enable = true;
+
   home.packages = with pkgs; [
     nix-output-monitor # nom
     cachix # Cachix
     lorri # Nix project  development environment
     nil # Nix language server
-    #
 
     # TODO: Config this
     # Terminal
@@ -113,6 +126,7 @@ in {
 
     spotube # Spotify client
 
+    keepassxc # Password manager
     # zip
     # unzip
     # zsh
