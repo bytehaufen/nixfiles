@@ -127,6 +127,7 @@ in {
     spotube # Spotify client
 
     keepassxc # Password manager
+    nodejs_22
     # zip
     # unzip
     # zsh
