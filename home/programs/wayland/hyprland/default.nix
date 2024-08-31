@@ -43,9 +43,16 @@ in {
     XDG_SESSION_TYPE = "wayland";
   };
 
+  # Move too
   xdg.portal = {
-    config.common.default = "*";
+    config = {
+      common = {
+        default = ["gtk"];
+        "org.freedesktop.impl.portal.Secret" = ["gnome-keyring"];
+      };
+    };
     enable = true;
+    xdgOpenUsePortal = false;
     extraPortals = with pkgs; [
       xdg-desktop-portal
       xdg-desktop-portal-gtk
@@ -59,15 +66,23 @@ in {
     systemd = {
       enable = true;
       variables = ["--all"];
-      extraCommands = [
-        "systemctl --user stop graphical-session.target"
-        "systemctl --user start hyprland-session.target"
-      ];
     };
 
     xwayland.enable = true;
 
     settings = {
+      env = [
+        "NIXOS_OZONE_WL,1" # for any ozone-based browser & electron apps to run on wayland
+        "MOZ_ENABLE_WAYLAND,1" # for firefox to run on wayland
+        "MOZ_WEBRENDER,1"
+        # misc
+        "_JAVA_AWT_WM_NONREPARENTING,1"
+        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+        "QT_QPA_PLATFORM,wayland"
+        "SDL_VIDEODRIVER,wayland"
+        "GDK_BACKEND,wayland"
+      ];
+
       exec-once = [
         "swaybg -m fill -i ${config.stylix.image}"
       ];
