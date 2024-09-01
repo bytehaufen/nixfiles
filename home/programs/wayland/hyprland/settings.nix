@@ -1,10 +1,10 @@
 {...}: {
   wayland.windowManager.hyprland.settings = {
     env = [
-      "NIXOS_OZONE_WL,1" # for any ozone-based browser & electron apps to run on wayland
-      "MOZ_ENABLE_WAYLAND,1" # for firefox to run on wayland
+      "NIXOS_OZONE_WL,1" # For any ozone-based browser & electron apps to run on wayland
+      "MOZ_ENABLE_WAYLAND,1" # For firefox to run on wayland
       "MOZ_WEBRENDER,1"
-      # misc
+      # Misc
       "_JAVA_AWT_WM_NONREPARENTING,1"
       "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
       "QT_QPA_PLATFORM,wayland"

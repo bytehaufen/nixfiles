@@ -27,7 +27,7 @@ in {
     EDITOR = "nvim";
     DIRENV_LOG_FORMAT = "";
 
-    # auto-run programs using nix-index-database
+    # Auto-run programs using nix-index-database
     NIX_AUTO_RUN = "1";
   };
   programs = {
