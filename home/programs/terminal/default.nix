@@ -6,7 +6,7 @@
   data = config.xdg.dataHome;
   conf = config.xdg.configHome;
   cache = config.xdg.cacheHome;
-  passwordStoreDir = "${data}/password-store"; # FIXME: Setting a custom dir doesn't work
+  passwordStoreDir = "${data}/password-store";
 in {
   imports = [
     ./programs
@@ -22,6 +22,7 @@ in {
     LESSKEY = "${conf}/less/lesskey";
 
     WINEPREFIX = "${data}/wine";
+
     # See https://github.com/sddm/sddm/issues/871
     # XAUTHORITY = "$XDG_RUNTIME_DIR/Xauthority";
 
