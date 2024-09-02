@@ -1,6 +1,6 @@
 {lib, ...}: {
   wayland.windowManager.hyprland.settings = {
-    # layer rules
+    # Layer rules
     layerrule = let
       toRegex = list: let
         elements = lib.concatStringsSep "|" list;
@@ -30,20 +30,24 @@
       "ignorealpha 0.2, ${toRegex lowopacity}"
     ];
 
-    # window rules
+    # Window rules
     windowrulev2 = [
-      # gnome calculator
+      # Gnome calculator
       "float, class:^(org.gnome.Calculator)$"
       "size 360 490, class:^(org.gnome.Calculator)$"
 
-      # allow tearing in games
+      # Quickgui (Quickemu)
+      "float, class:^(quickgui)$"
+      "move 100%-w-20, class:^(quickgui)$"
+
+      # Allow tearing in games
       "immediate, class:^(osu\!|cs2)$"
 
-      # make Firefox PiP window floating and sticky
+      # Make Firefox PiP window floating and sticky
       "float, title:^(Picture-in-Picture)$"
       "pin, title:^(Picture-in-Picture)$"
 
-      # throw sharing indicators away
+      # Throw sharing indicators away
       "workspace special silent, title:^(Firefox — Sharing Indicator)$"
       "workspace special silent, title:^(.*is sharing (your screen|a window)\.)$"
 
