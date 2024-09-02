@@ -22,7 +22,8 @@ in {
     LESSKEY = "${conf}/less/lesskey";
 
     WINEPREFIX = "${data}/wine";
-    XAUTHORITY = "$XDG_RUNTIME_DIR/Xauthority";
+    # See https://github.com/sddm/sddm/issues/871
+    # XAUTHORITY = "$XDG_RUNTIME_DIR/Xauthority";
 
     EDITOR = "nvim";
     DIRENV_LOG_FORMAT = "";
