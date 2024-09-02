@@ -1,5 +1,5 @@
-{...}: {
-  qt = {
+{
+  gtk = {
     enable = true;
   };
 }

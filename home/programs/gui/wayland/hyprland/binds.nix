@@ -17,8 +17,6 @@
     prog = builtins.substring 0 14 program;
     runserv = lib.optionalString service "run-as-service";
   in "pkill ${prog} || ${runserv} ${program}";
-
-  runOnce = program: "pgrep ${program} || ${program}";
 in {
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";

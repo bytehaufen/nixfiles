@@ -1,4 +1,4 @@
-{...}: {
+{
   wayland.windowManager.hyprland.settings = {
     env = [
       "NIXOS_OZONE_WL,1" # For any ozone-based browser & electron apps to run on wayland

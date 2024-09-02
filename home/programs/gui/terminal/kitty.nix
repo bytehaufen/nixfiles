@@ -19,9 +19,9 @@ in {
     };
 
     font = {
-      package = config.fonts.monospace.package;
-      name = config.fonts.monospace.name;
-      size = config.fonts.monospace.size;
+      inherit (config.fonts.monospace) package;
+      inherit (config.fonts.monospace) name;
+      inherit (config.fonts.monospace) size;
     };
 
     settings = {

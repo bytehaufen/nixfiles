@@ -1,14 +1,11 @@
 {
-  config,
-  lib,
-  ...
-}: {
   # FIXME: Extract from system config
 
   # programs.zsh = {
   #   enable = true;
   #   autosuggestion.enable = true;
   #   autocd = true;
+  #   syntaxHighlighting.enable = true;
   #
   #   dirHashes = {
   #     dl = "$HOME/Downloads";
@@ -68,6 +65,12 @@
   #       gnupg_path=$(ls $XDG_RUNTIME_DIR/gnupg)
   #       export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gnupg/$gnupg_path/S.gpg-agent.ssh"
   #     ''}
+  #   '';
+
+  #   envExtra = ''
+  #     # Make Nix and home-manager installed things available in PATH.
+  #     . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+  #     export PATH=/run/current-system/sw/bin/:/nix/var/nix/profiles/default/bin:$HOME/.nix-profile/bin:/etc/profiles/per-user/$USER/bin:$PATH
   #   '';
   #
   #   shellAliases =

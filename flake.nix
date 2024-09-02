@@ -46,33 +46,7 @@
 
         ./pkgs
       ];
-      perSystem = {
-        config,
-        pkgs,
-        system,
-        ...
-      }: {
-        # legacyPackages.homeConfigurations = {
-        #   rico = inputs.home-manager.lib.homeManagerConfiguration {
-        #     inherit pkgs;
-        #     extraSpecialArgs = {};
-        #     modules = [
-        #       inputs.stylix.homeManagerModules.stylix
-        #       ./home
-        #       {
-        #         home.username = "rico";
-        #         home.stateVersion = "23.11";
-        #         home.homeDirectory = "/${
-        #           if pkgs.stdenv.isDarwin
-        #           then "Users"
-        #           else "home"
-        #         }/rico";
-        #         nixGLPrefix = "${inputs.nixGL.packages.${system}.nixGLIntel}/bin/nixGLIntel ";
-        #       }
-        #     ];
-        #   };
-        # };
-
+      perSystem = {pkgs, ...}: {
         devShells.default = pkgs.mkShell {
           packages = [
             pkgs.alejandra

@@ -8,13 +8,6 @@
   cache = config.xdg.cacheHome;
   passwordStoreDir = "${data}/password-store";
 in {
-  imports = [
-    ./programs
-    ./shell/starship.nix
-    ./shell/zsh.nix
-    ./shell/zoxide.nix
-  ];
-
   # Add environment variables
   home.sessionVariables = {
     # Clean up ~
@@ -23,19 +16,9 @@ in {
 
     WINEPREFIX = "${data}/wine";
 
-    # See https://github.com/sddm/sddm/issues/871
-    # XAUTHORITY = "$XDG_RUNTIME_DIR/Xauthority";
-
     EDITOR = "nvim";
-    DIRENV_LOG_FORMAT = "";
-
-    # Auto-run programs using nix-index-database
-    NIX_AUTO_RUN = "1";
   };
   programs = {
-    # Type `z <pat>` to cd to some directory
-    zoxide.enable = true;
-
     # Type `<ctrl> + r` to fuzzy search your shell history
     fzf.enable = true;
     jq.enable = true;
@@ -44,47 +27,9 @@ in {
       enable = true;
     };
 
-    ## TODO: Enable
-    # bash = {
-    #   enable = true;
-    #   initExtra = ''
-    #     # Make Nix and home-manager installed things available in PATH.
-    #     . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
-    #     export PATH=/run/current-system/sw/bin/:/nix/var/nix/profiles/default/bin:$HOME/.nix-profile/bin:/etc/profiles/per-user/$USER/bin:$PATH
-    #   '';
-    # };
-    #
-    # zsh = {
-    #   enable = true;
-    #   autosuggestion.enable = true;
-    #   syntaxHighlighting.enable = true;
-    #   envExtra = ''
-    #     # Make Nix and home-manager installed things available in PATH.
-    #     . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
-    #     export PATH=/run/current-system/sw/bin/:/nix/var/nix/profiles/default/bin:$HOME/.nix-profile/bin:/etc/profiles/per-user/$USER/bin:$PATH
-    #   '';
-    # };
-
-    # TODO:
-    # zsh.enable = true;
-
-    # TODO:
-    #git.enable = true;
+    # Terminal email client
+    aerc.enable = true;
   };
-
-  # Brave
-  programs.chromium = {
-    enable = true;
-    package = pkgs.brave;
-    commandLineArgs = [
-      "--enable-features=UseOzonePlatform"
-      "--ozone-platform=wayland"
-      "--password-store=basic"
-    ];
-  };
-
-  # Terminal email client
-  programs.aerc.enable = true;
 
   # Password
   programs.password-store = {
@@ -110,23 +55,14 @@ in {
       "firefox"
     ];
   };
-  services.gnome-keyring.enable = true;
 
   home.packages = with pkgs; [
-    nix-output-monitor # nom
-    cachix # Cachix
-    lorri # Nix project  development environment
-    nil # Nix language server
-
-    # TODO: Config this
-    # Terminal
+    imagemagick # Image manipulation
     just # Make like command runner
     neofetch # CLI information tool
+    tmux # Terminal multiplexer
     tree-sitter # Language parser
-    imagemagick # Image manipulation
 
-    tmux
-    github-cli # GitHub CLI
     rustc # Rust compiler
     cargo # Rust package manager
     rust-analyzer # Rust language server
@@ -146,16 +82,12 @@ in {
     exiftool # Metadata
     bat # Cat clone
     fd # Find clone
-    zoxide # Cd clone
     # igrep # Interactive grep # FIXME: Currently broken
     dust # Disk usage
     zoxide # Intelligent cd
     hexyl # Hex viewer
     lazydocker # Docker manager
 
-    spotube # Spotify client
-
-    keepassxc # Password manager
     nodejs_22
     # zip
     # unzip
@@ -175,14 +107,8 @@ in {
 
     #difftastic #TODO: Check
     # GUI
-    discord # Discord client
-    wofi # Application launcher
 
-    # Emulators
-    quickemu # Emulator manager
-    quickgui # Emulator manager GUI
-    spice-gtk # Spice client for quickemu
-    wineWowPackages.waylandFull # Windows compatibility layer
-    winetricks # Windows compatibility layer
+    # TODO: Check rly obsolete
+    # wofi # Application launcher
   ];
 }
