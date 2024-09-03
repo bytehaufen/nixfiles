@@ -10,5 +10,8 @@
     mission-center # System monitor
     nautilus # File manager
     overskride # Bluetooth / Obex client
+
+    glibc
+    xwayland
   ];
 }
