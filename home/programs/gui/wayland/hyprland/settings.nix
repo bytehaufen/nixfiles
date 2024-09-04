@@ -16,8 +16,9 @@
     exec-once = [
       # FIXME: Need to configure
       # "hyprlock"
-      # TODO: Check needed
-      # "dbus-update-activation-environment --systemd XDG_CURRENT_DESKTOP WAYLAND_DISPLAY"
+
+      # Export the environment variables for the session
+      "dbus-update-activation-environment --systemd XDG_CURRENT_DESKTOP WAYLAND_DISPLAY"
     ];
 
     general = {
