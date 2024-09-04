@@ -29,6 +29,7 @@
 
     # Programs - TUI
     ../../programs/tui
+    ../../programs/tui/fastfetch.nix
     ../../programs/tui/nnn
     ../../programs/tui/shell/starship.nix
     ../../programs/tui/shell/zoxide.nix

@@ -59,7 +59,6 @@ in {
   home.packages = with pkgs; [
     imagemagick # Image manipulation
     just # Make like command runner
-    neofetch # CLI information tool
     tmux # Terminal multiplexer
     tree-sitter # Language parser
 
