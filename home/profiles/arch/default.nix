@@ -40,6 +40,7 @@
     ../../programs/tui/nix.nix
     ../../programs/tui/skim.nix
     ../../programs/tui/transient-services.nix
+    ../../programs/tui/tmux
     ../../programs/tui/xdg.nix
     ../../programs/tui/yazi.nix
 

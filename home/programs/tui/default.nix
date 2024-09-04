@@ -59,7 +59,6 @@ in {
   home.packages = with pkgs; [
     imagemagick # Image manipulation
     just # Make like command runner
-    tmux # Terminal multiplexer
     tree-sitter # Language parser
 
     rustc # Rust compiler
@@ -93,7 +92,6 @@ in {
     # which
     # tree
     # grim
-    # tmux
     # yt-dlp
     # keepassxc
     # cmatrix
