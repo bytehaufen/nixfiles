@@ -48,7 +48,7 @@ in {
 
         # Toggle "monocle" (no_gaps_when_only)
         "$mod, M, exec, hyprctl keyword ${monocle} $(($(hyprctl getoption ${monocle} -j | jaq -r '.int') ^ 1))"
-        # "$mod, m, fullscreen, toggle" # NOTE: Eventually set this to another binding
+        "$mod, M, fullscreen, toggle" # NOTE: Eventually set this to another binding
 
         # Keybinding to apply monitor settings
         "$mod SHIFT, M, exec,    set_monitors.sh"

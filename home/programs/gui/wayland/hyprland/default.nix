@@ -75,6 +75,8 @@ in {
         "swaybg -m fill -i ${config.stylix.image}"
       ];
 
+      # FIXME: What to do with this?
+
       # windowrule = [
       #   "float,title:^(Open File)(.*)$"
       #   "float,title:^(Open Folder)(.*)$"
