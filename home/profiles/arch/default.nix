@@ -22,6 +22,7 @@
     ../../programs/gui/emulators/default.nix
     ../../programs/gui/media/default.nix
     ../../programs/gui/office/default.nix
+    ../../programs/gui/social/discord.nix
     ../../programs/gui/terminal/kitty.nix
     ../../programs/gui/terminal/wezterm.nix
     ../../programs/gui/wayland/default.nix
