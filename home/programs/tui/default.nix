@@ -80,7 +80,6 @@ in {
     fd # Fast find
 
     exiftool # Metadata
-    bat # Cat clone
     fd # Find clone
     # igrep # Interactive grep # FIXME: Currently broken
     dust # Disk usage
