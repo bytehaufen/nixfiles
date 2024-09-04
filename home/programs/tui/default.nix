@@ -70,7 +70,6 @@ in {
     viu # Image viewer
     chafa # Image to ASCII converter
     ueberzugpp # Image viewer
-    delta # Git diff viewer
     inkscape # Vector graphics editor
     sd # Fast sed
     tealdeer # tldr
