@@ -21,6 +21,7 @@ in {
 
     targets = {
       # Enabled
+      qutebrowser.enable = true;
       hyprland.enable = true;
       zellij.enable = true;
     };

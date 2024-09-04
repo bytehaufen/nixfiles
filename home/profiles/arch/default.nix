@@ -15,8 +15,7 @@
     ../../programs/gui
     ../../programs/gui/anyrun
 
-    # TODO: Enable when dotfiles merged
-    # ../../programs/gui/browsers/qutebrowser.nix
+    ../../programs/gui/browsers/qutebrowser.nix
 
     ../../programs/gui/browsers/brave.nix
     ../../programs/gui/emulators/default.nix
