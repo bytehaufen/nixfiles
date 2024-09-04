@@ -21,16 +21,8 @@ in {
 
     targets = {
       # Enabled
-      bat.enable = false;
       hyprland.enable = true;
       zellij.enable = true;
-
-      btop.enable = false;
-      qutebrowser.enable = false;
-      lazygit.enable = false;
-      wezterm.enable = false;
-      # FIXME: Set font
-      kitty.enable = false;
     };
 
     polarity = "dark"; # [ "dark" | "light" ]
