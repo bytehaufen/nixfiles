@@ -22,6 +22,7 @@
     swww
     util-linux
     which
+    networkmanager
   ];
 
   guiDeps = with pkgs; [
