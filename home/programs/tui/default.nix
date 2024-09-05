@@ -20,7 +20,6 @@ in {
   };
   programs = {
     # Type `<ctrl> + r` to fuzzy search your shell history
-    fzf.enable = true;
     jq.enable = true;
 
     neovim = {
@@ -29,31 +28,61 @@ in {
 
     # Terminal email client
     aerc.enable = true;
-  };
 
-  # Password
-  programs.password-store = {
-    enable = true;
-    package = pkgs.pass.withExtensions (exts: [
-      # [awesome-password-store](https://github.com/tijn/awesome-password-store)
-      exts.pass-update # A pass extension that provides an easy flow for updating passwords
-      exts.pass-import # A generic importer tool from other password managers
-    ]);
-    settings = {
-      PASSWORD_STORE_DIR = passwordStoreDir;
-      PASSWORD_STORE_CLIP_TIME = "60";
-      PASSWORD_STORE_GENERATED_LENGTH = "15";
-      PASSWORD_STORE_ENABLE_EXTENSIONS = "true";
+    eza = {
+      enable = true;
+      enableNushellIntegration = false;
+      git = true;
+      icons = true;
     };
-  };
-  programs.browserpass = {
-    enable = true;
-    browsers = [
-      "brave"
-      "chrome"
-      "chromium"
-      "firefox"
-    ];
+
+    # A command-line fuzzy finder
+    fzf = {
+      enable = true;
+      colors = {
+        "bg+" = "#283457";
+        "bg" = "#16161e";
+        "border" = "#27a1b9";
+        "fg" = "#c0caf5";
+        "gutter" = "#16161e";
+        "header" = "#ff9e64";
+        "hl+" = "#2ac3de";
+        "hl" = "#2ac3de";
+        "info" = "#545c7e";
+        "marker" = "#ff007c";
+        "pointer" = "#ff007c";
+        "prompt" = "#2ac3de";
+        "query" = "#c0caf5:regular";
+        "scrollbar" = "#27a1b9";
+        "separator" = "#ff9e64";
+        "spinner" = "#ff007c";
+      };
+    };
+
+    # Password
+    password-store = {
+      enable = true;
+      package = pkgs.pass.withExtensions (exts: [
+        # [awesome-password-store](https://github.com/tijn/awesome-password-store)
+        exts.pass-update # A pass extension that provides an easy flow for updating passwords
+        exts.pass-import # A generic importer tool from other password managers
+      ]);
+      settings = {
+        PASSWORD_STORE_DIR = passwordStoreDir;
+        PASSWORD_STORE_CLIP_TIME = "60";
+        PASSWORD_STORE_GENERATED_LENGTH = "15";
+        PASSWORD_STORE_ENABLE_EXTENSIONS = "true";
+      };
+    };
+    browserpass = {
+      enable = true;
+      browsers = [
+        "brave"
+        "chrome"
+        "chromium"
+        "firefox"
+      ];
+    };
   };
 
   home.packages = with pkgs; [
