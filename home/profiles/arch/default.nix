@@ -43,6 +43,7 @@
     ../../programs/tui/tmux
     ../../programs/tui/xdg.nix
     ../../programs/tui/yazi.nix
+    ../../programs/tui/zellij
 
     # Services
     ../../services/media/playerctl.nix
