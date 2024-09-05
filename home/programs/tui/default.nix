@@ -6,7 +6,6 @@
   data = config.xdg.dataHome;
   conf = config.xdg.configHome;
   cache = config.xdg.cacheHome;
-  passwordStoreDir = "${data}/password-store";
 in {
   # Add environment variables
   home.sessionVariables = {
@@ -58,31 +57,6 @@ in {
         "spinner" = "#ff007c";
       };
     };
-
-    # Password
-    password-store = {
-      enable = true;
-      package = pkgs.pass.withExtensions (exts: [
-        # [awesome-password-store](https://github.com/tijn/awesome-password-store)
-        exts.pass-update # A pass extension that provides an easy flow for updating passwords
-        exts.pass-import # A generic importer tool from other password managers
-      ]);
-      settings = {
-        PASSWORD_STORE_DIR = passwordStoreDir;
-        PASSWORD_STORE_CLIP_TIME = "60";
-        PASSWORD_STORE_GENERATED_LENGTH = "15";
-        PASSWORD_STORE_ENABLE_EXTENSIONS = "true";
-      };
-    };
-    browserpass = {
-      enable = true;
-      browsers = [
-        "brave"
-        "chrome"
-        "chromium"
-        "firefox"
-      ];
-    };
   };
 
   home.packages = with pkgs; [
@@ -131,8 +105,5 @@ in {
 
     #difftastic #TODO: Check
     # GUI
-
-    # TODO: Check rly obsolete
-    # wofi # Application launcher
   ];
 }
