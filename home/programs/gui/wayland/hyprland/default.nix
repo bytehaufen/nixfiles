@@ -27,8 +27,8 @@ in {
     meson
     swaybg
     xdg-desktop-portal
-    xdg-desktop-portal-gtk
-    xdg-desktop-portal-gnome
+    # xdg-desktop-portal-gtk
+    # xdg-desktop-portal-gnome
     xdg-desktop-portal-hyprland
     morewaita-icon-theme
     adwaita-icon-theme
@@ -47,16 +47,17 @@ in {
   xdg.portal = {
     config = {
       common = {
-        default = ["gtk"];
-        "org.freedesktop.impl.portal.Secret" = ["gnome-keyring"];
+        default = ["hyprland"];
+        # "org.freedesktop.impl.portal.Secret" = ["gnome-keyring"];
       };
     };
     enable = true;
     xdgOpenUsePortal = false;
     extraPortals = with pkgs; [
       xdg-desktop-portal
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-gnome
+      # xdg-desktop-portal-gtk
+      # xdg-desktop-portal-gnome
+      xdg-desktop-portal-hyprland
     ];
   };
 
