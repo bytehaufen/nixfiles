@@ -42,7 +42,7 @@
     ../../programs/tui/transient-services.nix
     ../../programs/tui/tmux
     ../../programs/tui/xdg.nix
-    ../../programs/tui/yazi.nix
+    ../../programs/tui/yazi
     ../../programs/tui/zellij
 
     # Services
