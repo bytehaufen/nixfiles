@@ -90,7 +90,6 @@ in {
     nodejs_22
     # zip
     # unzip
-    # zsh
     # file
     # which
     # tree
