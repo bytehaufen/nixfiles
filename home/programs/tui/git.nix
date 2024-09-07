@@ -6,6 +6,66 @@
     git = {
       enable = true;
 
+      extraConfig = {
+        core = {
+          editor = "nvim";
+        };
+        delta = {
+          features = "side-by-side decorations";
+          navigate = true;
+          dark = true;
+        };
+        "delta \"interactive\"" = {
+          keep-plus-minus-markers = false;
+        };
+        alias = {
+          tree = "log --oneline --graph --decorate --all";
+        };
+        pull = {
+          ff = "only";
+        };
+        diff = {
+          colorMoved = "default";
+          tool = "nvimdiff";
+          guitool = "nvimdiff";
+        };
+        difftool = {
+          prompt = false;
+        };
+        "difftool \"nvimdiff\"" = {
+          cmd = "nvim -d \"$LOCAL\" \"$REMOTE\"";
+        };
+
+        merge = {
+          tool = "nvimmerge";
+          conflictstyle = "diff3";
+        };
+        mergetool = {
+          keepBackup = false;
+          prompt = true;
+        };
+        "mergetool \"nvimmerge\"" = {
+          cmd = "nvim -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\"";
+        };
+        color = {
+          ui = "auto";
+        };
+        init = {
+          defaultBranch = "main";
+        };
+        credential = {
+          helper = "store";
+        };
+        ssh = {
+          postBuffer = 524288000;
+        };
+        http = {
+          postBuffer = 524288000;
+        };
+      };
+
+      ignores = ["*~" "*.swp" "*result*" ".direnv" "node_modules"];
+
       delta = {
         enable = true;
         options = {
@@ -24,13 +84,6 @@
           line-numbers-zero-style = "#3b4261";
         };
       };
-
-      extraConfig = {
-        diff.colorMoved = "default";
-        merge.conflictstyle = "diff3";
-      };
-
-      ignores = ["*~" "*.swp" "*result*" ".direnv" "node_modules"];
     };
 
     # Github-cli
