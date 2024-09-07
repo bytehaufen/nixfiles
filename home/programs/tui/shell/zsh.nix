@@ -54,14 +54,6 @@
         nvim --headless "+Lazy! sync" +qa
       }
 
-
-      # Clean nvim temp and cache files
-      function clean_nvim() {
-        rm -rf $HOME/.local/state/nvim/
-        rm -rf $HOME/.local/share/nvim/
-        rm -rf $HOME/.cache/nvim/
-      }
-
       # Search history based on what's typed in the prompt
       autoload -U history-search-end
       zle -N history-beginning-search-backward-end history-search-end
