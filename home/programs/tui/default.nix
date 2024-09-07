@@ -21,10 +21,6 @@ in {
     # Type `<ctrl> + r` to fuzzy search your shell history
     jq.enable = true;
 
-    neovim = {
-      enable = true;
-    };
-
     # Terminal email client
     aerc.enable = true;
 

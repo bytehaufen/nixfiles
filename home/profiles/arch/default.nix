@@ -31,6 +31,7 @@
     ../../programs/tui
     ../../programs/tui/fastfetch.nix
     ../../programs/tui/nnn
+    ../../programs/tui/neovim
     ../../programs/tui/shell/starship.nix
     ../../programs/tui/shell/zoxide.nix
     ../../programs/tui/shell/zsh.nix
