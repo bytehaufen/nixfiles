@@ -69,9 +69,6 @@ in {
         # Switch keyboard lang
         "SUPER, backspace, exec, switch_lang.sh"
 
-        # Logout menu
-        "$mod, Escape, exec, ${toggle "wlogout" true} -p layer-shell"
-
         # Standby screen #FIXME: Repair
         # "$mod ALT, L, exec, pgrep hyprlock || hyprlock"
         "$mod ALT, l, exec, suspend.sh"

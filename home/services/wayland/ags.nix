@@ -29,7 +29,6 @@
     gnome.gnome-control-center
     mission-center
     overskride
-    wlogout
     morewaita-icon-theme
     adwaita-icon-theme
     qogir-icon-theme

@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   imports = [
     ./hyprland
-    ./wlogout.nix
     ./swaylock.nix
 
     # FIXME: Configure
