@@ -4,7 +4,11 @@
     enableBashIntegration = true;
     enableZshIntegration = true;
     enableNushellIntegration = true;
+    settings = {
+      keymap_mode = "auto";
+    };
   };
+
   programs.zsh = {
     enable = true;
     autosuggestion = {
@@ -13,6 +17,8 @@
     };
     autocd = true;
     syntaxHighlighting.enable = true;
+    enableCompletion = true;
+    enableVteIntegration = true;
 
     dotDir = ".config/zsh";
 
@@ -20,10 +26,24 @@
       expireDuplicatesFirst = true;
       path = "${config.xdg.dataHome}/zsh_history";
     };
-    # defaultKeymap = "vicmd";
+
     defaultKeymap = "viins";
 
+    sessionVariables = {
+      EDITOR = "nvim";
+      VISUAL = "nvim";
+      PAGER = "less";
+      MANPAGER = "nvim +Man!";
+      BAT_THEME = "ansi";
+    };
+
+    # TODO: Refactor, e.g. ssh-agent is at the wrong place
     initExtra = ''
+      eval `ssh-agent -s` &> /dev/null
+      if [ -f ~/.ssh/$USER ]; then
+        ssh-add ~/.ssh/$USER &> /dev/null
+      fi
+
       # Update all
       function update_arch() {
         yay -Syu --noconfirm
@@ -33,6 +53,14 @@
         rustup upgrade
         nvim --headless "+MasonToolsInstall" +"sleep 20" +qa
         nvim --headless "+Lazy! sync" +qa
+      }
+
+
+      # Clean nvim temp and cache files
+      function clean_nvim() {
+        rm -rf $HOME/.local/state/nvim/
+        rm -rf $HOME/.local/share/nvim/
+        rm -rf $HOME/.cache/nvim/
       }
 
       # Search history based on what's typed in the prompt
@@ -65,6 +93,8 @@
       # Make Nix and home-manager installed things available in PATH.
       . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
       export PATH=$HOME/.local/bin/:/run/current-system/sw/bin/:/nix/var/nix/profiles/default/bin:$HOME/.nix-profile/bin:/etc/profiles/per-user/$USER/bin:$PATH
+
+
     '';
 
     shellAliases = {
@@ -81,8 +111,7 @@
       gg = "lazygit";
       grep = "grep --color";
       ip = "ip --color";
-      j = "z";
-      ji = "z -i";
+      j = "zi";
       l = "eza --classify --group-directories-first --color=auto --color-scale --all";
       la = "eza --classify --group-directories-first --color=auto --color-scale --all";
       ll = "eza --long --links --group --modified --classify --git --group-directories-first --color=auto --color-scale --icons";
