@@ -33,7 +33,7 @@
     ../../programs/tui/shell/starship.nix
     ../../programs/tui/shell/zoxide.nix
     ../../programs/tui/shell/zsh.nix
-    ../../programs/tui/bat.nix
+    ../../programs/tui/bat
     ../../programs/tui/btop.nix
     ../../programs/tui/cli.nix
     ../../programs/tui/git.nix

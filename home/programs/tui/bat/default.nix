@@ -4,8 +4,10 @@
     config = {
       pager = "less -FR";
       tabs = "2";
-      theme = "ansi";
+      theme = "tokyonight_night"; # Setting theme here does not work
     };
     extraPackages = with pkgs.bat-extras; [batdiff batwatch];
   };
+
+  xdg.configFile."bat/themes/tokyonight_night.tmTheme".source = ./tokyonight_night.tmTheme;
 }

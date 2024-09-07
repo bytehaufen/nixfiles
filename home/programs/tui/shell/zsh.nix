@@ -34,7 +34,6 @@
       VISUAL = "nvim";
       PAGER = "less";
       MANPAGER = "nvim +Man!";
-      BAT_THEME = "ansi";
     };
 
     # TODO: Refactor, e.g. ssh-agent is at the wrong place
