@@ -1,0 +1,19 @@
+set ignorecase              " case insensitive 
+set hlsearch                " highlight search 
+set incsearch               " incremental search
+set cursorline              " highlight current cursorline
+set contentassistmode
+set gvimpath=/usr/bin/nvim
+
+set clipboard=unnamedplus
+
+map Y y$
+map <S-h> :tabprevious<CR>
+map <S-l> :tabnext<CR>
+
+
+" Press i to enter insert mode, and  to exit insert mode.
+inoremap jk <Esc>
+
+" leader key
+map <Space> <Leader>

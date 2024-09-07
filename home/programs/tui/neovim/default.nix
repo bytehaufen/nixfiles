@@ -8,6 +8,9 @@
     ${pkgs.rsync}/bin/rsync -avz --chmod=D2755,F744 ${./nvim}/ ${config.xdg.configHome}/nvim/
   '';
 
+  # For eclipses vim plugin
+  home.file.".vrapperrc".source = ./.vrapperrc;
+
   programs = {
     zsh.shellAliases = {
       e = "nvim";
