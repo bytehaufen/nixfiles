@@ -17,6 +17,7 @@ in {
 
     EDITOR = "nvim";
   };
+
   programs = {
     # Type `<ctrl> + r` to fuzzy search your shell history
     jq.enable = true;
