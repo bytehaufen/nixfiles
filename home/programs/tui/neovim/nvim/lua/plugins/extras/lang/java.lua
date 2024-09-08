@@ -1,6 +1,7 @@
 return {
+  -- FIXME: Actually default lazyvim java setup used
 
-  -- add java to treesitter
+  -- Add java to treesitter
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
@@ -10,7 +11,7 @@ return {
     end,
   },
 
-  -- correctly setup mason lsp extensions
+  -- Correctly setup mason lsp extensions
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
@@ -20,7 +21,7 @@ return {
     end,
   },
 
-  -- correctly setup mason dap extensions
+  -- Correctly setup mason dap extensions
   {
     "jay-babu/mason-nvim-dap.nvim",
     opts = function(_, opts)
@@ -30,12 +31,12 @@ return {
     end,
   },
 
-  -- correctly setup lspconfig
+  -- Correctly setup lspconfig
   {
     "neovim/nvim-lspconfig",
     dependencies = { "mfussenegger/nvim-jdtls" },
     opts = {
-      -- configure jdtls and attach to Java ft
+      -- Configure jdtls and attach to Java ft
       setup = {
         jdtls = function(_, opts)
           -- Determine OS
@@ -101,7 +102,7 @@ return {
               local jdtls = require("jdtls")
               local jdtls_config = vim.tbl_deep_extend("force", opts, {
                 on_attach = require("lazyvim.util").lsp.on_attach(function(_, buffer)
-                  -- custom keymaps
+                  -- Custom keymaps
                   vim.keymap.set("n", "<leader>co", function()
                     require("jdtls").organize_imports()
                   end, { buffer = buffer, desc = "Organize Imports" })
