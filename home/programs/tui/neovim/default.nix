@@ -5,7 +5,7 @@
   ...
 }: {
   home.activation.installNvim = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    ${pkgs.rsync}/bin/rsync -avz --chmod=D2755,F744 ${./nvim}/ ${config.xdg.configHome}/nvim/
+    ${pkgs.rsync}/bin/rsync -avz --chmod=D2755,F444 ${./nvim}/ ${config.xdg.configHome}/nvim/
   '';
 
   # For eclipses vim plugin

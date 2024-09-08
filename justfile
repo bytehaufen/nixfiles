@@ -67,7 +67,7 @@ clean:
 # Copy flake neovim configuration to $HOME/.config
 [group('neovim')]
 nvim-test: nvim-clean
-  rsync -avz --copy-links --chmod=D2755,F744 home/programs/tui/neovim/nvim "$HOME/.config/"
+  rsync -avz --copy-links --chmod=D2755,F444 home/programs/tui/neovim/nvim "$HOME/.config/"
 
 # Clean neovim configuration
 [group('neovim')]
