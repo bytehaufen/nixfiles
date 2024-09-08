@@ -3,6 +3,9 @@
     # Nixpkgs config
     ../../../nix
 
+    # Core
+    ../../core/xkb
+
     # NixGL
     ../../wrapper/nixglprefix.nix
 
