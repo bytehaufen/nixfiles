@@ -1,136 +1,20 @@
 return {
-  --
-  -- -- uncomment and add tools to ensure_installed below
-  -- {
-  --   "williamboman/mason.nvim",
-  --   opts = {
-  --     ui = {
-  --       icons = {
-  --         package_installed = "✓",
-  --         package_pending = "",
-  --         package_uninstalled = "✗",
-  --       },
-  --     },
-  --     providers = {
-  --       "mason.providers.client", "mason.providers.registry-api",
-  --     }
-  --   },
-  -- },
-  --
-  -- -- Mason lspconfig
-  -- {
-  --   "williamboman/mason-lspconfig.nvim",
-  --   opts = function(_, opts)
-  --     if type(opts.ensure_installed) == "table" then
-  --       vim.list_extend(opts.ensure_installed, {
-  --         "lua-language-server",
-  --         "marksman",
-  --         "stylua",
-  --         "shfmt",
-  --         "sourcekit",
-  --         "pyright",
-  --         "bashls",
-  --         "clangd",
-  --         "cmake",
-  --         "cssls",
-  --         "dockerls",
-  --         "gradle_ls",
-  --         "html",
-  --         "texlab",
-  --         "debugpy",
-  --         "prisma",
-  --         "tailwindcss",
-  --         "arduino_language_server",
-  --         "docker_compose_language_service",
-  --         "eslint",
-  --       })
-  --     end
-  --     opts.automatic_installation = true
-  --     return opts
-  --   end,
-  -- },
-  --
-  -- -- uncomment and add lsp servers with their config to servers below
-  -- {
-  --   "neovim/nvim-lspconfig",
-  --   ---@class PluginLspOpts
-  --   opts = {
-  --     --   ---@type lspconfig.options
-  --     --   servers = {
-  --     --     -- sourcekit will be automatically installed with mason and loaded with lspconfig
-  --     --     sourcekit = {},
-  --     --     pyright = {},
-  --     --     bashls = {},
-  --     --     clangd = {},
-  --     --     cmake = {},
-  --     --     cssls = {},
-  --     --     dockerls = {},
-  --     --     gradle_ls = {},
-  --     --     html = {},
-  --     texlab = {},
-  --     --     debugpy = {},
-  --     --     prisma = {},
-  --     --     tailwindcss = {},
-  --     --   },
-  --   },
-  -- },
-  --
-  -- -- Autotag
-  -- {
-  --   "windwp/nvim-ts-autotag",
-  --   opts = {
-  --     autotag = {
-  --       enable = true,
-  --     },
-  --   },
-  -- },
-  --
-  -- -- which key integration
-  -- {
-  --   "folke/which-key.nvim",
-  --   opts = {
-  --     defaults = {
-  --       ["<leader>dw"] = { name = "+widgets" },
-  --     },
-  --   },
-  -- },
-  --
-  -- -- dap integration
-  -- {
-  --   "mfussenegger/nvim-dap",
-  --   keys = {
-  --     {
-  --       "<leader>de",
-  --       function()
-  --         require("dap.ui.widgets").centered_float(require("dap.ui.widgets").expression, { border = "none" })
-  --       end,
-  --       desc = "Eval",
-  --       mode = { "n", "v" },
-  --     },
-  --     {
-  --       "<leader>dwf",
-  --       function()
-  --         require("dap.ui.widgets").centered_float(require("dap.ui.widgets").frames, { border = "none" })
-  --       end,
-  --       desc = "Frames",
-  --     },
-  --     {
-  --       "<leader>dws",
-  --       function()
-  --         require("dap.ui.widgets").centered_float(require("dap.ui.widgets").scopes, { border = "none" })
-  --       end,
-  --       desc = "Scopes",
-  --     },
-  --     {
-  --       "<leader>dwt",
-  --       function()
-  --         require("dap.ui.widgets").centered_float(require("dap.ui.widgets").threads, { border = "none" })
-  --       end,
-  --       desc = "Threads",
-  --     },
-  --   },
-  --   opts = function(_, _)
-  --     require("dap").defaults.fallback.terminal_win_cmd = "enew | set filetype=dap-terminal"
-  --   end,
-  -- },
+   -- Additional LSP's to be installed by mason
+   {
+     "williamboman/mason-lspconfig.nvim",
+     opts = function(_, opts)
+       if type(opts.ensure_installed) == "table" then
+         vim.list_extend(opts.ensure_installed, {
+           "bashls",
+           "dockerls",
+           "gradle_ls",
+           "html",
+           "arduino_language_server",
+           "docker_compose_language_service",
+         })
+       end
+       opts.automatic_installation = true
+       return opts
+     end,
+   },
 }
