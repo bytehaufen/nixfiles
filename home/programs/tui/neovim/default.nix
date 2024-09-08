@@ -4,7 +4,7 @@
   lib,
   ...
 }: {
-  home.activation.installAstroNvim = lib.hm.dag.entryAfter ["writeBoundary"] ''
+  home.activation.installNvim = lib.hm.dag.entryAfter ["writeBoundary"] ''
     ${pkgs.rsync}/bin/rsync -avz --chmod=D2755,F744 ${./nvim}/ ${config.xdg.configHome}/nvim/
   '';
 
@@ -22,6 +22,8 @@
 
       defaultEditor = true;
       vimAlias = true;
+      extraLuaPackages = ps: [ps.magick];
+      extraPackages = with pkgs; [imagemagick gcc];
 
       # These environment variables are needed to build and run binaries
       # with external package managers like mason.nvim.
