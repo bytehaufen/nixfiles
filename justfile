@@ -66,17 +66,17 @@ clean:
 
 # Copy flake neovim configuration to $HOME/.config
 [group('neovim')]
-nvim-test: nvim-clean
+test-nvim: clean-nvim
   rsync -avz --copy-links --chmod=D2755,F444 home/programs/tui/neovim/nvim "$HOME/.config/"
 
 # Clean neovim configuration
 [group('neovim')]
-nvim-clean:
+clean-nvim:
   rm -rf "$HOME/.config/nvim"
 
 # Purge neovim configuration
 [group('neovim')]
-nvim-purge: nvim-clean
+purge-nvim: clean-nvim
   rm -rf "$HOME/.local/state/nvim/"
   rm -rf "$HOME/.local/share/nvim/"
   rm -rf "$HOME/.cache/nvim/"
