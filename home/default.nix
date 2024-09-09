@@ -12,4 +12,6 @@
     extraOutputsToInstall = ["doc" "devdoc"];
     language.base = "en_US.UTF-8";
   };
+  news.display = "silent";
+  manual.manpages.enable = true;
 }
