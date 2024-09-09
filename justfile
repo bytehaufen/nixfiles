@@ -22,6 +22,12 @@ switch USER *ARGS: clean fmt check
 build USER *ARGS: fmt check
   home-manager build --flake '.#{{USER}}' {{ARGS}} --extra-experimental-features nix-command --extra-experimental-features flakes
 
+[group('nix')]
+build-activate USER *ARGS: fmt check
+  home-manager build --flake '.#{{USER}}' {{ARGS}} --extra-experimental-features nix-command --extra-experimental-features flakes
+  result/activate
+  systemctl --user restart ags 2> /dev/null
+
 # Update flake dependencies
 [group('nix')]
 update:
