@@ -10,8 +10,8 @@
     ../../wrapper/nixglprefix.nix
 
     # Theming
-    ../../theme/stylix.nix
     ../../theme/fonts.nix
+    ../../theme/theme.nix
     ../../../wallpaper
 
     # Programs - GUI

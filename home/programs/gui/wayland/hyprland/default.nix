@@ -73,7 +73,7 @@ in {
 
     settings = {
       exec-once = [
-        "swaybg -m fill -i ${config.stylix.image}"
+        "swaybg -m fill -i ${config.theme.wallpaper}"
       ];
 
       # FIXME: What to do with this?

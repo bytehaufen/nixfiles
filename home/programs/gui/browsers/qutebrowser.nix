@@ -5,6 +5,7 @@
 }: let
   nixGL = import ../../../wrapper/nixGL.nix {inherit pkgs config;};
 in {
+  # FIXME: Unthemed
   programs.qutebrowser = {
     enable = true;
     package = nixGL pkgs.qutebrowser;
