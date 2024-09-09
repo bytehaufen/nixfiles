@@ -8,7 +8,7 @@
   home = {
     username = "rico";
     homeDirectory = "/home/rico";
-    stateVersion = "23.11";
+    stateVersion = "24.11";
     extraOutputsToInstall = ["doc" "devdoc"];
     language.base = "en_US.UTF-8";
   };
