@@ -119,7 +119,7 @@
       # TODO:
       ppc = "powerprofilesctl";
       pf = "powerprofilesctl launch -p performance";
-      tree = "eza --all --git --group-directories-first --header --long --tree";
+      tree = "eza --git --group-directories-first --header --long --tree";
       q = "exit";
       vimdiff = "nvim -d";
       vim = "nvim";
