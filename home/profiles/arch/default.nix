@@ -43,6 +43,7 @@
     ../../programs/tui/cli.nix
     ../../programs/tui/git.nix
     ../../programs/tui/nix.nix
+    ../../programs/tui/password-mangement.nix
     ../../programs/tui/skim.nix
     ../../programs/tui/transient-services.nix
     ../../programs/tui/tmux
