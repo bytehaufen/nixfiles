@@ -12,7 +12,7 @@
 in {
   flake = {
     homeConfigurations = {
-      "rico@arch" = homeManagerConfiguration {
+      "rico-arch" = homeManagerConfiguration {
         modules = [
           ../.
           ./arch
