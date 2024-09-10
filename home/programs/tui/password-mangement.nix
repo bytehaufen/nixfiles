@@ -5,9 +5,15 @@
 }: let
   passwordStoreDir = "${config.xdg.dataHome}/password-store";
 in {
-  home.packages = [
-    pkgs.pinentry
-  ];
+  # NOTE: Restart gpg-agent after changing pinentry program
+  #
+  # ```shell
+  # gpgconf --kill gpg-agent
+  # ```
+  services.gpg-agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-qt;
+  };
 
   # Password store
   programs = {
