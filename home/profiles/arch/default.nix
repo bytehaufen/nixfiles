@@ -27,7 +27,7 @@
     ../../programs/gui/office/zathura.nix
     ../../programs/gui/social/discord.nix
     ../../programs/gui/terminal/kitty.nix
-    ../../programs/gui/terminal/wezterm.nix
+    # ../../programs/gui/terminal/wezterm.nix # Maybe later
     ../../programs/gui/wayland/default.nix
 
     # Programs - TUI
