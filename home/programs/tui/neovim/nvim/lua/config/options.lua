@@ -39,6 +39,15 @@ vim.g.lazyvim_python_lsp = "basedpyright"
 -- vim.api.nvim_command('set fillchars=eob: ')
 vim.opt.fillchars = "eob: "
 
+-- Root markers, first lsp, the file/directory patterns
+vim.g.root_spec = { "lsp", {
+  ".git",
+  ".svn",
+  "Makefile",
+  "make.sh",
+  ".lazy.lua",
+} }
+
 -- spell check
 vim.opt.spelllang = { "en", "de" }
 vim.opt.spell = true
