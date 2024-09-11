@@ -12,7 +12,7 @@ require("lazy").setup({
     -- import LazyVim plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- lazyvim extension modules
-    { import = "lazyvim.plugins.extras.ui.edgy" }, -- Must be imported before aerial and similar plugins
+    -- { import = "lazyvim.plugins.extras.ui.edgy" }, -- Must be imported before aerial and similar plugins
 
     { import = "lazyvim.plugins.extras.coding.copilot" },
     { import = "lazyvim.plugins.extras.coding.copilot-chat" },
@@ -54,6 +54,7 @@ require("lazy").setup({
     -- custom module configs
     { import = "plugins.extras.lang.nix" },
     { import = "plugins.extras.lang.nodejs" },
+    { import = "plugins.extras.lang.sql" },
     { import = "plugins.extras.lang.tex" },
     { import = "plugins" },
   },
