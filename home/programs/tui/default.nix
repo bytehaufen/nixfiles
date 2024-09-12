@@ -75,6 +75,7 @@ in {
     ripgrep # Fast grep
     eza # ls alternative
     fd # Fast find
+    igrep # Interactive grep
 
     exiftool # Metadata
     fd # Find clone
