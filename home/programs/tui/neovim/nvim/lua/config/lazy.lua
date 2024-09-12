@@ -36,7 +36,6 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.java" },
     { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.lang.kotlin" },
-    { import = "lazyvim.plugins.extras.lang.markdown" },
     { import = "lazyvim.plugins.extras.lang.python" },
     { import = "lazyvim.plugins.extras.lang.rust" },
     { import = "lazyvim.plugins.extras.lang.tailwind" },
@@ -52,6 +51,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.test.core" },
 
     -- custom module configs
+    { import = "plugins.extras.lang.markdown" },
     { import = "plugins.extras.lang.nix" },
     { import = "plugins.extras.lang.nodejs" },
     { import = "plugins.extras.lang.sql" },
