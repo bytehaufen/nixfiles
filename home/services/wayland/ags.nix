@@ -26,7 +26,7 @@
   ];
 
   guiDeps = with pkgs; [
-    gnome.gnome-control-center
+    gnome-control-center
     mission-center
     overskride
     morewaita-icon-theme
