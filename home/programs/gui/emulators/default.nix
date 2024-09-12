@@ -1,10 +1,15 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
-    quickemu # Emulator manager
-    quickgui # Emulator manager GUI
-    spice-gtk # Spice client for quickemu
+{
+  pkgs,
+  pkgs-stable,
+  ...
+}: {
+  home.packages = [
+    # NOTE: Stable because currently broken
+    pkgs-stable.quickemu # Emulator manager
+    pkgs-stable.quickgui # Emulator manager GUI
+    pkgs.spice-gtk # Spice client for quickemu
 
-    wineWowPackages.waylandFull # Windows compatibility layer
-    winetricks # Windows compatibility layer
+    pkgs.wineWowPackages.waylandFull # Windows compatibility layer
+    pkgs.winetricks # Windows compatibility layer
   ];
 }
