@@ -3,7 +3,8 @@
   inputs,
   ...
 }: let
-  extraSpecialArgs = {inherit inputs self;};
+  pkgs-stable = inputs.nixpkgs-stable.legacyPackages.${system};
+  extraSpecialArgs = {inherit inputs self pkgs-stable;};
 
   inherit (inputs.hm.lib) homeManagerConfiguration;
 
