@@ -85,6 +85,8 @@ in {
     hexyl # Hex viewer
     lazydocker # Docker manager
 
+    hyperfine # Benchmarking
+
     nodejs_22
     # zip
     # unzip
