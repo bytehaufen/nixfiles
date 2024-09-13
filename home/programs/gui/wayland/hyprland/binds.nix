@@ -51,8 +51,8 @@ in {
         "$mod, M, fullscreen, toggle" # NOTE: Eventually set this to another binding
 
         # Keybinding to apply monitor settings
-        "$mod SHIFT, M, exec,    set_monitors.sh"
-        "$mod CTRL,  M, exec,    set_monitors_mirrored.sh"
+        "$mod SHIFT, M, exec,    set-monitors"
+        "$mod CTRL,  M, exec,    set-monitors-mirrored"
 
         # Utility
         # Terminal
@@ -67,11 +67,11 @@ in {
         "$mod, E, exec, nautilus"
 
         # Switch keyboard lang
-        "SUPER, backspace, exec, switch_lang.sh"
+        "SUPER, backspace, exec, toggle-lang"
 
         # Standby screen #FIXME: Repair
         # "$mod ALT, L, exec, pgrep hyprlock || hyprlock"
-        "$mod ALT, l, exec, suspend.sh"
+        "$mod ALT, l, exec, pause-system"
 
         # Open calculator
         ", XF86Calculator, exec, ${toggle "gnome-calculator" true}"

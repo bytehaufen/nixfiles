@@ -2,6 +2,7 @@
   imports = [
     ./hyprland
     ./swaylock.nix
+    ./scripts
 
     # FIXME: Configure
     # ./hyprlock.nix

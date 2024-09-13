@@ -1,0 +1,11 @@
+#!/bin/bash
+
+PRIMARY="eDP-1"
+
+for monitor in $(hyprctl monitors | grep "Monitor" | awk '{print $2}'); do
+	if [ "${monitor}" != "${PRIMARY}" ]; then
+		hyprctl keyword monitor "${monitor},preferred,auto,1,mirror,${PRIMARY}"
+	fi
+done
+
+notify-send "Monitors set to mirrored"
