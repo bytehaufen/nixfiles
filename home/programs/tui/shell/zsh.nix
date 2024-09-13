@@ -34,6 +34,7 @@
       VISUAL = "nvim";
       PAGER = "less";
       MANPAGER = "nvim +Man!";
+      DIFFPROG = "nvim -d";
     };
 
     # TODO: Refactor, e.g. ssh-agent is at the wrong place
