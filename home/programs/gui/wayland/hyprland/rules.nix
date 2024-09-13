@@ -34,7 +34,6 @@
     windowrulev2 = [
       # Gnome calculator
       "float, class:^(org.gnome.Calculator)$"
-      "size 360 490, class:^(org.gnome.Calculator)$"
 
       # Quickgui (Quickemu)
       "float, class:^(quickgui)$"
@@ -57,6 +56,8 @@
 
       # Idle inhibit while watching videos
       "idleinhibit focus, class:^(mpv|.+exe|celluloid)$"
+      "idleinhibit focus, class:^(brave)$, title:^(.*YouTube.*)$"
+      "idleinhibit fullscreen, class:^(brave)$"
       "idleinhibit focus, class:^(firefox)$, title:^(.*YouTube.*)$"
       "idleinhibit fullscreen, class:^(firefox)$"
       "idleinhibit focus, class:^(qutebrowser)$, title:^(.*YouTube.*)$"
