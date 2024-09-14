@@ -69,6 +69,7 @@
 
       ignores = ["*~" "*.swp" "*result*" ".direnv" "node_modules"];
 
+      # Git **delta**
       delta = {
         enable = true;
         options = {
@@ -102,6 +103,7 @@
       };
     };
 
+    # Lazygit
     lazygit = {
       enable = true;
       settings = {
