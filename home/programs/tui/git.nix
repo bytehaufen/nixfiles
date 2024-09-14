@@ -10,6 +10,9 @@
         core = {
           editor = "nvim";
         };
+        commit = {
+          gpgsign = true;
+        };
         delta = {
           features = "side-by-side decorations";
           navigate = true;
