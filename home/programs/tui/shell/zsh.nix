@@ -49,7 +49,6 @@
         yay -Syu --noconfirm
         yay -Yc --noconfirm
         yay -Qtdq --noconfirm
-        yarn global upgrade
         rustup upgrade
         nvim --headless "+MasonToolsInstall" +"sleep 20" +qa
         nvim --headless "+Lazy! sync" +qa
