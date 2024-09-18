@@ -50,7 +50,6 @@
         yay -Yc --noconfirm
         yay -Qtdq --noconfirm
         rustup upgrade
-        nvim --headless "+MasonToolsInstall" +"sleep 20" +qa
         nvim --headless "+Lazy! sync" +qa
       }
 
