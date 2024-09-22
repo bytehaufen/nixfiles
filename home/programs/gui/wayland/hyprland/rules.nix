@@ -69,6 +69,11 @@
       "monitor 0, class:^(spotube)$"
       "move 100%-w-20, class:^(spotube)$"
 
+      # Gpt4all
+      "float, class:^(io.gpt4all.)$"
+      "size 1280 720, class:^(io.gpt4all.)$"
+      "move 100%-w-20, class:^(io.gpt4all.)$"
+
       "dimaround, class:^(gcr-prompter)$"
       "dimaround, class:^(xdg-desktop-portal-gtk)$"
       "dimaround, class:^(polkit-gnome-authentication-agent-1)$"
