@@ -45,6 +45,8 @@ in {
         "$mod ALT, ,resizeactive,"
         "$mod,      A, layoutmsg, togglesplit"
         "$mod SHIFT, A, layoutmsg, swapsplit"
+        # See the properties of the focused window
+        "$mod, I, exec, hyprctl activewindow > /tmp/hyprctl_activewindow && kitty -e zsh -c 'nvim /tmp/hyprctl_activewindow; rm /tmp/hyprctl_activewindow'"
 
         # Toggle "monocle" (no_gaps_when_only)
         "$mod, M, exec, hyprctl keyword ${monocle} $(($(hyprctl getoption ${monocle} -j | jaq -r '.int') ^ 1))"
