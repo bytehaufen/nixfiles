@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.atuin = {
     enable = true;
     enableBashIntegration = true;
@@ -27,7 +31,15 @@
       path = "${config.xdg.dataHome}/zsh_history";
     };
 
-    defaultKeymap = "viins";
+    plugins = [
+      {
+        name = "vi-mode";
+        src = pkgs.zsh-vi-mode;
+        file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+      }
+    ];
+
+    # defaultKeymap = "viins";
 
     sessionVariables = {
       EDITOR = "nvim";
@@ -35,6 +47,9 @@
       PAGER = "less";
       MANPAGER = "nvim +Man!";
       DIFFPROG = "nvim -d";
+
+      # ZVM_INIT_MODE = "sourcing";
+      ZVM_VI_INSERT_ESCAPE_BINDKEY = "jk";
     };
 
     # TODO: Refactor, e.g. ssh-agent is at the wrong place
@@ -48,7 +63,8 @@
       function update_arch() {
         yay -Syu --noconfirm
         yay -Yc --noconfirm
-        yay -Qtdq --noconfirm
+
+        yay -Rns $(yay -Qtdq --noconfirm) --noconfirm
         rustup upgrade
         nvim --headless "+Lazy! sync" +qa
       }
