@@ -84,6 +84,7 @@ in {
     zoxide # Intelligent cd
     hexyl # Hex viewer
     lazydocker # Docker manager
+    gpt4all # Free-to-use, locally running, privacy-aware chatbot. No GPU or internet required.
 
     hyperfine # Benchmarking
 
