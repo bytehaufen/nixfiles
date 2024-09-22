@@ -48,6 +48,15 @@ vim.g.root_spec = { "lsp", {
   ".lazy.lua",
 } }
 
+vim.filetype.add({
+  filename = {
+    [".env"] = "env",
+  },
+  pattern = {
+    ["/dev/shm/pass%.%w+/.*"] = "pass",
+  },
+})
+
 -- spell check
 vim.opt.spelllang = { "en", "de" }
 vim.opt.spell = true
