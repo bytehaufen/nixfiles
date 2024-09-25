@@ -27,7 +27,7 @@
     ../../programs/gui/office/zathura.nix
     ../../programs/gui/social/discord.nix
     ../../programs/gui/terminal/kitty.nix
-    # ../../programs/gui/terminal/wezterm.nix # Maybe later
+    ../../programs/gui/terminal/wezterm.nix # Maybe later
     ../../programs/gui/wayland/default.nix
 
     # Programs - TUI
@@ -43,7 +43,7 @@
     ../../programs/tui/cli.nix
     ../../programs/tui/git.nix
     ../../programs/tui/nix.nix
-    ../../programs/tui/password-mangement.nix
+    ../../programs/tui/password-management.nix
     ../../programs/tui/skim.nix
     ../../programs/tui/transient-services.nix
     ../../programs/tui/tmux
