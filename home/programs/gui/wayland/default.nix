@@ -11,7 +11,9 @@
   home.packages = with pkgs; [
     # Screenshot
     grim
+    grimblast
     slurp
+    obs-studio
 
     # utils
     wl-clipboard
