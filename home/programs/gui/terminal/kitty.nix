@@ -19,9 +19,8 @@ in {
     };
 
     font = {
-      inherit (config.fonts.monospace) package;
-      inherit (config.fonts.monospace) name;
-      inherit (config.fonts.monospace) size;
+      name = "FiraCode Nerd Font";
+      size = 12;
     };
 
     settings = {

@@ -1,25 +1,4 @@
 {pkgs, ...}: let
-  fonts = {
-    serif = {
-      package = pkgs.dejavu_fonts;
-      name = "DejaVu Serif";
-    };
-
-    sansSerif = {
-      package = pkgs.dejavu_fonts;
-      name = "DejaVu Sans";
-    };
-    monospace = {
-      package = pkgs.jetbrains-mono;
-      name = "JetBrains Mono";
-    };
-
-    emoji = {
-      package = pkgs.noto-fonts-emoji;
-      name = "Noto Color Emoji";
-    };
-  };
-
   tokyo-night-gtk = pkgs.tokyo-night-gtk.override {
     colorVariants = [
       "dark"
@@ -39,7 +18,24 @@
     ];
   };
 in {
+  # Default installed fonts
   home = {
+    packages = with pkgs; [
+      dejavu_fonts
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      liberation_ttf
+      (nerdfonts.override {
+        fonts = [
+          # Symbols icon only
+          "NerdFontsSymbolsOnly"
+          "FiraCode"
+          "JetBrainsMono"
+        ];
+      })
+    ];
+
     pointerCursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Classic";
@@ -48,13 +44,32 @@ in {
     };
   };
 
-  fonts.fontconfig.defaultFonts = fonts;
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      serif = [
+        "DejaVu Serif"
+        "Noto Color Emoji"
+      ];
+      sansSerif = [
+        "DejaVu Sans"
+        "Noto Color Emoji"
+      ];
+      monospace = [
+        "FiraCode Nerd Font"
+        "Noto Color Emoji"
+      ];
+
+      emoji = [
+        "Noto Color Emoji"
+      ];
+    };
+  };
+
   gtk = {
     enable = true;
 
-    font = {
-      inherit (fonts.sansSerif) name;
-    };
+    font.name = "DejaVu Sans";
 
     theme = {
       name = "Tokyonight-Dark-Storm";
