@@ -13,11 +13,11 @@ return {
   -- Molten configuration
   {
     "benlubas/molten-nvim",
-    dependencies = { "3rd/image.nvim" },
     build = ":UpdateRemotePlugins",
     config = function()
-      -- these are examples, not defaults. Please see the readme
-      vim.g.molten_image_provider = "image.nvim"
+      if vim.g.neovide == nil then
+        vim.g.molten_image_provider = "image.nvim"
+      end
       -- TODO: Check problem with image height
       -- vim.g.molten_output_win_max_height = 50
       vim.g.molten_auto_image_popup = true
@@ -99,5 +99,6 @@ return {
       window_overlap_clear_enabled = true, -- toggles images when windows are overlapped
       window_overlap_clear_ft_ignore = { "cmp_menu", "cmp_docs", "" },
     },
+    cond = not vim.g.neovide,
   },
 }
