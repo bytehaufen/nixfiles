@@ -39,9 +39,9 @@
       "float, class:^(quickgui)$"
       "move 100%-w-20, class:^(quickgui)$"
 
-      # Kitty
-      "float, class:^(kitty)$"
-      "size 80% 80%, class:^(kitty)$"
+      # Neovide
+      "float, class:^(neovide)$"
+      "size 80% 80%, class:^(neovide)$"
 
       # Allow tearing in games
       "immediate, class:^(osu\!|cs2)$"
