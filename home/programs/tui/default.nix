@@ -14,8 +14,6 @@ in {
     LESSKEY = "${conf}/less/lesskey";
 
     WINEPREFIX = "${data}/wine";
-
-    EDITOR = "nvim";
   };
 
   programs = {
