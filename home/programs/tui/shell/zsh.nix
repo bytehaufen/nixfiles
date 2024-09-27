@@ -39,16 +39,13 @@
       }
     ];
 
-    # defaultKeymap = "viins";
-
     sessionVariables = {
-      EDITOR = "nvim";
-      VISUAL = "nvim";
+      EDITOR = "neovide";
+      VISUAL = "neovide";
       PAGER = "less";
       MANPAGER = "nvim +Man!";
       DIFFPROG = "nvim -d";
 
-      # ZVM_INIT_MODE = "sourcing";
       ZVM_VI_INSERT_ESCAPE_BINDKEY = "jk";
     };
 
@@ -131,6 +128,7 @@
       mkdir = "mkdir -p";
       nf = "fastfetch";
       neofetch = "fastfetch";
+      nvd = "neovide";
       # TODO:
       ppc = "powerprofilesctl";
       pf = "powerprofilesctl launch -p performance";
@@ -143,7 +141,7 @@
       us = "systemctl --user";
       rs = "sudo systemctl";
 
-      qn = "nvim $HOME/Sync/notes/QuickNote.md";
+      qn = "neovide -- $HOME/Sync/notes/QuickNote.md";
     };
   };
 }
