@@ -20,8 +20,8 @@
       enable = true;
       package = pkgs.neovim-unwrapped;
 
-      defaultEditor = true;
-      vimAlias = true;
+      defaultEditor = false;
+      vimAlias = false;
       extraLuaPackages = ps: [ps.magick];
       extraPackages = with pkgs; [imagemagick gcc];
 
