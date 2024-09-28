@@ -1,5 +1,3 @@
--- disable some extension providers
-
 -- Find a python3 version >= 3.10 > Workaround for rocky linux
 local handle = io.popen("ls /usr/bin/python3*")
 if handle then
@@ -21,12 +19,13 @@ else
   vim.g.python3_host_prog = vim.fn.exepath("python3")
 end
 
+-- Disable some extension providers
 vim.g.loaded_python3_provider = nil
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 
--- Disable some fanzy UI stuff when run in Neovide
+-- Setup for Neovide
 if vim.g.neovide then
   vim.g.neovide_hide_mouse_when_typing = true
   vim.g.neovide_cursor_vfx_mode = "railgun"
