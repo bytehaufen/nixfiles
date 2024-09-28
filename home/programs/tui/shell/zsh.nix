@@ -128,7 +128,7 @@
       mkdir = "mkdir -p";
       nf = "fastfetch";
       neofetch = "fastfetch";
-      nvd = "neovide";
+      nv = "neovide";
       # TODO:
       ppc = "powerprofilesctl";
       pf = "powerprofilesctl launch -p performance";
