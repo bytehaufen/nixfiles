@@ -1,7 +1,7 @@
 return {
-  { "nvim-neo-tree/neo-tree.nvim", enabled = false },
   {
     "echasnovski/mini.files",
+    lazy = true,
     keys = {
       {
         "<leader>e",
