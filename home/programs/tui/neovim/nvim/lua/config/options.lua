@@ -42,10 +42,10 @@ end
 vim.g.autoformat = false
 vim.g.lazyvim_python_lsp = "basedpyright"
 
--- vim.api.nvim_command('set fillchars=eob: ')
+-- Remove the default `~` char for end of buffer
 vim.opt.fillchars = "eob: "
 
--- Root markers, first lsp, the file/directory patterns
+-- Root markers, first lsp, then file/directory patterns
 vim.g.root_spec = { "lsp", {
   ".git",
   ".svn",
@@ -54,6 +54,7 @@ vim.g.root_spec = { "lsp", {
   ".lazy.lua",
 } }
 
+-- Add extra filetypes to exclude lsps for that
 vim.filetype.add({
   filename = {
     [".env"] = "env",
