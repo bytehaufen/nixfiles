@@ -41,15 +41,16 @@
 
         merge = {
           tool = "nvimmerge";
-          conflictstyle = "diff3";
+          conflictstyle = "zdiff3";
         };
         mergetool = {
           keepBackup = false;
-          prompt = true;
+          prompt = false;
         };
         "mergetool \"nvimmerge\"" = {
-          cmd = "nvim -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\"";
+          cmd = "nvim -d \"$LOCAL\" \"$BASE\" \"$REMOTE\" \"$MERGED\" -c '$wincmd w' -c 'wincmd J'";
         };
+
         color = {
           ui = "auto";
         };
