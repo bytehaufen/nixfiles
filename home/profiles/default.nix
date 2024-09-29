@@ -20,7 +20,6 @@ in {
           {
             nixGLPrefix = "${inputs.nixGL.packages.${system}.nixGLIntel}/bin/nixGLIntel ";
           }
-          inputs.stylix.homeManagerModules.stylix
         ];
         inherit pkgs extraSpecialArgs;
       };
