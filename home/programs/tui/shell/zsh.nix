@@ -141,7 +141,7 @@
       us = "systemctl --user";
       rs = "sudo systemctl";
 
-      qn = "neovide -- $HOME/Sync/notes/QuickNote.md";
+      qn = "neovide -- $HOME/Sync/notes/quicknote.md";
     };
   };
 }
