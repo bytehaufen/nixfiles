@@ -19,5 +19,14 @@ return {
       { "<F7>", "<leader>do", desc = "Step Out", remap = true },
       { "<F6>", "<leader>dO", desc = "Step Over", remap = true },
     },
+    opts = function(_, opts)
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "dap-repl",
+        callback = function()
+          require("dap.ext.autocompl").attach()
+        end,
+      })
+      return opts
+    end,
   },
 }
