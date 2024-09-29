@@ -15,7 +15,7 @@ return {
         },
         hide_inactive_statusline = false,
         dim_inactive = true,
-        lualine_bold = false,
+        lualine_bold = true,
       }
       return opts
     end,
