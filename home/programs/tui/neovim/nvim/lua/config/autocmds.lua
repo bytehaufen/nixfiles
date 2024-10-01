@@ -42,3 +42,15 @@ vim.api.nvim_create_autocmd("Filetype", {
   end,
 })
 
+-- Fix c/cpp comments
+local function augroup(name)
+  return vim.api.nvim_create_augroup("lazyvim_config_" .. name, { clear = true })
+end
+vim.api.nvim_create_autocmd("Filetype", {
+  group = augroup("commentstring"),
+  pattern = { "c", "cpp", "cc", "h", "hh", "hpp" },
+  callback = function()
+    vim.opt.commentstring = "// %s"
+  end,
+  desc = "Change commentstring for c/c++ files",
+})
