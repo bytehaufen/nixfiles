@@ -22,8 +22,14 @@ switch USER *ARGS: clean fmt check
 build USER *ARGS: fmt check
   home-manager build --flake '.#{{USER}}' {{ARGS}} --extra-experimental-features nix-command --extra-experimental-features flakes
 
+# Build and activate home-manager configuration
 [group('nix')]
 build-activate USER *ARGS: fmt check
+  just build-activate-no-check {{USER}} {{ARGS}}
+
+# Build and activate home-manager configuration without checking and formatting
+[group('nix')]
+build-activate-no-check USER *ARGS:
   home-manager build --flake '.#{{USER}}' {{ARGS}} --extra-experimental-features nix-command --extra-experimental-features flakes
   result/activate
   systemctl --user restart ags 2> /dev/null
