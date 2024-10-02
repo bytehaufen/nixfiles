@@ -29,7 +29,8 @@
       allow_tearing = true;
       resize_on_border = true;
 
-      layout = "dwindle";
+      # layout = "dwindle";
+      layout = "master";
     };
 
     decoration = {
@@ -88,6 +89,7 @@
       };
     };
 
+    # Unused -> set to master layout
     dwindle = {
       pseudotile = true;
       preserve_split = true;
