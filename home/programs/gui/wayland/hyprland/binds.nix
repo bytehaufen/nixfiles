@@ -28,9 +28,7 @@ in {
     ];
 
     # binds
-    bind = let
-      monocle = "dwindle:no_gaps_when_only";
-    in
+    bind =
       [
         # Compositor commands
         "$mod SHIFT, Q, exec, pkill Hyprland"
@@ -41,6 +39,7 @@ in {
         "$mod SHIFT, N, changegroupactive, f"
         "$mod SHIFT, P, changegroupactive, b"
         "$mod, V, togglefloating, active"
+        "$mod, B, exec, hyprctl dispatch togglefloating; hyprctl dispatch layoutmsg swapwithmaster"
         "$mod, P, pseudo,"
         "$mod ALT, ,resizeactive,"
         "$mod,      A, layoutmsg, togglesplit"
@@ -48,28 +47,23 @@ in {
         # See the properties of the focused window
         "$mod, I, exec, hyprctl activewindow > /tmp/hyprctl_activewindow && kitty -e zsh -c 'nvim /tmp/hyprctl_activewindow; rm /tmp/hyprctl_activewindow'"
 
-        # Toggle "monocle" (no_gaps_when_only)
-        "$mod, M, exec, hyprctl keyword ${monocle} $(($(hyprctl getoption ${monocle} -j | jaq -r '.int') ^ 1))"
-        "$mod, M, fullscreen, toggle" # NOTE: Eventually set this to another binding
+        # Toggle fullscreen
+        "$mod, M, fullscreen, toggle"
 
         # Keybinding to apply monitor settings
         "$mod SHIFT, M, exec,    set-monitors"
         "$mod CTRL,  M, exec,    set-monitors-mirrored"
 
-        # Utility
         # Terminal
         "$mod, Return, exec, run-as-service kitty"
         "$mod SHIFT, Return, exec, run-as-service kitty -e /bin/bash"
-        # FIXME: Check necessity
-        # "SUPER,      Return,                exec, kitty"
-        # "SUPERSHIFT, Return,                exec, kitty -e /bin/bash"
 
         # Gui
         "$mod, W, exec, qutebrowser"
         "$mod, E, exec, nautilus"
 
         # Switch keyboard lang
-        "SUPER, backspace, exec, toggle-lang"
+        "$mod, backspace, exec, toggle-lang"
 
         # Standby screen #FIXME: Repair
         # "$mod ALT, L, exec, pgrep hyprlock || hyprlock"
