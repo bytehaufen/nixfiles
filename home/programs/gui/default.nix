@@ -8,7 +8,6 @@
     overskride # Bluetooth / Obex client
     vimiv-qt # Image viewer
 
-    glibc
     xwayland
   ];
 }
