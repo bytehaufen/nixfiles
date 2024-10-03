@@ -1,11 +1,14 @@
 #!/bin/sh
 
+RECORD_PATH=$HOME/Videos/screen-records
+
 pkill -x wf-recorder -SIGINT
 
 [ $? -ne 0 ] && {
     hyprctl keyword decoration:dim_strength 0
 
-    path="/tmp/record_$(date +%s)"
+    mkdir -p "$RECORD_PATH"
+    path="$RECORD_PATH/record_$(date +%s)"
     notify-send -t 2000 'Screen recording' 'Select an area to start the recording...'
     geometry="$(slurp -c '#ff3f3faf' -w 2 -d -o)"
     sleep 0.2 # slurp needs time to remove the red border...
