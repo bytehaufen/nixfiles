@@ -2,23 +2,21 @@
 
 RECORD_PATH=$HOME/Videos/screen-records
 
-pkill -x wf-recorder -SIGINT
+if ! pkill -x wf-recorder -SIGINT; then
+  hyprctl keyword decoration:dim_strength 0
 
-[ $? -ne 0 ] && {
-    hyprctl keyword decoration:dim_strength 0
+  mkdir -p "$RECORD_PATH"
+  path="$RECORD_PATH/record_$(date +%s)"
+  notify-send -t 2000 'Screen recording' 'Select an area to start the recording...'
+  geometry="$(slurp -c '#ff3f3faf' -w 2 -d -o)"
+  sleep 0.2 # slurp needs time to remove the red border...
+  wf-recorder -g "$geometry" -f "$path.mkv"
 
-    mkdir -p "$RECORD_PATH"
-    path="$RECORD_PATH/record_$(date +%s)"
-    notify-send -t 2000 'Screen recording' 'Select an area to start the recording...'
-    geometry="$(slurp -c '#ff3f3faf' -w 2 -d -o)"
-    sleep 0.2 # slurp needs time to remove the red border...
-    wf-recorder -g "$geometry" -f "$path.mkv"
+  hyprctl keyword decoration:dim_strength 0.2
 
-    hyprctl keyword decoration:dim_strength 0.2
+  ffmpeg -i "$path.mkv" -vf "fps=15,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" "$path.gif"
+  notify-send -t 2000 'Screen recording' "Recording is ready: $path.{mkv,gif}"
 
-    ffmpeg -i "$path.mkv" -vf "fps=15,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" "$path.gif"
-    notify-send -t 2000 'Screen recording' "Recording is ready: $path.{mkv,gif}"
-
-    wl-copy -t image/gif < "$path.gif"
-    echo "file://$path.mkv" | wl-copy -t text/uri-list
-} &
+  wl-copy -t image/gif <"$path.gif"
+  echo "file://$path.mkv" | wl-copy -t text/uri-list
+fi &
