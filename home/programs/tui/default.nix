@@ -87,6 +87,8 @@ in {
     hyperfine # Benchmarking
 
     nodejs_22
+
+    detox # Harmonize file names
     # zip
     # unzip
     # file
