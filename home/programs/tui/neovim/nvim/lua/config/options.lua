@@ -27,6 +27,14 @@ vim.g.loaded_perl_provider = 0
 
 -- Setup for Neovide
 if vim.g.neovide then
+  -- Yank - Paste fix to e.g. lazygit window
+  vim.api.nvim_set_keymap("v", "<sc-c>", '"+y', { noremap = true })
+  vim.api.nvim_set_keymap("n", "<c-v>", '"+p', { noremap = true })
+  vim.api.nvim_set_keymap("c", "<c-v>", "<C-R>+", { noremap = true })
+  vim.api.nvim_set_keymap("i", "<c-v>", "<C-R>+", { noremap = true })
+  vim.api.nvim_set_keymap("t", "<c-v>", '<C-\\><C-n>"+Pi', { noremap = true })
+
+  -- Optics
   vim.g.neovide_hide_mouse_when_typing = true
   vim.g.neovide_cursor_vfx_mode = "railgun"
 
