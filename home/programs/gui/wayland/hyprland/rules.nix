@@ -69,6 +69,12 @@
       "monitor 0, class:^(spotube)$"
       "move 100%-w-20, class:^(spotube)$"
 
+      # Musicpod
+      "float, class:^(musicpod)$"
+      "size 500 700, class:^(musicpod)$"
+      "monitor 0, class:^(musicpod)$"
+      "move 100%-w-20, class:^(musicpod)$"
+
       # Gpt4all
       "float, class:^(io.gpt4all.)$"
       "size 1280 720, class:^(io.gpt4all.)$"

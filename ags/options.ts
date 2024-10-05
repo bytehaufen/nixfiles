@@ -168,6 +168,7 @@ const options = mkOptions(OPTIONS, {
                     "firefox",
                     "kitty",
                     "nautilus",
+                    "musicpod",
                     "spotube",
                     "qutebrowser",
                 ],
