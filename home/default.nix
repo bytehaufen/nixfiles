@@ -10,16 +10,23 @@
     homeDirectory = "/home/rico";
     stateVersion = "24.11";
     extraOutputsToInstall = ["doc" "devdoc"];
-    language = {
-      base = "en_US.UTF-8";
 
-      address = "de_DE.UTF-8";
-      measurement = "de_DE.UTF-8";
-      monetary = "de_DE.UTF-8";
-      name = "de_DE.UTF-8";
-      numeric = "de_DE.UTF-8";
-      paper = "de_DE.UTF-8";
-      telephone = "de_DE.UTF-8";
+    # Lang
+    sessionVariables = {
+      LANG = "en_US.UTF-8";
+      LC_ALL = "en_US.UTF-8";
+      LC_CTYPE = "en_US.UTF-8";
+      LC_NUMERIC = "de_DE.UTF-8";
+      LC_COLLATE = "de_DE.UTF-8";
+      LC_TIME = "de_DE.UTF-8";
+      LC_MESSAGES = "de_DE.UTF-8";
+      LC_MONETARY = "de_DE.UTF-8";
+      LC_ADDRESS = "de_DE.UTF-8";
+      LC_IDENTIFICATION = "de_DE.UTF-8";
+      LC_MEASUREMENT = "de_DE.UTF-8";
+      LC_PAPER = "de_DE.UTF-8";
+      LC_TELEPHONE = "de_DE.UTF-8";
+      LC_NAME = "de_DE.UTF-8";
     };
   };
   news.display = "silent";
