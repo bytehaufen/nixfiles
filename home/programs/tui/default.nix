@@ -64,6 +64,8 @@ in {
     rust-analyzer # Rust language server
     lua # Lua language
     luajitPackages.magick # Lua bindings for ImageMagick
+    luajitPackages.lpeg # Lua parsing expression grammars
+
     viu # Image viewer
     chafa # Image to ASCII converter
     ueberzugpp # Image viewer
@@ -104,6 +106,8 @@ in {
     # glow
 
     #difftastic #TODO: Check
-    # GUI
+
+    ## Tex
+    pandoc
   ];
 }
