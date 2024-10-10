@@ -218,9 +218,8 @@ return {
           -- The default folder to place images in via `:ObsidianPasteImg`.
           -- If this is a relative path it will be interpreted as relative to the vault root.
           -- You can always override this per image by passing a full path to the command instead of just a filename.
-          -- img_folder = "./res", -- This is the default
 
-          img_folder = vim.fn.expand("%:p:h") .. "/res",
+          img_folder = vim.fn.expand("%:p:h") .. "/assets",
 
           -- Optional, customize the default name or prefix when pasting images via `:ObsidianPasteImg`.
           ---@return string
@@ -237,7 +236,7 @@ return {
           ---@return string
           img_text_func = function(client, path)
             path = client:vault_relative_path(path) or path
-            return string.format("![%s](%s)", path.name, "res/" .. path.name)
+            return string.format("![%s](%s)", path.name, "assets/" .. path.name)
           end,
         },
       }
