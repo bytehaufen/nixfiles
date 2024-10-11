@@ -138,7 +138,7 @@ return {
         wiki_link_func = "prepend_note_id",
 
         -- Either 'wiki' or 'markdown'.
-        preferred_link_style = "markdown",
+        preferred_link_style = "wiki",
 
         -- Optional, boolean or a function that takes a filename and returns a boolean.
         -- `true` indicates that you don't want obsidian.nvim to manage frontmatter.
