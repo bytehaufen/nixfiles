@@ -26,6 +26,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.editor.overseer" },
     { import = "plugins.extras.editor.overseer" },
     { import = "lazyvim.plugins.extras.editor.refactoring" },
+    { import = "lazyvim.plugins.extras.editor.telescope" },
+    { import = "plugins.extras.editor.telescope-extend" },
     { import = "lazyvim.plugins.extras.formatting.prettier" },
     { import = "lazyvim.plugins.extras.lang.clangd" },
     { import = "lazyvim.plugins.extras.lang.cmake" },
