@@ -19,12 +19,12 @@ return {
       },
     },
   },
-  -- Disable render-markdown, this part is taken by obsidian
+  -- Use render-markdown instead of obsidian.nvim's build in
   {
     "MeanderingProgrammer/render-markdown.nvim",
-    enabled = false,
+    enabled = true,
   },
-  -- Obsidian, concealing and highlighting
+  -- Obsidian, ~~concealing~~ and highlighting
   {
     "epwalsh/obsidian.nvim",
     version = "*", -- recommended, use latest release instead of latest commit
@@ -45,8 +45,6 @@ return {
       -- see below for full list of optional dependencies 👇
     },
     opts = function(_, opts)
-      vim.opt.conceallevel = 1
-
       opts = {
         -- A list of workspace names, paths, and configuration overrides.
         -- If you use the Obsidian app, the 'path' of a workspace should generally be
@@ -198,7 +196,7 @@ return {
         -- Optional, configure additional syntax highlighting / extmarks.
         -- This requires you have `conceallevel` set to 1 or 2. See `:help conceallevel` for more details.
         ui = {
-          enable = true, -- set to false to disable all additional syntax features
+          enable = false, -- set to false to disable all additional syntax features
           update_debounce = 200, -- update delay after a text change (in milliseconds)
           max_file_length = 5000, -- disable UI features for files with more than this many lines
           -- Define how various check-boxes are displayed
