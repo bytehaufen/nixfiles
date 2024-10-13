@@ -14,8 +14,8 @@
       defaultApplications = {
         "application/epub+zip" = ["org.pwmt.zathura.desktop"];
         "application/pdf" = ["org.pwmt.zathura.desktop"];
-        "application/vnd.ms-word.document.macroenabled.12" = ["libreoffice-writer.desktop"];
-        "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = ["libreoffice-writer.desktop"];
+        "application/vnd.ms-word.document.macroenabled.12" = ["onlyoffice-desktopeditors.desktop"];
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = ["onlyoffice-desktopeditors.desktop"];
         "application/xhtml+xml" = ["org.qutebrowser.qutebrowser.desktop"];
         "application/xml" = ["org.qutebrowser.qutebrowser.desktop"];
         "image/gif" = ["vimiv.desktop"];
@@ -36,7 +36,7 @@
         "x-scheme-handler/about" = ["org.qutebrowser.qutebrowser.desktop"];
         "x-scheme-handler/http" = ["org.qutebrowser.qutebrowser.desktop"];
         "x-scheme-handler/https" = ["org.qutebrowser.qutebrowser.desktop"];
-        "x-scheme-handler/unknown" = ["org.qutebrowser.qutebrowser.desktop"];
+        "x-scheme-handler/unknown" = ["brave-browser.desktop"];
         "x-scheme-handler/mailto" = ["userapp-Thunderbird-IGOQ71.desktop"];
         "message/rfc822" = ["userapp-Thunderbird-IGOQ71.desktop"];
         "x-scheme-handler/mid" = ["userapp-Thunderbird-IGOQ71.desktop"];
