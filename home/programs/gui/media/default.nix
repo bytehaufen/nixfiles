@@ -9,6 +9,5 @@
     pwvucontrol # PipeWire volume control
     spotube # Spotify client
     musicpod # YT Music client
-    obsidian # Note-taking app
   ];
 }
