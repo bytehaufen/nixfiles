@@ -1,7 +1,7 @@
 -- btop
 if vim.fn.executable("btop") == 1 then
   vim.keymap.set("n", "<leader>xb", function()
-    require("lazyvim.util").float_term({ "btop" })
+    require("lazyvim.util").terminal.open({ "btop" })
   end, { desc = "btop" })
 end
 
