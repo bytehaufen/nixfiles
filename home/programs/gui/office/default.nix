@@ -1,9 +1,14 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    # MS Office alternatives
+    onlyoffice-bin
     libreoffice
-    obsidian # Note-taking app
-    onlyoffice-bin # Office alternative
+
+    # PDF Viewer
+    okular
+
+    # Note-taking apss
+    obsidian
     rnote
-    okular # PDF View and annotator
   ];
 }
