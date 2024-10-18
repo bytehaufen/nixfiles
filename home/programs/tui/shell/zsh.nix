@@ -57,7 +57,7 @@
       fi
 
       # Update all
-      function update_arch() {
+      function update-arch() {
         yay -Syu --noconfirm
         yay -Yc --noconfirm
 
