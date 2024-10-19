@@ -101,13 +101,17 @@ in {
         "$mod, bracketleft, workspace, m-1"
         "$mod, bracketright, workspace, m+1"
 
+        # Move active to next/prev workspace
+        "$mod SHIFT, bracketleft, movetoworkspace, r-1"
+        "$mod SHIFT, bracketright, movetoworkspace, r+1" # Let create new workspace, when @ the end
+
         # Cycle monitors
-        "$mod SHIFT, bracketleft, focusmonitor, l"
-        "$mod SHIFT, bracketright, focusmonitor, r"
+        "$mod CTRL, bracketleft, focusmonitor, l"
+        "$mod CTRL, bracketright, focusmonitor, r"
 
         # Send focused workspace to left/right monitors
-        "$mod SHIFT ALT, bracketleft, movecurrentworkspacetomonitor, l"
-        "$mod SHIFT ALT, bracketright, movecurrentworkspacetomonitor, r"
+        "$mod CTRL SHIFT, bracketleft, movecurrentworkspacetomonitor, l"
+        "$mod CTRL SHIFT, bracketright, movecurrentworkspacetomonitor, r"
 
         # Screen[shot|record]
         "$mod ALT, R,                exec, record-area"
