@@ -31,6 +31,27 @@
         cache_dir = config.xdg.cacheHome;
       };
     };
+    plugins = {
+      open-with = ./plugins/open-with;
+    };
+
+    keymap = {
+      manager.prepend_keymap = [
+        # Open selected file/dir with a specific command
+        {
+          run = "plugin open-with";
+          on = ["O"];
+          desc = "Open with in terminal";
+        }
+
+        # Open selected file/dir with a specific command **blocked**
+        {
+          run = "plugin open-with --args=block";
+          on = ["<C-o>"];
+          desc = "Open with";
+        }
+      ];
+    };
   };
 
   xdg.configFile."yazi/theme.toml".source = ./theme.toml;
