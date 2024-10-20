@@ -117,8 +117,8 @@
       gg = "lazygit";
       grep = "grep --color";
       ip = "ip --color";
-      j = "z";
-      jj = "zi";
+      # j = "z";
+      zz = "zi";
       l = "eza --classify --group-directories-first --color=auto --color-scale --all";
       la = "eza --classify --group-directories-first --color=auto --color-scale --all";
       ll = "eza --long --links --group --modified --classify --git --group-directories-first --color=auto --color-scale --icons";
