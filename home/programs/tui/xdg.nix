@@ -13,7 +13,7 @@
       enable = true;
       defaultApplications = {
         "application/epub+zip" = ["org.pwmt.zathura.desktop"];
-        "application/pdf" = ["org.kde.okular.desktop"];
+        "application/pdf" = ["onlyoffice-desktopeditors.desktop"];
         "application/vnd.ms-word.document.macroenabled.12" = ["onlyoffice-desktopeditors.desktop"];
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = ["onlyoffice-desktopeditors.desktop"];
         "application/vnd.ms-excel" = ["onlyoffice-desktopeditors.desktop"];
