@@ -88,6 +88,18 @@
       "rounding 0, xwayland:1"
       "center, class:^(.*jetbrains.*)$, title:^(Confirm Exit|Open Project|win424|win201|splash)$"
       "size 640 400, class:^(.*jetbrains.*)$, title:^(splash)$"
+
+      # File / directory chooser
+      "float,title:^(Open File)(.*)$"
+      "size 640 480,title:^(Open File)(.*)$"
+      "float,title:^(Open Folder)(.*)$"
+      "size 640 480,title:^(Open Folder)(.*)$"
+      "float,title:^(Save As)(.*)$"
+      "size 640 480,title:^(Save As)(.*)$"
+      "float,title:^(Library)(.*)$ "
+      "size 640 480,title:^(Library)(.*)$ "
+      "float,title:^(Please choose a directory)(.*)$"
+      "size 640 480,title:^(Please choose a directory)(.*)$"
     ];
   };
 }
