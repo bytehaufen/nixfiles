@@ -10,6 +10,12 @@
         core = {
           editor = "nvim";
         };
+        user = {
+          signingkey = "~/.ssh/id_ed25519_rico";
+        };
+        gpg = {
+          format = "ssh";
+        };
         delta = {
           features = "side-by-side decorations";
           navigate = true;

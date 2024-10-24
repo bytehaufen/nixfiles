@@ -52,8 +52,13 @@
     # TODO: Refactor, e.g. ssh-agent is at the wrong place
     initExtra = ''
       eval `ssh-agent -s` &> /dev/null
+      # Work
       if [ -f ~/.ssh/$USER ]; then
         ssh-add ~/.ssh/$USER &> /dev/null
+      fi
+      # Priv
+      if [ -f ~/.ssh/id_ed25519_rico ]; then
+        ssh-add ~/.ssh/id_ed25519_rico &> /dev/null
       fi
 
       # Update all
