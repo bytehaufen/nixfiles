@@ -61,9 +61,10 @@
         yay -Syu --noconfirm
         yay -Yc --noconfirm
 
-        yay -Rns $(yay -Qtdq --noconfirm) --noconfirm
+        yay -Rns $(yay -Qtdq --noconfirm) --noconfirm 2>&1 /dev/null
         rustup upgrade
         nvim --headless "+Lazy! sync" +qa
+        nvim --headless -c "TSUpdateSync" +qa
       }
 
       # Search history based on what's typed in the prompt
