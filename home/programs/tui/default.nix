@@ -28,7 +28,7 @@ in {
       enable = true;
       enableNushellIntegration = false;
       git = true;
-      icons = true;
+      icons = "auto";
     };
 
     # A command-line fuzzy finder

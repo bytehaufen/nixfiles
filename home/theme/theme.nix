@@ -23,7 +23,7 @@ in {
     packages = with pkgs; [
       dejavu_fonts
       noto-fonts
-      noto-fonts-cjk
+      noto-fonts-cjk-sans
       noto-fonts-emoji
       liberation_ttf
       (nerdfonts.override {

@@ -19,7 +19,7 @@ in {
     brightnessctl
     xwayland
     wlroots
-    qt5ct
+    libsForQt5.qt5ct
     libva
     dconf
     wayland-utils
