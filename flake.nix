@@ -18,6 +18,7 @@
     nixGL = {
       url = "github:guibou/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
+      # TODO: Use it with home-manager; see [home.manager#pull#5355](https://github.com/nix-community/home-manager/pull/5355#issuecomment-2426908650)
     };
 
     ags = {
