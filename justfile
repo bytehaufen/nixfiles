@@ -20,6 +20,10 @@ switch USER *ARGS: clean fmt check
 # Build home-manager configuration
 [group('nix')]
 build USER *ARGS: fmt check
+  just build-no-check {{USER}} {{ARGS}}
+
+[group('nix')]
+build-no-check USER *ARGS:
   home-manager build --flake '.#{{USER}}' {{ARGS}} --extra-experimental-features nix-command --extra-experimental-features flakes
 
 # Build and activate home-manager configuration
