@@ -1,8 +1,4 @@
-{
-  pkgs,
-  self,
-  ...
-}: {
+{pkgs, ...}: {
   home = {
     # Add environment variables
     sessionVariables = {
@@ -15,7 +11,6 @@
       alejandra # Formatter
       deadnix # Scan nix files for dead code
       statix # Lints and suggestions for the Nix programming language
-      self.packages.${pkgs.system}.repl # Nix REPL
       nix-output-monitor # nom
       cachix # Cachix
       lorri # Nix project development environment

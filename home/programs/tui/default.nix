@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  pkgs-stable,
   ...
 }: let
   data = config.xdg.dataHome;
@@ -85,7 +84,7 @@ in {
     zoxide # Intelligent cd
     hexyl # Hex viewer
     lazydocker # Docker manager
-    pkgs-stable.gpt4all # Free-to-use, locally running, privacy-aware chatbot. No GPU or internet required.
+    pkgs.stable.gpt4all # Free-to-use, locally running, privacy-aware chatbot. No GPU or internet required.
 
     hyperfine # Benchmarking
 

@@ -3,16 +3,11 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgsStable.url = "github:nixos/nixpkgs/nixos-24.05";
 
     hm = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-      inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
     nixGL = {
@@ -30,34 +25,58 @@
       url = "github:anyrun-org/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # VPN systray deamon
-    tailray = {
-      url = "github:NotAShelf/tailray";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = inputs:
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = ["x86_64-linux"];
-      imports = [
-        ./home/profiles
+  outputs = {
+    self,
+    nixpkgs,
+    nixpkgsStable,
+    home-manager,
+    systems,
+    ...
+  } @ inputs: let
+    inherit (self) outputs;
+    lib = nixpkgs.lib // home-manager.lib;
+    forEachSystem = f: lib.genAttrs (import systems) (system: f pkgsFor.${system});
+    pkgsFor = lib.genAttrs (import systems) (
+      system:
+        import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+          overlays = [
+            (_final: _prev: {stable = import nixpkgsStable {inherit system;};})
+          ];
+        }
+    );
+  in {
+    inherit lib;
 
-        ./pkgs
-      ];
-      perSystem = {pkgs, ...}: {
-        devShells.default = pkgs.mkShell {
-          packages = [
-            pkgs.alejandra
-            pkgs.git
-          ];
-          nativeBuildInputs = [
-            pkgs.just
-          ];
+    devShells = forEachSystem (pkgs: {
+      default = pkgs.mkShell {
+        NIX_CONFIG = "extra-experimental-features = nix-command flakes";
+        nativeBuildInputs = [
+          pkgs.alejandra
+          pkgs.git
+          pkgs.just
+        ];
+      };
+    });
+
+    formatter = forEachSystem (pkgs: pkgs.alejandra);
+
+    homeConfigurations = let
+      system = "x86_64-linux";
+    in {
+      "rico-arch" = lib.homeManagerConfiguration {
+        modules = [
+          ./home/rico/arch.nix
+          {nixGLPrefix = "${inputs.nixGL.packages.${system}.nixGLIntel}/bin/nixGLIntel ";}
+        ];
+        pkgs = pkgsFor.x86_64-linux;
+        extraSpecialArgs = {
+          inherit inputs outputs;
         };
-
-        formatter = pkgs.alejandra;
       };
     };
+  };
 }
