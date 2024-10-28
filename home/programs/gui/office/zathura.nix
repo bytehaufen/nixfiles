@@ -2,12 +2,10 @@
   config,
   pkgs,
   ...
-}: let
-  nixGL = import ../../../wrapper/nixGL.nix {inherit pkgs config;};
-in {
+}: {
   programs.zathura = {
     enable = true;
-    package = nixGL pkgs.zathura;
+    package = config.lib.nixGL.wrap pkgs.zathura;
     options = {
       selection-notification = true;
 

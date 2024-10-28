@@ -2,12 +2,10 @@
   pkgs,
   config,
   ...
-}: let
-  nixGL = import ../../../wrapper/nixGL.nix {inherit pkgs config;};
-in {
+}: {
   programs.kitty = {
     enable = true;
-    package = nixGL pkgs.kitty;
+    package = config.lib.nixGL.wrap pkgs.kitty;
     keybindings = {
       "ctrl+shift+v" = "paste_from_clipboard";
       "ctrl+v" = "paste_from_clipboard";

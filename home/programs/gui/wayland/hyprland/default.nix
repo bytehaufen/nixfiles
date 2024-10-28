@@ -2,9 +2,7 @@
   pkgs,
   config,
   ...
-}: let
-  nixGL = import ../../../../wrapper/nixGL.nix {inherit pkgs config;};
-in {
+}: {
   imports = [
     ./binds.nix
     ./rules.nix
@@ -67,7 +65,7 @@ in {
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = nixGL pkgs.hyprland;
+    package = config.lib.nixGL.wrap pkgs.hyprland;
     systemd = {
       enable = true;
       variables = ["--all"];

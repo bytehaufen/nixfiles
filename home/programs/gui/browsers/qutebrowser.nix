@@ -2,13 +2,11 @@
   pkgs,
   config,
   ...
-}: let
-  nixGL = import ../../../wrapper/nixGL.nix {inherit pkgs config;};
-in {
+}: {
   # FIXME: Unthemed
   programs.qutebrowser = {
     enable = true;
-    package = nixGL pkgs.qutebrowser;
+    package = config.lib.nixGL.wrap pkgs.qutebrowser;
     keyBindings = let
       spawnKeePass = "spawn --userscript qute-keepass -p ~/Sync/passwords/Passwords.kdbx";
     in {

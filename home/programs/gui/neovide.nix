@@ -1,14 +1,12 @@
 {
-  config,
   pkgs,
+  config,
   ...
-}: let
-  nixGL = import ../../wrapper/nixGL.nix {inherit config pkgs;};
-in {
+}: {
   programs = {
     neovide = {
       enable = true;
-      package = nixGL pkgs.neovide;
+      package = config.lib.nixGL.wrap pkgs.neovide;
       settings = {
         fork = true;
         frame = "full";

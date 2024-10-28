@@ -7,7 +7,7 @@
     ../core/xkb
 
     # NixGL
-    ../wrapper/nixglprefix.nix
+    ../wrapper/nixGL.nix
 
     # Theming
     ../theme/fonts.nix

@@ -2,12 +2,10 @@
   pkgs,
   config,
   ...
-}: let
-  nixGL = import ../../../wrapper/nixGL.nix {inherit pkgs config;};
-in {
+}: {
   programs.wezterm = {
     enable = true;
-    package = nixGL pkgs.wezterm;
+    package = config.lib.nixGL.wrap pkgs.wezterm;
     extraConfig = ''
       local wezterm = require ("wezterm")
 

@@ -13,7 +13,6 @@
     nixGL = {
       url = "github:guibou/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
-      # TODO: Use it with home-manager; see [home.manager#pull#5355](https://github.com/nix-community/home-manager/pull/5355#issuecomment-2426908650)
     };
 
     ags = {
@@ -64,13 +63,10 @@
 
     formatter = forEachSystem (pkgs: pkgs.alejandra);
 
-    homeConfigurations = let
-      system = "x86_64-linux";
-    in {
+    homeConfigurations = {
       "rico-arch" = lib.homeManagerConfiguration {
         modules = [
           ./home/rico/arch.nix
-          {nixGLPrefix = "${inputs.nixGL.packages.${system}.nixGLIntel}/bin/nixGLIntel ";}
         ];
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = {
