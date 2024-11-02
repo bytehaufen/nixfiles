@@ -18,9 +18,10 @@
     ../programs/gui
     ../programs/gui/anyrun
 
+    ../programs/gui/browsers/brave.nix
+    ../programs/gui/browsers/firefox.nix
     ../programs/gui/browsers/qutebrowser.nix
 
-    ../programs/gui/browsers/brave.nix
     ../programs/gui/emulators/default.nix
     ../programs/gui/media/default.nix
     ../programs/gui/neovide.nix
