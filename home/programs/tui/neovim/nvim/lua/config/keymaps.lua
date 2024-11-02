@@ -19,3 +19,14 @@ vim.keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>")
 vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>")
 
 vim.keymap.set("n", "vv", "<C-v>", { noremap = false, silent = true, desc = "Enter visual block mode" })
+
+-- Keys for German umlauts
+vim.keymap.set("i", "<A-u>", "ü", {desc = "Insert German ü"})
+vim.keymap.set("i", "<A-a>", "ä", {desc = "Insert German ä"})
+vim.keymap.set("i", "<A-o>", "ö", {desc = "Insert German ö"})
+vim.keymap.set("i", "<A-s>", "ß", {desc = "Insert German ß"})
+
+-- Uppercase umlauts
+vim.keymap.set("i", "<S-A-u>", "Ü", {desc = "Insert German Ü"})
+vim.keymap.set("i", "<S-A-a>", "Ä", {desc = "Insert German Ä"})
+vim.keymap.set("i", "<S-A-o>", "Ö", {desc = "Insert German Ö"})
