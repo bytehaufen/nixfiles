@@ -63,6 +63,7 @@ in {
     cargo # Rust package manager
     rust-analyzer # Rust language server
     lua # Lua language
+    luarocks
     luajitPackages.magick # Lua bindings for ImageMagick
     luajitPackages.lpeg # Lua parsing expression grammars
 
