@@ -17,7 +17,7 @@
 
     # utils
     wl-clipboard
-    wl-screenrec
+    stable.wl-screenrec
     wlr-randr
   ];
 }
