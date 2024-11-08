@@ -73,6 +73,15 @@
           inherit inputs outputs;
         };
       };
+      "rico-todd2" = lib.homeManagerConfiguration {
+        modules = [
+          ./home/rico/todd2.nix
+        ];
+        pkgs = pkgsFor.x86_64-linux;
+        extraSpecialArgs = {
+          inherit inputs outputs;
+        };
+      };
     };
   };
 }
