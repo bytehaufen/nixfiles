@@ -9,6 +9,22 @@
     ./settings.nix
   ];
 
+  systemd.user.services.xdg-desktop-portal-hyprland = {
+    Unit.Description = "xdg-desktop-portal backend for Hyprland";
+
+    Install = {
+      WantedBy = ["graphical-session.target"];
+    };
+
+    Service = {
+      Type = "simple";
+      ExecStart = "${pkgs.xdg-desktop-portal-hyprland}/libexec/xdg-desktop-portal-hyprland";
+      Restart = "on-failure";
+      RestartSec = 1;
+      TimeoutStopSec = 10;
+    };
+  };
+
   home.packages = with pkgs; [
     brillo # Brightness control
     hyprshot
@@ -31,6 +47,9 @@
     morewaita-icon-theme
     adwaita-icon-theme
     qogir-icon-theme
+
+    pipewire
+    wireplumber
   ];
 
   # # TODO: Move to parent
@@ -52,9 +71,15 @@
         default = ["hyprland"];
         # "org.freedesktop.impl.portal.Secret" = ["gnome-keyring"];
       };
+      hyprland = {
+        default = ["hyprland" "gtk"];
+      };
     };
     enable = true;
-    xdgOpenUsePortal = false;
+    # Sets environment variable NIXOS_XDG_OPEN_USE_PORTAL to 1 This will make xdg-open use the
+    # portal to open programs, which resolves bugs involving programs opening inside FHS envs or with
+    #   unexpected env vars set from wrappers. See #160923 for more info.
+    xdgOpenUsePortal = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal
       # xdg-desktop-portal-gtk
@@ -68,6 +93,8 @@
     package = config.lib.nixGL.wrap pkgs.hyprland;
     systemd = {
       enable = true;
+      # This will make sure that `xdg-desktop-portal-hyprland` will get the required variables on
+      # startup
       variables = ["--all"];
     };
 
