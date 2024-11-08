@@ -71,6 +71,12 @@ return {
         if ft == "bib" then
           return "indent"
         end
+        if ft == "copilot-chat" then
+          return "indent"
+        end
+        if ft == "dashboard" then
+          return "indent"
+        end
         -- ufo accepts only two kinds as priority, see https://github.com/kevinhwang91/nvim-ufo/issues/256
         if buftype ~= "" or vim.startswith(ft, "git") or ft == "" then
           return "indent"
