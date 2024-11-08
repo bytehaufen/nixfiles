@@ -56,12 +56,17 @@ in {
 
   home.packages = with pkgs; [
     imagemagick # Image manipulation
-    just # Make like command runner
     tree-sitter # Language parser
 
+    ## Development
+    just # Make like command runner
+    libcap # POSIX capabilities
+    go
+    gcc
     rustc # Rust compiler
     cargo # Rust package manager
     rust-analyzer # Rust language server
+    nodejs_22
     lua # Lua language
     luarocks
     luajitPackages.magick # Lua bindings for ImageMagick
@@ -88,8 +93,6 @@ in {
 
     hyperfine # Benchmarking
 
-    nodejs_22
-
     detox # Harmonize file names
     # zip
     # unzip
@@ -98,7 +101,6 @@ in {
     # tree
     # grim
     # yt-dlp
-    # keepassxc
     # cmatrix
     # figlet
     # curl
