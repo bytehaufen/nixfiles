@@ -23,6 +23,7 @@
     ../programs/gui/browsers/qutebrowser.nix
 
     ../programs/gui/emulators/default.nix
+    ../programs/gui/llvm/default.nix
     ../programs/gui/media/default.nix
     ../programs/gui/neovide.nix
     ../programs/gui/office/default.nix
@@ -47,8 +48,9 @@
     ../programs/tui/nix.nix
     ../programs/tui/password-management.nix
     ../programs/tui/skim.nix
-    ../programs/tui/transient-services.nix
+    ../programs/tui/tex.nix
     ../programs/tui/tmux
+    ../programs/tui/transient-services.nix
     ../programs/tui/xdg.nix
     ../programs/tui/yazi
     ../programs/tui/zellij
