@@ -81,11 +81,9 @@ in {
     ripgrep # Fast grep
     eza # ls alternative
     fd # Fast find
-    igrep # Interactive grep
 
     exiftool # Metadata
     fd # Find clone
-    # igrep # Interactive grep # FIXME: Currently broken
     dust # Disk usage
     zoxide # Intelligent cd
     hexyl # Hex viewer
