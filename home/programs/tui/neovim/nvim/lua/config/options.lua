@@ -72,18 +72,9 @@ vim.filetype.add({
   },
 })
 
--- spell check
-vim.opt.spelllang = { "en", "de" }
+-- Spell check
+vim.opt.spelllang = { "en", "de_20" }
 vim.opt.spell = true
-function Toggle_spelllang()
-  if vim.opt.spelllang:get()[1] == "en" then
-    vim.opt.spelllang = "de_20"
-  else
-    vim.opt.spelllang = "en"
-  end
-  print("Spell language set to " .. vim.opt.spelllang:get()[1])
-end
-vim.api.nvim_set_keymap("n", "<leader>ts", ":lua toggle_spelllang()<CR>", { noremap = true })
 
 local options = {
   autoindent = true,
