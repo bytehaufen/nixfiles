@@ -59,10 +59,11 @@
     ../services/system/power-monitor.nix
     ../services/system/syncthing.nix
     ../services/system/udiskie.nix
-
   ];
 
   programs = {
+    kitty.settings.background_opacity = 0.7;
+
     teams.enable = true;
 
     ssh = {
