@@ -16,7 +16,6 @@
 
     # Programs - GUI
     ../programs/gui
-    ../programs/gui/anyrun
 
     ../programs/gui/browsers/brave.nix
     # ../programs/gui/browsers/firefox.nix
@@ -30,6 +29,7 @@
 
     ../programs/gui/terminal/kitty.nix
     # ../programs/gui/terminal/wezterm.nix # Not usable see [#5990](https://github.com/wez/wezterm/issues/5990)
+
     ../programs/gui/wayland/default.nix
 
     # Programs - TUI
@@ -62,11 +62,6 @@
     ../services/system/syncthing.nix
     ../services/system/udiskie.nix
 
-    ../services/wayland/ags.nix
-    # TODO: Enable
-    # ../services/wayland/hypridle.nix
-    # TODO: Enable
-    # ../services/wayland/hyprpaper.nix
   ];
 
   programs = {

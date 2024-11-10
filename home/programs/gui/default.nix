@@ -10,6 +10,19 @@
     overskride # Bluetooth / Obex client
     vimiv-qt # Image viewer
 
-    xwayland
+    # Screenshot
+    grim
+    grimblast
+    slurp
+
+    # utils
+    wl-clipboard
+    stable.wl-screenrec
+    wlr-randr
   ];
+
+  programs.obs-studio = {
+    enable = true;
+    plugins = [pkgs.obs-studio-plugins.wlrobs];
+  };
 }

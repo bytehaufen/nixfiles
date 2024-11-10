@@ -16,7 +16,6 @@
 
     # Programs - GUI
     ../programs/gui
-    ../programs/gui/anyrun
 
     ../programs/gui/browsers/brave.nix
     ../programs/gui/browsers/firefox.nix
@@ -63,12 +62,6 @@
     ../services/system/power-monitor.nix
     ../services/system/syncthing.nix
     ../services/system/udiskie.nix
-
-    ../services/wayland/ags.nix
-    # TODO: Enable
-    # ../services/wayland/hypridle.nix
-    # TODO: Enable
-    # ../services/wayland/hyprpaper.nix
   ];
 
   wayland.windowManager.hyprland.settings = {
