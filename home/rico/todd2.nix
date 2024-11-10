@@ -27,6 +27,7 @@
     ../programs/gui/neovide.nix
     ../programs/gui/office/default.nix
     ../programs/gui/office/zathura.nix
+
     ../programs/gui/terminal/kitty.nix
     # ../programs/gui/terminal/wezterm.nix # Not usable see [#5990](https://github.com/wez/wezterm/issues/5990)
     ../programs/gui/wayland/default.nix
@@ -68,6 +69,38 @@
     # ../services/wayland/hyprpaper.nix
   ];
 
+  programs = {
+    teams.enable = true;
+
+    ssh = {
+      enable = true;
+      extraConfig = ''
+        Host svn
+            HostName zapp2
+            User costun
+            IdentityFile ~/.ssh/ukro
+
+        Host jira-tunnel
+            HostName kif
+            User costun
+            IdentityFile ~/.ssh/ukro
+            LocalForward 58080 127.0.0.1:58080
+
+        Host confluence-tunnel
+            HostName kif
+            User costun
+            IdentityFile ~/.ssh/ukro
+            LocalForward 58090 127.0.0.1:58090
+
+        Host gitlab-tunnel
+            HostName elzar
+            LocalForward 59080 127.0.0.1:59080
+            User costun
+            IdentityFile ~/.ssh/ukro
+      '';
+    };
+  };
+
   wayland.windowManager.hyprland.settings = {
     monitor = [
       "eDP-1,1920x1080@60,0x0,1"
@@ -76,33 +109,6 @@
   };
 
   programs.home-manager.enable = true;
-  programs.ssh = {
-    enable = true;
-    extraConfig = ''
-      Host svn
-          HostName zapp2
-          User costun
-          IdentityFile ~/.ssh/ukro
-
-      Host jira-tunnel
-          HostName kif
-          User costun
-          IdentityFile ~/.ssh/ukro
-          LocalForward 58080 127.0.0.1:58080
-
-      Host confluence-tunnel
-          HostName kif
-          User costun
-          IdentityFile ~/.ssh/ukro
-          LocalForward 58090 127.0.0.1:58090
-
-      Host gitlab-tunnel
-          HostName elzar
-          LocalForward 59080 127.0.0.1:59080
-          User costun
-          IdentityFile ~/.ssh/ukro
-    '';
-  };
 
   home = {
     username = "rico";
