@@ -30,8 +30,6 @@
     ../programs/gui/terminal/kitty.nix
     # ../programs/gui/terminal/wezterm.nix # Not usable see [#5990](https://github.com/wez/wezterm/issues/5990)
 
-    ../programs/gui/wayland/default.nix
-
     # Programs - TUI
     ../programs/tui
     ../programs/tui/fastfetch.nix
@@ -94,13 +92,6 @@
             IdentityFile ~/.ssh/ukro
       '';
     };
-  };
-
-  wayland.windowManager.hyprland.settings = {
-    monitor = [
-      "eDP-1,1920x1080@60,0x0,1"
-      "HDMI-A-1,2560x1080@60,1920x0,1"
-    ];
   };
 
   programs.home-manager.enable = true;
