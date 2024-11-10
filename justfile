@@ -15,7 +15,6 @@ hooks:
 [group('nix')]
 switch USER *ARGS: clean fmt check 
   home-manager switch --flake '.#{{USER}}' {{ARGS}} --extra-experimental-features nix-command --extra-experimental-features flakes
-  systemctl --user restart ags 2> /dev/null
 
 # Build home-manager configuration
 [group('nix')]
@@ -36,7 +35,6 @@ build-activate USER *ARGS: fmt check
 build-activate-no-check USER *ARGS:
   home-manager build --flake '.#{{USER}}' {{ARGS}} --extra-experimental-features nix-command --extra-experimental-features flakes
   result/activate
-  systemctl --user restart ags 2> /dev/null
 
 # Update flake dependencies
 [group('nix')]
