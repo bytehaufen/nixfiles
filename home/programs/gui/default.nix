@@ -1,4 +1,6 @@
 {pkgs, ...}: {
+  imports = [../gui/social];
+
   home.packages = with pkgs; [
     gnome-calculator # Calculator
     # TODO: Remove, replaced by pass

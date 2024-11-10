@@ -27,7 +27,6 @@
     ../programs/gui/neovide.nix
     ../programs/gui/office/default.nix
     ../programs/gui/office/zathura.nix
-    # ../programs/gui/social/discord.nix
     ../programs/gui/terminal/kitty.nix
     # ../programs/gui/terminal/wezterm.nix # Not usable see [#5990](https://github.com/wez/wezterm/issues/5990)
     ../programs/gui/wayland/default.nix
