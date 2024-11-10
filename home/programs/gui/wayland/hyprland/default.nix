@@ -1,29 +1,24 @@
 {
   pkgs,
   config,
+  lib,
   ...
-}: {
+}: let
+  joinedPortals = pkgs.symlinkJoin {
+    name = "xdg-portals";
+    paths = [
+      pkgs.gnome-remote-desktop
+      pkgs.gnome-shell
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-hyprland
+    ];
+  };
+in {
   imports = [
     ./binds.nix
     ./rules.nix
     ./settings.nix
   ];
-
-  systemd.user.services.xdg-desktop-portal-hyprland = {
-    Unit.Description = "xdg-desktop-portal backend for Hyprland";
-
-    Install = {
-      WantedBy = ["graphical-session.target"];
-    };
-
-    Service = {
-      Type = "simple";
-      ExecStart = "${pkgs.xdg-desktop-portal-hyprland}/libexec/xdg-desktop-portal-hyprland";
-      Restart = "on-failure";
-      RestartSec = 1;
-      TimeoutStopSec = 10;
-    };
-  };
 
   home.packages = with pkgs; [
     brillo # Brightness control
@@ -36,24 +31,20 @@
     libsForQt5.qt5ct
     libva
     dconf
+    pipewire
+    wireplumber
     wayland-utils
     wayland-protocols
     meson
     swaybg
-    xdg-desktop-portal
-    # xdg-desktop-portal-gtk
-    # xdg-desktop-portal-gnome
-    xdg-desktop-portal-hyprland
     morewaita-icon-theme
     adwaita-icon-theme
     qogir-icon-theme
-
-    pipewire
-    wireplumber
   ];
 
   # # TODO: Move to parent
   home.sessionVariables = {
+    XDG_DESKTOP_PORTAL_DIR = "${joinedPortals}/share/xdg-desktop-portal/portals";
     GTK_USE_PORTAL = 1;
     QT_QPA_PLATFORM = "wayland";
     SDL_VIDEODRIVER = "wayland";
@@ -65,37 +56,38 @@
   };
 
   # Move too
+  # xdg.portal = {
+  #   config = {
+  #     common = {
+  #       default = ["hyprland" "gtk"];
+  #       # "org.freedesktop.impl.portal.Secret" = ["gnome-keyring"];
+  #     };
+  #   };
+  #   enable = true;
+  #   xdgOpenUsePortal = true;
+  #   extraPortals = with pkgs; [
+  #     xdg-desktop-portal
+  #     xdg-desktop-portal-gtk
+  #     # xdg-desktop-portal-gnome
+  #     xdg-desktop-portal-hyprland
+  #   ];
+  # };
   xdg.portal = {
-    config = {
-      common = {
-        default = ["hyprland"];
-        # "org.freedesktop.impl.portal.Secret" = ["gnome-keyring"];
-      };
-      hyprland = {
-        default = ["hyprland" "gtk"];
-      };
-    };
     enable = true;
-    # Sets environment variable NIXOS_XDG_OPEN_USE_PORTAL to 1 This will make xdg-open use the
-    # portal to open programs, which resolves bugs involving programs opening inside FHS envs or with
-    #   unexpected env vars set from wrappers. See #160923 for more info.
-    xdgOpenUsePortal = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal
-      # xdg-desktop-portal-gtk
-      # xdg-desktop-portal-gnome
-      xdg-desktop-portal-hyprland
-    ];
+    extraPortals = [pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal-gtk];
+    config.hyprland.default = ["wlr" "gtk"];
   };
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = config.lib.nixGL.wrap pkgs.hyprland;
+    package = config.lib.nixGL.wrap (pkgs.hyprland.override {wrapRuntimeDeps = false;});
     systemd = {
       enable = true;
-      # This will make sure that `xdg-desktop-portal-hyprland` will get the required variables on
-      # startup
       variables = ["--all"];
+      extraCommands = lib.mkBefore [
+        "systemctl --user stop graphical-session.target"
+        "systemctl --user start hyprland-session.target"
+      ];
     };
 
     xwayland.enable = true;
