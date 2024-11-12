@@ -103,10 +103,10 @@
       . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 
       # Make sure that the user's bin directory is the first in PATH.
-      export PATH="$HOME/.local/bin/:$PATH"
+      # export PATH="$HOME/.local/bin/:$PATH"
 
       # Populate the `PATH` variable with the Nix profile paths.
-      export PATH="$PATH:/run/current-system/sw/bin/:/nix/var/nix/profiles/default/bin:$HOME/.nix-profile/bin:/etc/profiles/per-user/$USER/bin"
+      # export PATH="$PATH:/run/current-system/sw/bin/:/nix/var/nix/profiles/default/bin:/etc/profiles/per-user/$USER/bin"
     '';
 
     shellAliases = {
