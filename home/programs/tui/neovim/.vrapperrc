@@ -11,6 +11,10 @@ map Y y$
 map <S-h> :tabprevious<CR>
 map <S-l> :tabnext<CR>
 
+eclipseaction eclipsequicksearch org.eclipse.text.quicksearch.commands.quicksearchCommand
+nnoremap <Leader>sg :eclipsequicksearch<CR>
+
+
 
 " Press i to enter insert mode, and  to exit insert mode.
 inoremap jk <Esc>
