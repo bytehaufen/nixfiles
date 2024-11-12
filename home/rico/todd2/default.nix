@@ -28,11 +28,14 @@
   home.packages = [
     # COSIDE
     (pkgs.writeShellScriptBin "coside" ''
+      source $XDG_CONFIG_HOME/zsh/.zshrc
       bash -c "COSIDE_SHELL_OPTIONS='-f -c gnome-terminal' GTK_THEME=Adwaita $HOME/coside/coside-latest/coside $@"
     '')
 
     # Eclipse COSIDE SDK
     (pkgs.writeShellScriptBin "coside-sdk" ''
+      source $XDG_CONFIG_HOME/zsh/.zshrc
+
       # Force use light theme
       export GTK_THEME=Adwaita
 
@@ -48,6 +51,7 @@
     '')
 
     (pkgs.writeShellScriptBin "coseda-tunnel" ''
+      source $XDG_CONFIG_HOME/zsh/.zshrc
 
       while [ $# -ne 0 ]
       do
