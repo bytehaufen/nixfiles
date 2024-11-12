@@ -59,6 +59,9 @@
     ../services/system/power-monitor.nix
     ../services/system/syncthing.nix
     ../services/system/udiskie.nix
+
+    # TODD2 specific
+    ./todd2
   ];
 
   programs = {
