@@ -11,6 +11,11 @@ hooks:
 # nix           #
 #################
 
+# Build NixOS
+[group('nix')]
+nixos-switch HOSTNAME *ARGS: clean fmt check
+  nixos-rebuild switch --flake '.#{{HOSTNAME}}' {{ARGS}} --extra-experimental-features nix-command --extra-experimental-features flakes
+
 # Create home-manager configuration
 [group('nix')]
 switch USER *ARGS: clean fmt check 
