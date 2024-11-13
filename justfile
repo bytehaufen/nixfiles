@@ -11,6 +11,11 @@ hooks:
 # nix           #
 #################
 
+# Create hardware configuration
+[group('nix')]
+nixos-gen HOSTNAME *ARGS:
+  nixos-generate-config --dir hosts/{{HOSTNAME}} {{ARGS}}
+
 # Build NixOS
 [group('nix')]
 nixos-switch HOSTNAME *ARGS: clean fmt check
