@@ -1,4 +1,4 @@
-{...}: {
+{lib, ...}: {
   imports = [
     # Nixpkgs config
     ../../nix
@@ -65,7 +65,7 @@
   ];
 
   programs = {
-    kitty.settings.background_opacity = 0.7;
+    kitty.settings.background_opacity = lib.mkForce 1.0;
 
     teams.enable = true;
 

@@ -33,7 +33,7 @@
       listen_on = "unix:@mykitty";
       close_on_child_death = true;
 
-      background_opacity = lib.mkDefault 0.0;
+      background_opacity = 0.0;
 
       # Colors
       background = "#1a1b26";
