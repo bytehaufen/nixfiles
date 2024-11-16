@@ -1,13 +1,8 @@
 {
   programs.zsh = {
     enable = true;
-    autosuggestion = {
-      enable = true;
-      strategy = ["history" "completion" "match_prev_cmd"];
-    };
-    autocd = true;
+    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     enableCompletion = true;
-    enableVteIntegration = true;
   };
 }
