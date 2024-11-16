@@ -63,6 +63,12 @@
 
     formatter = forEachSystem (pkgs: pkgs.alejandra);
 
+    nixosConfigurations.vm1 = lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {inherit inputs outputs;};
+      modules = [./hosts/vm1];
+    };
+
     homeConfigurations = {
       "rico-arch" = lib.homeManagerConfiguration {
         modules = [
@@ -76,6 +82,15 @@
       "rico-todd2" = lib.homeManagerConfiguration {
         modules = [
           ./home/rico/todd2.nix
+        ];
+        pkgs = pkgsFor.x86_64-linux;
+        extraSpecialArgs = {
+          inherit inputs outputs;
+        };
+      };
+      "rico-vm" = lib.homeManagerConfiguration {
+        modules = [
+          ./home/rico/arch.nix
         ];
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = {
