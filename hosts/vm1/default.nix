@@ -11,7 +11,7 @@
   ];
 
   networking = {
-    hostname = "vm1";
+    hostName = "vm1";
     useDHCP = true;
   };
 
