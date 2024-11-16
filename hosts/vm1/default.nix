@@ -20,6 +20,13 @@
     dconf.enable = true;
   };
 
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+  };
+
+  # networking.networkmanager.enable =  true;
+
   hardware.graphics.enable = true;
 
   system.stateVersion = "22.05";

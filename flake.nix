@@ -64,8 +64,10 @@
     formatter = forEachSystem (pkgs: pkgs.alejandra);
 
     nixosConfigurations.vm1 = lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {inherit inputs outputs;};
+      specialArgs = {
+        inherit inputs outputs;
+        pkgs = pkgsFor.x86_64-linux;
+      };
       modules = [./hosts/vm1];
     };
 

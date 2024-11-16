@@ -5,7 +5,7 @@
 }: let
   ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
 in {
-  users.mutableUsers = false;
+  users.mutableUsers = true; # FIXME: Set to false when ssh config is complete
   users.users.rico = {
     isNormalUser = true;
     shell = pkgs.zsh;
