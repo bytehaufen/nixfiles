@@ -2,7 +2,12 @@ return {
   { -- QoL features for folding
     "chrisgrieser/nvim-origami",
     event = "VeryLazy",
-    opts = true,
+    opts = {
+      keepFoldsAcrossSessions = true,
+      pauseFoldsOnSearch = true,
+      setupFoldKeymaps = true,
+      hOnlyOpensOnFirstColumn = true,
+    },
   },
   { -- use LSP as folding provider
     "kevinhwang91/nvim-ufo",
@@ -58,7 +63,7 @@ return {
     opts = {
       -- when opening the buffer, close these fold kinds
       close_fold_kinds_for_ft = {
-        default = { "imports", "comment" },
+        -- default = { "imports", "comment" },
         json = { "array" },
         -- use `:UfoInspect` to get see available fold kinds
       },
