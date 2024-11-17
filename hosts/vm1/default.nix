@@ -6,6 +6,7 @@
     ../common/global
     ../common/users/rico
 
+    ../common/optional/kdeconnect.nix
     ../common/optional/pipewire.nix
     ../common/optional/wireless.nix
   ];
