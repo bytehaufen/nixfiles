@@ -15,7 +15,7 @@ in {
     ./scripts
 
     ../anyrun
-    ../../../services/wayland/ags.nix
+    ../../../services/wayland/ags
 
     # FIXME: Configure
     # ./hyprlock.nix
