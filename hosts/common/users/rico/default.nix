@@ -1,8 +1,10 @@
 {
   pkgs,
   config,
+  vars,
   ...
 }: let
+  inherit (vars) username;
   ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
 in {
   users.mutableUsers = true; # FIXME: Set to false when ssh config is complete
@@ -25,7 +27,7 @@ in {
     packages = [pkgs.home-manager];
   };
 
-  home-manager.users.rico = import ../../../../home/rico/${config.networking.hostName}.nix;
+  home-manager.users.${username} = import ../../../../home/rico/${config.networking.hostName}.nix {inherit vars;};
 
   security.pam.services = {
     swaylock = {};

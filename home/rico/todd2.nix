@@ -1,4 +1,8 @@
-{lib, ...}: {
+{
+  lib,
+  vars,
+  ...
+}: {
   imports = [
     # Nixpkgs config
     ../core/nix.nix
@@ -101,8 +105,8 @@
   programs.home-manager.enable = true;
 
   home = {
-    username = "rico";
-    homeDirectory = "/home/rico";
+    inherit (vars) username;
+    homeDirectory = "/home/${vars.username}";
     stateVersion = "24.11";
     extraOutputsToInstall = ["doc" "devdoc"];
 

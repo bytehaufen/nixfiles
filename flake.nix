@@ -46,8 +46,13 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
+
     lib = nixpkgs.lib // home-manager.lib;
+
+    vars = import ./vars/default.nix;
+
     forEachSystem = f: lib.genAttrs (import systems) (system: f pkgsFor.${system});
+
     pkgsFor = lib.genAttrs (import systems) (
       system:
         import nixpkgs {
@@ -76,7 +81,7 @@
 
     nixosConfigurations.vm1 = lib.nixosSystem {
       specialArgs = {
-        inherit inputs outputs;
+        inherit inputs outputs vars;
         pkgs = pkgsFor.x86_64-linux;
       };
       modules = [./hosts/vm1];
@@ -89,7 +94,7 @@
         ];
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = {
-          inherit inputs outputs;
+          inherit inputs outputs vars;
         };
       };
       "rico-todd2" = lib.homeManagerConfiguration {
@@ -98,16 +103,16 @@
         ];
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = {
-          inherit inputs outputs;
+          inherit inputs outputs vars;
         };
       };
-      "rico-vm" = lib.homeManagerConfiguration {
+      "rico-vm1" = lib.homeManagerConfiguration {
         modules = [
-          ./home/rico/arch.nix
+          ./home/rico/vm1.nix
         ];
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = {
-          inherit inputs outputs;
+          inherit inputs outputs vars;
         };
       };
     };
