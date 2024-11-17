@@ -4,6 +4,7 @@
       trusted-users = [
         "root"
         "@wheel"
+        "rico"
       ];
       auto-optimise-store = lib.mkDefault true;
       experimental-features = [
