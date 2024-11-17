@@ -6,7 +6,6 @@
 }: {
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    ./gamemode.nix
     ./kdeconnect.nix
     ./locale.nix
     ./nix.nix
