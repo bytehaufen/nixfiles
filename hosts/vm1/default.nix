@@ -2,7 +2,6 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../../nix
     ../common/global
     ../common/users/rico
 

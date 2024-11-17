@@ -1,7 +1,7 @@
 {lib, ...}: {
   imports = [
     # Nixpkgs config
-    ../../nix
+    ../core/nix.nix
 
     # Core
     ../core/xkb
