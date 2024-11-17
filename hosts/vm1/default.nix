@@ -12,20 +12,13 @@
 
   networking = {
     hostName = "vm1";
-    useDHCP = true;
+    networkmanager.enable = true;
   };
 
   programs = {
     adb.enable = true;
     dconf.enable = true;
   };
-
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
-  };
-
-  # networking.networkmanager.enable =  true;
 
   hardware.graphics.enable = true;
 

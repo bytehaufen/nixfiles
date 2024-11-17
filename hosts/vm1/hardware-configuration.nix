@@ -32,6 +32,11 @@ in {
       };
       efi.canTouchEfiVariables = true;
     };
+
+    binfmt.emulatedSystems = [
+      "aarch64-linux"
+      "i686-linux"
+    ];
   };
   fileSystems = {
     "/" = {
