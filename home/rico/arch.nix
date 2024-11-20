@@ -1,5 +1,7 @@
 {vars, ...}: {
   imports = [
+    ./common.nix
+
     # Nixpkgs config
     ../core/nix.nix
 
@@ -54,8 +56,6 @@
     ../programs/tui/xdg.nix
     ../programs/tui/yazi
     ../programs/tui/zellij
-
-    ../services
   ];
   opts = {
     services = {
