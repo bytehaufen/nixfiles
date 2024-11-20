@@ -4,7 +4,7 @@
   config,
   ...
 }: {
-  options.programs.teams.enable = lib.mkOption {
+  options.opts.programs.teams.enable = lib.mkOption {
     default = false;
     type = lib.types.bool;
     description = ''
@@ -12,5 +12,5 @@
     '';
   };
 
-  config = lib.mkIf config.programs.teams.enable {home.packages = [pkgs.teams-for-linux];};
+  config = lib.mkIf config.opts.programs.teams.enable {home.packages = [pkgs.teams-for-linux];};
 }

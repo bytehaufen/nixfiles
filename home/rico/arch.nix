@@ -30,6 +30,7 @@
     ../programs/gui/social/discord.nix
     ../programs/gui/terminal/kitty.nix
     # ../programs/gui/terminal/wezterm.nix # Not usable see [#5990](https://github.com/wez/wezterm/issues/5990)
+
     ../programs/gui/wayland/default.nix
 
     # Programs - TUI
@@ -54,25 +55,20 @@
     ../programs/tui/yazi
     ../programs/tui/zellij
 
-    # Services
-    ../services/media/playerctl.nix
-    ../services/system/gnome-keyring.nix
-    ../services/system/kdeconnect.nix
-    ../services/system/polkit-agent.nix
-    ../services/system/power-monitor.nix
-    ../services/system/syncthing.nix
-    ../services/system/udiskie.nix
+    ../services
   ];
+  opts = {
+    services.gnome-keyring.enable = true;
+    programs = {
+      discord.enable = true;
+    };
+  };
 
   wayland.windowManager.hyprland.settings = {
     monitor = [
       "eDP-1,1920x1080@60,0x0,1"
       "HDMI-A-1,2560x1080@60,1920x0,1"
     ];
-  };
-
-  programs = {
-    discord.enable = true;
   };
 
   programs.home-manager.enable = true;

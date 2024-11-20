@@ -4,7 +4,7 @@
   config,
   ...
 }: {
-  options.programs.discord.enable = lib.mkOption {
+  options.opts.programs.discord.enable = lib.mkOption {
     default = false;
     type = lib.types.bool;
     description = ''
@@ -12,5 +12,5 @@
     '';
   };
 
-  config = lib.mkIf config.programs.discord.enable {home.packages = [pkgs.vesktop];};
+  config = lib.mkIf config.opts.programs.discord.enable {home.packages = [pkgs.vesktop];};
 }

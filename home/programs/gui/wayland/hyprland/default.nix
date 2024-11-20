@@ -26,7 +26,7 @@
 
     settings = {
       exec-once = [
-        "swaybg -m fill -i ${config.theme.wallpaper}"
+        "${lib.getBin pkgs.swaybg} -m fill -i ${config.opts.theme.wallpaper}"
       ];
     };
   };

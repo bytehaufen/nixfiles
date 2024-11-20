@@ -14,16 +14,16 @@ in {
     ./swaylock.nix
     ./scripts
 
-    ../anyrun
-    ../../../services/wayland/ags
+    ./anyrun
+    ./ags
 
     # FIXME: Configure
     # ./hyprlock.nix
 
     # TODO: Enable
-    # ../../../services/wayland/hypridle.nix
+    # ./hypridle.nix
     # TODO: Enable
-    # ../../../services/wayland/hyprpaper.nix
+    # ./hyprpaper.nix
   ];
 
   home.packages = with pkgs; [
@@ -48,7 +48,6 @@ in {
     wayland-utils
     wayland-protocols
     meson
-    swaybg
     morewaita-icon-theme
     adwaita-icon-theme
     qogir-icon-theme

@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  options.theme.wallpaper = lib.mkOption {
+  options.opts.theme.wallpaper = lib.mkOption {
     description = ''
       Location of the wallpaper to use throughout the system.
     '';

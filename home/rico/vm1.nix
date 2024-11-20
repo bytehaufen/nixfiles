@@ -55,13 +55,13 @@
     ../programs/tui/zellij
 
     # Services
-    ../services/media/playerctl.nix
-    ../services/system/gnome-keyring.nix
-    ../services/system/kdeconnect.nix
-    ../services/system/polkit-agent.nix
-    ../services/system/power-monitor.nix
-    ../services/system/syncthing.nix
-    ../services/system/udiskie.nix
+    ../services/playerctl.nix
+    ../services/gnome-keyring.nix
+    ../services/kdeconnect.nix
+    ../services/polkit-agent.nix
+    ../services/power-monitor.nix
+    ../services/syncthing.nix
+    ../services/udiskie.nix
   ];
 
   wayland.windowManager.hyprland.settings = {
@@ -71,8 +71,10 @@
     ];
   };
 
-  programs = {
-    discord.enable = true;
+  opts = {
+    programs = {
+      discord.enable = true;
+    };
   };
 
   programs.home-manager.enable = true;

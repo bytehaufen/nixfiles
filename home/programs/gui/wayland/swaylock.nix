@@ -5,7 +5,7 @@
     enable = true;
     settings = {
       show-failed-attempts = true;
-      image = "${config.theme.wallpaper}";
+      image = "${config.opts.theme.wallpaper}";
       indicator-radius = 100;
       indicator-thickness = 7;
       effect-blur = "7x5";
