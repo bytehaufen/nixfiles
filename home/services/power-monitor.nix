@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }: let
   script = pkgs.writeShellScript "power_monitor.sh" ''
@@ -67,22 +68,29 @@
     inotify-tools
   ];
 in {
-  # Power state monitor. Switches Power profiles based on charging state.
-  # Plugged in - performance
-  # Unplugged - power-saver
-  systemd.user.services.power-monitor = {
-    Unit = {
-      Description = "Power Monitor";
-      After = ["power-profiles-daemon.service"];
-    };
+  options.opts.services.power-monitor.enable = lib.mkOption {
+    type = lib.types.bool;
+    default = false;
+    description = "Enable power-monitor";
+  };
+  config = lib.mkIf config.opts.services.power-monitor.enable {
+    # Power state monitor. Switches Power profiles based on charging state.
+    # Plugged in - performance
+    # Unplugged - power-saver
+    systemd.user.services.power-monitor = {
+      Unit = {
+        Description = "Power Monitor";
+        After = ["power-profiles-daemon.service"];
+      };
 
-    Service = {
-      Environment = "PATH=/run/wrappers/bin:${lib.makeBinPath dependencies}";
-      Type = "simple";
-      ExecStart = script;
-      Restart = "on-failure";
-    };
+      Service = {
+        Environment = "PATH=/run/wrappers/bin:${lib.makeBinPath dependencies}";
+        Type = "simple";
+        ExecStart = script;
+        Restart = "on-failure";
+      };
 
-    Install.WantedBy = ["default.target"];
+      Install.WantedBy = ["default.target"];
+    };
   };
 }

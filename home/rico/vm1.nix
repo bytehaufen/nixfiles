@@ -55,26 +55,28 @@
     ../programs/tui/zellij
 
     # Services
-    ../services/playerctl.nix
-    ../services/gnome-keyring.nix
-    ../services/kdeconnect.nix
-    ../services/polkit-agent.nix
-    ../services/power-monitor.nix
-    ../services/syncthing.nix
-    ../services/udiskie.nix
+    ../services
   ];
+  opts = {
+    services = {
+      gnome-keyring.enable = true;
+      kdeconnect.enable = true;
+      playerctl.enable = true;
+      polkit-agent.enable = true;
+      power-monitor.enable = true;
+      syncthing.enable = true;
+      udiskie.enable = true;
+    };
+    programs = {
+      discord.enable = true;
+    };
+  };
 
   wayland.windowManager.hyprland.settings = {
     monitor = [
       "eDP-1,1920x1080@60,0x0,1"
       "HDMI-A-1,2560x1080@60,1920x0,1"
     ];
-  };
-
-  opts = {
-    programs = {
-      discord.enable = true;
-    };
   };
 
   programs.home-manager.enable = true;

@@ -58,7 +58,16 @@
     ../services
   ];
   opts = {
-    services.gnome-keyring.enable = true;
+    services = {
+      gnome-keyring.enable = true;
+      kdeconnect.enable = true;
+      playerctl.enable = true;
+      polkit-agent.enable = true;
+      power-monitor.enable = true;
+      syncthing.enable = true;
+      udiskie.enable = true;
+    };
+
     programs = {
       discord.enable = true;
     };

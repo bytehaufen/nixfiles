@@ -56,22 +56,22 @@
     ../programs/tui/zellij
 
     # Services
-    ../services/playerctl.nix
-    ../services/gnome-keyring.nix
-    ../services/kdeconnect.nix
-    ../services/polkit-agent.nix
-    ../services/power-monitor.nix
-    ../services/syncthing.nix
-    ../services/udiskie.nix
+    ../services
 
     # TODD2 specific
     ./todd2
   ];
 
+  opts = {
+    programs.teams.enable = true;
+    services = {
+      gnome-keyring.enable = true;
+      syncthing.enable = true;
+    };
+  };
+
   programs = {
     kitty.settings.background_opacity = lib.mkForce 1.0;
-
-    teams.enable = true;
 
     ssh = {
       enable = true;
