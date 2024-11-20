@@ -68,6 +68,7 @@
       gnome-keyring.enable = true;
       syncthing.enable = true;
     };
+    nixGL.enable = true;
   };
 
   programs = {

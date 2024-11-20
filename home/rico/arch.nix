@@ -71,6 +71,8 @@
     programs = {
       discord.enable = true;
     };
+
+    nixGL.enable = true;
   };
 
   wayland.windowManager.hyprland.settings = {
