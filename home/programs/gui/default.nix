@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  imports = [../gui/social];
+  imports = [../gui/social ./browser.nix];
 
   home.packages = with pkgs; [
     gnome-calculator # Calculator
