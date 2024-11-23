@@ -40,8 +40,8 @@
     ];
 
     sessionVariables = {
-      EDITOR = "neovide";
-      VISUAL = "neovide";
+      EDITOR = "nvim";
+      VISUAL = "nvim";
       PAGER = "less";
       MANPAGER = "nvim +Man!";
       DIFFPROG = "nvim -d";
@@ -134,10 +134,11 @@
       mkdir = "mkdir -p";
       nf = "fastfetch";
       neofetch = "fastfetch";
-      nv = "neovide";
-      # TODO:
+      # TODO: Confige powerprofilesctl
       ppc = "powerprofilesctl";
       pf = "powerprofilesctl launch -p performance";
+      # TODO: End
+
       tree = "eza --git --group-directories-first --header --long --tree";
       q = "exit";
       vimdiff = "nvim -d";
@@ -147,7 +148,7 @@
       us = "systemctl --user";
       rs = "sudo systemctl";
 
-      qn = "neovide -- $HOME/Sync/notes/quicknote.md";
+      qn = "nvim $HOME/Sync/notes/quicknote.md";
     };
   };
 }

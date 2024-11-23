@@ -11,7 +11,6 @@
 
     # ../programs/gui/emulators/default.nix
     ../programs/gui/media/default.nix
-    ../programs/gui/neovide.nix
     ../programs/gui/office/default.nix
     ../programs/gui/office/zathura.nix
 
