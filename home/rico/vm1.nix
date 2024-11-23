@@ -2,26 +2,11 @@
   imports = [
     ./common.nix
 
-    # Nixpkgs config
-    ../core/nix.nix
-
     # Core
     ../core/xkb
 
-    # NixGL
-    ../wrapper/nixGL.nix
-
-    # Theming
-    ../theme/fonts.nix
-    ../theme/theme.nix
-    ../../wallpaper
-
     # Programs - GUI
     ../programs/gui
-
-    ../programs/gui/browsers/brave.nix
-    # ../programs/gui/browsers/firefox.nix
-    # ../programs/gui/browsers/qutebrowser.nix
 
     # ../programs/gui/emulators/default.nix
     ../programs/gui/llvm/default.nix
