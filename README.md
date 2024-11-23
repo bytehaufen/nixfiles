@@ -11,13 +11,6 @@ Git hook for auto formatting of `.nix` files on commit can be installed with
 ./scripts/create-hook-symlink.sh
 ```
 
-## Enable Nix flakes and command
-
-```shell
-mkdir -p ~/.config/nix
-echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
-```
-
 ## Build the Home Manager configuration
 
 - Building and activating via direct Nix command:
