@@ -5,7 +5,8 @@
     # Programs - GUI
     ../programs/gui
 
-    ../programs/gui/wayland/default.nix
+    # Wayland - Hyprland
+    ../programs/gui/wayland
   ];
   opts = {
     services = {
