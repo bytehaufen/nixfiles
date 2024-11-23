@@ -19,12 +19,12 @@ nixos-gen HOSTNAME *ARGS:
 # Build NixOS
 [group('nix')]
 nixos-switch HOSTNAME *ARGS: clean fmt check
-  nixos-rebuild switch --flake '.#{{HOSTNAME}}' {{ARGS}} --extra-experimental-features nix-command --extra-experimental-features flakes
+  nixos-rebuild switch --flake '.#{{HOSTNAME}}' {{ARGS}} --extra-experimental-features 'nix-command flakes'
 
 # Create home-manager configuration
 [group('nix')]
 switch USER *ARGS: clean fmt check 
-  home-manager switch --flake '.#{{USER}}' {{ARGS}} --extra-experimental-features nix-command --extra-experimental-features flakes
+  home-manager switch --flake '.#{{USER}}' {{ARGS}} --extra-experimental-features 'nix-command flakes'
 
 # Build home-manager configuration
 [group('nix')]
@@ -33,7 +33,7 @@ build USER *ARGS: fmt check
 
 [group('nix')]
 build-no-check USER *ARGS:
-  home-manager build --flake '.#{{USER}}' {{ARGS}} --extra-experimental-features nix-command --extra-experimental-features flakes
+  home-manager build --flake '.#{{USER}}' {{ARGS}} --extra-experimental-features 'nix-command flakes'
 
 # Build and activate home-manager configuration
 [group('nix')]
@@ -43,7 +43,7 @@ build-activate USER *ARGS: fmt check
 # Build and activate home-manager configuration without checking and formatting
 [group('nix')]
 build-activate-no-check USER *ARGS:
-  home-manager build --flake '.#{{USER}}' {{ARGS}} --extra-experimental-features nix-command --extra-experimental-features flakes
+  home-manager build --flake '.#{{USER}}' {{ARGS}} --extra-experimental-features 'nix-command flakes'
   result/activate
 
 # Update flake dependencies
