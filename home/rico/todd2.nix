@@ -13,7 +13,6 @@
     ../programs/gui/office/zathura.nix
 
     ../programs/gui/terminal/kitty.nix
-    # ../programs/gui/terminal/wezterm.nix # Not usable see [#5990](https://github.com/wez/wezterm/issues/5990)
 
     # TODD2 specific
     ./todd2
