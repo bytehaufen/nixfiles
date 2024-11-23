@@ -14,25 +14,8 @@
     ../theme/theme.nix
     ../../wallpaper
 
-    # Programs - TUI
+    # TUI programs
     ../programs/tui
-    ../programs/tui/fastfetch.nix
-    ../programs/tui/neovim
-    ../programs/tui/shell/starship.nix
-    ../programs/tui/shell/zoxide.nix
-    ../programs/tui/shell/zsh.nix
-    ../programs/tui/bat
-    ../programs/tui/btop.nix
-    ../programs/tui/cli.nix
-    ../programs/tui/git.nix
-    ../programs/tui/nix.nix
-    ../programs/tui/password-management.nix
-    ../programs/tui/skim.nix
-    ../programs/tui/tmux
-    ../programs/tui/transient-services.nix
-    ../programs/tui/xdg.nix
-    ../programs/tui/yazi
-    ../programs/tui/zellij
   ];
 
   programs.home-manager.enable = true;

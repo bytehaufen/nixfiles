@@ -7,6 +7,26 @@
   conf = config.xdg.configHome;
   cache = config.xdg.cacheHome;
 in {
+  imports = [
+    ./bat
+    ./neovim
+    ./tmux
+    ./yazi
+    ./zellij
+    ./fastfetch.nix
+    ./starship.nix
+    ./zoxide.nix
+    ./zsh.nix
+    ./btop.nix
+    ./cli.nix
+    ./git.nix
+    ./nix.nix
+    ./password-management.nix
+    ./skim.nix
+    ./transient-services.nix
+    ./xdg.nix
+  ];
+
   # Add environment variables
   home.sessionVariables = {
     # Clean up ~
@@ -83,9 +103,7 @@ in {
     fd # Fast find
 
     exiftool # Metadata
-    fd # Find clone
     dust # Disk usage
-    zoxide # Intelligent cd
     hexyl # Hex viewer
     lazydocker # Docker manager
 
@@ -99,7 +117,7 @@ in {
     # tree
     # grim
     # yt-dlp
-    # cmatrix
+    cmatrix # Terminal screensaver
     # figlet
     # curl
     # gawk
