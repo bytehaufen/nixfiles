@@ -88,7 +88,7 @@
     };
 
     homeConfigurations = {
-      "rico-arch" = lib.homeManagerConfiguration {
+      "rico@arch" = lib.homeManagerConfiguration {
         modules = [
           ./home/rico/arch.nix
         ];
@@ -97,7 +97,7 @@
           inherit inputs outputs vars;
         };
       };
-      "rico-todd2" = lib.homeManagerConfiguration {
+      "rico@todd2" = lib.homeManagerConfiguration {
         modules = [
           ./home/rico/todd2.nix
         ];
@@ -106,7 +106,7 @@
           inherit inputs outputs vars;
         };
       };
-      "rico-vm1" = lib.homeManagerConfiguration {
+      "rico@vm1" = lib.homeManagerConfiguration {
         modules = [
           ./home/rico/vm1.nix
         ];

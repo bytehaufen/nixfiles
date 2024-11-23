@@ -17,7 +17,7 @@ Git hook for auto formatting of `.nix` files on commit can be installed with
 
   ```shell
   # Build configuration
-  nix build ".#homeConfigurations.rico-arch.activationPackage"
+  nix build ".#homeConfigurations.rico@arch.activationPackage"
 
   # Activate configuration
   ./result/activate
@@ -26,7 +26,7 @@ Git hook for auto formatting of `.nix` files on commit can be installed with
 - Or using Home Manager's built-in command:
 
   ```shell
-  home-manager switch --flake ".#rico-arch"
+  home-manager switch --flake ".#rico@arch"
   ```
 
 ## Shorthands
