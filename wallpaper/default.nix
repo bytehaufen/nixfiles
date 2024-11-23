@@ -15,7 +15,6 @@
   config.xdg.configFile = {
     "wallpaper/black_arch.png".source = ./black_arch.png;
     "wallpaper/avatar.jpg".source = ./avatar.jpg;
-    "wallpaper/end_4.png".source = ./end_4.png;
     "wallpaper/hyprland.png".source = ./hyprland.png;
   };
 }
