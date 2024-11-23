@@ -1,5 +1,11 @@
 {pkgs, ...}: {
-  imports = [../gui/social ./browser.nix];
+  imports = [
+    ./browsers.nix
+    ./emulators.nix
+    ./llvm.nix
+    ./media.nix
+    ./messaging.nix
+  ];
 
   home.packages = with pkgs; [
     gnome-calculator # Calculator

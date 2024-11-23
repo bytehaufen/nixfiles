@@ -9,8 +9,6 @@
     # Programs - GUI
     ../programs/gui
 
-    # ../programs/gui/emulators/default.nix
-    ../programs/gui/media/default.nix
     ../programs/gui/office/default.nix
     ../programs/gui/office/zathura.nix
 
