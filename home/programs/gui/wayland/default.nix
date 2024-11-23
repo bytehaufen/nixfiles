@@ -17,6 +17,8 @@ in {
     ./anyrun
     ./ags
 
+    ./xkb
+
     # FIXME: Configure
     # ./hyprlock.nix
 

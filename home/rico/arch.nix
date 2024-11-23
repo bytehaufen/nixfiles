@@ -2,9 +2,6 @@
   imports = [
     ./common.nix
 
-    # Core
-    ../core/xkb
-
     # Programs - GUI
     ../programs/gui
 
