@@ -1,4 +1,0 @@
-#!/usr/bin/env sh
-
-# Show git log with diff
-git log -p -- "$1"

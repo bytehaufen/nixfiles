@@ -17,7 +17,6 @@
     # Programs - TUI
     ../programs/tui
     ../programs/tui/fastfetch.nix
-    ../programs/tui/nnn
     ../programs/tui/neovim
     ../programs/tui/shell/starship.nix
     ../programs/tui/shell/zoxide.nix
@@ -29,7 +28,6 @@
     ../programs/tui/nix.nix
     ../programs/tui/password-management.nix
     ../programs/tui/skim.nix
-    ../programs/tui/tex.nix
     ../programs/tui/tmux
     ../programs/tui/transient-services.nix
     ../programs/tui/xdg.nix
