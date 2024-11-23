@@ -10,6 +10,8 @@
     ./settings.nix
   ];
 
+  home.packages = [pkgs.swaybg];
+
   wayland.windowManager.hyprland = {
     enable = true;
     package = config.lib.nixGL.wrap (pkgs.hyprland.override {wrapRuntimeDeps = false;});
@@ -26,7 +28,7 @@
 
     settings = {
       exec-once = [
-        "${lib.getBin pkgs.swaybg} -m fill -i ${config.opts.theme.wallpaper}"
+        "${lib.getExe pkgs.swaybg} -m fill -i ${config.opts.theme.wallpaper}"
       ];
     };
   };
