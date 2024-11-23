@@ -1,13 +1,15 @@
 {vars, ...}: {
   imports = [
-    ./common.nix
+    ./core.nix
 
     # Programs - GUI
     ../programs/gui
 
     ../programs/gui/office/default.nix
     ../programs/gui/office/zathura.nix
+
     ../programs/gui/terminal/kitty.nix
+
     ../programs/gui/wayland/default.nix
   ];
   opts = {
