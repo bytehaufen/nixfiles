@@ -1,8 +1,20 @@
 {
-  config,
   pkgs,
+  config,
   ...
 }: {
+  home.packages = with pkgs; [
+    # MS Office alternatives
+    onlyoffice-bin
+    libreoffice
+
+    # PDF Viewer
+    okular
+
+    # Note-taking apps
+    obsidian
+  ];
+
   programs.zathura = {
     enable = true;
     package = config.lib.nixGL.wrap pkgs.zathura;

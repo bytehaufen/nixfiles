@@ -9,11 +9,6 @@
     # Programs - GUI
     ../programs/gui
 
-    ../programs/gui/office/default.nix
-    ../programs/gui/office/zathura.nix
-
-    ../programs/gui/terminal/kitty.nix
-
     # TODD2 specific
     ./todd2
   ];
