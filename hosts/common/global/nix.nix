@@ -1,9 +1,14 @@
-{lib, ...}: {
+{
+  lib,
+  vars,
+  ...
+}: {
   nix = {
     settings = {
       trusted-users = [
         "root"
         "@wheel"
+        vars.username
       ];
       auto-optimise-store = lib.mkDefault true;
       experimental-features = [
