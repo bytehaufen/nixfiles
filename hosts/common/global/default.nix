@@ -1,4 +1,5 @@
 {
+  vars,
   inputs,
   outputs,
   pkgs,
@@ -20,7 +21,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = {inherit inputs outputs;};
+    extraSpecialArgs = {inherit inputs outputs vars;};
   };
 
   hardware.enableRedistributableFirmware = true;

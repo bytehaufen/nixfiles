@@ -27,7 +27,7 @@ in {
     packages = [pkgs.home-manager];
   };
 
-  home-manager.users.${username} = import ../../../../home/rico/${config.networking.hostName}.nix {inherit vars;};
+  home-manager.users.${username} = import ../../../../home/rico/${config.networking.hostName}.nix;
 
   security.pam.services = {
     swaylock = {};
