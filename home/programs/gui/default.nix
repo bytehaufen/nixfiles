@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   imports = [
-    ./browsers.nix
-    ./emulators.nix
+    ./browser.nix
+    ./emulator.nix
     ./llvm.nix
     ./media.nix
     ./messaging.nix
