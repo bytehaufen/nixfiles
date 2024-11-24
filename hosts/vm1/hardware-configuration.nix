@@ -16,15 +16,13 @@
         "xhci_pci"
         "ohci_pci"
         "ehci_pci"
-        "usb_storage"
         "virtio_pci"
         "ahci"
         "usbhid"
         "sr_mod"
-        "sd_mod"
         "virtio_blk"
       ];
-      kernelModules = ["kvm-intel"];
+      kernelModules = [];
     };
 
     loader = {
