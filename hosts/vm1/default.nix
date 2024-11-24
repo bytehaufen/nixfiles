@@ -23,5 +23,21 @@
 
   hardware.graphics.enable = true;
 
+  boot = {
+    loader = {
+      systemd-boot = {
+        enable = true;
+        consoleMode = "max";
+      };
+      efi.canTouchEfiVariables = true;
+    };
+
+    # For cross-compilation
+    binfmt.emulatedSystems = [
+      "aarch64-linux"
+      "i686-linux"
+    ];
+  };
+
   system.stateVersion = "22.05";
 }
