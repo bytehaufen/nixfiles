@@ -56,8 +56,6 @@
       "idleinhibit fullscreen, class:^(brave)$"
       "idleinhibit focus, class:^(firefox)$, title:^(.*YouTube.*)$"
       "idleinhibit fullscreen, class:^(firefox)$"
-      "idleinhibit focus, class:^(qutebrowser)$, title:^(.*YouTube.*)$"
-      "idleinhibit fullscreen, class:^(qutebrowser)$"
 
       # Spotube
       "float, class:^(spotube)$"

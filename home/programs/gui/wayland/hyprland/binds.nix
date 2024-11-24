@@ -59,7 +59,7 @@ in {
         "$mod SHIFT, Return, exec, run-as-service kitty -e /bin/bash"
 
         # Gui
-        "$mod, W, exec, qutebrowser"
+        "$mod, W, exec, brave"
         "$mod, E, exec, nautilus"
 
         # Switch keyboard lang

@@ -1,7 +1,6 @@
 {
   pkgs,
   config,
-  lib,
   ...
 }: {
   programs.kitty = {
@@ -24,7 +23,6 @@
 
     settings = {
       scrollback_lines = 10000;
-      open_url_with = "qutebrowser";
       confirm_os_window_close = 0;
       window_padding_width = 5;
       copy_on_select = true;
