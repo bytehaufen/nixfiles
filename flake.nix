@@ -35,6 +35,10 @@
       url = "github:anyrun-org/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -43,6 +47,7 @@
     nixpkgsStable,
     home-manager,
     systems,
+    disko,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -84,7 +89,10 @@
         inherit inputs outputs vars;
         pkgs = pkgsFor.x86_64-linux;
       };
-      modules = [./hosts/vm1];
+      modules = [
+        ./hosts/vm1
+        disko.nixosModules.disko
+      ];
     };
 
     homeConfigurations = {

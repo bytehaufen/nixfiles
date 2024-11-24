@@ -1,10 +1,12 @@
 {
-  config,
+  # config,
   modulesPath,
   ...
-}: let
-  hostname = config.networking.hostName;
-in {
+}:
+# let
+#   hostname = config.networking.hostName;
+# in
+{
   imports = [
     (modulesPath + "/profiles/qemu-guest.nix")
   ];
@@ -38,46 +40,42 @@ in {
       "i686-linux"
     ];
   };
-  fileSystems = {
-    "/" = {
-      device = "/dev/disk/by-label/${hostname}";
-      fsType = "ext4";
-      options = [
-        "subvol=root"
-      ];
-    };
-
-    "/nix" = {
-      device = "/dev/disk/by-label/${hostname}";
-      fsType = "ext4";
-      options = [
-        "subvol=nix"
-        "noatime"
-      ];
-    };
-
-    "/swap" = {
-      device = "/dev/disk/by-label/${hostname}";
-      fsType = "ext4";
-      options = [
-        "subvol=swap"
-        "noatime"
-      ];
-    };
-  };
-  fileSystems = {
-    "/boot" = {
-      device = "/dev/disk/by-label/ESP";
-      fsType = "vfat";
-    };
-  };
-
-  swapDevices = [
-    {
-      device = "/swap/swapfile";
-      size = 8196;
-    }
-  ];
+  # fileSystems = {
+  #   "/" = {
+  #     device = "/dev/disk/by-label/${hostname}";
+  #     fsType = "btrfs";
+  #     options = [
+  #       "noatime"
+  #       "compress=zstd"
+  #     ];
+  #   };
+  #   "/home" = {
+  #     device = "/dev/disk/by-label/${hostname}";
+  #     fsType = "btrfs";
+  #     options = [
+  #       "noatime"
+  #       "compress=zstd"
+  #     ];
+  #   };
+  #
+  #   "/nix" = {
+  #     device = "/dev/disk/by-label/${hostname}";
+  #     fsType = "ext4";
+  #     options = [
+  #       "noatime"
+  #       "compress=zstd"
+  #     ];
+  #   };
+  #
+  #   "/swap" = {
+  #    device = "/dev/disk/by-label/${hostname}";
+  #     fsType = "ext4";
+  #     options = [
+  #       "subvol=swap"
+  #       "noatime"
+  #     ];
+  #   };
+  # };
 
   nixpkgs.hostPlatform.system = "x86_64-linux";
 }
