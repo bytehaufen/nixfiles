@@ -1,4 +1,4 @@
-<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD033 MD013 -->
 
 <h1 align="center">❄️Bytehaufens Nixfiles❄️</h1>
 
@@ -34,9 +34,29 @@ TBD
 | Terminal Multiplexer | [Tmux](https://github.com/tmux/tmux/)                               |
 | File Manager         | [Yazi](https://github.com/sxyazi/yazi) \| Nautilus                  |
 
-## How to use
+## Install NixOS from this repo to a VM
 
-TBD
+```sh
+nixos-generate-config --root /tmp/config --no-filesystems
+
+cd /tmp
+
+nix --extra-experimental-features 'nix-command flakes' \
+  shell 'nixpkgs#git' 'nixpkgs#just' 'nixpkgs#vim'
+
+git clone https://codeberg.org/bytehaufen/nixfiles.git
+
+rm nixfiles/hosts/vm1/hardware-configuration.nix
+
+mv config/etc/nixos/hardware-configuration.nix nixfiles/hosts/vm1/
+
+sudo nix --experimental-features 'nix-command flakes'        \
+       run github:nix-community/disko/latest -- --mode disko \
+       --flake './nixfiles#vm1' --show-trace
+
+sudo nixos-install -v --show-trace --no-root-passwd --root /mnt \
+       --flake './nixfiles#vm1'
+```
 
 ## Prerequisites
 
