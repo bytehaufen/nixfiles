@@ -37,12 +37,12 @@ TBD
 ## Install NixOS from this repo to a VM
 
 ```sh
+nix --extra-experimental-features 'nix-command flakes' \
+  shell 'nixpkgs#git' 'nixpkgs#just' 'nixpkgs#vim'
+
 nixos-generate-config --root /tmp/config --no-filesystems
 
 cd /tmp
-
-nix --extra-experimental-features 'nix-command flakes' \
-  shell 'nixpkgs#git' 'nixpkgs#just' 'nixpkgs#vim'
 
 git clone https://codeberg.org/bytehaufen/nixfiles.git
 
@@ -56,6 +56,8 @@ sudo nix --experimental-features 'nix-command flakes'        \
 
 sudo nixos-install -v --show-trace --no-root-passwd --root /mnt \
        --flake './nixfiles#vm1'
+
+mv nixfiles /mnt/home/rico
 ```
 
 ## Prerequisites
