@@ -18,33 +18,18 @@ nixos-gen HOSTNAME *ARGS:
 
 # Build NixOS
 [group('nix')]
-nixos-switch HOSTNAME *ARGS: clean fmt check
-  nixos-rebuild switch --flake '.#{{HOSTNAME}}' {{ARGS}} --extra-experimental-features 'nix-command flakes ca-derivations'
+nixos-switch HOSTNAME *ARGS: clean fmt
+  nixos-rebuild switch --flake '.#{{HOSTNAME}}' {{ARGS}}
 
 # Create home-manager configuration
 [group('nix')]
-switch USER *ARGS: clean fmt check 
+switch USER *ARGS: clean fmt
   home-manager switch --flake '.#{{USER}}' {{ARGS}} --extra-experimental-features 'nix-command flakes ca-derivations'
 
 # Build home-manager configuration
 [group('nix')]
-build USER *ARGS: fmt check
-  just build-no-check {{USER}} {{ARGS}}
-
-[group('nix')]
-build-no-check USER *ARGS:
+build USER *ARGS: fmt
   home-manager build --flake '.#{{USER}}' {{ARGS}} --extra-experimental-features 'nix-command flakes ca-derivations'
-
-# Build and activate home-manager configuration
-[group('nix')]
-build-activate USER *ARGS: fmt check
-  just build-activate-no-check {{USER}} {{ARGS}}
-
-# Build and activate home-manager configuration without checking and formatting
-[group('nix')]
-build-activate-no-check USER *ARGS:
-  home-manager build --flake '.#{{USER}}' {{ARGS}} --extra-experimental-features 'nix-command flakes ca-derivations'
-  result/activate
 
 # Update flake dependencies
 [group('nix')]
