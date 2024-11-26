@@ -1,4 +1,8 @@
-{vars, ...}: {
+{
+  vars,
+  lib,
+  ...
+}: {
   imports = [
     ./core.nix
 
@@ -22,6 +26,7 @@
       discord.enable = true;
     };
   };
+  programs.anyrun.enable = lib.mkForce false;
 
   wayland.windowManager.hyprland.settings = {
     monitor = [
