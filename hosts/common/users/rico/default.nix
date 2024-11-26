@@ -9,6 +9,7 @@
 in {
   users.mutableUsers = true; # FIXME: Set to false when ssh config is complete
   users.users.rico = {
+    hashedPassword = "$6$sPSd4O.QXpNQTOSi$TAkmMKvjCwUWJk0CJDEWWTaOHwQydEvYmIIWMQ3pttHuwQ6ErxrGnMc6kPFgox315g.Wmkojv3bj/R83zJhvp/";
     isNormalUser = true;
     shell = pkgs.zsh;
     extraGroups = ifTheyExist [
