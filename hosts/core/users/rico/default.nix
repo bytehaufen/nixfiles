@@ -8,7 +8,7 @@
   ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
 in {
   users.mutableUsers = true; # FIXME: Set to false when ssh config is complete
-  users.users.rico = {
+  users.users.${username} = {
     hashedPassword = "$6$sPSd4O.QXpNQTOSi$TAkmMKvjCwUWJk0CJDEWWTaOHwQydEvYmIIWMQ3pttHuwQ6ErxrGnMc6kPFgox315g.Wmkojv3bj/R83zJhvp/";
     isNormalUser = true;
     shell = pkgs.zsh;
@@ -28,7 +28,7 @@ in {
     packages = [pkgs.home-manager];
   };
 
-  home-manager.users.${username} = import ../../../../home/rico/${config.networking.hostName}.nix;
+  home-manager.users.${username} = import ../../../../home/${vars.username}/${config.networking.hostName}.nix;
 
   security.pam.services = {
     swaylock = {};

@@ -1,14 +1,14 @@
-{...}: {
+{vars, ...}: {
   imports = [
     ./hardware-configuration.nix
     ./disko-config.nix
 
-    ../common/global
-    ../common/users/rico
+    ../core/global
+    ../core/users/${vars.username}
 
-    ../common/optional/kdeconnect.nix
-    ../common/optional/pipewire.nix
-    ../common/optional/wireless.nix
+    ../core/optional/kdeconnect.nix
+    ../core/optional/pipewire.nix
+    ../core/optional/wireless.nix
   ];
 
   networking = {

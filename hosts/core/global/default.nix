@@ -15,7 +15,6 @@
     ./prometheus-node-exporter.nix
     ./systemd-initrd.nix
     ./upower.nix
-    ./zsh.nix
   ];
 
   home-manager = {
