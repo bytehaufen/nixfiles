@@ -3,7 +3,6 @@
   pkgs,
   ...
 }: let
-  data = config.xdg.dataHome;
   conf = config.xdg.configHome;
   cache = config.xdg.cacheHome;
 in {
@@ -29,11 +28,9 @@ in {
 
   # Add environment variables
   home.sessionVariables = {
-    # Clean up ~
+    # TODO: Clean up ~
     LESSHISTFILE = "${cache}/less/history";
     LESSKEY = "${conf}/less/lesskey";
-
-    WINEPREFIX = "${data}/wine";
   };
 
   programs = {

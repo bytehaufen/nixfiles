@@ -1,4 +1,14 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: let
+  data = config.xdg.dataHome;
+in {
+  home.sessionVariables = {
+    WINEPREFIX = "${data}/wine";
+  };
+
   home.packages = with pkgs; [
     # NOTE: Stable because currently broken
     quickemu # Emulator manager
