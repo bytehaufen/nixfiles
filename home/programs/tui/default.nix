@@ -21,7 +21,7 @@ in {
     ./cli.nix
     ./git.nix
     ./nix.nix
-    ./password-management.nix
+    ./gpg
     ./skim.nix
     ./transient-services.nix
     ./xdg.nix
