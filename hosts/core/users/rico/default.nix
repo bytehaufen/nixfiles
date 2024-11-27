@@ -11,7 +11,6 @@ in {
   users.users.${username} = {
     hashedPassword = "$6$sPSd4O.QXpNQTOSi$TAkmMKvjCwUWJk0CJDEWWTaOHwQydEvYmIIWMQ3pttHuwQ6ErxrGnMc6kPFgox315g.Wmkojv3bj/R83zJhvp/";
     isNormalUser = true;
-    shell = pkgs.zsh;
     extraGroups = ifTheyExist [
       "audio"
       "docker"
