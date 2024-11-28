@@ -52,7 +52,7 @@ mv config/etc/nixos/hardware-configuration.nix nixfiles/hosts/vm1/
 
 sudo nix --experimental-features 'nix-command flakes'        \
        run github:nix-community/disko/latest -- --mode disko \
-       --flake './nixfiles#vm1' --show-trace
+       --flake './nixfiles#vm1' --show-trace --verbose
 
 sudo nixos-install -v --show-trace --no-root-passwd --root /mnt \
        --flake './nixfiles#vm1'
