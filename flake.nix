@@ -56,7 +56,6 @@
     home-manager,
     systems,
     disko,
-    agenix,
     ...
   } @ inputs: let
     inherit (self) outputs;
