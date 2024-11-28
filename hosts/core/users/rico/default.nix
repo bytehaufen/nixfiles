@@ -23,6 +23,7 @@ in {
       "video"
       "wheel"
     ];
+    openssh.authorizedKeys.keys = vars.sshAuthorizedKeys;
 
     packages = [pkgs.home-manager];
   };
