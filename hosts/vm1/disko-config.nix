@@ -24,8 +24,6 @@
                 name = "crypted";
                 settings = {
                   allowDiscards = true;
-                  # FIXME: Make secure with AGE
-                  # keyFile = "/tmp/secret.key";
                 };
                 content = {
                   type = "btrfs";
