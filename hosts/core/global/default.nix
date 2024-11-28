@@ -7,6 +7,8 @@
 }: {
   imports = [
     inputs.home-manager.nixosModules.home-manager
+    ../../../secrets
+
     ./locale.nix
     ./nix.nix
     ./nix-ld.nix

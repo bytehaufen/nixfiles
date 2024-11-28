@@ -11,6 +11,16 @@
   };
 
   inputs = {
+    agenix = {
+      url = "github:yaxitech/ragenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    secrets = {
+      url = "git+ssh://git@github.com/bytehaufen/nix-secrets.git?shallow=1";
+      flake = false;
+    };
+
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgsStable.url = "github:nixos/nixpkgs/nixos-24.05";
 
@@ -46,6 +56,7 @@
     home-manager,
     systems,
     disko,
+    agenix,
     ...
   } @ inputs: let
     inherit (self) outputs;
