@@ -34,29 +34,50 @@ TBD
 | Terminal Multiplexer | [Tmux](https://github.com/tmux/tmux/)                               |
 | File Manager         | [Yazi](https://github.com/sxyazi/yazi) \| Nautilus                  |
 
-## Install NixOS from this repo to a VM
+## Deploy this flake via nix-anywhere to a VM
 
 ```sh
+nix run 'nixpkgs#nixos-anywhere' -- --flake .#vm1 --generate-hardware-config nixos-generate-config ./hardware-configuration.nix nixos@127.0.0.1 -p 22220
+```
+
+## Install NixOS from this repo to a VM
+
+> [!error]
+> This way does not work with agenix. Use the nix-anywhere way instead.
+
+```sh
+# Enter shell with git, just and vim available
 nix --extra-experimental-features 'nix-command flakes' \
   shell 'nixpkgs#git' 'nixpkgs#just' 'nixpkgs#vim'
 
+# Generate NixOS configuration to /tmp/config
 nixos-generate-config --root /tmp/config --no-filesystems
 
 cd /tmp
 
+# Clone this repository to /tmp/nixfiles
 git clone https://codeberg.org/bytehaufen/nixfiles.git
 
+# Remove the old hardware-configuration.nix
 rm nixfiles/hosts/vm1/hardware-configuration.nix
 
+# Move the generated hardware-configuration.nix to the correct location
 mv config/etc/nixos/hardware-configuration.nix nixfiles/hosts/vm1/
 
+# Prepare the disks with disko
 sudo nix --experimental-features 'nix-command flakes'        \
        run github:nix-community/disko/latest -- --mode disko \
        --flake './nixfiles#vm1' --show-trace --verbose
 
+# Install NixOS to the prepared disks
 sudo nixos-install -v --show-trace --no-root-passwd --root /mnt \
        --flake './nixfiles#vm1'
 
+# Enter into the installed system, check password & users
+# `su rico` => `sudo -i` => enter password => successfully login
+nixos-enter
+
+# Move nixfiles to /home/rico
 mv nixfiles /mnt/home/rico
 ```
 
