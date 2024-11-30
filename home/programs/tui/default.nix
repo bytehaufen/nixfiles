@@ -21,6 +21,7 @@ in {
     ./git.nix
     ./nix.nix
     ./gpg
+    ./ssh.nix
     ./skim.nix
     ./transient-services.nix
     ./xdg.nix
