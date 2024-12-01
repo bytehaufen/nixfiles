@@ -60,11 +60,11 @@ fmt:
 # Check nix flake
 [group('nix')]
 check:
-  statix check
+  statix check -i hardware-configuration.nix
   deadnix -f .
   nix flake check
 
-# Remove build output link (no garbarge collection)
+# Remove build output link (no garbage collection)
 [group('nix')]
 clean:
   rm -rf ./result
