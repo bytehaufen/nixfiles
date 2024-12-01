@@ -391,10 +391,10 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1733055211,
-        "narHash": "sha256-n3+3s4Ff7h/JcBsYW3p1CBj5q+wEdC5rm/DYkvvB8Ss=",
+        "lastModified": 1733065957,
+        "narHash": "sha256-opLoTnl66x/CaRbtn1dD4kiZjw7PRkHr8MoFfJ8GoX8=",
         "ref": "refs/heads/main",
-        "rev": "7a487cba887ffe1c5e19a1ac7225fe47a3df9629",
+        "rev": "85434f21dbe4762fd8aba59bd54dc8040a137d65",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/bytehaufen/nix-secrets.git"
