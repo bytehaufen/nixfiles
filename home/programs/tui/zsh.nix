@@ -57,8 +57,8 @@
         ssh-add ~/.ssh/$USER &> /dev/null
       fi
       # Priv
-      if [ -f ~/.ssh/id_ed25519_rico ]; then
-        ssh-add ~/.ssh/id_ed25519_rico &> /dev/null
+      if [ -f /etc/ssh/id_ed25519_rico ]; then
+        ssh-add /etc/ssh/id_ed25519_rico &> /dev/null
       fi
 
       # Update all
