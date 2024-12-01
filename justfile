@@ -23,12 +23,12 @@ nixos-switch HOSTNAME *ARGS: clean fmt
 
 # Create home-manager configuration
 [group('nix')]
-switch USER *ARGS: clean fmt
+hm-switch USER *ARGS: clean fmt
   home-manager switch --flake '.#{{USER}}' {{ARGS}} --extra-experimental-features 'nix-command flakes ca-derivations'
 
 # Build home-manager configuration
 [group('nix')]
-build USER *ARGS: fmt
+hm-build USER *ARGS: fmt
   home-manager build --flake '.#{{USER}}' {{ARGS}} --extra-experimental-features 'nix-command flakes ca-derivations'
 
 # Update flake dependencies
