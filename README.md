@@ -56,7 +56,7 @@ nixos-generate-config --root /tmp/config --no-filesystems
 cd /tmp
 
 # Clone this repository to /tmp/nixfiles
-git clone https://codeberg.org/bytehaufen/nixfiles.git
+git clone https://github.com/bytehaufen/nixfiles.git
 
 # Remove the old hardware-configuration.nix
 rm nixfiles/hosts/vm1/hardware-configuration.nix
