@@ -33,8 +33,8 @@ build USER *ARGS: fmt
 
 # Update flake dependencies
 [group('nix')]
-update:
-  nix flake update
+update *ARGS:
+  nix flake update {{ARGS}}
 
 # Open nix shell with the flake
 [group('nix')]
