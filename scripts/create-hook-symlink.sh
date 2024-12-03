@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Absolute path to this script
 BASE_DIR="$(dirname "$(realpath "$0")")"
