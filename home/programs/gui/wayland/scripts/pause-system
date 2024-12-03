@@ -8,6 +8,3 @@ fi
 hyprctl dispatch dpms off &
 systemctl suspend
 hyprctl dispatch dpms on
-
-# NOTE: Restart ags service after 5 seconds to fix display issues on the second monitor after sleep.
-(sleep 5 && systemctl --user restart ags) &
