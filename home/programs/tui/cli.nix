@@ -14,7 +14,6 @@
     fd
     file
     jaq
-    ripgrep
   ];
 
   programs = {

@@ -21,6 +21,7 @@ in {
     ./git.nix
     ./nix.nix
     ./gpg
+    ./packages.nix
     ./ssh.nix
     ./skim.nix
     ./transient-services.nix
@@ -79,16 +80,6 @@ in {
     ## Development
     just # Make like command runner
     libcap # POSIX capabilities
-    go
-    gcc
-    rustc # Rust compiler
-    cargo # Rust package manager
-    rust-analyzer # Rust language server
-    nodejs_22
-    lua # Lua language
-    luarocks
-    luajitPackages.magick # Lua bindings for ImageMagick
-    luajitPackages.lpeg # Lua parsing expression grammars
 
     viu # Image viewer
     chafa # Image to ASCII converter
@@ -96,7 +87,6 @@ in {
     inkscape # Vector graphics editor
     sd # Fast sed
     tealdeer # tldr
-    ripgrep # Fast grep
     eza # ls alternative
     fd # Fast find
 
