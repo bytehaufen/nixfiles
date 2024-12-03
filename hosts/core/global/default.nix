@@ -16,6 +16,7 @@
     ./openssh.nix
     ./podman.nix
     ./prometheus-node-exporter.nix
+    ./smb.nix
     ./systemd-initrd.nix
     ./upower.nix
   ];

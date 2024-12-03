@@ -27,6 +27,11 @@
         mode = "0500";
         owner = vars.username;
       };
+      "smb-secrets" = {
+        file = "${inputs.secrets}/smb-secrets.age";
+        mode = "0400";
+        owner = "root";
+      };
     };
   };
 
