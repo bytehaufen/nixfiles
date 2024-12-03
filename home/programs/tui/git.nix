@@ -1,10 +1,13 @@
-{
+{vars, ...}: {
   # Enable scrolling in git diff
   home.sessionVariables.DELTA_PAGER = "less -R";
 
   programs = {
     git = {
       enable = true;
+
+      userName = vars.gitName;
+      userEmail = vars.email;
 
       extraConfig = {
         core = {
