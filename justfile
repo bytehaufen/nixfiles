@@ -61,7 +61,7 @@ fmt:
 [group('nix')]
 check:
   statix check -i hardware-configuration.nix
-  deadnix -f .
+  deadnix -f . --exclude ./hosts/vm1/hardware-configuration.nix ./hosts/loki/hardware-configuration.nix
   nix flake check
 
 # Remove build output link (no garbage collection)
