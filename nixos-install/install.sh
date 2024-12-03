@@ -4,11 +4,11 @@
 
 # New host information
 username='rico'
-hostname='vm1'
+hostname='loki'
 
 # SSH target
-target="nixos@127.0.01"
-target_port="22220"
+target="nixos@192.168.178.97"
+target_port="22"
 
 # Colors
 RED='\033[0;31m'
@@ -41,7 +41,7 @@ echo
 echo -e "${YELLOW}Execute:"
 echo -e "    ${BLUE}cd ~/nix-secrets && \ "
 echo -e "    vim secrets.nix && \ "
-echo -e "    sudo nix run \"github:/yaxitech/ragenix\" -- -r -i /etc/ssh/ssh_host_ed25519_key && \ "
+echo -e "    sudo /nix/var/nix/profiles/default/bin/nix run \"github:/yaxitech/ragenix\" -- -r -i /etc/ssh/ssh_host_ed25519_key && \ "
 echo -e "    git commit -am \"feat: Add new host\" && \ "
 echo -e "    git push${NC}"
 echo
@@ -67,4 +67,4 @@ while [ "$input" != "go" ]; do
 done
 
 # Install NixOS to the host system with our secrets, a new hardware-configuration.nix will be generated
-nix run 'nixpkgs#nixos-anywhere' -- --extra-files "$temp" --copy-host-keys --flake '.#vm1' --generate-hardware-config nixos-generate-config hosts/${hostname}/hardware-configuration.nix ${target} -p ${target_port}
+nix run 'nixpkgs#nixos-anywhere' -- --extra-files "$temp" --copy-host-keys --flake ".#${hostname}" --generate-hardware-config nixos-generate-config hosts/${hostname}/hardware-configuration.nix ${target} -p ${target_port}
