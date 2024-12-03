@@ -55,7 +55,6 @@
     nixpkgsStable,
     home-manager,
     systems,
-    disko,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -92,15 +91,26 @@
 
     formatter = forEachSystem (pkgs: pkgs.alejandra);
 
-    nixosConfigurations.vm1 = lib.nixosSystem {
-      specialArgs = {
-        inherit inputs outputs vars;
-        pkgs = pkgsFor.x86_64-linux;
+    nixosConfigurations = {
+      vm1 = lib.nixosSystem {
+        specialArgs = {
+          inherit inputs outputs vars;
+          pkgs = pkgsFor.x86_64-linux;
+        };
+        modules = [
+          ./hosts/vm1
+        ];
       };
-      modules = [
-        ./hosts/vm1
-        disko.nixosModules.disko
-      ];
+
+      loki = lib.nixosSystem {
+        specialArgs = {
+          inherit inputs outputs vars;
+          pkgs = pkgsFor.x86_64-linux;
+        };
+        modules = [
+          ./hosts/loki
+        ];
+      };
     };
 
     homeConfigurations = {
