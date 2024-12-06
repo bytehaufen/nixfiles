@@ -53,8 +53,8 @@
     initExtra = ''
       eval `ssh-agent -s` &> /dev/null
       # Work
-      if [ -f ~/.ssh/$USER ]; then
-        ssh-add ~/.ssh/$USER &> /dev/null
+      if [ -f /etc/ssh/id_ed25519_rico_work ]; then
+        ssh-add /etc/ssh/id_ed25519_rico_work &> /dev/null
       fi
       # Priv
       if [ -f /etc/ssh/id_ed25519_rico ]; then
