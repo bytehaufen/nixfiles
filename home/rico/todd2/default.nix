@@ -28,12 +28,14 @@
   home.packages = [
     # COSIDE
     (pkgs.writeShellScriptBin "coside" ''
+      zsh
       source $XDG_CONFIG_HOME/zsh/.zshrc
       bash -c "COSIDE_SHELL_OPTIONS='-f -c gnome-terminal' GTK_THEME=Adwaita $HOME/coside/coside-latest/coside $@"
     '')
 
     # Eclipse COSIDE SDK
     (pkgs.writeShellScriptBin "coside-sdk" ''
+      zsh
       source $XDG_CONFIG_HOME/zsh/.zshrc
 
       # Force use light theme
@@ -51,33 +53,39 @@
     '')
 
     (pkgs.writeShellScriptBin "coseda-tunnel" ''
-      source $XDG_CONFIG_HOME/zsh/.zshrc
-
-      while [ $# -ne 0 ]
-      do
-          case "$1" in
-            --kill)
-              kill=true
-                  ;;
-          esac
-          shift
+      # Search for `--kill` argument
+      while [ $# -ne 0 ]; do
+        case "$1" in
+        --kill)
+          KILL=true
+          ;;
+        esac
+        shift
       done
 
-      tunnel_command='ssh -f -N'
-      hosts=`cat ~/.ssh/config | grep "Host " | awk '{print $2}' | grep "tunnel$"`
-      for host in $hosts
-      do
-        PS=`pgrep -u $USER -a "ssh" | grep "$tunnel_command $host$"`
-        PID=`echo $PS | awk '{print $1}'  | sed ':a;N;$!ba;s/\n/ /g'`
+      TUNNEL_COMMAND='ssh -f -N'
+      SSH_CONFIG="$HOME/.ssh/config"
+      # Also take care of all included files in the ssh configuration
+      INCLUDED_FILES=$(grep -E '^\s*Include\s+' "$SSH_CONFIG" | awk '{print $2}')
 
+      # Find hosts that end with 'tunnel' in ssh configuration and all included files
+      HOSTS=$(grep -E 'Host .*-tunnel$' "$SSH_CONFIG" $INCLUDED_FILES | awk '{print $2}')
+
+      for HOST in $HOSTS; do
+        # Get all already running tunnel processes
+        PS=$(pgrep -u "$USER" -a "ssh" | grep "$TUNNEL_COMMAND $HOST$")
+        PID=$(echo "$PS" | awk '{print $1}' | sed ':a;N;$!ba;s/\n/ /g')
+
+        # Kill them all
         if [ -n "$PID" ]; then
-          echo "Kill existing tunnel for $host (PID=$PID)"
-          kill -9 $PID
+          echo "Kill existing tunnel for $HOST (PID=$PID)"
+          kill -9 "$PID"
         fi
 
-        if [ $1 -z "$kill" ] ; then
-          echo "Create tunnel for $host"
-          $tunnel_command $host
+        # (Re-)Create the tunnels if no explicitly `--kill` argument was given
+        if [ -z "$KILL" ]; then
+          echo "Create tunnel for $HOST"
+          $TUNNEL_COMMAND "$HOST"
         fi
       done
     '')
