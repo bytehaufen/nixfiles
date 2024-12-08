@@ -55,7 +55,7 @@ gc:
 # Format nix files
 [group('nix')]
 fmt:
-  nix fmt
+  nix fmt .
 
 # Check nix flake
 [group('nix')]
