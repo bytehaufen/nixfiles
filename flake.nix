@@ -17,7 +17,7 @@
     };
 
     secrets = {
-      url = "git+ssh://git@github.com/bytehaufen/nix-secrets.git?shallow=1";
+      url = "git+ssh://git@github.com/bytehaufen/nix-secrets.git";
       flake = false;
     };
 
@@ -77,6 +77,8 @@
     );
   in {
     inherit lib;
+
+    overlays = import ./overlays;
 
     devShells = forEachSystem (pkgs: {
       default = pkgs.mkShell {
