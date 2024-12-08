@@ -40,7 +40,7 @@
     ];
 
     sessionVariables = {
-      EDITOR = "nvim";
+      EDITOR = "nvim --clean";
       VISUAL = "nvim";
       PAGER = "less";
       MANPAGER = "nvim +Man!";
