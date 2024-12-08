@@ -26,14 +26,17 @@ in {
       noto-fonts-cjk-sans
       noto-fonts-emoji
       liberation_ttf
-      (nerdfonts.override {
-        fonts = [
-          # Symbols icon only
-          "NerdFontsSymbolsOnly"
-          "FiraCode"
-          "JetBrainsMono"
-        ];
-      })
+      nerd-fonts.symbols-only
+      nerd-fonts.fira-code
+      nerd-fonts.jetbrains-mono
+      # (nerdfonts.override {
+      #   fonts = [
+      #     # Symbols icon only
+      #     "NerdFontsSymbolsOnly"
+      #     "FiraCode"
+      #     "JetBrainsMono"
+      #   ];
+      # })
     ];
 
     pointerCursor = {
