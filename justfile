@@ -19,7 +19,7 @@ nixos-gen HOSTNAME *ARGS:
 # Build NixOS
 [group('nix')]
 nixos-switch HOSTNAME *ARGS: clean fmt
-  nixos-rebuild switch --flake '.#{{HOSTNAME}}' {{ARGS}}
+  sudo nixos-rebuild switch --flake '.#{{HOSTNAME}}' {{ARGS}}
 
 # Create home-manager configuration
 [group('nix')]
