@@ -17,5 +17,11 @@ in {
 
     wineWowPackages.waylandFull # Windows compatibility layer
     winetricks # Windows compatibility layer
+    distrobox
   ];
+
+  # FIXME: Move to command: here it will be handled by all images (atm no problem, cause there is only one)
+  xdg.configFile."distrobox/distrobox.conf".text = ''
+    container_additional_volumes="/nix/store:/nix/store:ro /etc/static/profiles/per-user:/etc/profiles/per-user:ro"
+  '';
 }

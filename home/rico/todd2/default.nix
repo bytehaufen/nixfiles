@@ -25,33 +25,31 @@
     };
   };
 
+  imports = [./rockylinux.nix];
+
   home.packages = [
     # COSIDE
     (pkgs.writeShellScriptBin "coside" ''
-      zsh
-      source $XDG_CONFIG_HOME/zsh/.zshrc
-      bash -c "COSIDE_SHELL_OPTIONS='-f -c gnome-terminal' GTK_THEME=Adwaita $HOME/coside/coside-latest/coside $@"
+      bash -c "COSIDE_SHELL_OPTIONS='-f -c gnome-terminal' GTK_THEME=Adwaita rockylinux $HOME/Apps/coside/coside-latest/coside $@"
     '')
 
     # Eclipse COSIDE SDK
     (pkgs.writeShellScriptBin "coside-sdk" ''
-      zsh
-      source $XDG_CONFIG_HOME/zsh/.zshrc
-
       # Force use light theme
       export GTK_THEME=Adwaita
 
       # Paths
-      export COSIDE_INSTALL_PATH="$HOME/coside/coside-latest"
+      export COSIDE_INSTALL_PATH="$HOME/Apps/coside/coside-latest"
       COSIDE_SDK_DIR="$HOME/Apps/eclipse/coside-sdk-latest"
 
       # Helper
       SOURCE_COMMAND="source $COSIDE_INSTALL_PATH/coside --setenv"
 
       # Launch
-      tcsh -c "cd $COSIDE_INSTALL_PATH && $SOURCE_COMMAND && $COSIDE_SDK_DIR/coside-sdk/eclipse -data $COSIDE_SDK_DIR/ws"
+      rockylinux tcsh -c "cd $COSIDE_INSTALL_PATH && $SOURCE_COMMAND && $COSIDE_SDK_DIR/coside-sdk/eclipse -data $COSIDE_SDK_DIR/ws"
     '')
 
+    # Tunnel for work network
     (pkgs.writeShellScriptBin "coseda-tunnel" ''
       # Search for `--kill` argument
       while [ $# -ne 0 ]; do
