@@ -18,11 +18,18 @@
     ];
   };
 
-  programs.direnv = {
-    enable = true;
-    nix-direnv.enable = true;
-    enableZshIntegration = true;
-    enableBashIntegration = true;
-    enableNushellIntegration = true;
+  programs = {
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+      enableZshIntegration = true;
+      enableBashIntegration = true;
+      enableNushellIntegration = true;
+    };
+
+    nix-index = {
+      enable = true;
+      enableZshIntegration = true;
+    };
   };
 }
