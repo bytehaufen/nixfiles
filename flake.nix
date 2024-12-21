@@ -71,14 +71,15 @@
           inherit system;
           config.allowUnfree = true;
           overlays = [
+            # Add stable version of nixpkgs to pkgs -> pkgs.stable
             (_final: _prev: {stable = import nixpkgsStable {inherit system;};})
+            # Enable JavaFX for jdk
+            (_final: prev: {jdk = prev.jdk.override {enableJavaFX = true;};})
           ];
         }
     );
   in {
     inherit lib;
-
-    overlays = import ./overlays;
 
     devShells = forEachSystem (pkgs: {
       default = pkgs.mkShell {
