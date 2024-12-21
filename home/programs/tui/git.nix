@@ -14,7 +14,7 @@
           editor = "nvim";
         };
         user = {
-          signingkey = "~/.ssh/id_ed25519_rico";
+          signingkey = "/etc/ssh/id_ed25519_rico";
         };
         gpg = {
           format = "ssh";
