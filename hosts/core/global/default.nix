@@ -61,6 +61,7 @@
     mtr # A network diagnostic tool
     iperf3
     dnsutils # `dig` + `nslookup`
+    netcat-gnu # GNU implementation of the netcat
     ldns # replacement of `dig`, it provide the command `drill`
     wget
     curl
