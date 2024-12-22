@@ -1,21 +1,5 @@
 {pkgs, ...}: {
   xdg.desktopEntries = {
-    coside = {
-      name = "COSIDE";
-      exec = "coside";
-      terminal = false;
-      type = "Application";
-      categories = ["Development"];
-    };
-
-    coside-sdk = {
-      name = "COSIDE SDK";
-      exec = "coside-sdk";
-      terminal = false;
-      type = "Application";
-      categories = ["Development"];
-    };
-
     coseda-tunnel = {
       name = "COSEDA Tunnel";
       exec = "coseda-tunnel";
@@ -30,7 +14,7 @@
   home.packages = [
     # COSIDE
     (pkgs.writeShellScriptBin "coside" ''
-      bash -c "COSIDE_SHELL_OPTIONS='-f -c gnome-terminal' GTK_THEME=Adwaita rockylinux $HOME/Apps/coside/coside-latest/coside $@"
+      COSIDE_SHELL_OPTIONS='-f -c gnome-terminal' GTK_THEME=Adwaita COSIDE_LICENSE_FILE=27000@192.168.178.88 rockylinux $HOME/Apps/coside/coside-latest/coside "$@"
     '')
 
     # Eclipse COSIDE SDK
