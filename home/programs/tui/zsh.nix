@@ -22,6 +22,8 @@
     autocd = true;
     syntaxHighlighting.enable = true;
     enableCompletion = true;
+    # Fix for https://discourse.nixos.org/t/zsh-compinit-warning-on-every-shell-session/22735/6
+    completionInit = "autoload -U compinit && compinit -i";
     enableVteIntegration = true;
 
     dotDir = ".config/zsh";
