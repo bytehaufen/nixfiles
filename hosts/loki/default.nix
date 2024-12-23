@@ -14,6 +14,7 @@
 
     ../core/optional/kdeconnect.nix
     ../core/optional/pipewire.nix
+    ../core/optional/quietboot.nix
     ../core/optional/wireless.nix
   ];
 
