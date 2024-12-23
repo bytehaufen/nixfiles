@@ -2,8 +2,11 @@
   lib,
   vars,
   pkgs,
+  inputs,
   ...
-}: {
+}: let
+  flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
+in {
   nix = {
     package = pkgs.nixVersions.latest;
     settings = {
@@ -24,6 +27,7 @@
         "big-parallel"
         "nixos-test"
       ];
+      flake-registry = ""; # Disable global flake registry
     };
     gc = {
       automatic = true;
@@ -31,5 +35,7 @@
       # Keep the last 3 generations
       options = "--delete-older-than +3";
     };
+    registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
+    nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 }
