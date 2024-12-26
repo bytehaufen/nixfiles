@@ -18,7 +18,6 @@ in {
   xdg.portal = {
     enable = true;
     extraPortals = [
-      # pkgs.xdg-desktop-portal-wlr
       pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-hyprland
     ];
@@ -31,7 +30,6 @@ in {
         "org.freedesktop.impl.portal.Secret" = [
           "gnome-keyring"
         ];
-        # hyprland.default = ["wlr" "gtk"];
       };
       hyprland.default = ["gtk" "hyprland"];
     };

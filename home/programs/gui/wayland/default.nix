@@ -1,14 +1,4 @@
-{pkgs, ...}: let
-  joinedPortals = pkgs.symlinkJoin {
-    name = "xdg-portals";
-    paths = [
-      pkgs.gnome-remote-desktop
-      pkgs.gnome-shell
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-hyprland
-    ];
-  };
-in {
+{pkgs, ...}: {
   imports = [
     ./hyprland
     ./swaylock.nix
@@ -29,14 +19,6 @@ in {
   ];
 
   home.packages = with pkgs; [
-    libvdpau-va-gl
-    vpl-gpu-rt
-    intel-media-driver
-    intel-compute-runtime
-    v4l-utils
-    ffmpeg
-    libcamera
-
     brillo # Brightness control
     hyprshot
     brightnessctl
@@ -57,7 +39,6 @@ in {
 
   # # TODO: Move to parent
   home.sessionVariables = {
-    XDG_DESKTOP_PORTAL_DIR = "${joinedPortals}/share/xdg-desktop-portal/portals";
     GTK_USE_PORTAL = 1;
     QT_QPA_PLATFORM = "wayland";
     SDL_VIDEODRIVER = "wayland";
@@ -66,11 +47,5 @@ in {
     LIBVA_DRIVER_NAME = "iHD";
     MOZ_ENABLE_WAYLAND = "1";
     WLR_DRM_NO_MODIFIERS = "1";
-  };
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal-gtk];
-    config.hyprland.default = ["wlr" "gtk"];
   };
 }
