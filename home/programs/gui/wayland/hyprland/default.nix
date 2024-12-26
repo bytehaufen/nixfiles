@@ -2,8 +2,11 @@
   pkgs,
   config,
   lib,
+  inputs,
   ...
-}: {
+}: let
+  hyperlandPkg = inputs.hyprland.packages.${pkgs.system}.default;
+in {
   imports = [
     ./binds.nix
     ./rules.nix
@@ -14,7 +17,8 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = config.lib.nixGL.wrap (pkgs.hyprland.override {wrapRuntimeDeps = false;});
+    package = hyperlandPkg;
+
     systemd = {
       enable = true;
       variables = ["--all"];
