@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  config,
+  ...
+}: let
   tokyo-night-gtk = pkgs.tokyo-night-gtk.override {
     colorVariants = [
       "dark"
@@ -88,5 +92,11 @@ in {
   qt = {
     enable = true;
     platformTheme.name = "gtk";
+  };
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
   };
 }
