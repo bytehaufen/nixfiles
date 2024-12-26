@@ -5,6 +5,4 @@ if [ -f /usr/bin/swaylock ]; then
 else
   swaylock &
 fi
-hyprctl dispatch dpms off &
 systemctl suspend
-hyprctl dispatch dpms on
