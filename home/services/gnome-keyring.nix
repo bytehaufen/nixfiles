@@ -12,5 +12,7 @@
 
   config = lib.mkIf config.opts.services.gnome-keyring.enable {
     home.packages = [pkgs.gnome-keyring];
+
+    services.gnome-keyring.enable = true;
   };
 }
