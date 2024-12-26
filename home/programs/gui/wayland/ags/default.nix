@@ -32,7 +32,6 @@
     adwaita-icon-theme
     qogir-icon-theme
     hicolor-icon-theme
-    pavucontrol
   ];
 
   dependencies = requiredDeps ++ guiDeps;
