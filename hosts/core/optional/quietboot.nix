@@ -1,4 +1,4 @@
-{...}: {
+{
   console = {
     useXkbConfig = true;
     earlySetup = false;
@@ -8,6 +8,7 @@
     # Graphical boot animation
     plymouth = {
       enable = true;
+      ## FIXME: Style this
       # theme = "spinner-monochrome";
       # themePackages = [
       #    # By default we would install all themes
