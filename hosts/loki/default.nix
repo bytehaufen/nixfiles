@@ -12,6 +12,8 @@
     ../core/global
     ../core/users/${vars.username}
 
+    ../core/optional/greetd.nix
+    ../core/optional/hyprland.nix
     ../core/optional/kdeconnect.nix
     ../core/optional/pipewire.nix
     ../core/optional/quietboot.nix

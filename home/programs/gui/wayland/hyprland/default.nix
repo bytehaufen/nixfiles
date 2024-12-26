@@ -15,6 +15,28 @@ in {
 
   home.packages = [pkgs.swaybg];
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      # pkgs.xdg-desktop-portal-wlr
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-hyprland
+    ];
+
+    config = {
+      common = {
+        default = [
+          "gtk"
+        ];
+        "org.freedesktop.impl.portal.Secret" = [
+          "gnome-keyring"
+        ];
+        # hyprland.default = ["wlr" "gtk"];
+      };
+      hyprland.default = ["gtk" "hyprland"];
+    };
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     package = hyperlandPkg;
@@ -22,10 +44,6 @@ in {
     systemd = {
       enable = true;
       variables = ["--all"];
-      extraCommands = lib.mkBefore [
-        "systemctl --user stop graphical-session.target"
-        "systemctl --user start hyprland-session.target"
-      ];
     };
 
     xwayland.enable = true;
@@ -35,5 +53,10 @@ in {
         "${lib.getExe pkgs.swaybg} -m fill -i ${config.opts.theme.wallpaper}"
       ];
     };
+  };
+
+  home.file.".wayland-session" = {
+    source = "${lib.getExe hyperlandPkg}";
+    executable = true;
   };
 }
