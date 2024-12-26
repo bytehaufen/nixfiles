@@ -10,6 +10,11 @@
         "--enable-features=UseOzonePlatform"
         "--ozone-platform=wayland"
         "--password-store=basic"
+        "--ozone-platform-hint=auto"
+        "--ozone-platform=wayland"
+        "--gtk-version=4"
+        "--enable-wayland-ime"
+        "--enable-features=WebRTCPipeWireCapturer"
       ];
     };
   };
