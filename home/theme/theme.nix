@@ -1,8 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: let
+{pkgs, ...}: let
   tokyo-night-gtk = pkgs.tokyo-night-gtk.override {
     colorVariants = [
       "dark"
@@ -33,14 +29,6 @@ in {
       nerd-fonts.symbols-only
       nerd-fonts.fira-code
       nerd-fonts.jetbrains-mono
-      # (nerdfonts.override {
-      #   fonts = [
-      #     # Symbols icon only
-      #     "NerdFontsSymbolsOnly"
-      #     "FiraCode"
-      #     "JetBrainsMono"
-      #   ];
-      # })
     ];
 
     pointerCursor = {
