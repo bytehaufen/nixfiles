@@ -99,11 +99,12 @@ in {
     # Password store - password manager
     password-store = {
       enable = true;
-      package = pkgs.pass.withExtensions (exts: [
-        # [awesome-password-store](https://github.com/tijn/awesome-password-store)
-        exts.pass-update # A pass extension that provides an easy flow for updating passwords
-        exts.pass-import # A generic importer tool from other password managers
-      ]);
+      # package = pkgs.pass.withExtensions (exts: [
+      #   # [awesome-password-store](https://github.com/tijn/awesome-password-store)
+      #   exts.pass-update # A pass extension that provides an easy flow for updating passwords
+      #   exts.pass-import # A generic importer tool from other password managers
+      # ]);
+      package = pkgs.gopass;
       settings = {
         PASSWORD_STORE_DIR = passwordStoreDir;
         PASSWORD_STORE_CLIP_TIME = "60";
@@ -125,5 +126,7 @@ in {
         "firefox"
       ];
     };
+
+    zsh.shellAliases = {pass = "gopass";};
   };
 }
