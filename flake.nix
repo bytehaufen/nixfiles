@@ -38,6 +38,8 @@
 
     hyprland.url = "github:hyprwm/hyprland";
 
+    nix-colors.url = "github:misterio77/nix-colors";
+
     nixGL = {
       url = "github:guibou/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -53,10 +55,10 @@
   };
 
   outputs = {
-    self,
+    home-manager,
     nixpkgs,
     nixpkgsStable,
-    home-manager,
+    self,
     systems,
     ...
   } @ inputs: let

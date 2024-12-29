@@ -10,8 +10,7 @@
     ../wrapper/nixGL.nix
 
     # Theming
-    ../theme/fonts.nix
-    ../theme/theme.nix
+    ../theme
     ../../wallpaper
 
     # TUI programs
