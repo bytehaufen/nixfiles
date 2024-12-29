@@ -3,9 +3,10 @@
     ./hyprland
     ./swaylock.nix
     ./scripts
+    ./waybar
 
     ./anyrun
-    ./ags
+    # ./ags
 
     ./xkb
 
