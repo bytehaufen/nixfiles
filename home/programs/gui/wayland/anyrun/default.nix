@@ -13,9 +13,11 @@
     config = {
       plugins = with inputs.anyrun.packages.${pkgs.system}; [
         applications
+        randr
         rink
         shell
         symbols
+        translate
       ];
 
       width.fraction = 0.25;
