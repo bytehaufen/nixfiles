@@ -16,13 +16,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    secrets = {
-      url = "git+ssh://git@github.com/bytehaufen/nix-secrets.git";
-      flake = false;
+    ags = {
+      url = "github:Aylur/ags";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgsStable.url = "github:nixos/nixpkgs/nixos-24.05";
+    anyrun = {
+      url = "github:anyrun-org/anyrun";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     hm = {
       url = "github:nix-community/home-manager";
@@ -36,18 +43,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ags = {
-      url = "github:Aylur/ags";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgsStable.url = "github:nixos/nixpkgs/nixos-24.05";
 
-    anyrun = {
-      url = "github:anyrun-org/anyrun";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
+    secrets = {
+      url = "git+ssh://git@github.com/bytehaufen/nix-secrets.git";
+      flake = false;
     };
   };
 
