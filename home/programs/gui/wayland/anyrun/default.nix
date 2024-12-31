@@ -22,7 +22,7 @@
 
       width.fraction = 0.25;
       y.fraction = 0.3;
-      hidePluginInfo = true;
+      hidePluginInfo = false;
       closeOnClick = true;
     };
 
