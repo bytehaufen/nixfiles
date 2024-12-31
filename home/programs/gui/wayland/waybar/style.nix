@@ -1,83 +1,76 @@
-let
-  background = "rgba(26, 27, 38, 0.7)";
-  foreground = "#c0caf5";
-  primary = "#7aa2f7";
-  primaryOn = "#a9b1d6";
-in
-  # css
-  ''
-    * {
-      font-family: "DejaVu Sans", "FiraCode Nerd Font";
-      font-size: 12pt;
-      padding: 0;
-      margin: 0 0.4em;
-    }
+{config, ...}: {
+  programs.waybar.style = let
+    inherit (config.colorScheme) palette;
 
-    window#waybar {
-      padding: 0;
-      border-radius: 0.5em;
-      background: ${background};
-      color: ${foreground};
-    }
-    .modules-left {
-      margin-left: -0.65em;
-    }
-    .modules-right {
-      margin-right: -0.65em;
-    }
+    surface = "#${palette.base01}"; # #16161e
+    onSurface = "#ffffff";
+    onSurfaceVariant = "#${palette.base02}"; # #343a52
+    primary = "#${palette.base0A}"; # #0db9d7
+    onPrimary = "#${palette.base03}"; # #444b6a
+    warning = "#${palette.base0F}"; # #f7768e
+    good = "#${palette.base0B}"; # #9ece6a
 
-    #workspaces button {
-      background-color: ${background};
-      color: ${foreground};
-      padding-left: 0.4em;
-      padding-right: 0.4em;
-      margin-top: 0.15em;
-      margin-bottom: 0.15em;
-    }
-    #workspaces button.hidden {
-      background-color: ${background};
-      color: ${foreground};
-    }
-    #workspaces button.focused,
-    #workspaces button.active {
-      background-color: ${primary};
-      color: ${primaryOn};
-    }
+    border-radius = "${toString (config.programs.waybar.settings.primary.height / 2.0)}";
+  in
+    # css
+    ''
+      * {
+        font-family: "DejaVu Sans", "FiraCode Nerd Font";
+        font-size: 12pt;
+        padding: 0;
+        margin: 0 0.4em;
+      }
 
-    #clock {
-      padding-right: 1em;
-      padding-left: 1em;
-      border-radius: 0.5em;
-    }
+      window#waybar {
+        border-radius: ${border-radius};
+        background-color: transparent;
+        color: ${onSurface};
+      }
 
-    #custom-menu {
-      background-color: ${background};
-      color: ${primary};
-      padding-right: 1.5em;
-      padding-left: 1em;
-      margin-right: 0;
-      border-radius: 0.5em;
-    }
-    #custom-menu.fullscreen {
-      background-color: ${primary};
-      color: ${primaryOn};
-    }
-    #custom-hostname {
-      background-color: ${background};
-      color: ${primary};
-      padding-right: 1em;
-      padding-left: 1em;
-      margin-left: 0;
-      border-radius: 0.5em;
-    }
-    #custom-currentplayer {
-      padding-right: 0;
-    }
-    #tray {
-      color: ${foreground};
-    }
-    #cpu, #memory {
-      margin-left: 0.05em;
-      margin-right: 0.55em;
-    }
-  ''
+      .modules-left, .modules-right, .modules-center {
+        background-color: ${surface};
+        border-radius: ${border-radius};
+        padding: 0.25em 0.25em;
+      }
+
+      /* modules-left */
+      #custom-menu {
+        color: ${primary};
+        padding-right: 1em;
+      }
+
+      #workspaces button {
+        background-color: ${surface};
+        color: ${onSurface};
+      }
+
+      #workspaces button.hidden {
+        background-color: ${surface};
+        color: ${onSurfaceVariant};
+      }
+      #workspaces button.focused,
+      #workspaces button.active {
+        background-color: ${primary};
+        color: ${onPrimary};
+      }
+
+      /* modules-center */
+
+      /* modules-right */
+      #battery.charging {
+        color: ${good};
+      }
+
+      #battery.warning:not(.charging) {
+        color: ${warning};
+      }
+
+      #battery.charging.full {
+        color: ${warning};
+      }
+
+      #custom-hostname {
+        color: ${primary};
+      }
+    '';
+}

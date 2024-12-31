@@ -54,8 +54,7 @@ in {
         exclusive = true;
         passthrough = false;
         reload_style_on_change = true;
-        height = 20;
-        margin = "6";
+        height = 32;
         position = "top";
         modules-left = [
           "custom/menu"
@@ -81,80 +80,9 @@ in {
           "custom/hostname"
         ];
 
-        clock = {
-          interval = 1;
-          format = "{:%d/%m %H:%M:%S}";
-          format-alt = "{:%Y-%m-%d %H:%M:%S %z}";
-          on-click-left = "mode";
-          tooltip-format = ''
-            <big>{:%Y %B}</big>
-            <tt><small>{calendar}</small></tt>'';
-        };
-
-        cpu = {
-          format = "  {usage}%";
-        };
-        memory = {
-          format = "  {}%";
-          interval = 5;
-        };
-
-        pulseaudio = {
-          format-source = "󰍬 {volume}%";
-          format-source-muted = "󰍭 0%";
-          format = "{icon} {volume}% {format_source}";
-          format-muted = "󰸈 0% {format_source}";
-          format-icons = {
-            default = [
-              "󰕿"
-              "󰖀"
-              "󰕾"
-            ];
-          };
-          on-click = lib.getExe pkgs.pwvucontrol;
-        };
-        idle_inhibitor = {
-          format = "{icon}";
-          format-icons = {
-            activated = "󰒳";
-            deactivated = "󰒲";
-          };
-        };
-        battery = {
-          interval = 10;
-          format-icons = [
-            "󰁺"
-            "󰁻"
-            "󰁼"
-            "󰁽"
-            "󰁾"
-            "󰁿"
-            "󰂀"
-            "󰂁"
-            "󰂂"
-            "󰁹"
-          ];
-          format = "{icon} {capacity}%";
-          format-charging = "󰂄 {capacity}%";
-          states = {
-            full = 100;
-            normal = 90;
-            warning = 25;
-            critical = 10;
-          };
-          onclick = "";
-        };
-        network = {
-          interval = 3;
-          format-wifi = "   {essid}";
-          format-ethernet = "󰈁 Connected";
-          format-disconnected = "";
-          tooltip-format = ''
-            {ifname}
-            {ipaddr}/{cidr}
-            Up: {bandwidthUpBits}
-            Down: {bandwidthDownBits}'';
-        };
+        /*
+        modules-left
+        */
         "custom/menu" = {
           interval = 1;
           return-type = "json";
@@ -171,45 +99,7 @@ in {
             '';
           };
         };
-        "custom/hostname" = {
-          exec = mkScript {
-            script = ''
-              echo "$USER@$HOSTNAME"
-            '';
-          };
-          on-click = mkScript {
-            script = ''
-              pkill waybar; sleep 1; ${lib.getExe pkgs.waybar}
-            '';
-          };
-        };
-        "custom/unread-mail" = {
-          interval = 5;
-          return-type = "json";
-          exec = mkScriptJson {
-            deps = [pkgs.findutils pkgs.procps];
-            script = ''
-              count=$(find ~/Mail/*/Inbox/new -type f | wc -l)
-              if pgrep mbsync &>/dev/null; then
-                status="syncing"
-              else
-                if [ "$count" == "0" ]; then
-                  status="read"
-                else
-                  status="unread"
-                fi
-              fi
-            '';
-            text = "$count";
-            alt = "$status";
-          };
-          format = "{icon}  ({})";
-          format-icons = {
-            "read" = "󰇯";
-            "unread" = "󰇮";
-            "syncing" = "󰁪";
-          };
-        };
+
         "custom/currentplayer" = {
           interval = 2;
           return-type = "json";
@@ -267,11 +157,138 @@ in {
             script = "playerctl play-pause";
           };
         };
+
+        /*
+        modules-center
+        */
+        cpu = {
+          format = "  {usage}%";
+          on-click = mkScript {
+            deps = [pkgs.kitty pkgs.btop];
+            script = "${lib.getExe pkgs.kitty} ${lib.getExe pkgs.btop}";
+          };
+        };
+
+        memory = {
+          format = "  {}%";
+          interval = 5;
+          on-click = mkScript {
+            deps = [pkgs.kitty pkgs.btop];
+            script = "${lib.getExe pkgs.kitty} ${lib.getExe pkgs.btop}";
+          };
+        };
+
+        clock = {
+          interval = 1;
+          format = "{:%d/%m %H:%M}";
+          format-alt = "{:%Y-%m-%d %H:%M:%S %z}";
+          on-click-left = "mode";
+          tooltip-format = ''
+            <big>{:%Y %B}</big>
+            <tt><small>{calendar}</small></tt>'';
+        };
+
+        "custom/unread-mail" = {
+          interval = 5;
+          return-type = "json";
+          exec = mkScriptJson {
+            deps = [pkgs.findutils pkgs.procps];
+            script = ''
+              count=$(find ~/Mail/*/Inbox/new -type f | wc -l)
+              if pgrep mbsync &>/dev/null; then
+                status="syncing"
+              else
+                if [ "$count" == "0" ]; then
+                  status="read"
+                else
+                  status="unread"
+                fi
+              fi
+            '';
+            text = "$count";
+            alt = "$status";
+          };
+          format = "{icon}  ({})";
+          format-icons = {
+            "read" = "󰇯";
+            "unread" = "󰇮";
+            "syncing" = "󰁪";
+          };
+        };
+
+        /*
+        modules-right
+        */
         "custom/rfkill" = {
           interval = 1;
           exec-if = mkScript {
             deps = [pkgs.util-linux];
             script = "rfkill | grep '\<blocked\>'";
+          };
+        };
+
+        network = {
+          interval = 3;
+          format-wifi = "   {essid}";
+          format-ethernet = "󰈁 Connected";
+          format-disconnected = "";
+          tooltip-format = ''
+            {ifname}
+            {ipaddr}/{cidr}
+            Up: {bandwidthUpBits}
+            Down: {bandwidthDownBits}'';
+        };
+
+        pulseaudio = {
+          format-source = "󰍬 {volume}%";
+          format-source-muted = "󰍭 0%";
+          format = "{icon} {volume}% {format_source}";
+          format-muted = "󰸈 0% {format_source}";
+          format-icons = {
+            default = [
+              "󰕿"
+              "󰖀"
+              "󰕾"
+            ];
+          };
+          on-click = lib.getExe pkgs.pwvucontrol;
+        };
+
+        battery = {
+          interval = 10;
+          format-icons = [
+            "󰁺"
+            "󰁻"
+            "󰁼"
+            "󰁽"
+            "󰁾"
+            "󰁿"
+            "󰂀"
+            "󰂁"
+            "󰂂"
+            "󰁹"
+          ];
+          format = "{icon} {capacity}%";
+          format-charging = "󰂄 {capacity}%";
+          states = {
+            full = 100;
+            normal = 90;
+            warning = 25;
+            critical = 10;
+          };
+          onclick = "";
+        };
+
+        "custom/hostname" = {
+          exec = mkScript {
+            script = ''
+              echo "$USER@$HOSTNAME"
+            '';
+          };
+          on-click = mkScript {
+            script = ''
+              pkill waybar; sleep 1; ${lib.getExe pkgs.waybar}
+            '';
           };
         };
       };
