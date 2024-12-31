@@ -77,5 +77,6 @@
     tree
     gnutar
     rsync
+    vim
   ];
 }
