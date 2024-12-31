@@ -1,9 +1,11 @@
 {
   lib,
   pkgs,
+  config,
   ...
 }: let
   commonDeps = with pkgs; [coreutils gnugrep systemd];
+
   # Function to simplify making waybar outputs
   mkScript = {
     name ? "script",
@@ -15,6 +17,7 @@
       text = script;
       runtimeInputs = commonDeps ++ deps;
     });
+
   # Specialized for JSON outputs
   mkScriptJson = {
     name ? "script",
@@ -41,15 +44,17 @@
       '';
     };
 in {
+  imports = [./style.nix];
+
   programs.waybar = {
     enable = true;
-    systemd.enable = true;
+    systemd.enable = false;
     settings = {
       primary = {
         exclusive = true;
         passthrough = false;
         reload_style_on_change = true;
-        height = 40;
+        height = 20;
         margin = "6";
         position = "top";
         modules-left = [
@@ -131,10 +136,13 @@ in {
           ];
           format = "{icon} {capacity}%";
           format-charging = "󰂄 {capacity}%";
+          states = {
+            full = 100;
+            normal = 90;
+            warning = 25;
+            critical = 10;
+          };
           onclick = "";
-        };
-        "sway/window" = {
-          max-length = 20;
         };
         network = {
           interval = 3;
@@ -157,6 +165,11 @@ in {
               isFullScreen = "hyprctl activewindow -j | jq -e '.fullscreen' &>/dev/null";
             in "$(if ${isFullScreen}; then echo fullscreen; fi)";
           };
+          on-click = mkScript {
+            script = ''
+              "${lib.getExe config.programs.anyrun.package}"
+            '';
+          };
         };
         "custom/hostname" = {
           exec = mkScript {
@@ -166,7 +179,7 @@ in {
           };
           on-click = mkScript {
             script = ''
-              systemctl --user restart waybar
+              pkill waybar; sleep 1; ${lib.getExe pkgs.waybar}
             '';
           };
         };
@@ -263,6 +276,5 @@ in {
         };
       };
     };
-    style = import ./style.nix;
   };
 }
