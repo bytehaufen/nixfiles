@@ -51,7 +51,7 @@ in {
         "${lib.getExe pkgs.swaybg} -m fill -i ${config.opts.theme.wallpaper}"
       ];
       exec = [
-        "pkill waybar; sleep 0.5; ${lib.getExe pkgs.waybar}"
+        "pkill waybar; ${lib.getExe pkgs.waybar}"
       ];
     };
   };
