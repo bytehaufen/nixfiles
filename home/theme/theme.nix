@@ -93,21 +93,21 @@ in {
   };
   # Access colors by e.g.: `config.colorScheme.palette.base05`
   colorScheme = inputs.nix-colors.colorSchemes.tokyo-night-storm;
-  # Color reference for Tolkyo Night Storm:
-  # base00 = "#24283B" Default Background
-  # base01 = "#16161E" Lighter Background (Used for status bars, line number and folding marks)
-  # base02 = "#343A52" Selection Background
-  # base03 = "#444B6A" Comments, Invisibles, Line Highlighting
-  # base04 = "#787C99" Dark Foreground (Used for status bars)
-  # base05 = "#A9B1D6" Default Foreground, Caret, Delimiters, Operators
-  # base06 = "#CBCCD1" Light Foreground (Not often used)
-  # base07 = "#D5D6DB" Light Background (Not often used)
-  # base08 = "#C0CAF5" Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
-  # base09 = "#A9B1D6" Integers, Boolean, Constants, XML Attributes, Markup Link Url
-  # base0A = "#0DB9D7" Classes, Markup Bold, Search Text Background
-  # base0B = "#9ECE6A" Strings, Inherited Class, Markup Code, Diff Inserted
-  # base0C = "#B4F9F8" Support, Regular Expressions, Escape Characters, Markup Quotes
-  # base0D = "#2AC3DE" Functions, Methods, Attribute IDs, Headings
-  # base0E = "#BB9AF7" Keywords, Storage, Selector, Markup Italic, Diff Changed
-  # base0F = "#F7768E" Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
+  # Color reference for Tokyo Night Storm:
+  # base00 = "#24283b" Default Background
+  # base01 = "#16161e" Lighter Background (Used for status bars, line number and folding marks)
+  # base02 = "#343a52" Selection Background
+  # base03 = "#444b6a" Comments, Invisibles, Line Highlighting
+  # base04 = "#787c99" Dark Foreground (Used for status bars)
+  # base05 = "#a9b1d6" Default Foreground, Caret, Delimiters, Operators
+  # base06 = "#cbccd1" Light Foreground (Not often used)
+  # base07 = "#d5d6db" Light Background (Not often used)
+  # base08 = "#c0caf5" Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
+  # base09 = "#a9b1d6" Integers, Boolean, Constants, XML Attributes, Markup Link Url
+  # base0A = "#0db9d7" Classes, Markup Bold, Search Text Background
+  # base0B = "#9ece6a" Strings, Inherited Class, Markup Code, Diff Inserted
+  # base0C = "#b4f9f8" Support, Regular Expressions, Escape Characters, Markup Quotes
+  # base0D = "#2ac3de" Functions, Methods, Attribute IDs, Headings
+  # base0E = "#bb9af7" Keywords, Storage, Selector, Markup Italic, Diff Changed
+  # base0F = "#f7768e" Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
 }
