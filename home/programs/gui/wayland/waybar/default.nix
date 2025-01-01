@@ -287,7 +287,7 @@ in {
           };
           on-click = mkScript {
             script = ''
-              pkill waybar; sleep 1; ${lib.getExe pkgs.waybar}
+              pkill waybar; ${lib.getExe pkgs.waybar}
             '';
           };
         };
