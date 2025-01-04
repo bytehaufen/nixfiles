@@ -17,8 +17,8 @@
       * {
         font-family: "DejaVu Sans", "FiraCode Nerd Font";
         font-size: 12pt;
-        padding: 0;
-        margin: 0 0.4em;
+        padding: 0px;
+        margin: 0px 0.4em;
       }
 
       window#waybar {
