@@ -19,11 +19,33 @@
     neovim = {
       enable = true;
       package = pkgs.neovim-unwrapped;
-
+      withNodeJs = true;
+      withRuby = true;
+      withPython3 = true;
       defaultEditor = false;
       vimAlias = false;
+      vimdiffAlias = true;
       extraLuaPackages = ps: [ps.magick];
-      extraPackages = with pkgs; [imagemagick gcc];
+      extraPackages = with pkgs; [imagemagick gcc lynx markdownlint-cli2];
+
+      extraPython3Packages = ps:
+        with ps; [
+          cairosvg
+          ipykernel
+          ipython
+          jupyter
+          jupyter-client
+          nbformat
+          pandas
+          plotly
+          pnglatex
+          pyperclip
+          pyquery
+          pynvim
+          pyyaml
+          requests
+          tabulate
+        ];
 
       # These environment variables are needed to build and run binaries
       # with external package managers like mason.nvim.

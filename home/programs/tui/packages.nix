@@ -47,12 +47,14 @@
           ruff
           black # Python formatter
 
-          jupyter
           ipython
+          ipykernel
+          jupyter
           pandas
-          requests
           pyquery
           pyyaml
+          requests
+          tabulate
         ]
     ))
 
