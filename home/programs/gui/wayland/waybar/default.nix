@@ -287,7 +287,14 @@ in {
           };
           on-click = mkScript {
             script = ''
-              pkill waybar; ${lib.getExe pkgs.waybar}
+              if command -v hyprctl &> /dev/null; then
+                # Hyprland kills and starts waybar on reload
+                hyprctl reload
+              else
+                pkill waybar
+                ${lib.getExe pkgs.waybar}
+              fi
+
             '';
           };
         };
