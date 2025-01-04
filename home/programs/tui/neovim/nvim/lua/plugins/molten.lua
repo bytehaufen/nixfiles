@@ -13,7 +13,7 @@ return {
   -- Molten configuration
   {
     "benlubas/molten-nvim",
-    build = ":UpdateRemotePlugins",
+    build = ":UpdateRemotePlugins", -- NOTE: Sometimes on first install, this has to be run manually
     config = function()
       vim.g.molten_auto_image_popup = true
       vim.g.molten_cover_empty_lines = true
