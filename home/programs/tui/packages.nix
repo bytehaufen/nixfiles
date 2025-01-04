@@ -41,7 +41,7 @@
 
     # Python
     pyright # Python language server
-    (python311.withPackages (
+    (python312.withPackages (
       ps:
         with ps; [
           ruff
