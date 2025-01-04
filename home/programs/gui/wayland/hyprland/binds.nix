@@ -1,4 +1,8 @@
-{lib, ...}: let
+{
+  lib,
+  config,
+  ...
+}: let
   # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
   workspaces = builtins.concatLists (builtins.genList (
       x: let
@@ -28,7 +32,9 @@ in {
     ];
 
     # binds
-    bind =
+    bind = let
+      makoctl = lib.getExe' config.services.mako.package "makoctl";
+    in
       [
         # Compositor commands
         "$mod SHIFT, Q, exec, pkill Hyprland"
@@ -61,6 +67,10 @@ in {
         # Gui
         "$mod, W, exec, brave"
         "$mod, E, exec, nautilus"
+
+        # Mako
+        "$mod, d, exec, ${makoctl} dismiss"
+        "$mod SHIFT, d, exec, ${makoctl} restore"
 
         # Switch keyboard lang
         "$mod, backspace, exec, toggle-lang"

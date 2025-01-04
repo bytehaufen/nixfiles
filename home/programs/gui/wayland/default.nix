@@ -4,6 +4,7 @@
     ./swaylock.nix
     ./scripts
     ./waybar
+    ./mako
 
     ./anyrun
     # ./ags
@@ -20,22 +21,23 @@
   ];
 
   home.packages = with pkgs; [
-    brillo # Brightness control
-    hyprshot
+    adwaita-icon-theme
     brightnessctl
-    xwayland
-    wlroots
+    brillo # Brightness control
+    dconf
+    hyprshot
     libsForQt5.qt5ct
     libva
-    dconf
-    pipewire
-    wireplumber
-    wayland-utils
-    wayland-protocols
+    mako # Notification daemon
     meson
     morewaita-icon-theme
-    adwaita-icon-theme
+    pipewire
     qogir-icon-theme
+    wayland-utils
+    wayland-protocols
+    wireplumber
+    wlroots
+    xwayland
   ];
 
   # # TODO: Move to parent

@@ -7,7 +7,7 @@
     hyprlandPkg = inputs.hyprland.packages.${pkgs.system};
   in {
     enable = true;
-    package = hyprlandPkg.default;
+    package = hyprlandPkg.hyprland;
     portalPackage = hyprlandPkg.xdg-desktop-portal-hyprland;
   };
 }

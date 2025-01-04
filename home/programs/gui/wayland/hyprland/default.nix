@@ -5,7 +5,7 @@
   inputs,
   ...
 }: let
-  hyperlandPkg = inputs.hyprland.packages.${pkgs.system}.default;
+  hyprlandPkg = inputs.hyprland.packages.${pkgs.system};
 in {
   imports = [
     ./binds.nix
@@ -19,7 +19,7 @@ in {
     enable = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-hyprland
+      hyprlandPkg.xdg-desktop-portal-hyprland
     ];
 
     config = {
@@ -37,7 +37,7 @@ in {
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = hyperlandPkg;
+    package = hyprlandPkg.hyprland;
 
     systemd = {
       enable = true;
@@ -57,7 +57,7 @@ in {
   };
 
   home.file.".wayland-session" = {
-    source = "${lib.getExe hyperlandPkg}";
+    source = "${lib.getExe hyprlandPkg.hyprland}";
     executable = true;
   };
 }
