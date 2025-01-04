@@ -16,9 +16,9 @@
       export GDK_BACKEND=x11 # Do not use wayland, cause Eclipse hates it
 
       # Commands to run before initializing the container
-      PRE_INIT_HOOKS="\"dnf -y install dnf-plugins-core && dnf install -y 'dnf-command(config-manager)' && dnf config-manager --enable crb devel && dnf -y install epel-release redhat-lsb-core glibc libstdc++ ncurses ncurses-libs ncurses-devel gcc-c++ webkit2gtk3 nautilus PackageKit-gtk3-module libserf tcsh libxcrypt-compat subversion-javahl\""
-      # Command to create the containerfindutils libserf \
+      PRE_INIT_HOOKS="\"dnf -y install dnf-plugins-core && dnf install -y 'dnf-command(config-manager)' && dnf config-manager --enable crb devel && dnf -y install epel-release redhat-lsb-core glibc libstdc++ ncurses ncurses-libs ncurses-devel gcc-c++ webkit2gtk3 nautilus PackageKit-gtk3-module libserf tcsh libxcrypt-compat subversion-javahl && sudo ln -s /usr/lib64/libtinfo.so /usr/lib64/libtinfo.so.5 \""
 
+      # Command to create the container
       CREATE_CMD="distrobox create -n $CONTAINER_NAME --init --image $IMAGE --pre-init-hooks $PRE_INIT_HOOKS"
 
       # If already in a container, just exec the command
