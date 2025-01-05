@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 RECORD_PATH=$HOME/Videos/screen-records
 
