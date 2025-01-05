@@ -15,6 +15,7 @@
     ../core/optional/greetd.nix
     ../core/optional/hyprland.nix
     ../core/optional/kdeconnect.nix
+    ../core/optional/misc.nix
     ../core/optional/pipewire.nix
     ../core/optional/quietboot.nix
     ../core/optional/wireless.nix
