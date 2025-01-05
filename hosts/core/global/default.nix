@@ -11,6 +11,7 @@
     ../../../secrets
 
     ./locale.nix
+    ./networking.nix
     ./nix.nix
     ./nix-ld.nix
     ./openssh.nix
