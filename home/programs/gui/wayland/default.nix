@@ -31,6 +31,7 @@
     mako # Notification daemon
     meson
     morewaita-icon-theme
+    networkmanagerapplet # Provide GUI app: nm-connection-editor
     pipewire
     qogir-icon-theme
     wayland-utils

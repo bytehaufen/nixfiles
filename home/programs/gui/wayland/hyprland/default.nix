@@ -49,7 +49,10 @@ in {
     settings = {
       exec-once = [
         "${lib.getExe pkgs.swaybg} -m fill -i ${config.opts.theme.wallpaper}"
+        "${pkgs.networkmanagerapplet}/bin/nm-applet"
+        "${pkgs.blueman}/bin/blueman-applet"
       ];
+
       exec = [
         "pkill waybar; ${lib.getExe pkgs.waybar}"
       ];
