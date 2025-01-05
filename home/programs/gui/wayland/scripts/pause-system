@@ -1,8 +1,4 @@
 #!/usr/bin/env bash
 
-if [ -f /usr/bin/swaylock ]; then
-  /usr/bin/swaylock &
-else
-  swaylock &
-fi
+swaylock &
 systemctl suspend
