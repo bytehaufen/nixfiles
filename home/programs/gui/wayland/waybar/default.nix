@@ -251,7 +251,7 @@ in {
               "󰕾"
             ];
           };
-          on-click = lib.getExe pkgs.pwvucontrol;
+          on-click = lib.getExe pkgs.pavucontrol;
         };
 
         battery = {
