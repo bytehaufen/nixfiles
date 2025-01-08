@@ -8,6 +8,7 @@
 in {
   imports = [
     ./bat
+    ./mail.nix
     ./neovim
     ./tmux
     ./yazi
