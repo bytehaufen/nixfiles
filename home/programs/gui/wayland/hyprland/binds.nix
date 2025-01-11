@@ -34,7 +34,11 @@ in {
     set-monitors-mirrored
   ];
 
-  wayland.windowManager.hyprland.settings = {
+  wayland.windowManager.hyprland.settings = let
+    playerctl = lib.getExe pkgs.playerctl;
+    makoctl = lib.getExe' config.services.mako.package "makoctl";
+    wpctl = lib.getExe' pkgs.wireplumber "wpctl";
+  in {
     "$mod" = "SUPER";
     # mouse movements
     bindm = [
@@ -44,9 +48,7 @@ in {
     ];
 
     # binds
-    bind = let
-      makoctl = lib.getExe' config.services.mako.package "makoctl";
-    in
+    bind =
       [
         # Compositor commands
         "$mod SHIFT, Q, exec, pkill Hyprland"
@@ -143,19 +145,19 @@ in {
 
     bindl = [
       # Media controls
-      ", XF86AudioPlay, exec, playerctl play-pause"
-      ", XF86AudioPrev, exec, playerctl previous"
-      ", XF86AudioNext, exec, playerctl next"
+      ", XF86AudioPlay, exec, ${playerctl} play-pause"
+      ", XF86AudioPrev, exec, ${playerctl} previous"
+      ", XF86AudioNext, exec, ${playerctl} next"
 
       # Volume
-      ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-      ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+      ", XF86AudioMute, exec, ${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle"
+      ", XF86AudioMicMute, exec, ${wpctl} set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
     ];
 
     bindle = [
       # Volume
-      ", XF86AudioRaiseVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%+"
-      ", XF86AudioLowerVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%-"
+      ", XF86AudioRaiseVolume, exec, ${wpctl} set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%+"
+      ", XF86AudioLowerVolume, exec, ${wpctl} set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%-"
 
       # Backlight
       ", XF86MonBrightnessUp, exec, brillo -q -u 300000 -A 5"
