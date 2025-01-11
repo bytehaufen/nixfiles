@@ -2,7 +2,6 @@
   imports = [
     ./hyprland
     ./swaylock.nix
-    ./scripts
     ./waybar
     ./mako
 
@@ -34,6 +33,7 @@
     networkmanagerapplet # Provide GUI app: nm-connection-editor
     pipewire
     qogir-icon-theme
+    swappy # Image annotation tool
     wayland-utils
     wayland-protocols
     wireplumber
