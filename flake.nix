@@ -75,16 +75,12 @@
         import nixpkgs {
           inherit system;
           config.allowUnfree = true;
-          overlays = [
-            # Add stable version of nixpkgs to pkgs -> pkgs.stable
-            (_final: _prev: {stable = import nixpkgsStable {inherit system;};})
-            # Enable JavaFX for jdk
-            (_final: prev: {jdk = prev.jdk.override {enableJavaFX = true;};})
-          ];
         }
     );
   in {
     inherit lib;
+
+    overlays = import ./overlays {inherit inputs outputs;};
 
     devShells = forEachSystem (pkgs: {
       default = pkgs.mkShell {
@@ -103,7 +99,6 @@
       vm1 = lib.nixosSystem {
         specialArgs = {
           inherit inputs outputs vars;
-          pkgs = pkgsFor.x86_64-linux;
         };
         modules = [
           ./hosts/vm1
@@ -113,7 +108,6 @@
       loki = lib.nixosSystem {
         specialArgs = {
           inherit inputs outputs vars;
-          pkgs = pkgsFor.x86_64-linux;
         };
         modules = [
           ./hosts/loki
@@ -126,7 +120,6 @@
         modules = [
           ./home/rico/arch.nix
         ];
-        pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = {
           inherit inputs outputs vars;
         };
@@ -135,7 +128,6 @@
         modules = [
           ./home/rico/todd2.nix
         ];
-        pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = {
           inherit inputs outputs vars;
         };
@@ -144,7 +136,6 @@
         modules = [
           ./home/rico/vm1.nix
         ];
-        pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = {
           inherit inputs outputs vars;
         };
