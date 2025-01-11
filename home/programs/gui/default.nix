@@ -2,6 +2,7 @@
   imports = [
     ./browser.nix
     ./emulator.nix
+    ./gammastep.nix
     ./llvm.nix
     ./media.nix
     ./messaging.nix
