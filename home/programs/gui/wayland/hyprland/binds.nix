@@ -1,8 +1,11 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: let
+  scripts = import ../scripts.nix {inherit config lib pkgs;};
+
   # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
   workspaces = builtins.concatLists (builtins.genList (
       x: let
@@ -22,6 +25,15 @@
     runserv = lib.optionalString service "run-as-service";
   in "pkill ${prog} || ${runserv} ${program}";
 in {
+  # Propagate custom scripts to user environment for use from command line
+  home.packages = with scripts; [
+    pause-system
+    record-area
+    screenshot-area
+    next-xkb-layout
+    set-monitors-mirrored
+  ];
+
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
     # mouse movements
@@ -57,32 +69,27 @@ in {
         "$mod, M, fullscreen, toggle"
 
         # Keybinding to apply monitor settings
-        "$mod SHIFT, M, exec,    set-monitors"
-        "$mod CTRL,  M, exec,    set-monitors-mirrored"
+        "$mod CTRL,  M, exec,    ${lib.getExe scripts.set-monitors-mirrored}"
 
         # Terminal
-        "$mod, Return, exec, run-as-service kitty"
-        "$mod SHIFT, Return, exec, run-as-service kitty -e /bin/bash"
+        "$mod, Return, exec, run-as-service ${lib.getExe pkgs.kitty}"
 
         # Gui
-        "$mod, W, exec, brave"
-        "$mod, E, exec, nautilus"
+        "$mod, W, exec, ${lib.getExe config.programs.chromium.package}"
+        "$mod, E, exec, ${lib.getExe pkgs.nautilus}"
 
         # Mako
         "$mod, d, exec, ${makoctl} dismiss"
         "$mod SHIFT, d, exec, ${makoctl} restore"
 
         # Switch keyboard lang
-        "$mod, backspace, exec, toggle-lang"
+        "$mod, backspace, exec, ${lib.getExe scripts.next-xkb-layout}"
 
-        # Standby screen #FIXME: Repair
-        # "$mod ALT, L, exec, pgrep hyprlock || hyprlock"
-        "$mod ALT, l, exec, pause-system"
+        # Standby screen
+        "$mod ALT, l, exec, ${lib.getExe scripts.pause-system}"
 
         # Open calculator
         ", XF86Calculator, exec, ${toggle "gnome-calculator" true}"
-        # Open settings
-        "$mod, U, exec, XDG_CURRENT_DESKTOP=gnome gnome-control-center"
 
         # Movement
         "$mod, h, movefocus, l"
@@ -124,8 +131,8 @@ in {
         "$mod CTRL SHIFT, bracketright, movecurrentworkspacetomonitor, r"
 
         # Screen[shot|record]
-        "$mod ALT, R,                exec, record-area"
-        "$mod ALT, S,                exec, screenshot-area"
+        "$mod ALT, R, exec, ${lib.getExe scripts.record-area}"
+        "$mod ALT, S, exec, ${lib.getExe scripts.screenshot-area}"
       ]
       ++ workspaces;
 
