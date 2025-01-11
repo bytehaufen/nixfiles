@@ -119,6 +119,7 @@
       "rico@arch" = lib.homeManagerConfiguration {
         modules = [
           ./home/rico/arch.nix
+          ./home/core/nix.nix
         ];
         extraSpecialArgs = {
           inherit inputs outputs vars;
@@ -127,6 +128,7 @@
       "rico@todd2" = lib.homeManagerConfiguration {
         modules = [
           ./home/rico/todd2.nix
+          ./home/core/nix.nix
         ];
         extraSpecialArgs = {
           inherit inputs outputs vars;
@@ -135,6 +137,7 @@
       "rico@vm1" = lib.homeManagerConfiguration {
         modules = [
           ./home/rico/vm1.nix
+          ./home/core/nix.nix
         ];
         extraSpecialArgs = {
           inherit inputs outputs vars;

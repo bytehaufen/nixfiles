@@ -20,7 +20,6 @@ in {
     ./btop.nix
     ./cli.nix
     ./git.nix
-    ./nix.nix
     ./gpg
     ./packages.nix
     ./ssh.nix

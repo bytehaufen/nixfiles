@@ -3,9 +3,6 @@
     # User services
     ../services
 
-    # Nixpkgs config
-    ../core/nix.nix
-
     # NixGL
     ../wrapper/nixGL.nix
 
