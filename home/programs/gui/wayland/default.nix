@@ -9,14 +9,6 @@
     # ./ags
 
     ./xkb
-
-    # FIXME: Configure
-    # ./hyprlock.nix
-
-    # TODO: Enable
-    # ./hypridle.nix
-    # TODO: Enable
-    # ./hyprpaper.nix
   ];
 
   home.packages = with pkgs; [
@@ -24,7 +16,6 @@
     brightnessctl
     brillo # Brightness control
     dconf
-    hyprshot
     libsForQt5.qt5ct
     libva
     mako # Notification daemon
