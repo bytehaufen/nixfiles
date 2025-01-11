@@ -13,11 +13,6 @@
       "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
     ];
 
-    exec-once = [
-      # FIXME: Need to configure
-      # "hyprlock"
-    ];
-
     general = {
       gaps_in = 5;
       gaps_out = 5;
