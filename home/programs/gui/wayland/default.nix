@@ -13,8 +13,7 @@
 
   home.packages = with pkgs; [
     adwaita-icon-theme
-    brightnessctl
-    brillo # Brightness control
+    brightnessctl # Brightness control
     dconf
     libsForQt5.qt5ct
     libva
