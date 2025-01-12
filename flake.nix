@@ -41,7 +41,7 @@
     };
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgsStable.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgsStable.url = "github:nixos/nixpkgs/nixos-24.11";
 
     secrets = {
       url = "git+ssh://git@github.com/bytehaufen/nix-secrets.git";
