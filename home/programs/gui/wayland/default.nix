@@ -6,7 +6,6 @@
     ./mako
 
     ./anyrun
-    # ./ags
 
     ./xkb
   ];
