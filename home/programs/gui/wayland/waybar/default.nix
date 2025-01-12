@@ -125,6 +125,7 @@ in {
             "sublimemusic" = " ";
             "kdeconnect" = "󰄡 ";
             "chromium" = " ";
+            "brave" = "󰖟 ";
           };
         };
         "custom/player" = {
@@ -154,7 +155,11 @@ in {
           };
           on-click = mkScript {
             deps = [pkgs.playerctl];
-            script = "playerctl play-pause";
+            script = "${lib.getExe pkgs.playerctl} play-pause";
+          };
+          on-click-right = mkScript {
+            deps = [pkgs.playerctl];
+            script = "${lib.getExe pkgs.playerctl} next";
           };
         };
 
@@ -165,7 +170,11 @@ in {
           format = "  {usage}%";
           on-click = mkScript {
             deps = [pkgs.kitty pkgs.btop];
-            script = "${lib.getExe pkgs.kitty} ${lib.getExe pkgs.btop}";
+            script = "pkill btop || ${lib.getExe pkgs.kitty} ${lib.getExe pkgs.btop}";
+          };
+          on-click-right = mkScript {
+            deps = [pkgs.mission-center];
+            script = "pkill missioncenter || ${lib.getExe pkgs.mission-center}";
           };
         };
 
@@ -174,7 +183,11 @@ in {
           interval = 5;
           on-click = mkScript {
             deps = [pkgs.kitty pkgs.btop];
-            script = "${lib.getExe pkgs.kitty} ${lib.getExe pkgs.btop}";
+            script = "pkill btop || ${lib.getExe pkgs.kitty} ${lib.getExe pkgs.btop}";
+          };
+          on-click-right = mkScript {
+            deps = [pkgs.mission-center];
+            script = "pkill missioncenter || ${lib.getExe pkgs.mission-center}";
           };
         };
 
@@ -245,29 +258,21 @@ in {
           format = "{icon} {volume}% {format_source}";
           format-muted = "󰸈 0% {format_source}";
           format-icons = {
-            default = [
-              "󰕿"
-              "󰖀"
-              "󰕾"
-            ];
+            default = ["󰕿" "󰖀" "󰕾"];
           };
-          on-click = lib.getExe pkgs.pavucontrol;
+          on-click = mkScript {
+            deps = [pkgs.kitty pkgs.pulsemixer];
+            script = "pkill pulsemixer || ${lib.getExe pkgs.kitty} ${lib.getExe pkgs.pulsemixer}";
+          };
+          on-click-right = mkScript {
+            deps = [pkgs.kitty pkgs.pavucontrol];
+            script = "pkill pavucontrol || ${lib.getExe pkgs.pavucontrol}";
+          };
         };
 
         battery = {
           interval = 10;
-          format-icons = [
-            "󰁺"
-            "󰁻"
-            "󰁼"
-            "󰁽"
-            "󰁾"
-            "󰁿"
-            "󰂀"
-            "󰂁"
-            "󰂂"
-            "󰁹"
-          ];
+          format-icons = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
           format = "{icon} {capacity}%";
           format-charging = "󰂄 {capacity}%";
           states = {
@@ -276,7 +281,6 @@ in {
             warning = 25;
             critical = 10;
           };
-          onclick = "";
         };
 
         "custom/hostname" = {
