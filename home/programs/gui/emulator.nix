@@ -12,7 +12,6 @@ in {
   home.packages = with pkgs; [
     # NOTE: Stable because currently broken
     quickemu # Emulator manager
-    stable.quickgui # Emulator manager GUI
     spice-gtk # Spice client for quickemu
 
     wineWowPackages.waylandFull # Windows compatibility layer
