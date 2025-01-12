@@ -15,7 +15,7 @@
     # css
     ''
       * {
-        font-family: "DejaVu Sans", "FiraCode Nerd Font";
+        font-family: "DejaVu Sans", "JetBrainsMono Nerd Font";
         font-size: 12pt;
         padding: 0px;
         margin: 0px 0.4em;

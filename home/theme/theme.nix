@@ -25,14 +25,23 @@ in {
   # Default installed fonts
   home = {
     packages = with pkgs; [
-      dejavu_fonts
-      noto-fonts
-      noto-fonts-cjk-sans
+      material-design-icons
+      font-awesome
       noto-fonts-emoji
+
+      dejavu_fonts
+      julia-mono
       liberation_ttf
       nerd-fonts.symbols-only
-      nerd-fonts.fira-code
       nerd-fonts.jetbrains-mono
+      nerd-fonts.fira-code
+      noto-fonts
+      noto-fonts-cjk-sans
+
+      source-sans
+      source-serif
+      source-han-sans
+      source-han-serif
     ];
 
     pointerCursor = {
@@ -43,25 +52,27 @@ in {
     };
   };
 
-  fonts.fontconfig = {
-    enable = true;
-    defaultFonts = {
-      serif = [
-        "DejaVu Serif"
-        "Noto Color Emoji"
-      ];
-      sansSerif = [
-        "DejaVu Sans"
-        "Noto Color Emoji"
-      ];
-      monospace = [
-        "FiraCode Nerd Font"
-        "Noto Color Emoji"
-      ];
+  fonts = {
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        serif = [
+          "DejaVu Serif"
+          "Noto Color Emoji"
+        ];
+        sansSerif = [
+          "DejaVu Sans"
+          "Noto Color Emoji"
+        ];
+        monospace = [
+          "FiraCode Nerd Font"
+          "Noto Color Emoji"
+        ];
 
-      emoji = [
-        "Noto Color Emoji"
-      ];
+        emoji = [
+          "Noto Color Emoji"
+        ];
+      };
     };
   };
 
