@@ -27,6 +27,9 @@
     wl-clipboard
     wl-screenrec
     wlr-randr
+
+    # Editor
+    zed-editor
   ];
 
   programs.obs-studio = {
