@@ -3,11 +3,11 @@
     ./browser.nix
     ./emulator.nix
     ./gammastep.nix
+    ./kitty.nix
     ./llvm.nix
     ./media.nix
     ./messaging.nix
     ./office.nix
-    ./terminal.nix
   ];
 
   home.packages = with pkgs; [
