@@ -1,5 +1,11 @@
 {
-  wayland.windowManager.hyprland.settings = {
+  lib,
+  config,
+  ...
+}: {
+  wayland.windowManager.hyprland.settings = let
+    rgba = color: alpha: "rgba(${lib.removePrefix "#" color}${alpha})";
+  in {
     env = [
       "NIXOS_OZONE_WL,1" # For any ozone-based browser & electron apps to run on wayland
       "MOZ_ENABLE_WAYLAND,1" # For firefox to run on wayland
@@ -14,54 +20,67 @@
     ];
 
     general = {
-      gaps_in = 5;
-      gaps_out = 5;
-      border_size = 1;
-
-      allow_tearing = true;
+      layout = "master";
       resize_on_border = true;
 
-      # layout = "dwindle";
-      layout = "master";
+      gaps_in = 10;
+      gaps_out = 10;
+      border_size = 2;
+      "col.active_border" = "${rgba config.colorScheme.palette.base0A "aa"} ${rgba config.colorScheme.palette.base05 "aa"}";
+      "col.inactive_border" = "${rgba config.colorScheme.palette.base0A "77"} ${rgba config.colorScheme.palette.base05 "77"}";
     };
 
     decoration = {
-      rounding = 16;
+      active_opacity = 1.0;
+      inactive_opacity = 0.85;
+      fullscreen_opacity = 1.0;
+      rounding = 7;
       blur = {
         enabled = true;
-        brightness = 1.0;
-        contrast = 1.0;
-        noise = 0.01;
-
-        vibrancy = 0.2;
-        vibrancy_darkness = 0.5;
-
-        passes = 4;
-        size = 7;
-
-        popups = true;
-        popups_ignorealpha = 0.2;
-
+        size = 4;
+        passes = 3;
         new_optimizations = true;
+        ignore_opacity = true;
+        popups = true;
       };
-
       shadow = {
         enabled = true;
-        ignore_window = true;
-        offset = "0 15";
-        range = 100;
-        render_power = 2;
-        scale = 0.97;
+        offset = "3 3";
+        range = 12;
+        color = "0x44000000";
+        color_inactive = "0x66000000";
       };
     };
 
     animations = {
       enabled = true;
+      bezier = [
+        "easein,0.1, 0, 0.5, 0"
+        "easeinback,0.35, 0, 0.95, -0.3"
+
+        "easeout,0.5, 1, 0.9, 1"
+        "easeoutback,0.35, 1.35, 0.65, 1"
+
+        "easeinout,0.45, 0, 0.55, 1"
+      ];
+
       animation = [
-        "border, 1, 2, default"
-        "fade, 1, 4, default"
-        "windows, 1, 3, default, popin 80%"
-        "workspaces, 1, 2, default, slide"
+        "fadeIn,1,3,easeout"
+        "fadeLayersIn,1,3,easeoutback"
+        "layersIn,1,3,easeoutback,slide"
+        "windowsIn,1,3,easeoutback,slide"
+
+        "fadeLayersOut,1,3,easeinback"
+        "fadeOut,1,3,easein"
+        "layersOut,1,3,easeinback,slide"
+        "windowsOut,1,3,easeinback,slide"
+
+        "border,1,3,easeout"
+        "fadeDim,1,3,easeinout"
+        "fadeShadow,1,3,easeinout"
+        "fadeSwitch,1,3,easeinout"
+        "windowsMove,1,3,easeoutback"
+        "workspaces,1,2.6,easeoutback,slide"
       ];
     };
 
