@@ -16,10 +16,15 @@ hooks:
 nixos-gen HOSTNAME *ARGS:
   nixos-generate-config --dir hosts/{{HOSTNAME}} {{ARGS}}
 
-# Build NixOS
+# Build and switch NixOS configuration
 [group('nix')]
 nixos-switch HOSTNAME *ARGS: clean fmt
   sudo nixos-rebuild switch --flake '.#{{HOSTNAME}}' {{ARGS}}
+
+# Build NixOS configuration
+[group('nix')]
+nixos-build HOSTNAME *ARGS: fmt
+  sudo nixos-rebuild build --flake '.#{{HOSTNAME}}' {{ARGS}}
 
 # Create home-manager configuration
 [group('nix')]
