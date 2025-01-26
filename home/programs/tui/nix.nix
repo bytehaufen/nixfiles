@@ -2,8 +2,6 @@
   home = {
     # Add environment variables
     sessionVariables = {
-      # Auto-run programs using nix-index-database
-      NIX_AUTO_RUN = "1";
       DIRENV_LOG_FORMAT = "";
     };
 
