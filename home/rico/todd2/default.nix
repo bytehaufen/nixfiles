@@ -14,7 +14,7 @@
   home.packages = [
     # COSIDE
     (pkgs.writeShellScriptBin "coside" ''
-      COSIDE_SHELL_OPTIONS='-f -c gnome-terminal' GTK_THEME=Adwaita COSIDE_LICENSE_FILE=27000@192.168.178.88 rockylinux $HOME/Apps/coside/coside-latest/coside "$@"
+      COSIDE_SHELL_OPTIONS='-f -c gnome-terminal' GTK_THEME=Adwaita COSIDE_LICENSE_FILE=27000@192.168.178.88 fhs -c $HOME/Apps/coside/coside-latest/coside "$@"
     '')
 
     # Eclipse COSIDE SDK
@@ -30,7 +30,7 @@
       SOURCE_COMMAND="source $COSIDE_INSTALL_PATH/coside --setenv"
 
       # Launch
-      rockylinux tcsh -c "cd $COSIDE_INSTALL_PATH && $SOURCE_COMMAND && $COSIDE_SDK_DIR/coside-sdk/eclipse -data $COSIDE_SDK_DIR/ws"
+      fhs -c "tcsh -c 'cd $COSIDE_INSTALL_PATH && $SOURCE_COMMAND && $COSIDE_SDK_DIR/coside-sdk/eclipse -data $COSIDE_SDK_DIR/ws'"
     '')
 
     # Tunnel for work network
