@@ -148,6 +148,8 @@
       q = "exit";
       vimdiff = "nvim -d";
       vim = "nvim";
+      wlc = "wl-copy";
+      wlp = "wl-paste";
       batt = "acpi -b";
 
       us = "systemctl --user";
