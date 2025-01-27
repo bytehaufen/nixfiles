@@ -1,10 +1,7 @@
 -- Find a python3 version >= 3.10 > Workaround for rocky linux
-local handle = io.popen("ls /usr/bin/python3*")
-if handle then
-  local result = handle:read("*a")
-  handle:close()
-
-  for version in result:gmatch("[^\n]+") do
+local python_executables = vim.fn.glob("/usr/bin/python3*", false, true)
+if #python_executables > 0 then
+  for _, version in ipairs(python_executables) do
     local major, minor = version:match("python(%d+)%.(%d+)")
     major, minor = tonumber(major), tonumber(minor)
     if major and minor and (major > 3 or (major == 3 and minor >= 10)) then
@@ -18,6 +15,25 @@ else
   -- Fallback
   vim.g.python3_host_prog = vim.fn.exepath("python3")
 end
+-- local handle = io.popen("ls /usr/bin/python3* 2> /dev/null")
+-- if handle then
+--   local result = handle:read("*a")
+--   handle:close()
+--
+--   for version in result:gmatch("[^\n]+") do
+--     local major, minor = version:match("python(%d+)%.(%d+)")
+--     major, minor = tonumber(major), tonumber(minor)
+--     if major and minor and (major > 3 or (major == 3 and minor >= 10)) then
+--       vim.g.python3_host_prog = version
+--       break
+--     else
+--       vim.g.python3_host_prog = vim.fn.exepath("python3")
+--     end
+--   end
+-- else
+--   -- Fallback
+--   vim.g.python3_host_prog = vim.fn.exepath("python3")
+-- end
 
 -- Disable some extension providers
 vim.g.loaded_python3_provider = nil
