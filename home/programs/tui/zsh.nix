@@ -156,6 +156,10 @@
       rs = "sudo systemctl";
 
       qn = "nvim $HOME/Sync/notes/quicknote.md";
+
+      "..." = "../..";
+      "...." = "../../..";
+      "....." = "../../../..";
     };
   };
 }
