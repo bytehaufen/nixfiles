@@ -56,6 +56,8 @@
           pyyaml
           requests
           tabulate
+
+          pip
         ]
     ))
 
@@ -77,10 +79,10 @@
     jdt-language-server
 
     # Lua
-    lua
+    lua5_1
     stylua
     lua-language-server
-    luarocks
+    lua51Packages.luarocks
     luajitPackages.magick # Lua bindings for ImageMagick
     luajitPackages.lpeg # Lua parsing expression grammars
 
