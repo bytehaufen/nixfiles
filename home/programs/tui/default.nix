@@ -100,19 +100,7 @@ in {
     hyperfine # Benchmarking
 
     detox # Harmonize file names
-    # zip
-    # unzip
-    # file
-    # which
-    # tree
-    # grim
-    # yt-dlp
-    cmatrix # Terminal screensaver
-    # figlet
-    # curl
-    # gawk
-    # glow
 
-    #difftastic #TODO: Check
+    # difftastic #TODO: Check
   ];
 }
