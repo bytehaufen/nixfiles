@@ -60,6 +60,7 @@
     jq # A lightweight and flexible command-line JSON processor
 
     # networking tools
+    iw
     mtr # A network diagnostic tool
     iperf3
     dnsutils # `dig` + `nslookup`
@@ -71,6 +72,10 @@
     socat # replacement of openbsd-netcat
     nmap # A utility for network discovery and security auditing
     ipcalc # it is a calculator for the IPv4/v6 addresses
+    nmap # A tool for network monitoring
+    tcpdump # A network packet analyzer
+    python312Packages.scapy # A powerful interactive packet manipulation program
+    wireshark # A network protocol analyzer
 
     # misc
     file
