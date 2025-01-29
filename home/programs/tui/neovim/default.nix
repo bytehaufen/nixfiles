@@ -1,7 +1,8 @@
 {
   config,
-  pkgs,
+  inputs,
   lib,
+  pkgs,
   ...
 }: {
   home.activation.installNvim = lib.hm.dag.entryAfter ["writeBoundary"] ''
@@ -18,7 +19,7 @@
 
     neovim = {
       enable = true;
-      package = pkgs.neovim-unwrapped;
+      package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
       withNodeJs = true;
       withRuby = true;
       withPython3 = true;
