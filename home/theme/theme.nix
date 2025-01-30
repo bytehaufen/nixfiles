@@ -102,6 +102,7 @@ in {
       color-scheme = "prefer-dark";
     };
   };
+  ## Available color schemes: [base16-schemes](https://github.com/tinted-theming/base16-schemes) -> file name without `.yml`
   # Access colors by e.g.: `config.colorScheme.palette.base05`
   colorScheme = inputs.nix-colors.colorSchemes.tokyo-night-storm;
   # Color reference for Tokyo Night Storm:
