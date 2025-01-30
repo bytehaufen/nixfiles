@@ -5,7 +5,7 @@ return {
     priority = 1000,
     opts = function(_, opts)
       opts = {
-        style = "storm", -- [`storm`|`moon`|`night`|`day`]
+        style = "night", -- [`storm`|`moon`|`night`|`day`]
         transparent = false,
         styles = {
           comments = { italic = true },

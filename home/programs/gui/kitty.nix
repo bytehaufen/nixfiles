@@ -21,7 +21,7 @@
       size = 12;
     };
 
-    themeFile = "tokyo_night_storm";
+    themeFile = "tokyo_night_night";
 
     settings = {
       scrollback_lines = 10000;

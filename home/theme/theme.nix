@@ -104,7 +104,7 @@ in {
   };
   ## Available color schemes: [base16-schemes](https://github.com/tinted-theming/base16-schemes) -> file name without `.yml`
   # Access colors by e.g.: `config.colorScheme.palette.base05`
-  colorScheme = inputs.nix-colors.colorSchemes.tokyo-night-storm;
+  colorScheme = inputs.nix-colors.colorSchemes.tokyo-night-dark;
   # Color reference for Tokyo Night Storm:
   # base00 = "#24283b" Default Background
   # base01 = "#16161e" Lighter Background (Used for status bars, line number and folding marks)
