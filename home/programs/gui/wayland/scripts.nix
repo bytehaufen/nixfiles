@@ -59,7 +59,7 @@ in {
      ${grim} -o "$OUTPUT" -t png "screen-$(date +%Y%m%d%H%M%S).png"
 
      geometry="$(${slurp} -c '#ff3f3faf' -w 2 -d -o)"
-     sleep 0.2 # slurp needs time to remove the red border...
+     sleep 0.5 # slurp needs time to remove the red border...
 
      if [ -n "$geometry" ]; then
      	${grim} -g "$geometry" -t png area.png
