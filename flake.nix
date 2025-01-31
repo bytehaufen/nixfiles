@@ -26,12 +26,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hm = {
+    home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    hyprland.url = "github:hyprwm/hyprland";
 
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
