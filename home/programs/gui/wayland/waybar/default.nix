@@ -79,6 +79,7 @@ in {
           "backlight"
           "idle_inhibitor"
           "battery"
+          "custom/keymap"
           "custom/hostname"
         ];
 
@@ -299,6 +300,17 @@ in {
             warning = 25;
             critical = 10;
           };
+        };
+
+        "custom/keymap" = {
+          keyboard-name = "at-translated-set-2-keyboard";
+          format = "⌨ {}";
+          exec = mkScript {
+            script = ''
+              hyprctl devices | awk '/at-translated-set-2-keyboard/{flag=1;next}/keymap/{if(flag){print $3;flag=0}}'
+            '';
+          };
+          interval = 1;
         };
 
         "custom/hostname" = {
