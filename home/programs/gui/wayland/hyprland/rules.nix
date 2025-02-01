@@ -57,6 +57,9 @@
       "idleinhibit focus, class:^(firefox)$, title:^(.*YouTube.*)$"
       "idleinhibit fullscreen, class:^(firefox)$"
 
+      # Do not go idle while anything is fullscreen
+      "idleinhibit fullscreen, class:^(kitty.*)$"
+
       # Spotube
       "float, class:^(spotube)$"
       "size 300 700, class:^(spotube)$"
