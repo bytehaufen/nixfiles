@@ -52,8 +52,8 @@
 
       # Idle inhibit while watching videos
       "idleinhibit focus, class:^(mpv|.+exe|celluloid)$"
-      "idleinhibit focus, class:^(brave)$, title:^(.*YouTube.*)$"
-      "idleinhibit fullscreen, class:^(brave)$"
+      "idleinhibit focus, class:^(brave-browser)$, title:^(.*YouTube.*)$"
+      "idleinhibit fullscreen, class:^(brave-browser)$"
       "idleinhibit focus, class:^(firefox)$, title:^(.*YouTube.*)$"
       "idleinhibit fullscreen, class:^(firefox)$"
 
