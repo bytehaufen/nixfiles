@@ -19,7 +19,7 @@
 in {
   # Let system suspend with lock screen
   pause-system = pkgs.writeShellScriptBin "pause-system" ''
-    ${swaylock} &
+    ${swaylock} --daemonize
     systemctl suspend
   '';
 

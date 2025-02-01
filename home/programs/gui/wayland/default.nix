@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./hyprland
+    ./swayidle.nix
     ./swaylock.nix
     ./waybar
     ./mako
