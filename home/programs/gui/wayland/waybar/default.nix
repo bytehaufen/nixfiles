@@ -78,6 +78,7 @@ in {
           "pulseaudio"
           "backlight"
           "idle_inhibitor"
+          "power-profiles-daemon"
           "battery"
           "custom/keymap"
           "custom/hostname"
@@ -286,6 +287,17 @@ in {
             activated = " ";
             deactivated = " ";
             start-activated = false;
+          };
+        };
+        power-profiles-daemon = {
+          format = "{icon}";
+          tooltip-format = "Power profile= {profile}\nDriver= {driver}";
+          tooltip = true;
+          format-icons = {
+            default = "";
+            performance = "";
+            balanced = " ";
+            power-saver = " ";
           };
         };
 

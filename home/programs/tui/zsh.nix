@@ -139,11 +139,7 @@
       mkdir = "mkdir -p";
       nf = "fastfetch";
       neofetch = "fastfetch";
-      # TODO: Confige powerprofilesctl
-      ppc = "powerprofilesctl";
       pf = "powerprofilesctl launch -p performance";
-      # TODO: End
-
       tree = "eza --git --group-directories-first --header --long --tree";
       q = "exit";
       vimdiff = "nvim -d";
