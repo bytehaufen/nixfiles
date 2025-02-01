@@ -76,6 +76,7 @@ in {
           "custom/rfkill"
           "network"
           "pulseaudio"
+          "backlight"
           "idle_inhibitor"
           "battery"
           "custom/hostname"
@@ -270,6 +271,13 @@ in {
             script = "pkill pavucontrol || ${lib.getExe pkgs.pavucontrol}";
           };
         };
+
+        backlight = {
+          format = "{icon}  {percent}%";
+          format-icons = ["󰃞" "󰃟" "󰃝" "󰃠"];
+          scroll-step = 5.0;
+        };
+
         idle_inhibitor = {
           format = "{icon}";
           format-icons = {
