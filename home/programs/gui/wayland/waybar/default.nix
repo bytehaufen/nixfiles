@@ -316,7 +316,7 @@ in {
 
         "custom/keymap" = {
           keyboard-name = "at-translated-set-2-keyboard";
-          format = "⌨ {}";
+          format = "󰥻  {}";
           exec = mkScript {
             script = ''
               hyprctl devices | awk '/at-translated-set-2-keyboard/{flag=1;next}/keymap/{if(flag){print $3;flag=0}}'
