@@ -12,7 +12,6 @@
   opts = {
     programs.teams.enable = true;
     services = {
-      gnome-keyring.enable = true;
       syncthing.enable = true;
     };
     nixGL.enable = true;

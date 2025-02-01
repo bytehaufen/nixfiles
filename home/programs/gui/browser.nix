@@ -9,7 +9,7 @@
       commandLineArgs = [
         "--enable-features=UseOzonePlatform"
         "--ozone-platform=wayland"
-        "--password-store=basic"
+        "--password-store=gnome-libsecret"
         "--ozone-platform-hint=auto"
         "--ozone-platform=wayland"
         "--gtk-version=4"

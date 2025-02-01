@@ -32,6 +32,5 @@ in {
 
   security.pam.services = {
     swaylock = {};
-    greetd.enableGnomeKeyring = true;
   };
 }
