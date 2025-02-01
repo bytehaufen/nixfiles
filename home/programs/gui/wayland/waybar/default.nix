@@ -270,6 +270,7 @@ in {
             deps = [pkgs.kitty pkgs.pavucontrol];
             script = "pkill pavucontrol || ${lib.getExe pkgs.pavucontrol}";
           };
+          scroll-step = 5.0;
         };
 
         backlight = {
