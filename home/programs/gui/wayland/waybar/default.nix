@@ -76,6 +76,7 @@ in {
           "custom/rfkill"
           "network"
           "pulseaudio"
+          "idle_inhibitor"
           "battery"
           "custom/hostname"
         ];
@@ -267,6 +268,14 @@ in {
           on-click-right = mkScript {
             deps = [pkgs.kitty pkgs.pavucontrol];
             script = "pkill pavucontrol || ${lib.getExe pkgs.pavucontrol}";
+          };
+        };
+        idle_inhibitor = {
+          format = "{icon}";
+          format-icons = {
+            activated = " ";
+            deactivated = " ";
+            start-activated = false;
           };
         };
 
