@@ -12,6 +12,10 @@
 
   home.packages = [pkgs.swaybg];
 
+  programs.zsh.shellAliases = {
+    xkill = "${lib.getExe' config.wayland.windowManager.hyprland.package "hyprctl"} kill";
+  };
+
   xdg.portal = {
     enable = true;
     extraPortals = [
