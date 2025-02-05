@@ -10,13 +10,5 @@ return {
       vim.g.mkdp_combine_preview_auto_refresh = 1
       vim.g.mkdp_auto_start = 0
     end,
-    keys = {
-      {
-        "<leader>cp",
-        ft = "markdown",
-        "<cmd>MarkdownPreview<cr>",
-        desc = "Markdown Preview",
-      },
-    },
   },
 }
