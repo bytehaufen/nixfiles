@@ -22,6 +22,9 @@ vim.keymap.set("n", "vv", "<C-v>", { noremap = false, silent = true, desc = "Ent
 
 vim.keymap.set("n", "U", "<C-r>, ", { noremap = true, silent = true, desc = "Redo" })
 
+vim.keymap.set("n", "x", "\"_x", { noremap = true, silent = true, desc = "Delete without yanking" })
+vim.keymap.set("n", "X", "\"_X", { noremap = true, silent = true, desc = "Delete without yanking" })
+
 -- Keys for German umlauts
 vim.keymap.set("i", "<A-u>", "ü", {desc = "Insert German ü"})
 vim.keymap.set("i", "<A-a>", "ä", {desc = "Insert German ä"})
