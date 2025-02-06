@@ -20,6 +20,8 @@ vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>")
 
 vim.keymap.set("n", "vv", "<C-v>", { noremap = false, silent = true, desc = "Enter visual block mode" })
 
+vim.keymap.set("n", "U", "<C-r>, ", { noremap = true, silent = true, desc = "Redo" })
+
 -- Keys for German umlauts
 vim.keymap.set("i", "<A-u>", "ü", {desc = "Insert German ü"})
 vim.keymap.set("i", "<A-a>", "ä", {desc = "Insert German ä"})
