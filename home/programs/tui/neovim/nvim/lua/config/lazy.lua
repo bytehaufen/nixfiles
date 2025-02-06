@@ -65,9 +65,7 @@ require("lazy").setup({
 
     -- custom module configs
     { import = "plugins.extras.dap.core-extend" }, -- For custom keys
-    { import = "plugins.extras.editor.hardtime" },
     { import = "plugins.extras.editor.overseer-extend" },
-    { import = "plugins.extras.editor.precognition" },
     { import = "plugins.extras.editor.telescope-extend" },
     { import = "plugins.extras.lang.nix-extend" },
     { import = "plugins.extras.lang.nodejs" },
