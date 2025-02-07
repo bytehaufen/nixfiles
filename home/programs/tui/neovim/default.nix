@@ -4,10 +4,11 @@
   lib,
   pkgs,
   ...
-}: {
-  home.activation.installNvim = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    ${pkgs.rsync}/bin/rsync -avz --chmod=D2755,F444 ${./nvim}/ ${config.xdg.configHome}/nvim/
-  '';
+}: let
+  configPath = "${config.home.homeDirectory}/nixfiles/home/programs/tui/neovim/nvim";
+in {
+  # Make a (writeable) symlink to ~/.config
+  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink configPath;
 
   # For eclipses vim plugin
   home.file.".vrapperrc".source = ./.vrapperrc;
@@ -47,6 +48,12 @@
           requests
           tabulate
         ];
+
+      plugins = with pkgs.vimPlugins; [
+        telescope-fzf-native-nvim
+
+        nvim-treesitter.withAllGrammars
+      ];
 
       # These environment variables are needed to build and run binaries
       # with external package managers like mason.nvim.
