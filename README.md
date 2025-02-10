@@ -80,16 +80,6 @@ nixos-enter
 mv nixfiles /mnt/home/rico
 ```
 
-## Prerequisites
-
-> TODO: Replace by nix's hook.
-
-Git hook for auto formatting of `.nix` files on commit can be installed with
-
-```shell
-./scripts/create-hook-symlink.sh
-```
-
 <!-- Deprecated start --->
 
 ## Build the Home Manager configuration
