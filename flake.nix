@@ -31,6 +31,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    pre-commit-hooks = {
+      url = "github:cachix/pre-commit-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -55,7 +60,6 @@
   outputs = {
     home-manager,
     nixpkgs,
-    nixpkgsStable,
     self,
     systems,
     ...
@@ -66,32 +70,57 @@
 
     vars = import ./vars/default.nix;
 
-    forEachSystem = f: lib.genAttrs (import systems) (system: f pkgsFor.${system});
-
-    pkgsFor = lib.genAttrs (import systems) (
-      system:
-        import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        }
-    );
+    forAllSystems = lib.genAttrs (import systems);
   in {
     inherit lib;
 
     overlays = import ./overlays {inherit inputs outputs;};
 
-    devShells = forEachSystem (pkgs: {
+    checks = forAllSystems (system: {
+      pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
+        src = ./.;
+        excludes = [".lock" ".json"];
+        hooks = {
+          alejandra.enable = true;
+
+          stylua.enable = true;
+
+          typos = {
+            enable = true;
+            settings = {
+              write = true;
+              configPath = "./.typos.toml";
+            };
+          };
+
+          prettier = {
+            enable = true;
+            settings = {
+              write = true;
+              configPath = "./.prettierrc.yaml";
+            };
+          };
+        };
+      };
+    });
+
+    devShells = forAllSystems (system: let
+      pkgs = nixpkgs.legacyPackages.${system};
+    in {
       default = pkgs.mkShell {
-        NIX_CONFIG = "extra-experimental-features = nix-command flakes ca-derivations";
+        inherit (self.checks.${system}.pre-commit-check) shellHook;
+        buildInputs = self.checks.${system}.pre-commit-check.enabledPackages;
         nativeBuildInputs = [
           pkgs.alejandra
           pkgs.git
           pkgs.just
         ];
+
+        NIX_CONFIG = "extra-experimental-features = nix-command flakes ca-derivations";
       };
     });
 
-    formatter = forEachSystem (pkgs: pkgs.alejandra);
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
     nixosConfigurations = {
       vm1 = lib.nixosSystem {

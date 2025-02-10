@@ -1,0 +1,13 @@
+LICENSE.md
+dist
+pnpm-lock.yaml
+flake.lock
+vercel.json
+cache
+temp
+.temp
+result/
+lazy-lock.json
+.luarc.json
+.neoconf.json
+lazyvim.json
