@@ -8,7 +8,7 @@ end
 -- Exit insert mode with jk
 vim.keymap.set("i", "jk", "<Esc>", { noremap = true, silent = true, desc = "<Esc>" })
 
--- Activate Tmux seemless navigating
+-- Activate Tmux seamless navigating
 vim.keymap.del("n", "<C-h>")
 vim.keymap.del("n", "<C-j>")
 vim.keymap.del("n", "<C-k>")
@@ -22,16 +22,16 @@ vim.keymap.set("n", "vv", "<C-v>", { noremap = false, silent = true, desc = "Ent
 
 vim.keymap.set("n", "U", "<C-r>, ", { noremap = true, silent = true, desc = "Redo" })
 
-vim.keymap.set("n", "x", "\"_x", { noremap = true, silent = true, desc = "Delete without yanking" })
-vim.keymap.set("n", "X", "\"_X", { noremap = true, silent = true, desc = "Delete without yanking" })
+vim.keymap.set("n", "x", '"_x', { noremap = true, silent = true, desc = "Delete without yanking" })
+vim.keymap.set("n", "X", '"_X', { noremap = true, silent = true, desc = "Delete without yanking" })
 
 -- Keys for German umlauts
-vim.keymap.set("i", "<A-u>", "ü", {desc = "Insert German ü"})
-vim.keymap.set("i", "<A-a>", "ä", {desc = "Insert German ä"})
-vim.keymap.set("i", "<A-o>", "ö", {desc = "Insert German ö"})
-vim.keymap.set("i", "<A-s>", "ß", {desc = "Insert German ß"})
+vim.keymap.set("i", "<A-u>", "ü", { desc = "Insert German ü" })
+vim.keymap.set("i", "<A-a>", "ä", { desc = "Insert German ä" })
+vim.keymap.set("i", "<A-o>", "ö", { desc = "Insert German ö" })
+vim.keymap.set("i", "<A-s>", "ß", { desc = "Insert German ß" })
 
 -- Uppercase umlauts
-vim.keymap.set("i", "<S-A-u>", "Ü", {desc = "Insert German Ü"})
-vim.keymap.set("i", "<S-A-a>", "Ä", {desc = "Insert German Ä"})
-vim.keymap.set("i", "<S-A-o>", "Ö", {desc = "Insert German Ö"})
+vim.keymap.set("i", "<S-A-u>", "Ü", { desc = "Insert German Ü" })
+vim.keymap.set("i", "<S-A-a>", "Ä", { desc = "Insert German Ä" })
+vim.keymap.set("i", "<S-A-o>", "Ö", { desc = "Insert German Ö" })

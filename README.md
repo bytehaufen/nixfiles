@@ -5,10 +5,9 @@
 > [!warning]
 > This repository is currently under heavy development. So do not use this! 🚧
 >
-> Currently I am migrating from arch linux to NixOS. So this repository will
-> be updated frequently. Many things have to be refactored, are buggy,
-> broken, incomplete, whatever. If you have any questions or suggestions,
-> feel free to open an issue.
+> Currently I am migrating from arch linux to NixOS. So this repository will be updated frequently.
+> Many things have to be refactored, are buggy, broken, incomplete, whatever. If you have any
+> questions or suggestions, feel free to open an issue.
 
 This repository contains my personal NixOS and Home Manager configuration files.
 
@@ -113,8 +112,8 @@ Git hook for auto formatting of `.nix` files on commit can be installed with
 
 ## Shorthands
 
-For frequently used commands like `home-manager switch ...`, utilize _just_ for
-simplification. To see all available commands with just, execute:
+For frequently used commands like `home-manager switch ...`, utilize _just_ for simplification. To
+see all available commands with just, execute:
 
 ```shell
 just
@@ -124,13 +123,12 @@ just
 
 ## Special Thanks
 
-To ryan4yin for his great book [NixOS & Flakes Book](https://nixos-and-flakes.thiscute.world),
-that helped me a lot to get started with NixOS and flakes and to flatten the
-steep learning curve.
+To ryan4yin for his great book [NixOS & Flakes Book](https://nixos-and-flakes.thiscute.world), that
+helped me a lot to get started with NixOS and flakes and to flatten the steep learning curve.
 
-To Folke Lemaitre for his awesome [neovim](https://github.com/neovim/neovim)
-plugin manager [💤 lazy.nvim](https://github.com/folke/lazy.nvim) and the
-corresponding neovim setup [LazyVim](https://github.com/folke/lazy.nvim)
+To Folke Lemaitre for his awesome [neovim](https://github.com/neovim/neovim) plugin manager
+[💤 lazy.nvim](https://github.com/folke/lazy.nvim) and the corresponding neovim setup
+[LazyVim](https://github.com/folke/lazy.nvim)
 
 Dotfiles that inspired me:
 
