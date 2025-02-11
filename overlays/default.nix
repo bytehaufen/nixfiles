@@ -1,7 +1,4 @@
-{
-  inputs,
-  outputs,
-}: {
+{inputs, ...}: {
   # Adds pkgs.stable == inputs.nixpkgsStable.legacyPackages.${pkgs.system}
   stable = final: _: {
     stable = inputs.nixpkgsStable.legacyPackages.${final.system};
