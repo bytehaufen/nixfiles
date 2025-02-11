@@ -2,11 +2,6 @@
 default:
   @just --list
 
-# Create symlinks for git-hooks # TODO: Move hook creating to nix
-[group('misc')]
-hooks:
-  ./scripts/create-hook-symlink.sh
-
 #################
 # nix           #
 #################
@@ -18,22 +13,22 @@ nixos-gen HOSTNAME *ARGS:
 
 # Build and switch NixOS configuration
 [group('nix')]
-nixos-switch HOSTNAME *ARGS: clean fmt
+nixos-switch HOSTNAME *ARGS: clean
   sudo nixos-rebuild switch --flake '.#{{HOSTNAME}}' {{ARGS}}
 
 # Build NixOS configuration
 [group('nix')]
-nixos-build HOSTNAME *ARGS: fmt
+nixos-build HOSTNAME *ARGS:
   sudo nixos-rebuild build --flake '.#{{HOSTNAME}}' {{ARGS}}
 
 # Create home-manager configuration
 [group('nix')]
-hm-switch USER *ARGS: clean fmt
+hm-switch USER *ARGS: clean
   home-manager switch --flake '.#{{USER}}' {{ARGS}} --extra-experimental-features 'nix-command flakes ca-derivations'
 
 # Build home-manager configuration
 [group('nix')]
-hm-build USER *ARGS: fmt
+hm-build USER *ARGS:
   home-manager build --flake '.#{{USER}}' {{ARGS}} --extra-experimental-features 'nix-command flakes ca-derivations'
 
 # Update flake dependencies
@@ -65,8 +60,6 @@ fmt:
 # Check nix flake
 [group('nix')]
 check:
-  statix check -i hardware-configuration.nix
-  deadnix -f . --exclude ./hosts/vm1/hardware-configuration.nix ./hosts/loki/hardware-configuration.nix
   nix flake check
 
 # Remove build output link (no garbage collection)

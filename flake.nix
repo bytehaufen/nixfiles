@@ -79,25 +79,28 @@
     checks = forAllSystems (system: {
       pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
         src = ./.;
-        excludes = [".lock" ".json"];
+        excludes = [".lock" ".json" "hardware-configuration.nix"];
         hooks = {
           alejandra.enable = true;
-
-          stylua.enable = true;
-
-          typos = {
-            enable = true;
-            settings = {
-              write = true;
-              configPath = "./.typos.toml";
-            };
-          };
-
+          deadnix.enable = true;
           prettier = {
             enable = true;
             settings = {
               write = true;
               configPath = "./.prettierrc.yaml";
+            };
+          };
+          statix = {
+            enable = true;
+            # Workaround for https://github.com/cachix/git-hooks.nix/issues/288
+            settings.ignore = ["hardware-configuration.nix"];
+          };
+          stylua.enable = true;
+          typos = {
+            enable = true;
+            settings = {
+              write = true;
+              configPath = "./.typos.toml";
             };
           };
         };
@@ -109,7 +112,9 @@
     in {
       default = pkgs.mkShell {
         inherit (self.checks.${system}.pre-commit-check) shellHook;
+
         buildInputs = self.checks.${system}.pre-commit-check.enabledPackages;
+
         nativeBuildInputs = [
           pkgs.alejandra
           pkgs.git
