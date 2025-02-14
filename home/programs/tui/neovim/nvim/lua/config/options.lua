@@ -1,23 +1,28 @@
 -- Disable some extension providers
-vim.g.loaded_python3_provider = nil
+vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 
 vim.g.autoformat = false
 vim.g.lazyvim_python_lsp = "basedpyright"
+vim.g.lazyvim_python_ruff = "ruff"
 
 -- Remove the default `~` char for end of buffer
 vim.opt.fillchars = "eob: "
 
 -- Root markers, first lsp, then file/directory patterns
-vim.g.root_spec = { "lsp", {
-  ".git",
-  ".svn",
-  "Makefile",
-  "make.sh",
-  ".lazy.lua",
-} }
+vim.g.root_spec = {
+  "lsp",
+  {
+    ".git",
+    ".lazy.lua",
+    ".project", -- Eclipse project file
+    ".svn",
+    "Makefile",
+    "make.sh",
+  },
+}
 
 -- Add extra filetypes to exclude lsps for that
 vim.filetype.add({

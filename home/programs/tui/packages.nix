@@ -45,9 +45,6 @@
     (python312.withPackages (
       ps:
         with ps; [
-          ruff
-          black # Python formatter
-
           ipython
           ipykernel
           jupyter
