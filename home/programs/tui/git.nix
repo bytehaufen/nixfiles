@@ -9,15 +9,15 @@
       userName = vars.gitName;
       userEmail = vars.email;
 
+      signing = {
+        format = "ssh";
+        key = "/etc/ssh/id_ed25519_rico";
+        signByDefault = true;
+      };
+
       extraConfig = {
         core = {
           editor = "nvim";
-        };
-        user = {
-          signingkey = "/etc/ssh/id_ed25519_rico";
-        };
-        gpg = {
-          format = "ssh";
         };
         delta = {
           features = "side-by-side decorations";

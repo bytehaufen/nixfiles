@@ -32,13 +32,14 @@
   hardware.enableRedistributableFirmware = true;
 
   nixpkgs = {
-    overlays = builtins.attrValues outputs.overlays;
+    #   overlays = builtins.attrValues outputs.overlays;
     config = {
       allowUnfree = true;
     };
   };
 
   programs.zsh.enable = true;
+
   users.defaultUserShell = pkgs.zsh;
   environment.pathsToLink = ["/share/zsh"];
 
@@ -73,10 +74,6 @@
     socat # replacement of openbsd-netcat
     nmap # A utility for network discovery and security auditing
     ipcalc # it is a calculator for the IPv4/v6 addresses
-    nmap # A tool for network monitoring
-    tcpdump # A network packet analyzer
-    python312Packages.scapy # A powerful interactive packet manipulation program
-    wireshark # A network protocol analyzer
 
     # misc
     file
