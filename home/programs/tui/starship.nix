@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   home.sessionVariables.STARSHIP_CACHE = "${config.xdg.cacheHome}/starship";
 
   programs.starship = {
@@ -25,6 +29,15 @@
         symbol = " ";
         heuristic = true;
       };
+      custom.netns = {
+        command = "ip netns identify";
+        when = ''[ -n "$(ip netns identify)" ] '';
+        format = "[󱂇 ](bold yellow)$output: ";
+      };
+      format = lib.concatStrings [
+        "$custom"
+        "$all"
+      ];
     };
   };
 }
