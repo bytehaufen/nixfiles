@@ -12,7 +12,7 @@
       signing = {
         format = "ssh";
         key = "/etc/ssh/id_ed25519_rico";
-        signByDefault = true;
+        signByDefault = false; # NOTE: When signed, cannot do some rebase actions
       };
 
       extraConfig = {
