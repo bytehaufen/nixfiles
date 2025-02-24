@@ -27,14 +27,12 @@
     wl-clipboard
     wl-screenrec
     wlr-randr
-
-    # Editor
-    zed-editor
   ];
 
   programs.obs-studio = {
     enable = true;
-    plugins = with pkgs.obs-studio-plugins; [
+    package = pkgs.stable.obs-studio;
+    plugins = with pkgs.stable.obs-studio-plugins; [
       # Screen capture
       wlrobs
       obs-vaapi

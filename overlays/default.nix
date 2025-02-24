@@ -4,10 +4,8 @@
     stable = inputs.nixpkgsStable.legacyPackages.${final.system};
   };
 
-  # Add stable version of nixpkgs to pkgs -> pkgs.stable
-  # (_final: _prev: {stable = import nixpkgsStable {inherit system;};})
   # Enable JavaFX for jdk
-  jdk = _final: prev: {
-    jdk = prev.jdk.override {enableJavaFX = true;};
+  jdk = _: prev: {
+    jdk = inputs.nixpkgsStable.legacyPackages.${prev.system}.jdk.override {enableJavaFX = true;};
   };
 }
