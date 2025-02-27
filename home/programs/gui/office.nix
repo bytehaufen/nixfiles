@@ -9,7 +9,7 @@
     libreoffice
 
     # PDF Viewer
-    okular
+    kdePackages.okular
 
     # Note-taking apps
     obsidian
