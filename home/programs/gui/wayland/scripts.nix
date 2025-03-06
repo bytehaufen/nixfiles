@@ -21,7 +21,6 @@ in {
   pause-system = pkgs.writeShellScriptBin "pause-system" ''
     ${swaylock} --daemonize
     systemctl suspend
-    ${hyprctl} reload
   '';
 
   # Make screen record and save it as mkv and gif

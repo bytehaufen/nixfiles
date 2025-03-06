@@ -54,7 +54,6 @@
       ];
 
       exec = [
-        "pkill waybar; ${lib.getExe pkgs.waybar}"
       ];
     };
   };

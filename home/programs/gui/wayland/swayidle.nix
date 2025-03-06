@@ -26,7 +26,7 @@ in {
       (lib.optionals config.wayland.windowManager.hyprland.enable {
         timeout = monitorOffTime;
         command = "${hyprctl} dispatch dpms off";
-        resumeCommand = "${hyprctl} dispatch dpms on; ${hyprctl} reload";
+        resumeCommand = "${hyprctl} dispatch dpms on;";
       })
 
       # Let system sleep
