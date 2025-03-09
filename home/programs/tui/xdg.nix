@@ -14,7 +14,7 @@
       defaultApplications = {
         "application/epub+zip" = ["org.pwmt.zathura.desktop"];
         "application/msword" = ["onlyoffice-desktopeditors.desktop"];
-        "application/pdf" = ["onlyoffice-desktopeditors.desktop"];
+        "application/pdf" = ["org.pwmt.zathura.desktop"];
         "application/vnd.ms-excel" = ["onlyoffice-desktopeditors.desktop"];
         "application/vnd.ms-powerpoint" = ["onlyoffice-desktopeditors.desktop"];
         "application/vnd.ms-word.document.macroenabled.12" = ["onlyoffice-desktopeditors.desktop"];
