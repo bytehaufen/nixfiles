@@ -77,6 +77,7 @@ in {
 
   home.packages = with pkgs; [
     imagemagick # Image manipulation
+    ghostscript # PDF manipulation
     tree-sitter # Language parser
 
     ## Development
