@@ -16,6 +16,7 @@
     programs = {
       teams.enable = true;
       discord.enable = true;
+      nchat.enable = true;
     };
 
     services = {

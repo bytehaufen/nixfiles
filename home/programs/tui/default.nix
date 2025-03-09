@@ -16,6 +16,7 @@ in {
     ./zellij
     ./fastfetch.nix
     ./starship.nix
+    ./nchat.nix
     ./zoxide.nix
     ./zsh.nix
     ./btop.nix
