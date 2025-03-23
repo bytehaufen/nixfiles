@@ -1,4 +1,9 @@
-{config, ...}: let
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
   dockerEnabled = config.virtualisation.docker.enable;
 in {
   virtualisation.podman = {
@@ -7,4 +12,5 @@ in {
     dockerSocket.enable = !dockerEnabled;
     defaultNetwork.settings.dns_enabled = true;
   };
+  environment.systemPackages = lib.mkIf config.virtualisation.podman.enable [pkgs.podman-compose];
 }
