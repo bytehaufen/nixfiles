@@ -3,7 +3,8 @@
 <h1 align="center">❄️Bytehaufens Nixfiles❄️</h1>
 
 > [!warning]
-> This repository is currently under heavy development. So do not use this! 🚧
+> This repository is currently under heavy development. Also this README is unfinished and needs to
+> be refactored. So do not use this! 🚧
 >
 > Currently I am migrating from arch linux to NixOS. So this repository will be updated frequently.
 > Many things have to be refactored, are buggy, broken, incomplete, whatever. If you have any
