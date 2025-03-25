@@ -71,6 +71,14 @@
     vars = import ./vars/default.nix;
 
     forAllSystems = lib.genAttrs (import systems);
+
+    pkgsFor = lib.genAttrs (import systems) (
+      system:
+        import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        }
+    );
   in {
     inherit lib;
 
@@ -153,6 +161,7 @@
           ./home/rico/arch.nix
           ./home/core/nix.nix
         ];
+        pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = {
           inherit inputs outputs vars;
         };
@@ -162,6 +171,7 @@
           ./home/rico/todd2.nix
           ./home/core/nix.nix
         ];
+        pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = {
           inherit inputs outputs vars;
         };
@@ -171,6 +181,7 @@
           ./home/rico/vm1.nix
           ./home/core/nix.nix
         ];
+        pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = {
           inherit inputs outputs vars;
         };
