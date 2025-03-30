@@ -31,7 +31,7 @@
     ];
 
     # Window rules
-    windowrulev2 = [
+    windowrule = [
       # Gnome calculator
       "float, class:^(org.gnome.Calculator)$"
 
