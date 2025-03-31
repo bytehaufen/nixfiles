@@ -5,8 +5,10 @@ return {
     opts = {
       keepFoldsAcrossSessions = true,
       pauseFoldsOnSearch = true,
-      setupFoldKeymaps = true,
-      hOnlyOpensOnFirstColumn = true,
+      foldKeymaps = {
+        setup = true,
+        hOnlyOpensOnFirstColumn = true,
+      },
     },
   },
 }
