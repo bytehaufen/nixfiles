@@ -118,8 +118,11 @@
       animate_mouse_windowdragging = false;
 
       # enable variable refresh rate (effective depending on hardware)
-      vfr = 1;
-      vrr = 0;
+      vfr = true;
+      vrr = false;
+
+      # Do not show ANR Dialog when a window is unresponsive
+      enable_anr_dialog = false;
     };
 
     # touchpad gestures
