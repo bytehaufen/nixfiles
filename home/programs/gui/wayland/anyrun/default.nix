@@ -4,16 +4,16 @@
   lib,
   config,
   ...
-}: {
-  imports = [
-    inputs.anyrun.homeManagerModules.default
-  ];
-
+}: let
+  anyrunPackage = inputs.anyrun.packages.${pkgs.system};
+in {
   programs.anyrun = {
     enable = true;
 
+    package = anyrunPackage.anyrun;
+
     config = {
-      plugins = with inputs.anyrun.packages.${pkgs.system}; [
+      plugins = with anyrunPackage; [
         applications
         dictionary
         randr
