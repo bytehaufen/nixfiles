@@ -23,6 +23,7 @@ in {
         translate
       ];
 
+      closeOnClick = true;
       width.fraction = 0.25;
       y.absolute = 15;
       hidePluginInfo = false;
