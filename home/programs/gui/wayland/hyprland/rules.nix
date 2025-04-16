@@ -38,6 +38,8 @@
       # Quickgui (Quickemu)
       "float, class:^(quickgui)$"
       "move 100%-w-20, class:^(quickgui)$"
+      "float, class:^(spicy)$"
+      "size 800 600, class:^(spicy)$"
 
       # Allow tearing in games
       "immediate, class:^(osu\!|cs2)$"
