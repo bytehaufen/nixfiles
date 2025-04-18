@@ -52,7 +52,6 @@ in {
     bind =
       [
         # Compositor commands
-        "$mod SHIFT, Q, exec, pkill Hyprland"
         "$mod SHIFT, Q, exit,"
         "$mod, Q, killactive,"
         "$mod, F, fullscreen,"
