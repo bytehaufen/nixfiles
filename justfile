@@ -15,21 +15,25 @@ nixos-gen HOSTNAME *ARGS:
 [group('nix')]
 nixos-switch HOSTNAME *ARGS: clean
   sudo nixos-rebuild switch --flake '.#{{HOSTNAME}}' {{ARGS}}
+  @just notify
 
 # Build NixOS configuration
 [group('nix')]
 nixos-build HOSTNAME *ARGS:
   sudo nixos-rebuild build --flake '.#{{HOSTNAME}}' {{ARGS}}
+  @just notify
 
 # Create home-manager configuration
 [group('nix')]
 hm-switch USER *ARGS: clean
   home-manager switch --flake '.#{{USER}}' {{ARGS}} --extra-experimental-features 'nix-command flakes ca-derivations'
+  @just notify
 
 # Build home-manager configuration
 [group('nix')]
 hm-build USER *ARGS:
   home-manager build --flake '.#{{USER}}' {{ARGS}} --extra-experimental-features 'nix-command flakes ca-derivations'
+  @just notify
 
 # Update flake dependencies
 [group('nix')]
@@ -91,6 +95,10 @@ get-path:
 [group('misc')]
 penvof pid:
   sudo cat /proc/{{pid}}/environ | tr ' ' '\n'
+
+[group('misc')]
+notify:
+  notify-send "Nixfiles process finished"
 
 # Remove all reflog entries and prune unreachable objects
 [group('git')]
