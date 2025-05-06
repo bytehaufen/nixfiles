@@ -19,5 +19,6 @@
     programs = {
       discord.enable = true;
     };
+    nixGL.enable = true;
   };
 }

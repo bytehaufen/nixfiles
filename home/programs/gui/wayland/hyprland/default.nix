@@ -37,6 +37,7 @@
   };
 
   wayland.windowManager.hyprland = {
+    package = config.lib.nixGL.wrap (pkgs.hyprland.override {wrapRuntimeDeps = false;});
     enable = true;
 
     systemd = {
