@@ -3,18 +3,64 @@
   pkgs,
   vars,
   config,
+  lib,
   ...
-}: {
-  imports = [
-    inputs.agenix.nixosModules.default
-  ];
+}: let
+  isNixOS = vars.isNixOS.content or vars.isNixOS;
 
-  environment.systemPackages = [
-    inputs.agenix.packages."${pkgs.system}".default
-  ];
+  agenixModule =
+    if isNixOS
+    then inputs.agenix.nixosModules.default
+    else inputs.agenix.homeManagerModules.default;
+
+  sshDir =
+    if isNixOS
+    then "ssh"
+    else ".ssh";
+  secretFiles = {
+    "${sshDir}/id_ed25519_rico" = {
+      source = config.age.secrets."id_ed25519_rico".path;
+      mode = "0400";
+      user = vars.username;
+    };
+
+    "${sshDir}/id_ed25519_rico.pub" = {
+      source = config.age.secrets."id_ed25519_rico.pub".path;
+      mode = "0400";
+      user = vars.username;
+    };
+
+    "${sshDir}/id_ed25519_rico_work" = {
+      source = config.age.secrets."id_ed25519_rico_work".path;
+      mode = "0400";
+      user = vars.username;
+    };
+  };
+in {
+  imports = [agenixModule];
+
+  environment = lib.mkIf isNixOS {
+    systemPackages = [
+      inputs.agenix.packages."${pkgs.system}".default
+    ];
+
+    # Place secrets in /etc/
+    etc = secretFiles;
+  };
+
+  home-manager.users.${vars.username} = lib.mkIf (!isNixOS) {
+    home.packages = [
+      inputs.agenix.packages."${pkgs.system}".default
+    ];
+
+    # Place secrets in /etc/
+    file = secretFiles;
+  };
 
   age = {
     identityPaths = ["/etc/ssh/ssh_host_ed25519_key"];
+    secretsDir = lib.mkIf (!isNixOS) "${config.home.homeDirectory}/.agenix/agenix";
+    secretsMountPoint = lib.mkIf (!isNixOS) "${config.home.homeDirectory}/.agenix/agenix.d";
     secrets = {
       "id_ed25519_rico" = {
         file = "${inputs.secrets}/id_ed25519_rico.age";
@@ -47,27 +93,6 @@
         owner = "rico";
         symlink = false;
       };
-    };
-  };
-
-  # Place secrets in /etc/
-  environment.etc = {
-    "ssh/id_ed25519_rico" = {
-      source = config.age.secrets."id_ed25519_rico".path;
-      mode = "0400";
-      user = "${vars.username}";
-    };
-
-    "ssh/id_ed25519_rico.pub" = {
-      source = config.age.secrets."id_ed25519_rico.pub".path;
-      mode = "0400";
-      user = "${vars.username}";
-    };
-
-    "ssh/id_ed25519_rico_work" = {
-      source = config.age.secrets."id_ed25519_rico_work".path;
-      mode = "0400";
-      user = "${vars.username}";
     };
   };
 }

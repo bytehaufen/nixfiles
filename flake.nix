@@ -68,7 +68,7 @@
 
     lib = nixpkgs.lib // home-manager.lib;
 
-    vars = import ./vars/default.nix;
+    vars = import ./vars/default.nix {inherit lib;};
 
     forAllSystems = lib.genAttrs (import systems);
 
