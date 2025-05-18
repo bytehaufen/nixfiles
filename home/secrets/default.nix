@@ -20,13 +20,6 @@
         file = "${inputs.secrets}/smb-secrets.age";
         mode = "0400";
       };
-
-      "hosts-work" = {
-        file = "${inputs.secrets}/hosts-work.age";
-        # path = "/etc/agenix/hosts-work";
-        mode = "0777";
-        # symlink = false;
-      };
     };
   };
 }

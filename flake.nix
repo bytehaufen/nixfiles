@@ -68,7 +68,7 @@
 
     lib = nixpkgs.lib // home-manager.lib;
 
-    vars = import ./vars/default.nix {inherit lib;};
+    vars = import ./vars/default.nix;
 
     forAllSystems = lib.genAttrs (import systems);
 
@@ -141,7 +141,9 @@
           inherit inputs outputs vars;
         };
         modules = [
+          inputs.agenix.nixosModules.default
           ./hosts/vm1
+          ./hosts/core/age.nix
         ];
       };
 
@@ -150,7 +152,9 @@
           inherit inputs outputs vars;
         };
         modules = [
+          inputs.agenix.nixosModules.default
           ./hosts/loki
+          ./hosts/core/age.nix
         ];
       };
     };
@@ -158,8 +162,10 @@
     homeConfigurations = {
       "rico@arch" = lib.homeManagerConfiguration {
         modules = [
+          inputs.agenix.homeManagerModules.default
           ./home/rico/arch.nix
           ./home/core/nix.nix
+          ./home/core/age.nix
         ];
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = {
@@ -168,8 +174,10 @@
       };
       "rico@todd2" = lib.homeManagerConfiguration {
         modules = [
+          inputs.agenix.homeManagerModules.default
           ./home/rico/todd2.nix
           ./home/core/nix.nix
+          ./home/core/age.nix
         ];
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = {
@@ -178,8 +186,11 @@
       };
       "rico@vm1" = lib.homeManagerConfiguration {
         modules = [
+          inputs.agenix.homeManagerModules.default
           ./home/rico/vm1.nix
           ./home/core/nix.nix
+          ./home/core/age.nix
+          ./secrets
         ];
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = {

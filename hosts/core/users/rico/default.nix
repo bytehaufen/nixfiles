@@ -2,6 +2,7 @@
   pkgs,
   config,
   vars,
+  inputs,
   ...
 }: let
   inherit (vars) username;
@@ -28,7 +29,10 @@ in {
     packages = [pkgs.home-manager];
   };
 
-  home-manager.users.${username} = import ../../../../home/${vars.username}/${config.networking.hostName}.nix;
+  home-manager = {
+    users.${username} = import ../../../../home/${vars.username}/${config.networking.hostName}.nix;
+    sharedModules = [inputs.agenix.homeManagerModules.age];
+  };
 
   security.pam.services = {
     swaylock = {};
