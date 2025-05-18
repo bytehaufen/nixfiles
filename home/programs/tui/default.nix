@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   pkgs,
   ...
@@ -18,7 +19,7 @@ in {
     ./starship.nix
     ./nchat.nix
     ./zoxide.nix
-    ./zsh.nix
+    ./shell.nix
     ./btop.nix
     ./cli.nix
     ./git.nix
@@ -77,6 +78,8 @@ in {
   };
 
   home.packages = with pkgs; [
+    inputs.agenix.packages."${pkgs.system}".default # Passfile management
+
     imagemagick # Image manipulation
     ghostscript # PDF manipulation
     tree-sitter # Language parser
