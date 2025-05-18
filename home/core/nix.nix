@@ -4,6 +4,10 @@
   outputs,
   ...
 }: {
+  # Better home-manager integration on non-NixOS
+  # Sets environment variables lie XDG_DATA_DIRS and fixing locale issues
+  targets.genericLinux.enable = true;
+
   nixpkgs = {
     overlays = builtins.attrValues outputs.overlays;
     config = {
