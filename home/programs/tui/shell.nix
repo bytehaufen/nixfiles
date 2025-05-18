@@ -58,22 +58,8 @@
       if [ -f /etc/ssh/id_ed25519_rico_work ]; then
         ssh-add /etc/ssh/id_ed25519_rico_work &> /dev/null
       fi
-      # Priv
-      if [ -f /etc/ssh/id_ed25519_rico ]; then
-        ssh-add /etc/ssh/id_ed25519_rico &> /dev/null
-      fi
 
-      # Update all
-      function update-arch() {
-        yay -Syu --noconfirm
-        yay -Yc --noconfirm
-
-        yay -Rns $(yay -Qtdq --noconfirm) --noconfirm 2>&1 /dev/null
-        rustup upgrade
-        nvim --headless "+Lazy! sync" +qa
-        nvim --headless -c "TSUpdateSync" +qa
-      }
-
+      # TODO: Check obsolete
       # Search history based on what's typed in the prompt
       autoload -U history-search-end
       zle -N history-beginning-search-backward-end history-search-end
