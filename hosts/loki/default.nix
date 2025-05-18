@@ -1,7 +1,6 @@
 {
   vars,
   inputs,
-  config,
   ...
 }: {
   imports = [
@@ -25,12 +24,6 @@
     hostName = "loki";
     networkmanager.enable = true;
   };
-  system.activationScripts."hosts-work".text = ''
-    tmpfile=$(mktemp)
-    cat /etc/hosts ${config.age.secrets."hosts-work".path} > $tmpfile
-    mv $tmpfile /etc/hosts
-    chmod 644 /etc/hosts
-  '';
 
   programs = {
     adb.enable = true;
