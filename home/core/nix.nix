@@ -2,11 +2,17 @@
   pkgs,
   lib,
   outputs,
+  config,
   ...
 }: {
   # Better home-manager integration on non-NixOS
   # Sets environment variables lie XDG_DATA_DIRS and fixing locale issues
   targets.genericLinux.enable = true;
+
+  # Create `.profile` to source home-manager session vars on non-nixos
+  home.file.".profile".text = ''
+    . ${config.home.profileDirectory}/etc/profile.d/hm-session-vars.sh
+  '';
 
   nixpkgs = {
     overlays = builtins.attrValues outputs.overlays;

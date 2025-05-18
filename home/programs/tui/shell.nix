@@ -101,12 +101,6 @@
     '';
 
     envExtra = ''
-      # Make Nix and home-manager installed things available in PATH.
-
-      if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
-        . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
-      fi
-
       # Make sure that the user's bin directory is the first in PATH.
       export PATH="$HOME/.local/bin/:$PATH"
 
