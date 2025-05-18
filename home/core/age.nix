@@ -4,7 +4,7 @@ in {
   imports = [../secrets];
 
   age = {
-    identityPaths = ["${home}/.ssh/ssh_host_ed25519_key"];
+    identityPaths = ["${home}/.ssh/id_ed25519_rico"];
     secretsDir = "${home}/.agenix/agenix";
     secretsMountPoint = "${home}/.agenix/agenix.d";
   };

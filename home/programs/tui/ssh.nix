@@ -8,7 +8,7 @@
     addKeysToAgent = "yes";
 
     extraConfig = ''
-      IdentityFile ${config.age.secrets.id_ed25519_rico.path}
+      IdentityFile ${config.age.secrets.id_ed25519_github.path}
     '';
   };
 

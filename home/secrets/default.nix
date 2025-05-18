@@ -1,13 +1,13 @@
 {inputs, ...}: {
   age = {
     secrets = {
-      "id_ed25519_rico" = {
-        file = "${inputs.secrets}/id_ed25519_rico.age";
+      "id_ed25519_github" = {
+        file = "${inputs.secrets}/id_ed25519_github.age";
         mode = "0400";
       };
 
-      "id_ed25519_rico.pub" = {
-        file = "${inputs.secrets}/id_ed25519_rico.pub.age";
+      "id_ed25519_github.pub" = {
+        file = "${inputs.secrets}/id_ed25519_github.pub.age";
         mode = "0400";
       };
 
