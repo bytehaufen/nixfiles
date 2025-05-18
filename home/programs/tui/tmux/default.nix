@@ -32,8 +32,6 @@
       vim-tmux-navigator
     ];
 
-    # shell = "${pkgs.zsh}/bin/zsh"; # TODO: Check necessary
-
     shortcut = "a";
     terminal = "tmux-256color";
 

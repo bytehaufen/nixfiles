@@ -1,5 +1,5 @@
 return {
-  -- FIXME: Actually default lazyvim java setup used
+  -- NOTE: Actually default lazyvim java setup used
 
   -- Add java to treesitter
   {

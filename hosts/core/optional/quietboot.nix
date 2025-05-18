@@ -8,7 +8,7 @@
     # Graphical boot animation
     plymouth = {
       enable = true;
-      ## FIXME: Style this
+      ## TODO: Style this
       # theme = "spinner-monochrome";
       # themePackages = [
       #    # By default we would install all themes

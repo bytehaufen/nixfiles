@@ -85,7 +85,7 @@
     };
 
     input = {
-      #FIXME: Need to move to nix conf
+      # FIXME: Need to move to nix conf
       # Custom keyboard layout defined in ~/.config/xkb/symbols/
       kb_layout = "en-65,de-65";
       kb_options = "caps:escape";
