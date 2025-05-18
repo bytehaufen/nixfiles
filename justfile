@@ -110,10 +110,18 @@ ggc:
 [linux]
 [group('services')]
 list-inactive:
+  echo "Inactive services:"
   systemctl list-units -all --state=inactive
+  echo
+  echo "Inactive user services:"
+  systemctl list-units -all --state=inactive --user
 
 # List all failed systemd services
 [linux]
 [group('services')]
 list-failed:
+  echo "Failed services:"
   systemctl list-units -all --state=failed
+  echo
+  echo "\nFailed user services:"
+  systemctl list-units -all --state=failed --user
