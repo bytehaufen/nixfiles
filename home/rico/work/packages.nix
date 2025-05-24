@@ -9,12 +9,10 @@
     };
   };
 
-  imports = [./rockylinux.nix];
-
   home.packages = [
     # COSIDE
     (pkgs.writeShellScriptBin "coside" ''
-      COSIDE_SHELL_OPTIONS='-f -c gnome-terminal' GTK_THEME=Adwaita COSIDE_LICENSE_FILE=27000@192.168.178.88 fhs -c $HOME/Apps/coside/coside-latest/coside "$@"
+      COSIDE_SHELL_OPTIONS='-f -c gnome-terminal' GTK_THEME=Adwaita COSIDE_LICENSE_FILE=27000@192.168.178.88 $HOME/Apps/coside/coside-latest/coside "$@"
     '')
 
     # Eclipse COSIDE SDK
@@ -30,7 +28,7 @@
       SOURCE_COMMAND="source $COSIDE_INSTALL_PATH/coside --setenv"
 
       # Launch
-      fhs -c "tcsh -c 'cd $COSIDE_INSTALL_PATH && $SOURCE_COMMAND && $COSIDE_SDK_DIR/coside-sdk/eclipse -data $COSIDE_SDK_DIR/ws'"
+      tcsh -c "cd $COSIDE_INSTALL_PATH && $SOURCE_COMMAND && $COSIDE_SDK_DIR/coside-sdk/eclipse -data $COSIDE_SDK_DIR/ws"
     '')
 
     # Tunnel for work network
@@ -51,7 +49,7 @@
       INCLUDED_FILES=$(grep -E '^\s*Include\s+' "$SSH_CONFIG" | awk '{print $2}')
 
       # Find hosts that end with 'tunnel' in ssh configuration and all included files
-      HOSTS=$(grep -E 'Host .*-tunnel$' "$SSH_CONFIG" $INCLUDED_FILES | awk '{print $2}')
+      HOSTS=$(grep -E 'Host .*-tunnel$' "$SSH_CONFIG" "$INCLUDED_FILES" | awk '{print $2}')
 
       for HOST in $HOSTS; do
         # Get all already running tunnel processes

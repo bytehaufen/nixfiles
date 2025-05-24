@@ -8,8 +8,8 @@
     # Wayland - Hyprland
     ../programs/gui/wayland
 
-    # TODD2 specific
-    ./todd2
+    # Work specific
+    ./work
   ];
 
   opts = {

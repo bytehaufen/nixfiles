@@ -1,6 +1,8 @@
 {config, ...}: let
   identityFile = config.age.secrets.id_ed25519_rico_work.path;
 in {
+  imports = [./packages.nix];
+
   programs.ssh = {
     includes = [config.age.secrets.ssh-config-work.path];
     extraConfig = ''

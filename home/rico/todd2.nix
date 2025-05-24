@@ -5,8 +5,8 @@
     # Programs - GUI
     ../programs/gui
 
-    # TODD2 specific
-    ./todd2
+    # Work specific
+    ./work
   ];
 
   opts = {

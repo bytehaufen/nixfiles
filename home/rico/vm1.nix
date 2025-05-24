@@ -2,7 +2,6 @@
   imports = [
     ./core.nix
     ./work
-    ./todd2
 
     # Programs - GUI
     ../programs/gui
