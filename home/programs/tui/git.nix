@@ -1,4 +1,8 @@
-{vars, ...}: {
+{
+  vars,
+  config,
+  ...
+}: {
   # Enable scrolling in git diff
   home.sessionVariables.DELTA_PAGER = "less -R";
 
@@ -11,7 +15,7 @@
 
       signing = {
         format = "ssh";
-        key = "/etc/ssh/id_ed25519_rico";
+        key = config.age.secrets.id_ed25519_github.path;
         signByDefault = false; # NOTE: When signed, cannot do some rebase actions
       };
 

@@ -1,6 +1,8 @@
 {...}: {
   imports = [
     ./core.nix
+    ./work
+    ./todd2
 
     # Programs - GUI
     ../programs/gui
@@ -17,7 +19,7 @@
       udiskie.enable = true;
     };
     programs = {
-      discord.enable = true;
+      teams.enable = true;
     };
     nixGL.enable = true;
   };

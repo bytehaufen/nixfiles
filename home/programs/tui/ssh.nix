@@ -7,9 +7,14 @@
     enable = true;
     addKeysToAgent = "yes";
 
-    extraConfig = ''
-      IdentityFile ${config.age.secrets.id_ed25519_github.path}
-    '';
+    matchBlocks = {
+      "github.com" = {
+        hostname = "ssh.github.com";
+        user = "git";
+        identityFile = config.age.secrets.id_ed25519_github.path;
+        identitiesOnly = true;
+      };
+    };
   };
 
   services.ssh-agent.enable = true;
