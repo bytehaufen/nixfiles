@@ -59,7 +59,11 @@
         # Kill them all
         if [ -n "$PID" ]; then
           echo "Kill existing tunnel for $HOST (PID=$PID)"
-          kill -9 "$PID"
+          kill "$PID"
+          sleep 1 # Graceful termination
+          if ps -p "$PID"> /dev/null; then
+            kill -9 "$PID"
+          fi
         fi
 
         # (Re-)Create the tunnels if no explicitly `--kill` argument was given
