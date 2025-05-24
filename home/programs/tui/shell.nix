@@ -4,6 +4,7 @@
   ...
 }: {
   home.packages = [pkgs.figlet]; # Required by alias clock
+
   programs.atuin = {
     enable = true;
     enableBashIntegration = true;
