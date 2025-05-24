@@ -54,47 +54,43 @@
     };
 
     # TODO: Refactor, e.g. ssh-agent is at the wrong place
-    initExtra = ''
-      eval `ssh-agent -s` &> /dev/null
-      # Work
-      if [ -f /etc/ssh/id_ed25519_rico_work ]; then
-        ssh-add /etc/ssh/id_ed25519_rico_work &> /dev/null
-      fi
+    initExtra =
+      # sh
+      ''
+        # TODO: Check obsolete
+        # Search history based on what's typed in the prompt
+        autoload -U history-search-end
+        zle -N history-beginning-search-backward-end history-search-end
+        zle -N history-beginning-search-forward-end history-search-end
+        bindkey "^[OA" history-beginning-search-backward-end
+        bindkey "^[OB" history-beginning-search-forward-end
 
-      # TODO: Check obsolete
-      # Search history based on what's typed in the prompt
-      autoload -U history-search-end
-      zle -N history-beginning-search-backward-end history-search-end
-      zle -N history-beginning-search-forward-end history-search-end
-      bindkey "^[OA" history-beginning-search-backward-end
-      bindkey "^[OB" history-beginning-search-forward-end
+        # Open commands in $EDITOR with C-e
+        autoload -z edit-command-line
+        zle -N edit-command-line
+        bindkey "^e" edit-command-line
 
-      # Open commands in $EDITOR with C-e
-      autoload -z edit-command-line
-      zle -N edit-command-line
-      bindkey "^e" edit-command-line
+        # case insensitive tab completion
+        zstyle ':completion:*' completer _complete _ignored _approximate
+        zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+        zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+        zstyle ':completion:*' menu select
+        zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+        zstyle ':completion:*' verbose true
 
-      # case insensitive tab completion
-      zstyle ':completion:*' completer _complete _ignored _approximate
-      zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-      zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-      zstyle ':completion:*' menu select
-      zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-      zstyle ':completion:*' verbose true
+        # Use cache for completions
+        zstyle ':completion:*' use-cache on
+        zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
+        _comp_options+=(globdots)
+      '';
 
-      # Use cache for completions
-      zstyle ':completion:*' use-cache on
-      zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
-      _comp_options+=(globdots)
-    '';
-
-    envExtra = ''
-      # Make sure that the user's bin directory is the first in PATH.
-      export PATH="$HOME/.local/bin/:$PATH"
-
-      # Populate the `PATH` variable with the Nix profile paths.
-      # export PATH="$PATH:/run/current-system/sw/bin/:/nix/var/nix/profiles/default/bin:/etc/profiles/per-user/$USER/bin"
-    '';
+    envExtra =
+      # sh
+      ''
+        # Populate the `PATH` variable with the Nix profile paths.
+        # export PATH="$PATH:/run/current-system/sw/bin/:/nix/var/nix/profiles/default/bin:/etc/profiles/per-user/$USER/bin"
+        export PATH="$PATH:$HOME/.nix-profile/share/applications"
+      '';
 
     shellAliases = {
       c = "clear";
