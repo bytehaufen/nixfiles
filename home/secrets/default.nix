@@ -20,6 +20,11 @@
         file = "${inputs.secrets}/smb-secrets.age";
         mode = "0400";
       };
+
+      "ssh-config-work" = {
+        file = "${inputs.secrets}/ssh-config-work.age";
+        mode = "0400";
+      };
     };
   };
 }
