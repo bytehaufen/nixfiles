@@ -3,6 +3,7 @@
   pkgs,
   ...
 }: {
+  home.packages = [pkgs.figlet]; # Required by alias clock
   programs.atuin = {
     enable = true;
     enableBashIntegration = true;
@@ -97,7 +98,7 @@
     shellAliases = {
       c = "clear";
       cat = "bat";
-      clock = "while true; do tput clear; date +'%H : %M' | figlet; sleep 10; done";
+      clock = "sh -c 'tput civis; trap \"tput cnorm\" EXIT; while true; do tput clear; date +\"%H : %M\" | figlet; sleep 10; done'";
       cr = "cargo run";
       cp = "cp -r";
       du = "du -h";
