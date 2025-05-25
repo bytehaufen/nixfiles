@@ -89,6 +89,7 @@ in {
 
         # Standby screen
         "$mod ALT, l, exec, ${lib.getExe scripts.pause-system}"
+        "$mod CTRL ALT, l, exec, systemctl hibernate"
 
         # Open calculator
         ", XF86Calculator, exec, ${toggle "gnome-calculator" true}"
