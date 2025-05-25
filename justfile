@@ -63,8 +63,8 @@ fmt:
 
 # Check nix flake
 [group('nix')]
-check:
-  nix flake check
+check *ARGS:
+  nix flake check {{ARGS}}
 
 # Remove build output link (no garbage collection)
 [group('nix')]
