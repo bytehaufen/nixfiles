@@ -53,11 +53,21 @@
       ZVM_VI_INSERT_ESCAPE_BINDKEY = "jk";
     };
 
+    initContent =
+      # sh
+      ''
+        zstyle ':completion:*' completer _complete _ignored _approximate
+        zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+        zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+        zstyle ':completion:*' menu select
+        zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+        zstyle ':completion:*' verbose true
+      '';
+
     envExtra =
       # sh
       ''
-        # Populate the `PATH` variable with the Nix profile paths.
-        # export PATH="$PATH:/run/current-system/sw/bin/:/nix/var/nix/profiles/default/bin:/etc/profiles/per-user/$USER/bin"
+        # Make Nix desktop entries available on non-nixos
         export PATH="$PATH:$HOME/.nix-profile/share/applications"
       '';
 
