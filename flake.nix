@@ -154,8 +154,6 @@
           inputs.agenix.homeManagerModules.default
           ./home/rico/todd2.nix
           ./home/core/nix.nix
-          ./home/core/age.nix
-          ./secrets
         ];
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = {
@@ -168,8 +166,6 @@
           inputs.agenix.homeManagerModules.default
           ./home/rico/vm1.nix
           ./home/core/nix.nix
-          ./home/core/age.nix
-          ./secrets
         ];
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = {
