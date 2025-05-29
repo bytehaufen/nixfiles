@@ -1,7 +1,14 @@
-{config, ...}: let
+{
+  inputs,
+  config,
+  ...
+}: let
   home = config.home.homeDirectory;
 in {
-  imports = [../secrets];
+  imports = [
+    inputs.agenix.homeManagerModules.default
+    ./secrets.nix
+  ];
 
   age = {
     identityPaths = ["${home}/.ssh/id_ed25519_rico"];

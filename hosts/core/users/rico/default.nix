@@ -2,7 +2,8 @@
   pkgs,
   config,
   vars,
-  inputs,
+  lib,
+  self,
   ...
 }: let
   inherit (vars) username;
@@ -30,8 +31,10 @@ in {
   };
 
   home-manager = {
-    users.${username} = import ../../../../home/${vars.username}/${config.networking.hostName}.nix;
-    sharedModules = [inputs.agenix.homeManagerModules.age];
+    users.${username} = lib.mkMerge [
+      (import "${self}/modules/home")
+      (import "${self}/home/${vars.username}/${config.networking.hostName}.nix")
+    ];
   };
 
   security.pam.services = {

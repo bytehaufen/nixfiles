@@ -138,9 +138,10 @@
     nixosConfigurations = {
       loki = lib.nixosSystem {
         specialArgs = {
-          inherit inputs outputs vars;
+          inherit self inputs outputs vars;
         };
         modules = [
+          # OLD
           inputs.agenix.nixosModules.default
           ./hosts/loki
           ./hosts/core/age.nix
@@ -151,25 +152,30 @@
     homeConfigurations = {
       "rico@todd2" = lib.homeManagerConfiguration {
         modules = [
+          ./modules/home
+
+          # Old
           inputs.agenix.homeManagerModules.default
           ./home/rico/todd2.nix
           ./home/core/nix.nix
         ];
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = {
-          inherit inputs outputs vars;
+          inherit self inputs outputs vars;
         };
       };
 
       "rico@vm1" = lib.homeManagerConfiguration {
         modules = [
-          inputs.agenix.homeManagerModules.default
+          ./modules/home
+
+          # Old
           ./home/rico/vm1.nix
           ./home/core/nix.nix
         ];
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = {
-          inherit inputs outputs vars;
+          inherit self inputs outputs vars;
         };
       };
     };

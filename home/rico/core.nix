@@ -3,8 +3,6 @@
     # User services
     ../services
 
-    ../core/age.nix
-
     # NixGL
     ../wrapper/nixGL.nix
 
