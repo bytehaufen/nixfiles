@@ -2,7 +2,6 @@
   pkgs,
   config,
   vars,
-  lib,
   self,
   ...
 }: let
@@ -30,12 +29,10 @@ in {
     packages = [pkgs.home-manager];
   };
 
-  home-manager = {
-    users.${username} = lib.mkMerge [
-      (import "${self}/modules/home")
-      (import "${self}/home/${vars.username}/${config.networking.hostName}.nix")
-    ];
-  };
+  home-manager.users.${username}.imports = [
+    "${self}/modules/home"
+    "${self}/home/${username}/${config.networking.hostName}.nix"
+  ];
 
   security.pam.services = {
     swaylock = {};

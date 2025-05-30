@@ -136,13 +136,15 @@
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
     nixosConfigurations = {
-      loki = lib.nixosSystem {
+      loki = lib.nixosSystem rec {
         specialArgs = {
           inherit self inputs outputs vars;
+          isStandalone = false;
         };
         modules = [
-          # OLD
           inputs.agenix.nixosModules.default
+          {home-manager.extraSpecialArgs = specialArgs;}
+
           ./hosts/loki
           ./hosts/core/age.nix
         ];
@@ -162,6 +164,7 @@
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = {
           inherit self inputs outputs vars;
+          isStandalone = true;
         };
       };
 
@@ -176,6 +179,7 @@
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = {
           inherit self inputs outputs vars;
+          iStandalone = true;
         };
       };
     };
