@@ -1,4 +1,4 @@
-{
+{lib, ...}: {
   imports = [
     ./browser.nix
     ./emulator.nix
@@ -10,4 +10,12 @@
     ./office.nix
     ./packages.nix
   ];
+
+  options.opts.gui = {
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable the GUI configuration for the home module.";
+    };
+  };
 }

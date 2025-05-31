@@ -1,21 +1,28 @@
-{pkgs, ...}: {
-  programs = {
-    firefox.enable = true;
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}: {
+  config = lib.mkIf config.opts.gui.enable {
+    programs = {
+      firefox.enable = true;
 
-    # Brave
-    chromium = {
-      enable = true;
-      package = pkgs.brave;
-      commandLineArgs = [
-        "--enable-features=UseOzonePlatform"
-        "--ozone-platform=wayland"
-        "--password-store=gnome-libsecret"
-        "--ozone-platform-hint=auto"
-        "--ozone-platform=wayland"
-        "--gtk-version=4"
-        "--enable-wayland-ime"
-        "--enable-features=WebRTCPipeWireCapturer"
-      ];
+      # Brave
+      chromium = {
+        enable = true;
+        package = pkgs.brave;
+        commandLineArgs = [
+          "--enable-features=UseOzonePlatform"
+          "--ozone-platform=wayland"
+          "--password-store=gnome-libsecret"
+          "--ozone-platform-hint=auto"
+          "--ozone-platform=wayland"
+          "--gtk-version=4"
+          "--enable-wayland-ime"
+          "--enable-features=WebRTCPipeWireCapturer"
+        ];
+      };
     };
   };
 }

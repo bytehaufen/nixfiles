@@ -7,10 +7,13 @@
   ];
 
   opts = {
+    gui.enable = true;
+
     programs = {
-      teams.enable = true;
       discord.enable = true;
       nchat.enable = true;
+      obs.enable = true;
+      teams.enable = true;
     };
 
     services = {

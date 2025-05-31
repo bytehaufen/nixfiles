@@ -20,9 +20,11 @@
     '';
   };
 
-  config.home.packages = let
-    discordPackages = lib.optionals config.opts.programs.discord.enable [pkgs.vesktop];
-    teamsPackages = lib.optionals config.opts.programs.teams.enable [pkgs.teams-for-linux];
-  in
-    discordPackages ++ teamsPackages;
+  config = lib.mkIf config.opts.gui.enable {
+    home.packages = let
+      discordPackages = lib.optionals config.opts.programs.discord.enable [pkgs.vesktop];
+      teamsPackages = lib.optionals config.opts.programs.teams.enable [pkgs.teams-for-linux];
+    in
+      discordPackages ++ teamsPackages;
+  };
 }
