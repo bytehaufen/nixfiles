@@ -1,12 +1,10 @@
 {...}: {
   imports = [
-    # Agenix configuration and secrets
-    ./agenix
-    # Nix configuration
-    ./nix.nix
-
-    ./services
-
-    ./nixGL
+    ./agenix # Agenix configuration and secrets
+    ./images # My wallpapers etc
+    ./nix.nix # Nix configuration for non-NixOS
+    ./nixGL # Wrapper for running GUI applications on non-NixOS
+    ./services # User Services
+    ./theme # My custom theme
   ];
 }

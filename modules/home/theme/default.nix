@@ -22,6 +22,11 @@
     ];
   };
 in {
+  imports = [
+    # Base16 color schemes
+    inputs.nix-colors.homeManagerModules.default
+  ];
+
   # Default installed fonts
   home = {
     packages = with pkgs; [
