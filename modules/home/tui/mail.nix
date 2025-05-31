@@ -1,4 +1,4 @@
 {pkgs, ...}: {
-  # TODO: Setup correctly -> pkgs.aerc
+  # TODO: Setup correctly -> programs.aerc
   home.packages = [pkgs.thunderbird];
 }

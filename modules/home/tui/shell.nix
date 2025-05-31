@@ -2,8 +2,18 @@
   config,
   pkgs,
   ...
-}: {
-  home.packages = [pkgs.figlet]; # Required by alias clock
+}: let
+  conf = config.xdg.configHome;
+  cache = config.xdg.cacheHome;
+in {
+  home = {
+    packages = [pkgs.figlet]; # Required by alias clock
+
+    sessionVariables = {
+      LESSHISTFILE = "${cache}/less/history";
+      LESSKEY = "${conf}/less/lesskey";
+    };
+  };
 
   programs.atuin = {
     enable = true;
@@ -85,7 +95,6 @@
       gg = "lazygit";
       grep = "grep --color";
       ip = "ip --color";
-      # j = "z";
       zz = "zi";
       l = "eza --classify --group-directories-first --color=auto --color-scale --all";
       la = "eza --classify --group-directories-first --color=auto --color-scale --all";

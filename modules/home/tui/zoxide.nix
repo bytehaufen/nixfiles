@@ -1,9 +1,6 @@
 {
   # zoxide is a smarter cd command, inspired by z and autojump.
-  # It remembers which directories you use most frequently,
-  # so you can "jump" to them in just a few keystrokes.
-  # zoxide works on all major shells.
-  #
+  # Example usage:
   #   z foo              # cd into highest ranked directory matching foo
   #   z foo bar          # cd into highest ranked directory matching foo and bar
   #   z foo /            # cd into a subdirectory starting with foo

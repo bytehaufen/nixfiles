@@ -1,4 +1,4 @@
-{...}: {
+{
   imports = [
     ./agenix # Agenix configuration and secrets
     ./images # My wallpapers etc

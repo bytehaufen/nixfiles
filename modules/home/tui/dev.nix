@@ -26,6 +26,10 @@
     };
 
     packages = with pkgs; [
+      # General
+      just # Make like command runner
+      tree-sitter # Language parser
+
       # Nix
       alejandra # Nix Code Formatter
       cachix # Nix binary cache client
