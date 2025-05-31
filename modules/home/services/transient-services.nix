@@ -1,3 +1,4 @@
+# Package to run processes as transient systemd services -> used in hyprland binds
 {
   pkgs,
   config,
@@ -24,7 +25,7 @@
     exec "$@"
   '';
 
-  # runs processes as systemd transient services
+  # Runs processes as systemd transient services
   run-as-service = pkgs.writeShellScriptBin "run-as-service" ''
     exec ${pkgs.systemd}/bin/systemd-run \
       --slice=app-manual.slice \

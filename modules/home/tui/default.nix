@@ -24,7 +24,6 @@ in {
     ./ssh.nix
     ./starship.nix
     ./tmux
-    ./transient-services.nix
     ./xdg.nix
     ./yazi
     ./zellij
