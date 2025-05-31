@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{config, ...}: {
   xdg = {
     enable = true;
     cacheHome = config.home.homeDirectory + "/.local/cache";
@@ -65,12 +61,4 @@
     #   };
     # };
   };
-
-  home.packages = [
-    # used by `gio open` and xdg-gtk
-    (pkgs.writeShellScriptBin "xdg-terminal-exec" ''
-      kitty "$@"
-    '')
-    pkgs.xdg-utils
-  ];
 }

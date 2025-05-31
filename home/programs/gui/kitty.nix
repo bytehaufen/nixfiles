@@ -36,4 +36,12 @@
       background_opacity = 1.0;
     };
   };
+
+  home.packages = [
+    # used by `gio open` and xdg-gtk
+    (pkgs.writeShellScriptBin "xdg-terminal-exec" ''
+      kitty "$@"
+    '')
+    pkgs.xdg-utils
+  ];
 }
