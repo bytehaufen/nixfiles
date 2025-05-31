@@ -9,27 +9,27 @@
 in {
   imports = [
     ./bat
+    ./btop.nix
+    ./core.nix
+    ./dev.nix
+    ./fastfetch.nix
+    ./git.nix
+    ./gpg.nix
     ./helix
     ./mail.nix
-    ./neovim
-    ./tmux
-    ./yazi
-    ./zellij
-    ./fastfetch.nix
-    ./starship.nix
     ./nchat.nix
-    ./zoxide.nix
-    ./shell.nix
-    ./btop.nix
-    ./cli.nix
-    ./git.nix
+    ./neovim
     ./nix.nix
-    ./gpg
-    ./packages.nix
-    ./ssh.nix
+    ./shell.nix
     ./skim.nix
+    ./ssh.nix
+    ./starship.nix
+    ./tmux
     ./transient-services.nix
     ./xdg.nix
+    ./yazi
+    ./zellij
+    ./zoxide.nix
   ];
 
   # Add environment variables
