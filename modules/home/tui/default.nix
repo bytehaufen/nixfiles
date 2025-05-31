@@ -105,7 +105,5 @@ in {
     hyperfine # Benchmarking
 
     detox # Harmonize file names
-
-    # difftastic #TODO: Check
   ];
 }
