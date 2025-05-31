@@ -7,7 +7,7 @@
     clock24 = true;
     customPaneNavigationAndResize = false; # That is the default
 
-    escapeTime = 1; # TODO: Check my be use default of **500**
+    escapeTime = 1;
 
     historyLimit = 10000;
     keyMode = "vi";
@@ -34,9 +34,6 @@
 
     shortcut = "a";
     terminal = "tmux-256color";
-
-    tmuxinator.enable = false; # TODO: Check
-    tmuxp.enable = false; # TODO: Check
 
     extraConfig = ''
       ################
