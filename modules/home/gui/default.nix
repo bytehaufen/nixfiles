@@ -7,6 +7,7 @@
     ./llvm.nix
     ./media.nix
     ./messaging.nix
+    ./obs.nix
     ./office.nix
   ];
 
@@ -23,37 +24,9 @@
     grimblast
     slurp
 
-    # utils
+    # Utilities
     wl-clipboard
     wl-screenrec
     wlr-randr
   ];
-
-  programs.obs-studio = {
-    enable = true;
-    package = pkgs.stable.obs-studio;
-    plugins = with pkgs.stable.obs-studio-plugins; [
-      # Screen capture
-      wlrobs
-      obs-vaapi
-      obs-nvfbc
-      obs-teleport
-      droidcam-obs
-      obs-vkcapture
-      obs-gstreamer
-      obs-3d-effect
-      input-overlay
-      obs-multi-rtmp
-      obs-source-clone
-      obs-shaderfilter
-      obs-source-record
-      obs-livesplit-one
-      looking-glass-obs
-      obs-vintage-filter
-      obs-command-source
-      obs-move-transition
-      obs-backgroundremoval
-      obs-pipewire-audio-capture
-    ];
-  };
 }
