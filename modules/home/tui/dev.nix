@@ -5,102 +5,126 @@
     '';
   };
 
-  home.packages = with pkgs; [
-    # Nix
-    nil
-    nixd
-    statix # Lints and suggestions for the nix programming language
-    deadnix # Find and remove unused code in .nix source files
-    alejandra # Nix Code Formatter
+  programs = {
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+      enableZshIntegration = true;
+      enableBashIntegration = true;
+      enableNushellIntegration = true;
+    };
 
-    taplo # TOML language server / formatter / validator
-    nodePackages.yaml-language-server
-    actionlint # GitHub Actions linter
+    nix-index = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+  };
 
-    # Dockerfile
-    hadolint # Dockerfile linter
-    nodePackages.dockerfile-language-server-nodejs
+  home = {
+    sessionVariables = {
+      DIRENV_LOG_FORMAT = "";
+    };
 
-    # Markdown
-    marksman # language server for markdown
-    glow # markdown previewer
-    pandoc # document converter
+    packages = with pkgs; [
+      # Nix
+      alejandra # Nix Code Formatter
+      cachix # Nix binary cache client
+      deadnix # Find and remove unused code in .nix source files
+      lorri # Nix project development environment
+      nix-output-monitor # nom
+      nil # Nix language server
+      nixd # Nix language server
+      statix # Lints and suggestions for the nix programming language
 
-    # Sql
-    sqlfluff
+      taplo # TOML language server / formatter / validator
+      nodePackages.yaml-language-server
+      actionlint # GitHub Actions linter
 
-    # C/C++
-    cmake
-    cmake-language-server
-    gnumake
-    checkmake
-    gcc
-    gdb
-    clang-tools
-    lldb
-    vscode-extensions.vadimcn.vscode-lldb.adapter # codelldb - debugger
+      # Dockerfile
+      hadolint # Dockerfile linter
+      nodePackages.dockerfile-language-server-nodejs
 
-    # Python
-    pyright # Python language server
-    (python312.withPackages (
-      ps:
-        with ps; [
-          ipython
-          ipykernel
-          jupyter
-          pandas
-          pyquery
-          pyyaml
-          requests
-          tabulate
+      # Markdown
+      glow # markdown previewer
+      marksman # language server for markdown
+      pandoc # document converter
 
-          pip
-        ]
-    ))
+      # Sql
+      sqlfluff
 
-    # Rust
-    rustc
-    rust-analyzer
-    cargo # Rust package manager
-    rustfmt
-    clippy # Rust linter
+      # C/C++
+      checkmake
+      clang-tools
+      cmake
+      cmake-language-server
+      gcc
+      gdb
+      gnumake
+      lldb
+      vscode-extensions.vadimcn.vscode-lldb.adapter # codelldb - debugger
 
-    # Go
-    go
-    delve # Go debugger
+      # Python
+      pyright # Python language server
+      (python312.withPackages (
+        ps:
+          with ps; [
+            ipython
+            ipykernel
+            jupyter
+            pandas
+            pyquery
+            pyyaml
+            requests
+            tabulate
 
-    # Java
-    jdk
-    gradle
-    maven
-    jdt-language-server
+            pip
+          ]
+      ))
 
-    # Lua
-    lua5_1
-    stylua
-    lua-language-server
-    lua51Packages.luarocks
-    luajitPackages.magick # Lua bindings for ImageMagick
-    luajitPackages.lpeg # Lua parsing expression grammars
+      # Rust
+      cargo # Rust package manager
+      clippy # Rust linter
+      rust-analyzer
+      rustc
+      rustfmt
 
-    # Bash
-    nodePackages.bash-language-server
-    shellcheck
-    shfmt
+      # Go
+      delve # Go debugger
+      go
 
-    # Web dev
-    nodePackages.nodejs
-    nodePackages.typescript
-    nodePackages.typescript-language-server
-    nodePackages.vscode-langservers-extracted
-    nodePackages."@tailwindcss/language-server"
-    emmet-ls
+      # Java
+      gradle
+      maven
+      jdk
+      jdt-language-server
 
-    # English prose linter
-    proselint
+      # Lua
+      lua5_1
+      lua-language-server
+      lua51Packages.luarocks
+      luajitPackages.magick # Lua bindings for ImageMagick
+      luajitPackages.lpeg # Lua parsing expression grammars
+      stylua
 
-    # Optional
-    nodePackages.prettier # Common code formatter
-    (ripgrep.override {withPCRE2 = true;}) # Recursively searches directories for a regex pattern
-  ];
+      # Bash
+      nodePackages.bash-language-server
+      shellcheck
+      shfmt
+
+      # Web dev
+      emmet-ls
+      nodePackages.nodejs
+      nodePackages.typescript
+      nodePackages.typescript-language-server
+      nodePackages.vscode-langservers-extracted
+      nodePackages."@tailwindcss/language-server"
+
+      # English prose linter
+      proselint
+
+      # Optional
+      nodePackages.prettier # Common code formatter
+      (ripgrep.override {withPCRE2 = true;}) # Recursively searches directories for a regex pattern
+    ];
+  };
 }

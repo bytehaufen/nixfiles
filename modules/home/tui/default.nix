@@ -19,7 +19,6 @@ in {
     ./mail.nix
     ./nchat.nix
     ./neovim
-    ./nix.nix
     ./shell.nix
     ./skim.nix
     ./ssh.nix
