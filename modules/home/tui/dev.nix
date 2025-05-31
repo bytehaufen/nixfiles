@@ -88,10 +88,6 @@
       rustc
       rustfmt
 
-      # Go
-      delve # Go debugger
-      go
-
       # Java
       gradle
       maven
