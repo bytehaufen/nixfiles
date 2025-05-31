@@ -29,11 +29,6 @@
         symbol = " ";
         heuristic = true;
       };
-      custom.netns = {
-        command = "ip netns identify";
-        when = ''[ -n "$(ip netns identify)" ] '';
-        format = "[󱂇 ](bold yellow)$output: ";
-      };
       format = lib.concatStrings [
         "$custom"
         "$all"
