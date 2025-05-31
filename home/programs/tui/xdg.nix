@@ -51,14 +51,5 @@
       "${config.home.homeDirectory}/.nix-profile/share/applications"
       "${config.home.homeDirectory}/.nix-profile/share/"
     ];
-
-    # FIXME: Merge with system configuration
-    # userDirs = {
-    #   enable = true;
-    #   createDirectories = true;
-    #   extraConfig = {
-    #     XDG_SCREENSHOTS_DIR = "${config.xdg.userDirs.pictures}/Screenshots";
-    #   };
-    # };
   };
 }
