@@ -1,8 +1,5 @@
 {vars, ...}: {
   imports = [
-    # User services
-    ../services
-
     # NixGL
     ../wrapper/nixGL.nix
 

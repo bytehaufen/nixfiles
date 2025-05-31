@@ -4,5 +4,7 @@
     ./agenix
     # Nix configuration
     ./nix.nix
+
+    ./services
   ];
 }
