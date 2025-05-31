@@ -2,12 +2,6 @@
   imports = [
     ./core.nix
     ./work
-
-    # Programs - GUI
-    ../programs/gui
-
-    # Wayland - Hyprland
-    ../programs/gui/wayland
   ];
   opts = {
     services = {

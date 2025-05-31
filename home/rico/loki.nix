@@ -2,12 +2,6 @@
   imports = [
     ./core.nix
 
-    # Programs - GUI
-    ../programs/gui
-
-    # Wayland - Hyprland
-    ../programs/gui/wayland
-
     # Work specific
     ./work
   ];

@@ -7,8 +7,6 @@
     ./mako
 
     ./anyrun
-
-    ./xkb
   ];
 
   home.packages = with pkgs; [

@@ -2,9 +2,6 @@
   imports = [
     ./core.nix
 
-    # Programs - GUI
-    ../programs/gui
-
     # Work specific
     ./work
   ];
