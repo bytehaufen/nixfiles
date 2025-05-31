@@ -6,5 +6,6 @@
     ./nixGL # Wrapper for running GUI applications on non-NixOS
     ./services # User Services
     ./theme # My custom theme
+    ./tui # Terminal applications
   ];
 }

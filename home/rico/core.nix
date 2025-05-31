@@ -1,9 +1,4 @@
 {vars, ...}: {
-  imports = [
-    # TUI programs
-    ../programs/tui
-  ];
-
   # Let Home manager manage him self 🥚🐔
   programs.home-manager.enable = true;
 
