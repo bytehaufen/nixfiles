@@ -6,5 +6,7 @@
     ./nix.nix
 
     ./services
+
+    ./nixGL
   ];
 }

@@ -1,8 +1,5 @@
 {vars, ...}: {
   imports = [
-    # NixGL
-    ../wrapper/nixGL.nix
-
     # Theming
     ../theme
     ../../wallpaper
