@@ -6,7 +6,6 @@
     ./nix.nix
     ./openssh.nix
 
-    ./prometheus-node-exporter.nix
     ./security.nix
     ./smb.nix
     ./systemd-initrd.nix
