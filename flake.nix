@@ -155,11 +155,7 @@
       "rico@todd2" = lib.homeManagerConfiguration {
         modules = [
           ./modules/home
-
-          # Old
-          inputs.agenix.homeManagerModules.default
           ./home/rico/todd2.nix
-          ./home/core/nix.nix
         ];
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = {
@@ -171,10 +167,7 @@
       "rico@vm1" = lib.homeManagerConfiguration {
         modules = [
           ./modules/home
-
-          # Old
           ./home/rico/vm1.nix
-          ./home/core/nix.nix
         ];
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = {
