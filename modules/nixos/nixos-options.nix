@@ -14,6 +14,8 @@ in {
       hyprland = mkEnableOption "Enable Hyprland as the window manager";
     };
     services = {
+      kdeconnect = mkEnableOption "Enable KDE Connect service for device integration";
+      pipewire = mkEnableOption "Enable PipeWire for audio and video handling";
       upower = mkEnableOption "Enable UPower service for power management";
     };
   };
