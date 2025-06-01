@@ -1,34 +1,24 @@
-{pkgs, ...}: {
+{lib, ...}: {
   imports = [
     ./anyrun
     ./hyprland
     ./mako
+    ./packages.nix
     ./swayidle.nix
     ./swaylock.nix
     ./waybar
   ];
 
-  home.packages = with pkgs; [
-    adwaita-icon-theme # Icon theme
-    brightnessctl # Brightness control
-    dconf # Configuration system
-    libsForQt5.qt5ct # Qt5 configuration tool
-    libva # Video Acceleration API
-    mako # Notification daemon
-    meson # Build system
-    morewaita-icon-theme # Icon theme
-    networkmanagerapplet # Provide GUI app: nm-connection-editor
-    pipewire # Multimedia framework
-    qogir-icon-theme # Icon theme
-    wayland-utils # Utilities for Wayland
-    wayland-protocols # Wayland protocols
-    wireplumber # Media session manager for PipeWire
-    wlroots # Modular Wayland compositor library
-    xwayland # X11 compatibility layer for Wayland
-  ];
+  options.opts.hyprland = {
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable the Hyprland Wayland compositor configuration.";
+    };
+  };
 
   # # TODO: Move to parent
-  home.sessionVariables = {
+  config.home.sessionVariables = {
     GTK_USE_PORTAL = 1;
     QT_QPA_PLATFORM = "wayland";
     SDL_VIDEODRIVER = "wayland";

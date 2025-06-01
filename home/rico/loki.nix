@@ -8,6 +8,7 @@
 
   opts = {
     gui.enable = true;
+    hyprland.enable = true;
 
     programs = {
       discord.enable = true;
