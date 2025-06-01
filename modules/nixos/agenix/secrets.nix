@@ -1,5 +1,4 @@
 {inputs, ...}: {
-  # FIXME: Move to modules
   age = {
     secrets = {
       "smb-secrets" = {

@@ -1,23 +1,14 @@
 {
-  vars,
   inputs,
+  vars,
   ...
 }: {
   imports = [
     inputs.disko.nixosModules.disko
+
     ./hardware-configuration.nix
     ./disko-config.nix
-
-    ../core/global
-    ../core/users/${vars.username}
-
-    ../core/optional/greetd.nix
-    ../core/optional/hyprland.nix
-    ../core/optional/kdeconnect.nix
-    ../core/optional/misc.nix
-    ../core/optional/pipewire.nix
-    ../core/optional/quietboot.nix
-    ../core/optional/wireless.nix
+    ./users/${vars.username}.nix
   ];
 
   networking = {

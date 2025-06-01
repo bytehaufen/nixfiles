@@ -142,11 +142,10 @@
           isStandalone = false;
         };
         modules = [
-          inputs.agenix.nixosModules.default
           {home-manager.extraSpecialArgs = specialArgs;}
 
+          ./modules/nixos
           ./hosts/loki
-          ./hosts/core/age.nix
         ];
       };
     };
