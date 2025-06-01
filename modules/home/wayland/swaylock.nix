@@ -1,4 +1,5 @@
 {
+  lib,
   config,
   pkgs,
   ...
@@ -14,42 +15,44 @@
   onError = palette.base01;
   onTertiary = palette.base01;
 in {
-  programs.swaylock = {
-    enable = true;
-    package = pkgs.swaylock-effects;
-    settings = {
-      clock = true;
-      image = "${config.opts.theme.wallpaper}";
-      effect-blur = "20x3";
-      fade-in = 0.1;
+  config = lib.mkIf config.opts.hyprland.enable {
+    programs.swaylock = {
+      enable = true;
+      package = pkgs.swaylock-effects;
+      settings = {
+        clock = true;
+        image = "${config.opts.theme.wallpaper}";
+        effect-blur = "20x3";
+        fade-in = 0.1;
 
-      font-size = 20;
+        font-size = 20;
 
-      line-uses-inside = true;
-      disable-caps-lock-text = true;
-      ignore-empty-password = true;
-      indicator-caps-lock = true;
-      indicator-radius = 100;
-      indicator-idle-visible = true;
+        line-uses-inside = true;
+        disable-caps-lock-text = true;
+        ignore-empty-password = true;
+        indicator-caps-lock = true;
+        indicator-radius = 100;
+        indicator-idle-visible = true;
 
-      ring-color = surfaceBright;
-      inside-wrong-color = onError;
-      ring-wrong-color = error;
-      key-hl-color = primary;
-      bs-hl-color = onTertiary;
-      ring-ver-color = secondary;
-      inside-ver-color = onSecondary;
-      inside-color = surface;
-      text-color = surfaceBright;
-      text-clear-color = surfaceBright;
-      text-ver-color = onSecondary;
-      text-wrong-color = error;
-      text-caps-lock-color = surfaceBright;
-      inside-clear-color = surface;
-      ring-clear-color = primary;
-      inside-caps-lock-color = onTertiary;
-      ring-caps-lock-color = surface;
-      separator-color = surface;
+        ring-color = surfaceBright;
+        inside-wrong-color = onError;
+        ring-wrong-color = error;
+        key-hl-color = primary;
+        bs-hl-color = onTertiary;
+        ring-ver-color = secondary;
+        inside-ver-color = onSecondary;
+        inside-color = surface;
+        text-color = surfaceBright;
+        text-clear-color = surfaceBright;
+        text-ver-color = onSecondary;
+        text-wrong-color = error;
+        text-caps-lock-color = surfaceBright;
+        inside-clear-color = surface;
+        ring-clear-color = primary;
+        inside-caps-lock-color = onTertiary;
+        ring-caps-lock-color = surface;
+        separator-color = surface;
+      };
     };
   };
 }
