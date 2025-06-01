@@ -3,14 +3,19 @@
   config,
   lib,
   ...
-}: {
-  imports = [
-    ./binds.nix
-    ./rules.nix
-    ./settings.nix
-  ];
+} @ args: let
+  # Custom scripts, used in keybindings and in user environment
+  scripts = import ./scripts.nix args;
 
-  home.packages = [pkgs.swaybg];
+  # Hyprland settings consist of a set of keybindings and other configurations
+  settings = lib.mkMerge [
+    (import ./settings.nix args)
+    (import ./binds.nix (args // {inherit scripts;}))
+    (import ./rules.nix args)
+  ];
+in {
+  # Propagate all scripts to the user env to make them available in the shell
+  home.packages = [pkgs.swaybg] ++ builtins.attrValues scripts;
 
   programs.zsh.shellAliases = {
     xkill = "${lib.getExe' config.wayland.windowManager.hyprland.package "hyprctl"} kill";
@@ -37,6 +42,8 @@
   };
 
   wayland.windowManager.hyprland = {
+    inherit settings;
+
     package = config.lib.nixGL.wrap (pkgs.hyprland.override {wrapRuntimeDeps = false;});
     enable = true;
 
@@ -46,17 +53,6 @@
     };
 
     xwayland.enable = true;
-
-    settings = {
-      exec-once = [
-        "${lib.getExe pkgs.swaybg} -m fill -i ${config.opts.theme.wallpaper}"
-        "${pkgs.networkmanagerapplet}/bin/nm-applet"
-        "${pkgs.blueman}/bin/blueman-applet"
-      ];
-
-      exec = [
-      ];
-    };
   };
 
   home.file.".wayland-session" = {
