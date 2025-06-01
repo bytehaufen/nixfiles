@@ -1,32 +1,30 @@
 {pkgs, ...}: {
   imports = [
+    ./anyrun
     ./hyprland
+    ./mako
     ./swayidle.nix
     ./swaylock.nix
     ./waybar
-    ./mako
-
-    ./anyrun
   ];
 
   home.packages = with pkgs; [
-    adwaita-icon-theme
+    adwaita-icon-theme # Icon theme
     brightnessctl # Brightness control
-    dconf
-    libsForQt5.qt5ct
-    libva
+    dconf # Configuration system
+    libsForQt5.qt5ct # Qt5 configuration tool
+    libva # Video Acceleration API
     mako # Notification daemon
-    meson
-    morewaita-icon-theme
+    meson # Build system
+    morewaita-icon-theme # Icon theme
     networkmanagerapplet # Provide GUI app: nm-connection-editor
-    pipewire
-    qogir-icon-theme
-    swappy # Image annotation tool
-    wayland-utils
-    wayland-protocols
-    wireplumber
-    wlroots
-    xwayland
+    pipewire # Multimedia framework
+    qogir-icon-theme # Icon theme
+    wayland-utils # Utilities for Wayland
+    wayland-protocols # Wayland protocols
+    wireplumber # Media session manager for PipeWire
+    wlroots # Modular Wayland compositor library
+    xwayland # X11 compatibility layer for Wayland
   ];
 
   # # TODO: Move to parent

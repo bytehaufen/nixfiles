@@ -14,14 +14,15 @@
       vimiv-qt # Image viewer
 
       # Screenshot
-      grim
-      grimblast
-      slurp
+      grim # Screenshot utility
+      grimblast # Screenshot utility with clipboard support
+      slurp # Select screen area for screenshots
+      swappy # Image annotation tool
 
       # Utilities
-      wl-clipboard
-      wl-screenrec
-      wlr-randr
+      wl-clipboard # Clipboard utilities for Wayland
+      wl-screenrec # Screen recording utility for Wayland
+      wlr-randr # Wayland screen management utility
     ];
   };
 }
