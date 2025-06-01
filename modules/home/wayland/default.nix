@@ -1,6 +1,6 @@
 {lib, ...}: {
   imports = [
-    ./anyrun
+    ./anyrun.nix
     ./hyprland
     ./mako
     ./packages.nix
