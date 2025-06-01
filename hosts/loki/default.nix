@@ -14,6 +14,9 @@
   opts.nixos = {
     gui.enable = true;
     smb.enable = true;
+    services = {
+      upower.enable = true;
+    };
   };
 
   networking = {
