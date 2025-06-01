@@ -15,13 +15,13 @@
   onError = palette.base01;
   onTertiary = palette.base01;
 in {
-  config = lib.mkIf config.opts.hyprland.enable {
+  config = lib.mkIf config.opts.home.hyprland.enable {
     programs.swaylock = {
       enable = true;
       package = pkgs.swaylock-effects;
       settings = {
         clock = true;
-        image = "${config.opts.theme.wallpaper}";
+        image = "${config.opts.home.theme.wallpaper}";
         effect-blur = "20x3";
         fade-in = 0.1;
 

@@ -4,7 +4,7 @@
   lib,
   ...
 }: {
-  config = lib.mkIf config.opts.gui.enable {
+  config = lib.mkIf config.opts.home.gui.enable {
     home.packages = with pkgs; [
       gnome-calculator # Calculator
       keepassxc # Password manager

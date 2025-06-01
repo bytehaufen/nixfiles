@@ -9,7 +9,7 @@
     ./waybar
   ];
 
-  options.opts.hyprland = {
+  options.opts.home.hyprland = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = false;

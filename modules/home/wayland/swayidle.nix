@@ -12,7 +12,7 @@
   monitorOffTime = lockTime + 60; # 6 minutes
   suspendTime = 2 * lockTime; # 10 minutes
 in {
-  config = lib.mkIf config.opts.hyprland.enable {
+  config = lib.mkIf config.opts.home.hyprland.enable {
     services.swayidle = {
       enable = true;
       systemdTarget = "graphical-session.target";

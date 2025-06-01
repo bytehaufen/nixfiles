@@ -4,7 +4,7 @@
   ...
 }: {
   # Adjust the color temperature(& brightness) of your screen
-  config = lib.mkIf config.opts.gui.enable {
+  config = lib.mkIf config.opts.home.gui.enable {
     services.gammastep = {
       enable = true;
       # add a gammastep icon in the system tray

@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  config = lib.mkIf config.opts.hyprland.enable {
+  config = lib.mkIf config.opts.home.hyprland.enable {
     services.mako = let
       colors = config.colorScheme.palette;
     in {

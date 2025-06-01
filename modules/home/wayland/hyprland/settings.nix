@@ -7,7 +7,7 @@
   rgba = color: alpha: "rgba(${lib.removePrefix "#" color}${alpha})";
 in {
   exec-once = [
-    "${lib.getExe pkgs.swaybg} -m fill -i ${config.opts.theme.wallpaper}"
+    "${lib.getExe pkgs.swaybg} -m fill -i ${config.opts.home.theme.wallpaper}"
     "${pkgs.networkmanagerapplet}/bin/nm-applet"
     "${pkgs.blueman}/bin/blueman-applet"
   ];

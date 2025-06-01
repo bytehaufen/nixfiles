@@ -7,7 +7,7 @@
 }: let
   anyrunPackage = inputs.anyrun.packages.${pkgs.system};
 in {
-  config = lib.mkIf config.opts.hyprland.enable {
+  config = lib.mkIf config.opts.home.hyprland.enable {
     programs.anyrun = {
       enable = true;
 

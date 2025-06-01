@@ -6,7 +6,7 @@
 }: let
   data = config.xdg.dataHome;
 in {
-  config = lib.mkIf config.opts.gui.enable {
+  config = lib.mkIf config.opts.home.gui.enable {
     home.sessionVariables = {
       WINEPREFIX = "${data}/wine";
     };

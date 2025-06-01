@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  options.opts.services.kdeconnect.enable = lib.mkOption {
+  options.opts.home.services.kdeconnect.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
     description = ''
@@ -11,7 +11,7 @@
     '';
   };
 
-  config = lib.mkIf config.opts.services.kdeconnect.enable {
+  config = lib.mkIf config.opts.home.services.kdeconnect.enable {
     services.kdeconnect = {
       enable = true;
       indicator = true;

@@ -3,11 +3,11 @@
   config,
   ...
 }: {
-  options.opts.services.syncthing.enable = lib.mkOption {
+  options.opts.home.services.syncthing.enable = lib.mkOption {
     default = false;
     description = "Enable Syncthing service";
   };
-  config = lib.mkIf config.opts.services.syncthing.enable {
+  config = lib.mkIf config.opts.home.services.syncthing.enable {
     services.syncthing.enable = true;
   };
 }

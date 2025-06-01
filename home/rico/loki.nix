@@ -6,7 +6,7 @@
     ./work
   ];
 
-  opts = {
+  opts.home = {
     gui.enable = true;
     hyprland.enable = true;
 

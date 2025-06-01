@@ -11,7 +11,7 @@
     ./packages.nix
   ];
 
-  options.opts.gui = {
+  options.opts.home.gui = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = false;

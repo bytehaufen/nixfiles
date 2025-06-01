@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  options.opts.programs.discord.enable = lib.mkOption {
+  options.opts.home.programs.discord.enable = lib.mkOption {
     default = false;
     type = lib.types.bool;
     description = ''
@@ -12,7 +12,7 @@
     '';
   };
 
-  options.opts.programs.teams.enable = lib.mkOption {
+  options.opts.home.programs.teams.enable = lib.mkOption {
     default = false;
     type = lib.types.bool;
     description = ''
@@ -20,10 +20,10 @@
     '';
   };
 
-  config = lib.mkIf config.opts.gui.enable {
+  config = lib.mkIf config.opts.home.gui.enable {
     home.packages = let
-      discordPackages = lib.optionals config.opts.programs.discord.enable [pkgs.vesktop];
-      teamsPackages = lib.optionals config.opts.programs.teams.enable [pkgs.teams-for-linux];
+      discordPackages = lib.optionals config.opts.home.programs.discord.enable [pkgs.vesktop];
+      teamsPackages = lib.optionals config.opts.home.programs.teams.enable [pkgs.teams-for-linux];
     in
       discordPackages ++ teamsPackages;
   };

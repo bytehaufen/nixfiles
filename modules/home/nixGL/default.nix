@@ -4,7 +4,7 @@
   config,
   ...
 }: {
-  options.opts.nixGL = {
+  options.opts.home.nixGL = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
@@ -12,7 +12,7 @@
     };
   };
 
-  config = lib.mkIf config.opts.nixGL.enable {
+  config = lib.mkIf config.opts.home.nixGL.enable {
     nixGL = {
       inherit (inputs.nixGL) packages;
       defaultWrapper = "mesa";

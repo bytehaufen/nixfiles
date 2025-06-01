@@ -4,7 +4,7 @@
   lib,
   ...
 }: {
-  config = lib.mkIf config.opts.gui.enable {
+  config = lib.mkIf config.opts.home.gui.enable {
     programs = {
       firefox.enable = true;
 

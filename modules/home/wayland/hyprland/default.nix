@@ -14,7 +14,7 @@
     (import ./rules.nix args)
   ];
 in {
-  config = lib.mkIf config.opts.hyprland.enable {
+  config = lib.mkIf config.opts.home.hyprland.enable {
     # Propagate all scripts to the user env to make them available in the shell
     home.packages = [pkgs.swaybg] ++ builtins.attrValues scripts;
 
