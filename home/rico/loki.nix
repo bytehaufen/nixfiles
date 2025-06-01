@@ -8,7 +8,7 @@
 
   opts.home = {
     gui.enable = true;
-    hyprland.enable = true;
+    windowManager.hyprland.enable = true;
 
     programs = {
       discord.enable = true;

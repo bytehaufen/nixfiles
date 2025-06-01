@@ -4,12 +4,6 @@
   lib,
   ...
 }: {
-  options.opts.home.programs.obs.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = false;
-    description = "Enable OBS Studio configuration.";
-  };
-
   config = lib.mkIf (config.opts.home.gui.enable && config.opts.home.programs.obs.enable) {
     programs.obs-studio = {
       enable = true;

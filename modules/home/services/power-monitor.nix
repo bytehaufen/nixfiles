@@ -68,11 +68,6 @@
     inotify-tools
   ];
 in {
-  options.opts.home.services.power-monitor.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = false;
-    description = "Enable power-monitor";
-  };
   config = lib.mkIf config.opts.home.services.power-monitor.enable {
     # Power state monitor. Switches Power profiles based on charging state.
     # Plugged in - performance

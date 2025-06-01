@@ -4,7 +4,7 @@
   config,
   ...
 }: {
-  config = lib.mkIf config.opts.home.hyprland.enable {
+  config = lib.mkIf config.opts.home.windowManager.hyprland.enable {
     home.packages = with pkgs; [
       adwaita-icon-theme # Icon theme
       brightnessctl # Brightness control

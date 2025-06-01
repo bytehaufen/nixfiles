@@ -14,9 +14,26 @@
     (import ./rules.nix args)
   ];
 in {
-  config = lib.mkIf config.opts.home.hyprland.enable {
+  config = lib.mkIf config.opts.home.windowManager.hyprland.enable {
     # Propagate all scripts to the user env to make them available in the shell
-    home.packages = [pkgs.swaybg] ++ builtins.attrValues scripts;
+    home = {
+      packages = [pkgs.swaybg] ++ builtins.attrValues scripts;
+      file.".wayland-session" = {
+        source = "${lib.getExe pkgs.hyprland}";
+        executable = true;
+      };
+
+      sessionVariables = {
+        GTK_USE_PORTAL = 1;
+        QT_QPA_PLATFORM = "wayland";
+        SDL_VIDEODRIVER = "wayland";
+        XDG_SESSION_TYPE = "wayland";
+
+        LIBVA_DRIVER_NAME = "iHD";
+        MOZ_ENABLE_WAYLAND = "1";
+        WLR_DRM_NO_MODIFIERS = "1";
+      };
+    };
 
     programs.zsh.shellAliases = {
       xkill = "${lib.getExe' config.wayland.windowManager.hyprland.package "hyprctl"} kill";
@@ -54,11 +71,6 @@ in {
       };
 
       xwayland.enable = true;
-    };
-
-    home.file.".wayland-session" = {
-      source = "${lib.getExe pkgs.hyprland}";
-      executable = true;
     };
   };
 }

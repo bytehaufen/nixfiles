@@ -46,7 +46,7 @@
       '';
     };
 in {
-  config = lib.mkIf config.opts.home.hyprland.enable {
+  config = lib.mkIf config.opts.home.windowManager.hyprland.enable {
     programs.waybar = {
       inherit style;
       enable = true;

@@ -6,6 +6,7 @@
     ./keyboard # Keyboard configuration # TODO: Make this system wide
     ./nix.nix # Nix configuration for non-NixOS
     ./nixGL # Wrapper for running GUI applications on non-NixOS
+    ./home-options.nix
     ./services # User Services
     ./theme # My custom theme
     ./tui # Terminal applications

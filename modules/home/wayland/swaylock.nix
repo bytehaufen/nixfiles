@@ -15,7 +15,7 @@
   onError = palette.base01;
   onTertiary = palette.base01;
 in {
-  config = lib.mkIf config.opts.home.hyprland.enable {
+  config = lib.mkIf config.opts.home.windowManager.hyprland.enable {
     programs.swaylock = {
       enable = true;
       package = pkgs.swaylock-effects;
