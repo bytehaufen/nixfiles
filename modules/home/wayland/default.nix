@@ -2,7 +2,7 @@
   imports = [
     ./anyrun.nix
     ./hyprland
-    ./mako
+    ./mako.nix
     ./packages.nix
     ./swayidle.nix
     ./swaylock.nix
