@@ -3,8 +3,8 @@
   config,
   pkgs,
   ...
-}: let
-  scripts = import ../scripts.nix {inherit config lib pkgs;};
+} @ args: let
+  scripts = import ./scripts.nix args;
 
   # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
   workspaces = builtins.concatLists (builtins.genList (
