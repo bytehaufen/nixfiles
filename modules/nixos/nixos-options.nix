@@ -9,5 +9,6 @@
 in {
   options.opts.nixos = {
     gui = mkEnableOption "Enable GUI applications in the nixos";
+    smb = mkEnableOption "Enable SMB/CIFS file sharing support in NixOS";
   };
 }

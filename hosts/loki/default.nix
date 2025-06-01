@@ -13,6 +13,7 @@
 
   opts.nixos = {
     gui.enable = true;
+    smb.enable = true;
   };
 
   networking = {
