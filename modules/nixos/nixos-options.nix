@@ -10,6 +10,9 @@ in {
   options.opts.nixos = {
     gui = mkEnableOption "Enable GUI applications in the nixos";
     smb = mkEnableOption "Enable SMB/CIFS file sharing support in NixOS";
+    programs = {
+      hyprland = mkEnableOption "Enable Hyprland as the window manager";
+    };
     services = {
       upower = mkEnableOption "Enable UPower service for power management";
     };
