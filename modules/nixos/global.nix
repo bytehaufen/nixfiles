@@ -1,30 +1,8 @@
 {
-  inputs,
   outputs,
   pkgs,
   ...
 }: {
-  imports = [
-    inputs.home-manager.nixosModules.home-manager
-
-    ./locale.nix
-    ./networking.nix
-    ./nix.nix
-    ./nix-ld.nix
-    ./openssh.nix
-    ./podman.nix
-    ./prometheus-node-exporter.nix
-    ./security.nix
-    ./smb.nix
-    ./systemd-initrd.nix
-    ./upower.nix
-  ];
-
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-  };
-
   hardware.enableRedistributableFirmware = true;
 
   nixpkgs = {
