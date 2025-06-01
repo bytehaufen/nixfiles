@@ -1,0 +1,13 @@
+{lib, ...}: let
+  mkEnableOption = desc: {
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = desc;
+    };
+  };
+in {
+  options.opts.nixos = {
+    gui = mkEnableOption "Enable GUI applications in the nixos";
+  };
+}

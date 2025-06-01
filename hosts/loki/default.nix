@@ -11,6 +11,10 @@
     ./users/${vars.username}.nix
   ];
 
+  opts.nixos = {
+    gui.enable = true;
+  };
+
   networking = {
     hostName = "loki";
     networkmanager.enable = true;

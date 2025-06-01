@@ -4,9 +4,10 @@
     ./locale.nix
     ./networking.nix
     ./nix.nix
+    ./nixos-options.nix
     ./openssh.nix
-
     ./security.nix
+
     ./smb.nix
     ./systemd-initrd.nix
     ./upower.nix
