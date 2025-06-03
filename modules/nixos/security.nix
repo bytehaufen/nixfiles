@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: {
   config = lib.mkIf config.opts.nixos.gui.enable {
@@ -10,6 +11,9 @@
     };
     services = {
       gnome.gnome-keyring.enable = true;
+      udev.packages = with pkgs; [
+        gnome-settings-daemon
+      ];
     };
   };
 }
