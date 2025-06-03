@@ -2,6 +2,7 @@
   imports = [
     ./agenix
     ./greetd.nix
+    ./home-manager.nix
     ./hyprland.nix
     ./locale.nix
     ./kdeconnect.nix
@@ -22,8 +23,5 @@
     # TODO: Continue here
     ./global.nix
     ./misc.nix
-
-    # TODO: Make optional
-    ./home-manager.nix
   ];
 }

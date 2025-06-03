@@ -13,6 +13,7 @@
 
   opts.nixos = {
     gui.enable = true;
+    home-manager.enable = true;
     quietboot.enable = true;
     smb.enable = true;
     wireless.enable = true;
