@@ -13,6 +13,7 @@
     ./openssh.nix
     ./pipewire.nix
     ./podman.nix
+    ./printing.nix
     ./quietboot.nix
     ./security.nix
     ./smb.nix

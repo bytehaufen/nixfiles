@@ -11,6 +11,7 @@ in {
     gui = mkEnableOption "Enable GUI applications in the nixos";
     home-manager = mkEnableOption "Enable Home Manager for user configuration management";
     location = mkEnableOption "Enable location services for geolocation support";
+    printing = mkEnableOption "Enable printing support";
     quietboot = mkEnableOption "Enable quiet boot mode to reduce boot messages";
     smb = mkEnableOption "Enable SMB/CIFS file sharing support";
     wireless = mkEnableOption "Enable wireless networking support";
