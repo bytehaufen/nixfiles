@@ -14,8 +14,6 @@
       defaultShared = true;
     };
 
-    geoclue2.enable = true; # Enable geolocation services.
-
     udev.packages = with pkgs; [
       gnome-settings-daemon
       platformio # Udev rules for platformio

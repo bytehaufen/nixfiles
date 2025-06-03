@@ -10,9 +10,10 @@ in {
   options.opts.nixos = {
     gui = mkEnableOption "Enable GUI applications in the nixos";
     home-manager = mkEnableOption "Enable Home Manager for user configuration management";
+    location = mkEnableOption "Enable location services for geolocation support";
     quietboot = mkEnableOption "Enable quiet boot mode to reduce boot messages";
-    smb = mkEnableOption "Enable SMB/CIFS file sharing support in NixOS";
-    wireless = mkEnableOption "Enable wireless networking support in NixOS";
+    smb = mkEnableOption "Enable SMB/CIFS file sharing support";
+    wireless = mkEnableOption "Enable wireless networking support";
 
     programs = {
       hyprland = mkEnableOption "Enable Hyprland as the window manager";
