@@ -8,6 +8,7 @@
   };
 in {
   options.opts.nixos = {
+    development = mkEnableOption "Enable development tools and services";
     gui = mkEnableOption "Enable GUI applications in the nixos";
     home-manager = mkEnableOption "Enable Home Manager for user configuration management";
     location = mkEnableOption "Enable location services for geolocation support";

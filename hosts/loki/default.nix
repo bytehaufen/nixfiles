@@ -12,8 +12,11 @@
   ];
 
   opts.nixos = {
+    development.enable = true;
     gui.enable = true;
     home-manager.enable = true;
+    location.enable = true;
+    printing.enable = true;
     quietboot.enable = true;
     smb.enable = true;
     wireless.enable = true;
@@ -25,6 +28,8 @@
     };
 
     services = {
+      kdeconnect.enable = true;
+      pipewire.enable = true;
       upower.enable = true;
     };
   };

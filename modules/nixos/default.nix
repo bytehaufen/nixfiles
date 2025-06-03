@@ -1,6 +1,7 @@
 {
   imports = [
     ./agenix
+    ./development.nix
     ./greetd.nix
     ./home-manager.nix
     ./hyprland.nix
@@ -23,6 +24,5 @@
 
     # TODO: Continue here
     ./global.nix
-    ./misc.nix
   ];
 }
