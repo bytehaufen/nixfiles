@@ -12,6 +12,7 @@
     ./nix.nix
     ./nix-ld.nix
     ./nixos-options.nix
+    ./nixpkgs.nix
     ./openssh.nix
     ./pipewire.nix
     ./podman.nix
@@ -22,8 +23,5 @@
     ./systemd-initrd.nix
     ./upower.nix
     ./wireless.nix
-
-    # TODO: Continue here
-    ./global.nix
   ];
 }
