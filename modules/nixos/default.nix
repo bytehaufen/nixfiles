@@ -1,6 +1,7 @@
 {
   imports = [
     ./agenix
+    ./core-packages.nix
     ./development.nix
     ./greetd.nix
     ./home-manager.nix
