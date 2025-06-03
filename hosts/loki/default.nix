@@ -13,10 +13,16 @@
 
   opts.nixos = {
     gui.enable = true;
+    quietboot.enable = true;
     smb.enable = true;
+    wireless.enable = true;
+
     programs = {
       hyprland.enable = true;
+      podman.enable = true;
+      nix-ld.enable = true;
     };
+
     services = {
       upower.enable = true;
     };
