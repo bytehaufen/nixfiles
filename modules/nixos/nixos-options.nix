@@ -21,6 +21,7 @@ in {
       hyprland = mkEnableOption "Enable Hyprland as the window manager";
       podman = mkEnableOption "Enable Podman for container management";
       nix-ld = mkEnableOption "Enable Nix-LD for dynamic linking with Nix packages";
+      zsh = mkEnableOption "Enable Zsh as the default shell";
     };
 
     services = {

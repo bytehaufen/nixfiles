@@ -1,8 +1,4 @@
-{
-  outputs,
-  pkgs,
-  ...
-}: {
+{outputs, ...}: {
   # Enable firmware that is no FOSS
   hardware.enableRedistributableFirmware = true;
 
@@ -12,8 +8,4 @@
       allowUnfree = true;
     };
   };
-
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
-  environment.pathsToLink = ["/share/zsh"];
 }
