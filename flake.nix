@@ -171,7 +171,7 @@
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = {
           inherit self inputs outputs vars;
-          iStandalone = true;
+          isStandalone = true;
         };
       };
     };
