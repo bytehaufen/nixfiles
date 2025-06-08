@@ -6,11 +6,11 @@
     ./greetd.nix
     ./home-manager.nix
     ./hyprland.nix
-    ./locale.nix
     ./kdeconnect.nix
+    ./locale.nix
     ./networking.nix
-    ./nix.nix
     ./nix-ld.nix
+    ./nix.nix
     ./nixos-options.nix
     ./nixpkgs.nix
     ./openssh.nix
@@ -23,5 +23,6 @@
     ./systemd-initrd.nix
     ./upower.nix
     ./wireless.nix
+    ./zsh.nix
   ];
 }
