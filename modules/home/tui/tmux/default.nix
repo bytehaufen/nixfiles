@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   programs.tmux = {
     enable = true;
 
@@ -13,6 +17,7 @@
     keyMode = "vi";
     mouse = true;
     newSession = true;
+    shell = lib.getExe pkgs.zsh;
 
     plugins = with pkgs.tmuxPlugins; [
       {
