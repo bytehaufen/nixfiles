@@ -19,7 +19,8 @@
       };
 
       font = {
-        name = "JetBrainsMono Nerd Font";
+        name = "JetBrainsMono NerdFont Mono";
+        package = pkgs.nerd-fonts.jetbrains-mono;
         size = 10;
       };
 
