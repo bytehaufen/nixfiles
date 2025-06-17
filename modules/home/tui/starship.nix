@@ -25,6 +25,7 @@
         symbol = " ";
         heuristic = true;
       };
+      command_timeout = 1000;
     };
   };
 }
