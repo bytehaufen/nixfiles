@@ -12,15 +12,15 @@
         "ctrl+shift+v" = "paste_from_clipboard";
         "ctrl+v" = "paste_from_clipboard";
         "ctrl+shift+c" = "copy_to_clipboard";
-        "ctrl+shift+plus" = "change_font_size all +2.0";
-        "ctrl+shift+minus" = "change_font_size all -2.0";
+        "ctrl+shift+plus" = "change_font_size all +1.0";
+        "ctrl+shift+minus" = "change_font_size all -1.0";
         "ctrl+shift+0" = "change_font_size all 0";
         "ctrl+shift+u" = "kitten unicode_input";
       };
 
       font = {
         name = "JetBrainsMono Nerd Font";
-        size = 12;
+        size = 10;
       };
 
       themeFile = "tokyo_night_night";
