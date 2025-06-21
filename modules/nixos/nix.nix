@@ -27,7 +27,6 @@ in {
         "big-parallel"
         "nixos-test"
       ];
-      flake-registry = ""; # Disable global flake registry
     };
     gc = {
       automatic = true;
