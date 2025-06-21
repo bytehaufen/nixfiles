@@ -20,7 +20,7 @@
     services = {
       kdeconnect.enable = true;
       playerctl.enable = true;
-      power-monitor.enable = true;
+      power-monitor.enable = false; # No auto changing of power profiles
       syncthing.enable = true;
       udiskie.enable = true;
     };
