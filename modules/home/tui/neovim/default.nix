@@ -28,7 +28,7 @@ in {
       vimAlias = false;
       vimdiffAlias = true;
       extraLuaPackages = ps: [ps.magick];
-      extraPackages = with pkgs; [imagemagick gcc lynx markdownlint-cli2];
+      extraPackages = with pkgs; [imagemagick gcc lynx markdownlint-cli2 go];
 
       extraPython3Packages = ps:
         with ps; [
