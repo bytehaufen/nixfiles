@@ -11,9 +11,10 @@ in {
       WINEPREFIX = "${data}/wine";
     };
 
-    home.packages = with pkgs; [
-      quickemu # Emulator manager
-      quickgui # Quickemu frontend
+    home.packages = with pkgs.stable; [
+      # Upstream mostly broken
+      pkgs.stable.quickemu # Emulator manager
+      pkgs.stable.quickgui # Quickemu frontend
       spice-gtk # Spice client for quickemu
 
       wineWowPackages.waylandFull # Windows compatibility layer
