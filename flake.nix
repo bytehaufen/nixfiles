@@ -151,10 +151,10 @@
     };
 
     homeConfigurations = {
-      "rico@todd2" = lib.homeManagerConfiguration {
+      "rico@todd" = lib.homeManagerConfiguration {
         modules = [
           ./modules/home
-          ./home/rico/todd2.nix
+          ./home/rico/todd.nix
         ];
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = {
