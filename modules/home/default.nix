@@ -8,6 +8,7 @@
     ./nixGL # Wrapper for running GUI applications on non-NixOS
     ./home-options.nix
     ./services # User Services
+    ./scripts.nix # Custom scripts
     ./theme # My custom theme
     ./tui # Terminal applications
     ./wayland # Wayland specific GUI applications
