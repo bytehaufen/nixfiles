@@ -15,7 +15,6 @@ return {
     "benlubas/molten-nvim",
     build = ":UpdateRemotePlugins", -- NOTE: Sometimes on first install, this has to be run manually
     ft = { "markdown" },
-    dependencies = { "image.nvim" },
     config = function()
       vim.g.molten_auto_image_popup = true
       vim.g.molten_auto_open_html_in_browser = true
