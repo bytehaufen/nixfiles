@@ -7,6 +7,20 @@
       type = "Application";
       categories = ["Development"];
     };
+    coside = {
+      name = "COSIDE";
+      exec = "coside";
+      terminal = false;
+      type = "Application";
+      categories = ["Development"];
+    };
+    coside-sdk = {
+      name = "COSIDE SDK";
+      exec = "coside-sdk";
+      terminal = false;
+      type = "Application";
+      categories = ["Development"];
+    };
   };
 
   home.packages = [
