@@ -1,10 +1,4 @@
 {pkgs, ...}: {
-  nixpkgs.config = {
-    programs.npm.npmrc = ''
-      prefix = ''${HOME}/.npm-global
-    '';
-  };
-
   programs = {
     direnv = {
       enable = true;
