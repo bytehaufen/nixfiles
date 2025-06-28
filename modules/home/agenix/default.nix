@@ -1,6 +1,7 @@
 {
   inputs,
   config,
+  pkgs,
   ...
 }: let
   home = config.home.homeDirectory;
@@ -9,6 +10,8 @@ in {
     inputs.agenix.homeManagerModules.default
     ./secrets.nix
   ];
+
+  home.packages = [pkgs.ragenix];
 
   age = {
     identityPaths = ["${home}/.ssh/id_ed25519_rico"];
