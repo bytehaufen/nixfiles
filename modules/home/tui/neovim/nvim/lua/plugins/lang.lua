@@ -17,13 +17,4 @@ return {
       return opts
     end,
   },
-  -- Treesitter
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    opts = {
-      -- Ensure all languages are installed who care disc space
-      ensure_installed = "all",
-    },
-  },
 }
