@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD033 MD013 -->
 
-<h1 align="center">❄️Bytehaufens Nixfiles❄️</h1>
+<h1 align="center">❄️Bytehaufens nix-config❄️</h1>
 
 > [!warning]
 > This repository is currently under heavy development. Also this README is unfinished and needs to
@@ -55,30 +55,30 @@ nixos-generate-config --root /tmp/config --no-filesystems
 
 cd /tmp
 
-# Clone this repository to /tmp/nixfiles
-git clone https://github.com/bytehaufen/nixfiles.git
+# Clone this repository to /tmp/nix-config
+git clone https://github.com/bytehaufen/nix-config.git
 
 # Remove the old hardware-configuration.nix
-rm nixfiles/hosts/vm1/hardware-configuration.nix
+rm nix-config/hosts/vm1/hardware-configuration.nix
 
 # Move the generated hardware-configuration.nix to the correct location
-mv config/etc/nixos/hardware-configuration.nix nixfiles/hosts/vm1/
+mv config/etc/nixos/hardware-configuration.nix nix-config/hosts/vm1/
 
 # Prepare the disks with disko
 sudo nix --experimental-features 'nix-command flakes'        \
        run github:nix-community/disko/latest -- --mode disko \
-       --flake './nixfiles#vm1' --show-trace --verbose
+       --flake './nix-config#vm1' --show-trace --verbose
 
 # Install NixOS to the prepared disks
 sudo nixos-install -v --show-trace --no-root-passwd --root /mnt \
-       --flake './nixfiles#vm1'
+       --flake './nix-config#vm1'
 
 # Enter into the installed system, check password & users
 # `su rico` => `sudo -i` => enter password => successfully login
 nixos-enter
 
-# Move nixfiles to /home/rico
-mv nixfiles /mnt/home/rico
+# Move nix-config to /home/rico
+mv nix-config /mnt/home/rico
 ```
 
 <!-- Deprecated start --->

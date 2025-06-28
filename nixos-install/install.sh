@@ -50,12 +50,12 @@ while [ "$input" != "go" ]; do
   read -r -p "Type 'go' to continue: " input
 done
 
-# Update nixfiles repo
+# Update nix-config repo
 echo
-echo -e "${YELLOW}Update nixfiles according to added host key:"
+echo -e "${YELLOW}Update nix-config according to added host key:"
 echo
 echo -e "${YELLOW}Execute:"
-echo -e "    ${BLUE}cd ~/nixfiles && \ "
+echo -e "    ${BLUE}cd ~/nix-config && \ "
 echo -e "    just update secrets && \ "
 echo -e "    git add flake.lock && \ "
 echo -e "    git commit -m \"feat: Update secrets\" && \ "

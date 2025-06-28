@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: let
-  configPath = "${config.home.homeDirectory}/nixfiles/modules/home/tui/neovim/nvim";
+  configPath = "${config.home.homeDirectory}/nix-config/modules/home/tui/neovim/nvim";
 in {
   # Make a (writeable) symlink to ~/.config
   xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink configPath;
