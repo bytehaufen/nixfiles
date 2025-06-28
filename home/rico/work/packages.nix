@@ -26,12 +26,15 @@
   home.packages = [
     # COSIDE
     (pkgs.writeShellScriptBin "coside" ''
+      bash-no-nix
       COSIDE_SHELL_OPTIONS='-f -c gnome-terminal' GTK_THEME=Adwaita COSIDE_LICENSE_FILE=27000@192.168.178.88 $HOME/Apps/coside/coside-latest/coside "$@"
     '')
 
     # Eclipse COSIDE SDK
     (pkgs.writeShellScriptBin "coside-sdk" ''
+      bash-no-nix
       # Force use light theme
+
       export GTK_THEME=Adwaita
 
       # Paths
