@@ -13,6 +13,8 @@ in {
   # For eclipses vim plugin
   home.file.".vrapperrc".source = ./.vrapperrc;
 
+  home.packages = with pkgs; [imagemagick gcc lynx markdownlint-cli2 go mermaid-cli];
+
   programs = {
     zsh.shellAliases = {
       e = "nvim";
@@ -28,26 +30,6 @@ in {
       vimAlias = false;
       vimdiffAlias = true;
       extraLuaPackages = ps: [ps.magick];
-      extraPackages = with pkgs; [imagemagick gcc lynx markdownlint-cli2 go];
-
-      extraPython3Packages = ps:
-        with ps; [
-          cairosvg
-          ipykernel
-          ipython
-          jupyter
-          jupyter-client
-          nbformat
-          pandas
-          plotly
-          pnglatex
-          pyperclip
-          pyquery
-          pynvim
-          pyyaml
-          requests
-          tabulate
-        ];
 
       plugins = with pkgs.vimPlugins; [
         telescope-fzf-native-nvim

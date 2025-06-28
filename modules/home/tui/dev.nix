@@ -66,11 +66,19 @@
       (python312.withPackages (
         ps:
           with ps; [
-            ipython
+            cairosvg
             ipykernel
+            ipython
             jupyter
+            jupyter-client
+            nbformat
             pandas
+            plotly
+            pnglatex
+            pylatexenc
+            pyperclip
             pyquery
+            pynvim
             pyyaml
             requests
             tabulate
@@ -117,8 +125,10 @@
       proselint
 
       # Optional
+      ast-grep
       nodePackages.prettier # Common code formatter
       (ripgrep.override {withPCRE2 = true;}) # Recursively searches directories for a regex pattern
+      tectonic
     ];
   };
 }
