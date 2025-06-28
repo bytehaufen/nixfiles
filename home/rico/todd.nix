@@ -24,6 +24,4 @@
       udiskie.enable = false;
     };
   };
-
-  dconf.enable = false;
 }
