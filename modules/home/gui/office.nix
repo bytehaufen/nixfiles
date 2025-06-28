@@ -10,6 +10,9 @@
       onlyoffice-bin
       libreoffice
 
+      # Image editing
+      gimp
+
       # PDF Viewer
       kdePackages.okular
 
