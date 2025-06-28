@@ -13,7 +13,7 @@
     enableZshIntegration = config.programs.zsh.enable;
 
     settings = {
-      manager = {
+      mgr = {
         layout = [1 4 3];
         sort_by = "natural";
         sort_sensitive = false;
@@ -36,7 +36,7 @@
     };
 
     keymap = {
-      manager.prepend_keymap = [
+      mgr.prepend_keymap = [
         # Open selected file/dir with a specific command
         {
           run = "plugin open-with";
