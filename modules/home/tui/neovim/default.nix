@@ -5,13 +5,14 @@
   pkgs,
   ...
 }: let
-  configPath = "${config.home.homeDirectory}/nix-config/modules/home/tui/neovim/nvim";
+  configPath = "${config.home.homeDirectory}/nix-config/modules/home/tui/neovim";
 in {
   # Make a (writeable) symlink to ~/.config
-  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink configPath;
+  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink "${configPath}/nvim";
 
   # For eclipses vim plugin
-  home.file.".vrapperrc".source = ./.vrapperrc;
+  home.file.".vrapperrc".text = "source ${config.xdg.configHome}/vrapper/.vimrc";
+  xdg.configFile.vrapper.source = config.lib.file.mkOutOfStoreSymlink "${configPath}/vrapper";
 
   home.packages = with pkgs; [imagemagick gcc lynx markdownlint-cli2 go mermaid-cli];
 
