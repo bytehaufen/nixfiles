@@ -67,6 +67,7 @@
         ps:
           with ps; [
             cairosvg
+            grip
             ipykernel
             ipython
             jupyter
