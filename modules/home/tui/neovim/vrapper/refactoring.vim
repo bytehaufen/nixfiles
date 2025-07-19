@@ -35,3 +35,5 @@ vnoremap <leader>rs    :refactoring_sourceMenu<cr>
 eclipseaction refactoring_extractLocalVariable org.eclipse.jdt.ui.edit.text.java.extract.local.variable
 " doc: Extract local variable
 nnoremap <leader>rv    :refactoring_extractLocalVariable<cr>
+" doc: Extract local variable
+vnoremap <leader>rv    :refactoring_extractLocalVariable<cr>

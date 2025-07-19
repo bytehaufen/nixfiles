@@ -13,9 +13,9 @@ nnoremap <leader>cd    :errors_explain<cr>
 vnoremap <leader>cd    :errors_explain<cr>
 
 eclipseaction jumpJoinSplit_format org.eclipse.jdt.ui.edit.text.java.format
-" doc: Reformat whole buffer
+" doc: Format code
 nnoremap <leader>cf    :jumpJoinSplit_format<cr>
-" doc: Reformat selected lines
+" doc: Format code
 vnoremap <leader>cf    :jumpJoinSplit_format<cr>
 
 eclipseaction helpHierarchy_callHierarchy org.eclipse.jdt.ui.edit.text.java.open.call.hierarchy

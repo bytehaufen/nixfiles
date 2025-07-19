@@ -8,6 +8,12 @@ eclipseuiaction go_implementation org.eclipse.jdt.ui.edit.text.java.open.impleme
 " doc: Implementation
 nnoremap gI    :go_implementation<cr>
 
+eclipseaction go_references org.eclipse.jdt.ui.edit.text.java.open.call.hierarchy
+" doc: References
+nnoremap gr    :go_references<cr>
+" doc: References
+vnoremap gr    :go_references<cr>
+
 eclipseaction eclipsegotosuper org.eclipse.jdt.ui.edit.text.java.open.super.implementation
 " doc: Go to super implementation
 nnoremap gsi :eclipsegotosuper<cr>
