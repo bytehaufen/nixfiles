@@ -136,7 +136,7 @@
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
     nixosConfigurations = {
-      loki = lib.nixosSystem rec {
+      "loki" = lib.nixosSystem rec {
         specialArgs = {
           inherit self inputs outputs vars;
           isStandalone = false;
@@ -146,6 +146,19 @@
 
           ./modules/nixos
           ./hosts/loki
+        ];
+      };
+
+      "odin" = lib.nixosSystem rec {
+        specialArgs = {
+          inherit self inputs outputs vars;
+          isStandalone = false;
+        };
+        modules = [
+          {home-manager.extraSpecialArgs = specialArgs;}
+
+          ./modules/nixos
+          ./hosts/odin
         ];
       };
     };
