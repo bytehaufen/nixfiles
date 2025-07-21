@@ -17,6 +17,12 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
+# Ensure script is run in flake root
+if [ ! -f "flake.nix" ]; then
+  echo -e "${RED}Error:${NC} flake.nix not found. Please run this script from the flake root directory."
+  exit 1
+fi
+
 # Create a temporary directory
 temp=$(mktemp -d)
 
@@ -41,7 +47,7 @@ echo
 echo -e "${YELLOW}Execute:"
 echo -e "    ${BLUE}cd ~/nix-secrets && \ "
 echo -e "    vim secrets.nix && \ "
-echo -e "    sudo /nix/var/nix/profiles/default/bin/nix run \"github:/yaxitech/ragenix\" -- -r -i /etc/ssh/ssh_host_ed25519_key && \ "
+echo -e "    sudo ragenix -r -i /etc/ssh/ssh_host_ed25519_key && \ "
 echo -e "    git commit -am \"feat: Add new host\" && \ "
 echo -e "    git push${NC}"
 echo
