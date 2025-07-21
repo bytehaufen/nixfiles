@@ -5,7 +5,7 @@
   home = {
     inherit (vars) username;
     homeDirectory = "/home/${vars.username}";
-    stateVersion = "24.11";
+    stateVersion = "25.05";
     extraOutputsToInstall = ["doc" "devdoc"];
   };
   news.display = "silent";
