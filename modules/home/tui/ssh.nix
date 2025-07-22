@@ -8,7 +8,7 @@
         hostname = "ssh.github.com";
         user = "git";
         identityFile = config.age.secrets.id_ed25519_github.path;
-        identitiesOnly = true;
+        identitiesOnly = false;
       };
     };
   };
