@@ -1,17 +1,23 @@
-{config, ...}: {
-  programs.ssh = {
-    enable = true;
-    addKeysToAgent = "yes";
+{
+  lib,
+  config,
+  ...
+}: {
+  config = lib.mkIf config.opts.home.tui.enable {
+    programs.ssh = {
+      enable = true;
+      addKeysToAgent = "yes";
 
-    matchBlocks = {
-      "github.com" = {
-        hostname = "ssh.github.com";
-        user = "git";
-        identityFile = config.age.secrets.id_ed25519_github.path;
-        identitiesOnly = false;
+      matchBlocks = {
+        "github.com" = {
+          hostname = "ssh.github.com";
+          user = "git";
+          identityFile = config.age.secrets.id_ed25519_github.path;
+          identitiesOnly = false;
+        };
       };
     };
-  };
 
-  services.ssh-agent.enable = true;
+    services.ssh-agent.enable = true;
+  };
 }

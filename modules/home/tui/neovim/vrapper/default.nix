@@ -11,17 +11,19 @@
     zsh -c "source /home/rico/.config/zsh/.zshrc && kitty zsh -c \"cd /home/rico/.config/vrapper && python3 gen-cheatsheet.py && ${lib.getExe pkgs.glow} -p /tmp/cheatsheet.md\""
   '';
 in {
-  # For eclipses vim plugin
-  home.file.".vrapperrc".text = "source ${vrapperPath}/.vimrc";
-  xdg.configFile.vrapper.source = config.lib.file.mkOutOfStoreSymlink "${configPath}/vrapper";
+  config = lib.mkIf config.opts.home.tui.enable {
+    # For eclipses vim plugin
+    home.file.".vrapperrc".text = "source ${vrapperPath}/.vimrc";
+    xdg.configFile.vrapper.source = config.lib.file.mkOutOfStoreSymlink "${configPath}/vrapper";
 
-  xdg.desktopEntries = {
-    Vrapper-Cheatsheet = {
-      name = "Vrapper Cheatsheet";
-      exec = "${cheatsheet}";
-      terminal = false;
-      type = "Application";
-      categories = ["Development"];
+    xdg.desktopEntries = {
+      Vrapper-Cheatsheet = {
+        name = "Vrapper Cheatsheet";
+        exec = "${cheatsheet}";
+        terminal = false;
+        type = "Application";
+        categories = ["Development"];
+      };
     };
   };
 }
