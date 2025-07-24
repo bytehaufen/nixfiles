@@ -50,6 +50,7 @@
     detox # Harmonize file names
     duf # `df` replacement
     dust # `du` replacement
+    e2fsprogs # Ext2/3/4 file system utilities
     exiftool # Metadata
     eza # `ls` replacement
     fd # `find` replacement
@@ -57,6 +58,7 @@
     hexyl # Hex viewer
     hyperfine # Benchmarking
     lazydocker # Docker manager
+    parted # Partitioning tool
     sd # Fast sed
     tealdeer # tldr
 
