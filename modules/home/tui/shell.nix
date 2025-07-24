@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: let
   conf = config.xdg.configHome;
@@ -112,7 +113,7 @@ in {
       vim = "nvim";
       wlc = "wl-copy";
       wlp = "wl-paste";
-      batt = "acpi -b";
+      batt = "${lib.getExe pkgs.acpi} -b";
 
       us = "systemctl --user";
       rs = "sudo systemctl";
