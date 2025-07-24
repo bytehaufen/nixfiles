@@ -12,6 +12,7 @@
       nautilus # File manager
       overskride # Bluetooth / Obex client
       vimiv-qt # Image viewer
+      gparted # Partition editor
 
       # Screenshot
       grim # Screenshot utility
