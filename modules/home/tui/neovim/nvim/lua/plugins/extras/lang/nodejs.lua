@@ -39,7 +39,10 @@ return {
     "williamboman/mason.nvim",
     opts = function(_, opts)
       if type(opts.ensure_installed) == "table" then
-        vim.list_extend(opts.ensure_installed, { "css-lsp", "html-lsp", "stylelint-lsp", "typescript-language-server" })
+        vim.list_extend(
+          opts.ensure_installed,
+          { "css-lsp", "html-lsp", "stylelint-lsp", "typescript-language-server", "svelte-language-server" }
+        )
       end
     end,
   },
