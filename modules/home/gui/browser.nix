@@ -21,6 +21,7 @@
           "--gtk-version=4"
           "--enable-wayland-ime"
           "--enable-features=WebRTCPipeWireCapturer"
+          "--remote-debugging-port=9222"
         ];
       };
     };
