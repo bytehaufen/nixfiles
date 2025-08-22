@@ -57,7 +57,7 @@ in {
     sessionVariables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
-      PAGER = "less";
+      PAGER = "bat";
       MANPAGER = "nvim +Man!";
       DIFFPROG = "nvim -d";
 
