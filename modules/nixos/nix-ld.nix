@@ -24,11 +24,9 @@
     ncurses
     perl
     nss
-    openssl_1_1
     stdenv.cc.cc
     subversion
     tcsh
-    webkitgtk_4_0
     xorg.libX11
     xorg.libXrender
     xorg.libXtst
