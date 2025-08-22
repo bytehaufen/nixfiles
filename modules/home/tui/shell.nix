@@ -39,7 +39,7 @@ in {
     completionInit = "autoload -U compinit && compinit -i";
     enableVteIntegration = true;
 
-    dotDir = ".config/zsh";
+    dotDir = config.xdg.configHome + "/zsh";
 
     history = {
       expireDuplicatesFirst = true;
