@@ -26,10 +26,62 @@
     };
   };
 
-  wayland.windowManager.hyprland.settings = {
-    monitor = [
-      "eDP-1, preferred, auto, 1.2"
-      "HDMI-A-1, preferred, auto-right, 1"
-    ];
+  wayland.windowManager.hyprland.settings = let
+    philips1 = {
+      name = "DP-5";
+      pos = 1;
+      width = 2560;
+      height = 1440;
+      scale = 1;
+    };
+
+    philips2 = {
+      name = "DP-6";
+      pos = 2;
+      width = 2560;
+      height = 1440;
+      scale = 1;
+    };
+    asus = {
+      name = "HDMI-A-1";
+      pos = 3;
+      width = 2560;
+      height = 1080;
+      scale = 1;
+    };
+    display = {
+      name = "eDP-1";
+      pos = 4;
+      width = 1920;
+      height = 1080;
+      scale = 1.2;
+    };
+
+    monitors = [philips1 philips2 asus display];
+
+    mkRes = m: "${toString m.width}x${toString m.height}";
+    mkPos = x: "${toString x}x0";
+    mkString = m: x: "${m.name}, ${mkRes m}, ${mkPos x}, ${toString m.scale}";
+
+    calcMonitorStrings = ms: let
+      sorted = builtins.sort (a: b: a.pos < b.pos) ms;
+      state =
+        builtins.foldl' (
+          st: m: let
+            s = mkString m st.x;
+            x' = st.x + m.width;
+          in {
+            x = x';
+            acc = st.acc ++ [s];
+          }
+        ) {
+          x = 0;
+          acc = [];
+        }
+        sorted;
+    in
+      state.acc;
+  in {
+    monitor = calcMonitorStrings monitors;
   };
 }
